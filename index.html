@@ -10,63 +10,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ── NAV OVERRIDE ── */
+    :root {
+      --linen: #f8f8f7;
+      --claret: #960018;
+      --claret-dark: #6e0011;
+      --espresso: #3f3027;
+      --travertine: #96816e;
+      --white: #ffffff;
+    }
+
+    /* ── NAV ── */
     nav {
       background: var(--claret);
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       padding: 0 4%;
-      height: 68px;
+      height: 64px;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
     }
     .nav-left { display: flex; gap: 1.75rem; align-items: center; }
     .nav-left a {
-      color: var(--linen);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      transition: opacity 0.2s;
+      color: var(--linen); text-decoration: none;
+      font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      opacity: 0.85; transition: opacity 0.2s;
     }
     .nav-left a:hover { opacity: 1; }
     .nav-center a {
-      font-family: 'Georgia', serif;
-      font-size: 1.55rem;
-      color: var(--linen);
-      text-decoration: none;
-      letter-spacing: 0.04em;
+      font-family: 'Georgia', serif; font-size: 1.5rem;
+      color: var(--linen); text-decoration: none; letter-spacing: 0.04em;
     }
     .nav-right { display: flex; justify-content: flex-end; }
     .nav-right a {
-      background: var(--linen);
-      color: var(--claret);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 9px 22px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      background: var(--linen); color: var(--claret);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 8px 20px;
+      border-radius: 50px; text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
       transition: background 0.2s, transform 0.2s;
     }
     .nav-right a:hover { background: #ece9e4; transform: translateY(-1px); }
-    .nav-hamburger { display: none; }
 
-    /* ── HERO ── */
+    /* ── HERO — tight spacing ── */
     .hero {
       min-height: 100vh;
       background: var(--linen);
       display: flex;
       align-items: center;
-      padding: 100px 4% 60px;
+      padding: 64px 4% 32px;
     }
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      gap: 3rem;
       align-items: center;
       max-width: 1200px;
       width: 100%;
@@ -74,464 +73,288 @@
     }
     .hero-text { text-align: left; }
     .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--travertine);
-      margin-bottom: 1rem;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--travertine); margin-bottom: 0.6rem; display: block;
     }
     .hero-text h1 {
       color: var(--claret);
-      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-      margin-bottom: 1rem;
-      line-height: 1.1;
+      font-family: 'Georgia', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      margin-bottom: 0.75rem; line-height: 1.1;
     }
     .hero-text h1 em { color: var(--espresso); font-style: italic; }
     .hero-text p {
-      color: var(--espresso);
-      font-size: 1.05rem;
-      max-width: 420px;
-      margin-bottom: 2rem;
-      line-height: 1.8;
+      color: var(--espresso); font-size: 1rem;
+      max-width: 400px; margin-bottom: 1.5rem; line-height: 1.75;
     }
     .hero-video-box {
       aspect-ratio: 6/3;
       background: linear-gradient(135deg, #d9d0c7 0%, #c4b8ac 100%);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 16px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
       position: relative;
-      box-shadow: 0 8px 40px rgba(63,48,39,0.15);
-    }
-    .hero-video-box video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      box-shadow: 0 8px 36px rgba(63,48,39,0.14);
     }
     .video-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      color: var(--travertine);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px; color: var(--travertine);
     }
     .video-play {
-      width: 64px;
-      height: 64px;
-      background: var(--claret);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--linen);
-      font-size: 1.5rem;
+      width: 56px; height: 56px; background: var(--claret);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; color: var(--linen); font-size: 1.3rem;
     }
-    .video-placeholder p { font-size: 0.85rem; font-style: italic; }
+    .video-placeholder p { font-size: 0.82rem; font-style: italic; }
 
-    /* ── SECTION BASE ── */
-    .home-section { padding: 90px 4%; max-width: 1200px; margin: 0 auto; }
-    .home-section-wrap { padding: 90px 0; }
-
-    /* ── OUR LISTINGS ── */
-    .listings-wrap { background: var(--white); padding: 90px 4%; }
-    .listings-inner { max-width: 1200px; margin: 0 auto; }
-    .section-title-left {
+    /* ── SECTIONS — tighter padding ── */
+    .sec { padding: 60px 4%; }
+    .sec-inner { max-width: 1200px; margin: 0 auto; }
+    .sec-title {
       font-family: 'Georgia', serif;
-      font-size: clamp(1.6rem, 3vw, 2.6rem);
-      color: var(--claret);
-      margin-bottom: 2rem;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--claret); margin-bottom: 1.5rem;
     }
-    .portrait-grid {
-      display: flex;
-      gap: 1.25rem;
-      overflow-x: auto;
-      padding-bottom: 1rem;
+
+    /* ── OUR LISTINGS — 6:5 portrait cards ── */
+    .listings-wrap { background: var(--white); }
+    .portrait-row {
+      display: flex; gap: 1rem;
+      overflow-x: auto; padding-bottom: 0.75rem;
       scroll-snap-type: x mandatory;
     }
-    .portrait-card {
-      min-width: 220px;
-      flex-shrink: 0;
-      scroll-snap-align: start;
-      background: var(--linen);
-      border-radius: 16px;
-      overflow: hidden;
+    .portrait-row::-webkit-scrollbar { height: 4px; }
+    .portrait-row::-webkit-scrollbar-track { background: #f0ece8; border-radius: 2px; }
+    .portrait-row::-webkit-scrollbar-thumb { background: var(--travertine); border-radius: 2px; }
+    .p-card {
+      min-width: 180px; flex-shrink: 0;
+      scroll-snap-align: start; background: var(--linen);
+      border-radius: 14px; overflow: hidden;
       border: 1px solid #e8e2dc;
       transition: transform 0.25s, box-shadow 0.25s;
     }
-    .portrait-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(63,48,39,0.13);
-    }
-    .portrait-img {
-      aspect-ratio: 2/3;
+    .p-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(63,48,39,0.12); }
+    .p-img {
+      aspect-ratio: 6/5;
       background: linear-gradient(160deg, #d9d0c7, #b8a99a);
-      overflow: hidden;
-      position: relative;
+      overflow: hidden; position: relative;
     }
-    .portrait-img img { width: 100%; height: 100%; object-fit: cover; }
-    .portrait-badge {
-      position: absolute;
-      top: 12px; left: 12px;
-      background: var(--claret);
-      color: var(--linen);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 50px;
+    .p-img img { width: 100%; height: 100%; object-fit: cover; }
+    .p-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--claret); color: var(--linen);
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 50px;
     }
-    .portrait-body { padding: 1rem 1.1rem 1.25rem; }
-    .portrait-price {
-      font-family: 'Georgia', serif;
-      font-size: 1.15rem;
-      color: var(--claret);
-      margin-bottom: 4px;
-    }
-    .portrait-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--espresso);
-      margin-bottom: 4px;
-    }
-    .portrait-loc {
-      font-size: 0.78rem;
-      color: var(--travertine);
-      margin-bottom: 0.75rem;
-    }
-    .portrait-btn {
-      display: block;
-      width: 100%;
-      background: var(--espresso);
-      color: var(--linen);
-      text-align: center;
-      padding: 9px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(63,48,39,0.18);
+    .p-body { padding: 0.85rem 1rem 1rem; }
+    .p-price { font-family: 'Georgia', serif; font-size: 1.05rem; color: var(--claret); margin-bottom: 3px; }
+    .p-name { font-weight: 600; font-size: 0.82rem; color: var(--espresso); margin-bottom: 3px; }
+    .p-loc { font-size: 0.72rem; color: var(--travertine); margin-bottom: 0.65rem; }
+    .p-btn {
+      display: block; width: 100%; background: var(--espresso); color: var(--linen);
+      text-align: center; padding: 8px; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(63,48,39,0.2);
       transition: background 0.2s, transform 0.2s;
     }
-    .portrait-btn:hover { background: #2a1f17; transform: translateY(-1px); }
-    .listings-sub {
-      margin-top: 1.75rem;
-      font-size: 0.95rem;
-      color: var(--espresso);
-    }
+    .p-btn:hover { background: #2a1f17; transform: translateY(-1px); }
+    .listings-sub { margin-top: 1.25rem; font-size: 0.9rem; color: var(--espresso); }
 
-    /* ── OUR PROMISE (magnifier) ── */
-    .promise-wrap { background: var(--linen); padding: 90px 4%; overflow: hidden; }
-    .promise-inner { max-width: 1200px; margin: 0 auto; }
-    .promise-big-text {
-      font-family: 'Georgia', serif;
-      font-size: clamp(3rem, 8vw, 8rem);
-      color: var(--travertine);
-      line-height: 1.05;
-      user-select: none;
-      position: relative;
-      transition: color 0.6s;
+    /* ── OUR PROMISE — magnifier ── */
+    .promise-wrap { background: var(--linen); }
+    .promise-title-sm {
+      font-family: 'Georgia', serif; font-size: 1.1rem;
+      color: var(--travertine); margin-bottom: 1.25rem;
+      letter-spacing: 0.05em;
     }
-    .magnifier-container { position: relative; display: inline-block; width: 100%; }
-    .magnifier-lens {
+    .mag-container { position: relative; cursor: crosshair; }
+    .mag-text {
+      font-family: 'Georgia', serif;
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      color: var(--travertine);
+      line-height: 1.0;
+      user-select: none;
+      filter: blur(0px);
+      transition: filter 0.5s, color 0.5s;
+    }
+    .mag-text.blurred { filter: blur(4px); color: var(--travertine); }
+    .mag-text.sharp { filter: blur(0px); color: var(--espresso); }
+    .mag-lens {
       position: absolute;
-      width: 180px;
-      height: 180px;
+      width: 120px; height: 120px;
       border-radius: 50%;
-      border: 3px solid var(--claret);
+      border: 2.5px solid var(--claret);
       overflow: hidden;
       pointer-events: none;
-      display: none;
-      box-shadow: 0 8px 40px rgba(150,0,24,0.25);
+      box-shadow: 0 6px 32px rgba(150,0,24,0.22);
       z-index: 10;
       transform: translate(-50%, -50%);
+      transition: width 0.4s, height 0.4s;
+      display: block;
     }
-    .magnifier-lens-inner {
+    .mag-lens-inner {
       position: absolute;
       font-family: 'Georgia', serif;
       color: var(--espresso);
-      white-space: nowrap;
-      font-weight: 400;
       pointer-events: none;
+      white-space: nowrap;
+      filter: blur(0px);
     }
-    .promise-sub {
-      margin-top: 2rem;
-      font-size: 1rem;
-      color: var(--espresso);
-      max-width: 480px;
-    }
-    .boxes-row {
-      display: flex;
-      gap: 1.25rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-    .promise-box {
-      flex: 1;
-      min-width: 200px;
-      aspect-ratio: 1/1;
-      background: linear-gradient(160deg, #e8e2dc, #d9d0c7);
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s;
-    }
-    .promise-box:hover { transform: scale(1.02); }
-    .promise-box img { width: 100%; height: 100%; object-fit: cover; }
-    .promise-box-label {
+    .mag-crosshair {
       position: absolute;
-      bottom: 12px; left: 12px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--linen);
-      background: rgba(63,48,39,0.6);
-      padding: 4px 10px;
-      border-radius: 50px;
-      backdrop-filter: blur(4px);
-    }
-    /* Video popup */
-    .video-popup {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-    }
-    .video-popup.open { display: flex; }
-    .popup-inner {
-      position: relative;
-      width: 90vw;
-      max-width: 400px;
-      aspect-ratio: 9/16;
-      background: #000;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .popup-close {
-      position: absolute;
-      top: 12px; right: 12px;
-      background: var(--claret);
-      color: white;
-      border: none;
-      width: 36px; height: 36px;
+      width: 16px; height: 16px;
+      border: 1.5px solid var(--claret);
       border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      z-index: 10;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+      opacity: 0.5;
+    }
+    .promise-sub { margin-top: 1.5rem; font-size: 0.95rem; color: var(--espresso); max-width: 480px; }
+    .promise-boxes {
+      display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;
+    }
+    .pr-box {
+      flex: 1; min-width: 160px; aspect-ratio: 1/1;
+      background: var(--espresso);
+      border-radius: 14px; overflow: hidden;
+      cursor: pointer; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(63,48,39,0.18);
+    }
+    .pr-box:hover { transform: scale(1.03); box-shadow: 0 10px 28px rgba(63,48,39,0.22); }
+    .pr-play {
+      width: 56px; height: 56px; background: var(--linen);
+      border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; color: var(--claret);
+      font-size: 1.4rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Video popup — HORIZONTAL 16:9 */
+    .vid-popup {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 999;
+      align-items: center; justify-content: center;
+    }
+    .vid-popup.open { display: flex; }
+    .vid-inner {
+      position: relative; width: 90vw; max-width: 820px;
+      aspect-ratio: 16/9; background: #000;
+      border-radius: 14px; overflow: hidden;
+    }
+    .vid-close {
+      position: absolute; top: 10px; right: 10px;
+      background: var(--claret); color: white; border: none;
+      width: 34px; height: 34px; border-radius: 50%;
+      font-size: 1rem; cursor: pointer; z-index: 10;
       display: flex; align-items: center; justify-content: center;
     }
-    .popup-inner video, .popup-placeholder {
-      width: 100%; height: 100%; object-fit: cover;
+    .vid-ph {
+      width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
-      background: #1a1209;
-      color: var(--travertine);
-      font-style: italic;
-      font-size: 0.9rem;
+      background: #1a1209; color: var(--travertine);
+      font-style: italic; font-size: 0.9rem; font-family: 'Urbanist', sans-serif;
     }
 
     /* ── SOCIAL ── */
-    .social-wrap { background: var(--white); padding: 90px 4%; }
-    .social-inner { max-width: 1200px; margin: 0 auto; }
-    .social-grid {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      justify-content: center;
-    }
-    .social-box {
-      width: 260px;
-      aspect-ratio: 1/1;
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      background: linear-gradient(160deg, #e8e2dc, #d9d0c7);
-      transition: transform 0.2s, box-shadow 0.2s;
+    .social-wrap { background: var(--white); }
+    .social-sub { font-size: 0.92rem; color: var(--travertine); margin-bottom: 1.75rem; margin-top: -0.5rem; }
+    .social-row { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
+    .soc-box {
+      width: 240px; aspect-ratio: 1/1;
+      border-radius: 14px; overflow: hidden;
+      position: relative; cursor: pointer;
+      background: var(--espresso);
+      display: flex; align-items: center; justify-content: center;
       text-decoration: none;
-      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(63,48,39,0.16);
     }
-    .social-box:hover { transform: scale(1.03); box-shadow: 0 12px 32px rgba(63,48,39,0.15); }
-    .social-box img { width: 100%; height: 100%; object-fit: cover; }
-    .social-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(63,48,39,0.7) 0%, transparent 60%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 1.25rem;
+    .soc-box:hover { transform: scale(1.04); box-shadow: 0 10px 28px rgba(63,48,39,0.2); }
+    .soc-label {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px;
     }
-    .social-icon { font-size: 2rem; margin-bottom: 6px; }
-    .social-name {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .soc-icon { font-size: 2.2rem; }
+    .soc-name {
+      font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--linen);
     }
 
-    /* ── OUR TEAM ── */
-    .team-wrap { background: var(--linen); padding: 90px 4%; }
-    .team-inner { max-width: 1200px; margin: 0 auto; }
+    /* ── OUR PEOPLE ── */
+    .team-wrap { background: var(--linen); }
     .team-row {
-      display: flex;
-      gap: 1.25rem;
-      margin-top: 2rem;
-      overflow-x: auto;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
+      display: flex; gap: 1rem; overflow-x: auto;
+      padding-bottom: 0.75rem; scroll-snap-type: x mandatory;
     }
-    .team-card-new {
-      min-width: 200px;
-      flex-shrink: 0;
-      scroll-snap-align: start;
+    .team-row::-webkit-scrollbar { height: 4px; }
+    .team-row::-webkit-scrollbar-track { background: #f0ece8; }
+    .team-row::-webkit-scrollbar-thumb { background: var(--travertine); border-radius: 2px; }
+    .t-card { min-width: 180px; flex-shrink: 0; scroll-snap-align: start; }
+    .t-sq {
+      aspect-ratio: 1/1; background: linear-gradient(160deg, #e8e2dc, #c4b8ac);
+      border-radius: 14px; overflow: hidden; margin-bottom: 0.6rem;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--travertine); font-size: 2.2rem;
     }
-    .team-sq {
-      aspect-ratio: 1/1;
-      background: linear-gradient(160deg, #e8e2dc, #c4b8ac);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--travertine);
-      font-size: 2.5rem;
-    }
-    .team-sq img { width: 100%; height: 100%; object-fit: cover; }
-    .team-card-name {
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
-      color: var(--claret);
-      margin-bottom: 2px;
-    }
-    .team-card-role {
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--travertine);
-    }
+    .t-sq img { width: 100%; height: 100%; object-fit: cover; }
+    .t-name { font-family: 'Georgia', serif; font-size: 0.95rem; color: var(--claret); margin-bottom: 2px; }
+    .t-role { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--travertine); }
 
-    /* ── FOOTER ── */
+    /* ── FOOTER — RED ── */
     footer {
-      background: var(--linen);
-      border-top: 1px solid #e8e2dc;
-      color: var(--espresso);
-      padding: 60px 4% 30px;
+      background: var(--claret);
+      color: var(--linen);
+      padding: 48px 4% 24px;
     }
     .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid #e8e2dc;
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 2.5rem; max-width: 1200px; margin: 0 auto 2rem;
+      padding-bottom: 2rem; border-bottom: 1px solid rgba(248,248,247,0.15);
     }
-    .footer-brand-name {
-      font-family: 'Georgia', serif;
-      font-size: 1.6rem;
-      color: var(--claret);
-      margin-bottom: 0.5rem;
+    .f-brand { font-family: 'Georgia', serif; font-size: 1.5rem; color: var(--linen); margin-bottom: 4px; }
+    .f-tag { font-size: 0.85rem; color: rgba(248,248,247,0.65); font-style: italic; margin-bottom: 1rem; }
+    .f-desc { font-size: 0.82rem; color: rgba(248,248,247,0.5); max-width: 260px; }
+    .f-col h4 {
+      color: rgba(248,248,247,0.5); font-size: 0.68rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 0.85rem; font-family: 'Urbanist', sans-serif; font-weight: 600;
     }
-    .footer-tagline {
-      font-size: 0.875rem;
-      color: var(--travertine);
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .footer-col h4 {
-      color: var(--espresso);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      font-family: 'Urbanist', sans-serif;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.6rem; }
-    .footer-col ul a {
-      color: var(--travertine);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .footer-col ul a:hover { color: var(--espresso); }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--travertine);
-      max-width: 1200px;
-      margin: 0 auto;
+    .f-col ul { list-style: none; }
+    .f-col ul li { margin-bottom: 0.5rem; }
+    .f-col ul a { color: rgba(248,248,247,0.7); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .f-col ul a:hover { color: var(--linen); }
+    .footer-bot {
+      display: flex; justify-content: space-between;
+      font-size: 0.75rem; color: rgba(248,248,247,0.35);
+      max-width: 1200px; margin: 0 auto;
     }
 
-    /* ── SCROLL ANIMATION ── */
-    .fade-in-text {
-      color: var(--travertine);
-      transition: color 0.7s ease;
-    }
-    .fade-in-text.visible { color: var(--espresso); }
-
-    /* ── BUTTONS ── */
-    .btn-round {
-      display: inline-block;
-      padding: 13px 30px;
-      font-family: 'Urbanist', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-      box-shadow: 0 3px 14px rgba(63,48,39,0.22);
-    }
-    .btn-espresso { background: var(--espresso); color: var(--linen); }
-    .btn-espresso:hover { background: #2a1f17; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(63,48,39,0.28); }
-    .btn-claret { background: var(--claret); color: var(--linen); }
-    .btn-claret:hover { background: var(--claret-dark); transform: translateY(-2px); }
+    /* ── SCROLL FADE ── */
+    .fade-text { color: var(--travertine); transition: color 0.65s ease; }
+    .fade-text.visible { color: var(--espresso); }
 
     /* ── FLOAT ── */
-    .float-cta {
-      position: fixed; bottom: 24px; right: 24px;
-      z-index: 99; display: flex; flex-direction: column;
-      gap: 10px; align-items: flex-end;
-    }
-    .float-btn {
-      display: flex; align-items: center; gap: 8px;
-      padding: 12px 18px; border-radius: 50px;
-      text-decoration: none; font-size: 0.85rem; font-weight: 600;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.2s;
-    }
+    .float-cta { position: fixed; bottom: 22px; right: 22px; z-index: 99; display: flex; flex-direction: column; gap: 9px; align-items: flex-end; }
+    .float-btn { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-radius: 50px; text-decoration: none; font-size: 0.82rem; font-weight: 600; box-shadow: 0 4px 18px rgba(0,0,0,0.18); transition: transform 0.2s; }
     .float-btn:hover { transform: translateY(-2px); }
     .float-wa { background: #25D366; color: white; }
     .float-call { background: var(--claret); color: white; }
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      nav { grid-template-columns: auto 1fr auto; }
+      nav { grid-template-columns: 0 1fr auto; }
       .nav-left { display: none; }
-      .nav-center { text-align: center; }
-      .hero-inner { grid-template-columns: 1fr; }
+      .nav-center { text-align: left; }
+      .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
       .hero-video-box { aspect-ratio: 16/9; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-      .social-grid { flex-direction: column; align-items: center; }
-      .promise-big-text { font-size: clamp(2.2rem, 10vw, 5rem); }
+      .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .footer-bot { flex-direction: column; gap: 0.4rem; text-align: center; }
+      .social-row { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -544,12 +367,8 @@
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
     </div>
-    <div class="nav-center">
-      <a href="index.html">Re-Ally</a>
-    </div>
-    <div class="nav-right">
-      <a href="contact.html">Contact Us</a>
-    </div>
+    <div class="nav-center"><a href="index.html">Re-Ally</a></div>
+    <div class="nav-right"><a href="contact.html">Contact Us</a></div>
   </nav>
 
   <!-- HERO -->
@@ -558,8 +377,8 @@
       <div class="hero-text">
         <span class="hero-eyebrow">Hyderabad Real Estate</span>
         <h1>Not a broker —<br><em>an ally.</em></h1>
-        <p class="fade-in-text">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
-        <a href="contact.html" class="btn-round btn-espresso">Contact Us</a>
+        <p class="fade-text">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
+        <a href="contact.html" style="display:inline-block; background:var(--espresso); color:var(--linen); padding:12px 28px; border-radius:50px; font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; box-shadow:0 3px 14px rgba(63,48,39,0.22); transition:all 0.2s;">Contact Us</a>
       </div>
       <div class="hero-video-box">
         <div class="video-placeholder">
@@ -571,203 +390,109 @@
   </section>
 
   <!-- OUR LISTINGS -->
-  <div class="listings-wrap">
-    <div class="listings-inner">
-      <h2 class="section-title-left fade-in-text">Our Listings</h2>
-      <div class="portrait-grid">
-
-        <div class="portrait-card">
-          <div class="portrait-img">
-            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&q=80" alt="Villa Gachibowli" loading="lazy" />
-            <span class="portrait-badge">For Sale</span>
-          </div>
-          <div class="portrait-body">
-            <div class="portrait-price">₹1.85 Cr</div>
-            <div class="portrait-name">3 BHK Villa</div>
-            <div class="portrait-loc">📍 Gachibowli</div>
-            <a href="contact.html" class="portrait-btn">Enquire</a>
-          </div>
+  <div class="sec listings-wrap">
+    <div class="sec-inner">
+      <h2 class="sec-title fade-text">Our Listings</h2>
+      <div class="portrait-row">
+        <div class="p-card">
+          <div class="p-img"><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&q=80" alt="Villa" loading="lazy"/><span class="p-badge">For Sale</span></div>
+          <div class="p-body"><div class="p-price">₹1.85 Cr</div><div class="p-name">3 BHK Villa</div><div class="p-loc">📍 Gachibowli</div><a href="contact.html" class="p-btn">Enquire</a></div>
         </div>
-
-        <div class="portrait-card">
-          <div class="portrait-img">
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Apartment Kondapur" loading="lazy" />
-            <span class="portrait-badge">For Sale</span>
-          </div>
-          <div class="portrait-body">
-            <div class="portrait-price">₹72 L</div>
-            <div class="portrait-name">2 BHK Apartment</div>
-            <div class="portrait-loc">📍 Kondapur</div>
-            <a href="contact.html" class="portrait-btn">Enquire</a>
-          </div>
+        <div class="p-card">
+          <div class="p-img"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Apartment" loading="lazy"/><span class="p-badge">For Sale</span></div>
+          <div class="p-body"><div class="p-price">₹72 L</div><div class="p-name">2 BHK Apartment</div><div class="p-loc">📍 Kondapur</div><a href="contact.html" class="p-btn">Enquire</a></div>
         </div>
-
-        <div class="portrait-card">
-          <div class="portrait-img">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Plot Shamshabad" loading="lazy" />
-            <span class="portrait-badge">Plot</span>
-          </div>
-          <div class="portrait-body">
-            <div class="portrait-price">₹45 L</div>
-            <div class="portrait-name">HMDA Plot</div>
-            <div class="portrait-loc">📍 Shamshabad</div>
-            <a href="contact.html" class="portrait-btn">Enquire</a>
-          </div>
+        <div class="p-card">
+          <div class="p-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Plot" loading="lazy"/><span class="p-badge">Plot</span></div>
+          <div class="p-body"><div class="p-price">₹45 L</div><div class="p-name">HMDA Plot</div><div class="p-loc">📍 Shamshabad</div><a href="contact.html" class="p-btn">Enquire</a></div>
         </div>
-
-        <div class="portrait-card">
-          <div class="portrait-img">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="Villa Jubilee Hills" loading="lazy" />
-            <span class="portrait-badge">For Sale</span>
-          </div>
-          <div class="portrait-body">
-            <div class="portrait-price">₹3.2 Cr</div>
-            <div class="portrait-name">4 BHK Luxury Villa</div>
-            <div class="portrait-loc">📍 Jubilee Hills</div>
-            <a href="contact.html" class="portrait-btn">Enquire</a>
-          </div>
+        <div class="p-card">
+          <div class="p-img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="Villa" loading="lazy"/><span class="p-badge">For Sale</span></div>
+          <div class="p-body"><div class="p-price">₹3.2 Cr</div><div class="p-name">4 BHK Villa</div><div class="p-loc">📍 Jubilee Hills</div><a href="contact.html" class="p-btn">Enquire</a></div>
         </div>
-
-        <div class="portrait-card">
-          <div class="portrait-img">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Apartment Banjara Hills" loading="lazy" />
-            <span class="portrait-badge" style="background:var(--travertine);">For Rent</span>
-          </div>
-          <div class="portrait-body">
-            <div class="portrait-price">₹22k/mo</div>
-            <div class="portrait-name">2 BHK Furnished</div>
-            <div class="portrait-loc">📍 Banjara Hills</div>
-            <a href="contact.html" class="portrait-btn">Enquire</a>
-          </div>
+        <div class="p-card">
+          <div class="p-img"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Rent" loading="lazy"/><span class="p-badge" style="background:var(--travertine);">For Rent</span></div>
+          <div class="p-body"><div class="p-price">₹22k/mo</div><div class="p-name">2 BHK Furnished</div><div class="p-loc">📍 Banjara Hills</div><a href="contact.html" class="p-btn">Enquire</a></div>
         </div>
-
+        <div class="p-card">
+          <div class="p-img"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400&q=80" alt="Plot" loading="lazy"/><span class="p-badge">Plot</span></div>
+          <div class="p-body"><div class="p-price">₹28 L</div><div class="p-name">DTCP Plot</div><div class="p-loc">📍 Kompally</div><a href="contact.html" class="p-btn">Enquire</a></div>
+        </div>
       </div>
-      <p class="listings-sub fade-in-text">Every listing is personally reviewed by our team — no inflated prices, no misleading descriptions.</p>
+      <p class="listings-sub fade-text">Every listing is personally reviewed by our team — no inflated prices, no misleading descriptions.</p>
     </div>
   </div>
 
   <!-- OUR PROMISE -->
-  <div class="promise-wrap">
-    <div class="promise-inner">
-      <h2 class="section-title-left fade-in-text" style="margin-bottom:2rem;">Our Promise</h2>
-      <div class="magnifier-container" id="magContainer">
-        <div class="promise-big-text" id="promiseText">
-          Trust.<br>Fit.<br>Time.
+  <div class="sec promise-wrap">
+    <div class="sec-inner">
+      <p class="promise-title-sm">Our Promise</p>
+      <div class="mag-container" id="magWrap">
+        <div class="mag-text" id="magText">Trust.<br>Fit.<br>Time.</div>
+        <div class="mag-lens" id="magLens">
+          <div class="mag-lens-inner" id="magInner"></div>
         </div>
-        <div class="magnifier-lens" id="magLens">
-          <div class="magnifier-lens-inner" id="magInner"></div>
-        </div>
+        <div class="mag-crosshair" id="magCross"></div>
       </div>
-      <p class="promise-sub fade-in-text">Re-Ally exists to simplify real estate decisions through clarity, trust, and long-term relationships. We guide, not push.</p>
-      <div class="boxes-row">
-        <div class="promise-box" onclick="openPopup('popup1')">
-          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&q=80" alt="Why Re-Ally" />
-          <span class="promise-box-label">Tap to watch</span>
-        </div>
-        <div class="promise-box" onclick="openPopup('popup2')">
-          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80" alt="Client story" />
-          <span class="promise-box-label">Tap to watch</span>
-        </div>
-        <div class="promise-box" onclick="openPopup('popup3')">
-          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80" alt="Our process" />
-          <span class="promise-box-label">Tap to watch</span>
-        </div>
+      <p class="promise-sub fade-text">Re-Ally exists to simplify real estate decisions through clarity, trust, and long-term relationships. We guide, not push.</p>
+      <div class="promise-boxes">
+        <div class="pr-box" onclick="openVid('v1')"><div class="pr-play">▶</div></div>
+        <div class="pr-box" onclick="openVid('v2')"><div class="pr-play">▶</div></div>
+        <div class="pr-box" onclick="openVid('v3')"><div class="pr-play">▶</div></div>
       </div>
     </div>
   </div>
 
-  <!-- VIDEO POPUPS -->
-  <div class="video-popup" id="popup1">
-    <div class="popup-inner">
-      <button class="popup-close" onclick="closePopup('popup1')">✕</button>
-      <div class="popup-placeholder" style="display:flex; align-items:center; justify-content:center;">
-        <span style="color:var(--travertine); font-style:italic; padding:2rem; text-align:center;">Video 1 — add your vertical video here</span>
-      </div>
-    </div>
-  </div>
-  <div class="video-popup" id="popup2">
-    <div class="popup-inner">
-      <button class="popup-close" onclick="closePopup('popup2')">✕</button>
-      <div class="popup-placeholder" style="display:flex; align-items:center; justify-content:center;">
-        <span style="color:var(--travertine); font-style:italic; padding:2rem; text-align:center;">Video 2 — add your vertical video here</span>
-      </div>
-    </div>
-  </div>
-  <div class="video-popup" id="popup3">
-    <div class="popup-inner">
-      <button class="popup-close" onclick="closePopup('popup3')">✕</button>
-      <div class="popup-placeholder" style="display:flex; align-items:center; justify-content:center;">
-        <span style="color:var(--travertine); font-style:italic; padding:2rem; text-align:center;">Video 3 — add your vertical video here</span>
-      </div>
-    </div>
-  </div>
+  <!-- VIDEO POPUPS — HORIZONTAL 16:9 -->
+  <div class="vid-popup" id="v1"><div class="vid-inner"><button class="vid-close" onclick="closeVid('v1')">✕</button><div class="vid-ph">Video 1 — add your horizontal video here</div></div></div>
+  <div class="vid-popup" id="v2"><div class="vid-inner"><button class="vid-close" onclick="closeVid('v2')">✕</button><div class="vid-ph">Video 2 — add your horizontal video here</div></div></div>
+  <div class="vid-popup" id="v3"><div class="vid-inner"><button class="vid-close" onclick="closeVid('v3')">✕</button><div class="vid-ph">Video 3 — add your horizontal video here</div></div></div>
 
-  <!-- SOCIAL MEDIA -->
-  <div class="social-wrap">
-    <div class="social-inner">
-      <h2 class="section-title-left fade-in-text">Follow Us</h2>
-      <div class="social-grid">
-        <a class="social-box" href="https://facebook.com" target="_blank">
-          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80" alt="Facebook" />
-          <div class="social-overlay">
-            <div class="social-icon">📘</div>
-            <div class="social-name">Facebook</div>
+  <!-- FOLLOW US -->
+  <div class="sec social-wrap">
+    <div class="sec-inner">
+      <h2 class="sec-title fade-text">Follow Us</h2>
+      <p class="social-sub">See our journey — the properties, the people, and the stories behind every deal.</p>
+      <div class="social-row">
+        <a class="soc-box" href="https://facebook.com/re-ally" target="_blank">
+          <div class="soc-label">
+            <div class="soc-icon">📘</div>
+            <div class="soc-name">Facebook</div>
           </div>
         </a>
-        <a class="social-box" href="https://instagram.com" target="_blank">
-          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80" alt="Instagram" />
-          <div class="social-overlay">
-            <div class="social-icon">📸</div>
-            <div class="social-name">Instagram</div>
+        <a class="soc-box" href="https://instagram.com/re-ally" target="_blank">
+          <div class="soc-label">
+            <div class="soc-icon">📸</div>
+            <div class="soc-name">Instagram</div>
           </div>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- OUR TEAM -->
-  <div class="team-wrap">
-    <div class="team-inner">
-      <h2 class="section-title-left fade-in-text">Our People</h2>
+  <!-- OUR PEOPLE -->
+  <div class="sec team-wrap">
+    <div class="sec-inner">
+      <h2 class="sec-title fade-text">Our People</h2>
       <div class="team-row">
-        <div class="team-card-new">
-          <div class="team-sq">👤</div>
-          <div class="team-card-name">Founder Name</div>
-          <div class="team-card-role">Founder & CEO</div>
-        </div>
-        <div class="team-card-new">
-          <div class="team-sq">👤</div>
-          <div class="team-card-name">Co-Founder</div>
-          <div class="team-card-role">Co-Founder</div>
-        </div>
-        <div class="team-card-new">
-          <div class="team-sq">👤</div>
-          <div class="team-card-name">Team Member</div>
-          <div class="team-card-role">Sales Lead</div>
-        </div>
-        <div class="team-card-new">
-          <div class="team-sq">👤</div>
-          <div class="team-card-name">Team Member</div>
-          <div class="team-card-role">Marketing</div>
-        </div>
-        <div class="team-card-new">
-          <div class="team-sq">👤</div>
-          <div class="team-card-name">Team Member</div>
-          <div class="team-card-role">Operations</div>
-        </div>
+        <div class="t-card"><div class="t-sq">👤</div><div class="t-name">Founder Name</div><div class="t-role">Founder & CEO</div></div>
+        <div class="t-card"><div class="t-sq">👤</div><div class="t-name">Co-Founder</div><div class="t-role">Co-Founder</div></div>
+        <div class="t-card"><div class="t-sq">👤</div><div class="t-name">Team Member</div><div class="t-role">Sales Lead</div></div>
+        <div class="t-card"><div class="t-sq">👤</div><div class="t-name">Team Member</div><div class="t-role">Marketing</div></div>
+        <div class="t-card"><div class="t-sq">👤</div><div class="t-name">Team Member</div><div class="t-role">Operations</div></div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER — RED -->
   <footer>
     <div class="footer-grid">
       <div>
-        <div class="footer-brand-name">Re-Ally</div>
-        <div class="footer-tagline">Your real estate ally.</div>
-        <p style="font-size:0.875rem; color:var(--travertine); max-width:280px;">Guiding real estate decisions across Hyderabad and beyond.</p>
+        <div class="f-brand">Re-Ally</div>
+        <div class="f-tag">Your real estate ally.</div>
+        <p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Pages</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -777,7 +502,7 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:+919381367140">+91 93813 67140</a></li>
@@ -786,81 +511,79 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bot">
       <span>© 2025 Re-Ally. All rights reserved.</span>
       <span>re-ally.in</span>
     </div>
   </footer>
 
-  <!-- FLOATING BUTTONS -->
+  <!-- FLOATING -->
   <div class="float-cta">
-    <a href="https://wa.me/919381367140?text=Hi%2C%20I%27m%20interested%20in%20a%20property." class="float-btn float-wa" target="_blank">💬 WhatsApp</a>
+    <a href="https://wa.me/919381367140?text=Hi%2C%20I'm%20interested%20in%20a%20property." class="float-btn float-wa" target="_blank">💬 WhatsApp</a>
     <a href="tel:+919381367140" class="float-btn float-call">📞 Call Now</a>
   </div>
 
   <script>
-    // Mobile nav
-    const hamburger = document.getElementById('hamburger');
-    if (hamburger) hamburger.addEventListener('click', () => {
-      document.getElementById('navLinks')?.classList.toggle('open');
-    });
-
-    // Scroll fade animation
-    const fadeEls = document.querySelectorAll('.fade-in-text');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
-    fadeEls.forEach(el => observer.observe(el));
+    // Scroll fade
+    const fadeEls = document.querySelectorAll('.fade-text');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.25 });
+    fadeEls.forEach(el => io.observe(el));
 
     // Magnifier
-    const container = document.getElementById('magContainer');
+    const wrap = document.getElementById('magWrap');
     const lens = document.getElementById('magLens');
-    const lensInner = document.getElementById('magInner');
-    const promiseText = document.getElementById('promiseText');
+    const inner = document.getElementById('magInner');
+    const cross = document.getElementById('magCross');
+    const txt = document.getElementById('magText');
 
-    if (container && lens) {
-      container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        lens.style.display = 'block';
-        lens.style.left = x + 'px';
-        lens.style.top = y + 'px';
-        const scale = 2;
-        lensInner.style.fontSize = parseFloat(getComputedStyle(promiseText).fontSize) * scale + 'px';
-        lensInner.style.fontFamily = 'Georgia, serif';
-        lensInner.style.lineHeight = '1.05';
-        lensInner.style.left = (-x * scale + 90) + 'px';
-        lensInner.style.top = (-y * scale + 90) + 'px';
-        lensInner.innerHTML = promiseText.innerHTML;
+    // Scroll-based: blur when approaching, sharp when in view
+    const magObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.intersectionRatio > 0.4) {
+          txt.classList.remove('blurred');
+          txt.classList.add('sharp');
+        } else {
+          txt.classList.remove('sharp');
+          txt.classList.add('blurred');
+        }
       });
-      container.addEventListener('mouseleave', () => { lens.style.display = 'none'; });
+    }, { threshold: [0, 0.4] });
+    magObs.observe(wrap);
 
-      // Grow lens on scroll
-      window.addEventListener('scroll', () => {
-        const rect = container.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, 1 - rect.top / window.innerHeight));
-        const size = 100 + progress * 160;
-        lens.style.width = size + 'px';
-        lens.style.height = size + 'px';
-      });
-    }
+    // Grow lens on scroll proximity
+    window.addEventListener('scroll', () => {
+      const r = wrap.getBoundingClientRect();
+      const prog = Math.max(0, Math.min(1, 1 - (r.top / window.innerHeight)));
+      const s = 80 + prog * 120;
+      lens.style.width = s + 'px';
+      lens.style.height = s + 'px';
+    });
 
-    // Popup
-    function openPopup(id) {
-      document.getElementById(id).classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closePopup(id) {
-      document.getElementById(id).classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.querySelectorAll('.video-popup').forEach(p => {
-      p.addEventListener('click', (e) => {
-        if (e.target === p) closePopup(p.id);
-      });
+    // Mouse follow
+    wrap.addEventListener('mousemove', e => {
+      const r = wrap.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      const scale = 2.2;
+      const fs = parseFloat(getComputedStyle(txt).fontSize);
+      lens.style.left = x + 'px';
+      lens.style.top = y + 'px';
+      cross.style.left = x + 'px';
+      cross.style.top = y + 'px';
+      inner.style.fontSize = (fs * scale) + 'px';
+      inner.style.lineHeight = '1.0';
+      inner.style.left = (-x * scale + lens.offsetWidth / 2) + 'px';
+      inner.style.top = (-y * scale + lens.offsetHeight / 2) + 'px';
+      inner.innerHTML = txt.innerHTML;
+    });
+
+    // Video popups
+    function openVid(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeVid(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.vid-popup').forEach(p => {
+      p.addEventListener('click', e => { if (e.target === p) closeVid(p.id); });
     });
   </script>
 </body>
