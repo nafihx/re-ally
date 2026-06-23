@@ -9,196 +9,763 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── NAV OVERRIDE ── */
+    nav {
+      background: var(--claret);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 4%;
+      height: 68px;
+    }
+    .nav-left { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-left a {
+      color: var(--linen);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .nav-left a:hover { opacity: 1; }
+    .nav-center a {
+      font-family: 'Georgia', serif;
+      font-size: 1.55rem;
+      color: var(--linen);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .nav-right { display: flex; justify-content: flex-end; }
+    .nav-right a {
+      background: var(--linen);
+      color: var(--claret);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-right a:hover { background: #ece9e4; transform: translateY(-1px); }
+    .nav-hamburger { display: none; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--linen);
+      display: flex;
+      align-items: center;
+      padding: 100px 4% 60px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-text { text-align: left; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--travertine);
+      margin-bottom: 1rem;
+    }
+    .hero-text h1 {
+      color: var(--claret);
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+    .hero-text h1 em { color: var(--espresso); font-style: italic; }
+    .hero-text p {
+      color: var(--espresso);
+      font-size: 1.05rem;
+      max-width: 420px;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+    .hero-video-box {
+      aspect-ratio: 6/3;
+      background: linear-gradient(135deg, #d9d0c7 0%, #c4b8ac 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(63,48,39,0.15);
+    }
+    .hero-video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: var(--travertine);
+    }
+    .video-play {
+      width: 64px;
+      height: 64px;
+      background: var(--claret);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--linen);
+      font-size: 1.5rem;
+    }
+    .video-placeholder p { font-size: 0.85rem; font-style: italic; }
+
+    /* ── SECTION BASE ── */
+    .home-section { padding: 90px 4%; max-width: 1200px; margin: 0 auto; }
+    .home-section-wrap { padding: 90px 0; }
+
+    /* ── OUR LISTINGS ── */
+    .listings-wrap { background: var(--white); padding: 90px 4%; }
+    .listings-inner { max-width: 1200px; margin: 0 auto; }
+    .section-title-left {
+      font-family: 'Georgia', serif;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      color: var(--claret);
+      margin-bottom: 2rem;
+    }
+    .portrait-grid {
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .portrait-card {
+      min-width: 220px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      background: var(--linen);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e8e2dc;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .portrait-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(63,48,39,0.13);
+    }
+    .portrait-img {
+      aspect-ratio: 2/3;
+      background: linear-gradient(160deg, #d9d0c7, #b8a99a);
+      overflow: hidden;
+      position: relative;
+    }
+    .portrait-img img { width: 100%; height: 100%; object-fit: cover; }
+    .portrait-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--claret);
+      color: var(--linen);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+    .portrait-body { padding: 1rem 1.1rem 1.25rem; }
+    .portrait-price {
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      color: var(--claret);
+      margin-bottom: 4px;
+    }
+    .portrait-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--espresso);
+      margin-bottom: 4px;
+    }
+    .portrait-loc {
+      font-size: 0.78rem;
+      color: var(--travertine);
+      margin-bottom: 0.75rem;
+    }
+    .portrait-btn {
+      display: block;
+      width: 100%;
+      background: var(--espresso);
+      color: var(--linen);
+      text-align: center;
+      padding: 9px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(63,48,39,0.18);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .portrait-btn:hover { background: #2a1f17; transform: translateY(-1px); }
+    .listings-sub {
+      margin-top: 1.75rem;
+      font-size: 0.95rem;
+      color: var(--espresso);
+    }
+
+    /* ── OUR PROMISE (magnifier) ── */
+    .promise-wrap { background: var(--linen); padding: 90px 4%; overflow: hidden; }
+    .promise-inner { max-width: 1200px; margin: 0 auto; }
+    .promise-big-text {
+      font-family: 'Georgia', serif;
+      font-size: clamp(3rem, 8vw, 8rem);
+      color: var(--travertine);
+      line-height: 1.05;
+      user-select: none;
+      position: relative;
+      transition: color 0.6s;
+    }
+    .magnifier-container { position: relative; display: inline-block; width: 100%; }
+    .magnifier-lens {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid var(--claret);
+      overflow: hidden;
+      pointer-events: none;
+      display: none;
+      box-shadow: 0 8px 40px rgba(150,0,24,0.25);
+      z-index: 10;
+      transform: translate(-50%, -50%);
+    }
+    .magnifier-lens-inner {
+      position: absolute;
+      font-family: 'Georgia', serif;
+      color: var(--espresso);
+      white-space: nowrap;
+      font-weight: 400;
+      pointer-events: none;
+    }
+    .promise-sub {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: var(--espresso);
+      max-width: 480px;
+    }
+    .boxes-row {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .promise-box {
+      flex: 1;
+      min-width: 200px;
+      aspect-ratio: 1/1;
+      background: linear-gradient(160deg, #e8e2dc, #d9d0c7);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .promise-box:hover { transform: scale(1.02); }
+    .promise-box img { width: 100%; height: 100%; object-fit: cover; }
+    .promise-box-label {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--linen);
+      background: rgba(63,48,39,0.6);
+      padding: 4px 10px;
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
+    /* Video popup */
+    .video-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-popup.open { display: flex; }
+    .popup-inner {
+      position: relative;
+      width: 90vw;
+      max-width: 400px;
+      aspect-ratio: 9/16;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .popup-close {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: var(--claret);
+      color: white;
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .popup-inner video, .popup-placeholder {
+      width: 100%; height: 100%; object-fit: cover;
+      display: flex; align-items: center; justify-content: center;
+      background: #1a1209;
+      color: var(--travertine);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* ── SOCIAL ── */
+    .social-wrap { background: var(--white); padding: 90px 4%; }
+    .social-inner { max-width: 1200px; margin: 0 auto; }
+    .social-grid {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+    .social-box {
+      width: 260px;
+      aspect-ratio: 1/1;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: linear-gradient(160deg, #e8e2dc, #d9d0c7);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .social-box:hover { transform: scale(1.03); box-shadow: 0 12px 32px rgba(63,48,39,0.15); }
+    .social-box img { width: 100%; height: 100%; object-fit: cover; }
+    .social-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(63,48,39,0.7) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1.25rem;
+    }
+    .social-icon { font-size: 2rem; margin-bottom: 6px; }
+    .social-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--linen);
+    }
+
+    /* ── OUR TEAM ── */
+    .team-wrap { background: var(--linen); padding: 90px 4%; }
+    .team-inner { max-width: 1200px; margin: 0 auto; }
+    .team-row {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+    }
+    .team-card-new {
+      min-width: 200px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+    .team-sq {
+      aspect-ratio: 1/1;
+      background: linear-gradient(160deg, #e8e2dc, #c4b8ac);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--travertine);
+      font-size: 2.5rem;
+    }
+    .team-sq img { width: 100%; height: 100%; object-fit: cover; }
+    .team-card-name {
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: var(--claret);
+      margin-bottom: 2px;
+    }
+    .team-card-role {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--travertine);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--linen);
+      border-top: 1px solid #e8e2dc;
+      color: var(--espresso);
+      padding: 60px 4% 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #e8e2dc;
+    }
+    .footer-brand-name {
+      font-family: 'Georgia', serif;
+      font-size: 1.6rem;
+      color: var(--claret);
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: var(--travertine);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .footer-col h4 {
+      color: var(--espresso);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Urbanist', sans-serif;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul a {
+      color: var(--travertine);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--espresso); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--travertine);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── SCROLL ANIMATION ── */
+    .fade-in-text {
+      color: var(--travertine);
+      transition: color 0.7s ease;
+    }
+    .fade-in-text.visible { color: var(--espresso); }
+
+    /* ── BUTTONS ── */
+    .btn-round {
+      display: inline-block;
+      padding: 13px 30px;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 3px 14px rgba(63,48,39,0.22);
+    }
+    .btn-espresso { background: var(--espresso); color: var(--linen); }
+    .btn-espresso:hover { background: #2a1f17; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(63,48,39,0.28); }
+    .btn-claret { background: var(--claret); color: var(--linen); }
+    .btn-claret:hover { background: var(--claret-dark); transform: translateY(-2px); }
+
+    /* ── FLOAT ── */
+    .float-cta {
+      position: fixed; bottom: 24px; right: 24px;
+      z-index: 99; display: flex; flex-direction: column;
+      gap: 10px; align-items: flex-end;
+    }
+    .float-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 18px; border-radius: 50px;
+      text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: transform 0.2s;
+    }
+    .float-btn:hover { transform: translateY(-2px); }
+    .float-wa { background: #25D366; color: white; }
+    .float-call { background: var(--claret); color: white; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { grid-template-columns: auto 1fr auto; }
+      .nav-left { display: none; }
+      .nav-center { text-align: center; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-video-box { aspect-ratio: 16/9; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .social-grid { flex-direction: column; align-items: center; }
+      .promise-big-text { font-size: clamp(2.2rem, 10vw, 5rem); }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo">Re<span>-</span>Ally</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="listings.html">Listings</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Talk to Us</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-left">
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-center">
+      <a href="index.html">Re-Ally</a>
+    </div>
+    <div class="nav-right">
+      <a href="contact.html">Contact Us</a>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-texture"></div>
-    <div class="hero-content">
-      <span class="hero-eyebrow">Hyderabad Real Estate</span>
-      <h1>Not a broker —<br><em>an ally.</em></h1>
-      <p class="hero-sub">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
-      <div class="hero-actions">
-        <a href="listings.html" class="btn btn-primary">View Properties</a>
-        <a href="contact.html" class="btn btn-outline">Talk to Us</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">Hyderabad Real Estate</span>
+        <h1>Not a broker —<br><em>an ally.</em></h1>
+        <p class="fade-in-text">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
+        <a href="contact.html" class="btn-round btn-espresso">Contact Us</a>
+      </div>
+      <div class="hero-video-box">
+        <div class="video-placeholder">
+          <div class="video-play">▶</div>
+          <p>Your property video here</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <span class="stat-number">200<span>+</span></span>
-      <span class="stat-label">Properties Closed</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">5<span>+</span></span>
-      <span class="stat-label">Years in Hyderabad</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">98<span>%</span></span>
-      <span class="stat-label">Client Satisfaction</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">50<span>+</span></span>
-      <span class="stat-label">Active Listings</span>
+  <!-- OUR LISTINGS -->
+  <div class="listings-wrap">
+    <div class="listings-inner">
+      <h2 class="section-title-left fade-in-text">Our Listings</h2>
+      <div class="portrait-grid">
+
+        <div class="portrait-card">
+          <div class="portrait-img">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=400&q=80" alt="Villa Gachibowli" loading="lazy" />
+            <span class="portrait-badge">For Sale</span>
+          </div>
+          <div class="portrait-body">
+            <div class="portrait-price">₹1.85 Cr</div>
+            <div class="portrait-name">3 BHK Villa</div>
+            <div class="portrait-loc">📍 Gachibowli</div>
+            <a href="contact.html" class="portrait-btn">Enquire</a>
+          </div>
+        </div>
+
+        <div class="portrait-card">
+          <div class="portrait-img">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Apartment Kondapur" loading="lazy" />
+            <span class="portrait-badge">For Sale</span>
+          </div>
+          <div class="portrait-body">
+            <div class="portrait-price">₹72 L</div>
+            <div class="portrait-name">2 BHK Apartment</div>
+            <div class="portrait-loc">📍 Kondapur</div>
+            <a href="contact.html" class="portrait-btn">Enquire</a>
+          </div>
+        </div>
+
+        <div class="portrait-card">
+          <div class="portrait-img">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Plot Shamshabad" loading="lazy" />
+            <span class="portrait-badge">Plot</span>
+          </div>
+          <div class="portrait-body">
+            <div class="portrait-price">₹45 L</div>
+            <div class="portrait-name">HMDA Plot</div>
+            <div class="portrait-loc">📍 Shamshabad</div>
+            <a href="contact.html" class="portrait-btn">Enquire</a>
+          </div>
+        </div>
+
+        <div class="portrait-card">
+          <div class="portrait-img">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&q=80" alt="Villa Jubilee Hills" loading="lazy" />
+            <span class="portrait-badge">For Sale</span>
+          </div>
+          <div class="portrait-body">
+            <div class="portrait-price">₹3.2 Cr</div>
+            <div class="portrait-name">4 BHK Luxury Villa</div>
+            <div class="portrait-loc">📍 Jubilee Hills</div>
+            <a href="contact.html" class="portrait-btn">Enquire</a>
+          </div>
+        </div>
+
+        <div class="portrait-card">
+          <div class="portrait-img">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Apartment Banjara Hills" loading="lazy" />
+            <span class="portrait-badge" style="background:var(--travertine);">For Rent</span>
+          </div>
+          <div class="portrait-body">
+            <div class="portrait-price">₹22k/mo</div>
+            <div class="portrait-name">2 BHK Furnished</div>
+            <div class="portrait-loc">📍 Banjara Hills</div>
+            <a href="contact.html" class="portrait-btn">Enquire</a>
+          </div>
+        </div>
+
+      </div>
+      <p class="listings-sub fade-in-text">Every listing is personally reviewed by our team — no inflated prices, no misleading descriptions.</p>
     </div>
   </div>
 
-  <!-- FEATURED LISTINGS -->
-  <section class="bg-linen">
-    <span class="section-label">Properties</span>
-    <h2 class="section-heading">Featured Listings</h2>
-    <p class="section-intro">Handpicked properties across Hyderabad — apartments, villas, and plots that meet our quality standard.</p>
-
-    <div class="listings-grid">
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="3BHK Villa Gachibowli" loading="lazy" />
-          <span class="card-badge">For Sale</span>
+  <!-- OUR PROMISE -->
+  <div class="promise-wrap">
+    <div class="promise-inner">
+      <h2 class="section-title-left fade-in-text" style="margin-bottom:2rem;">Our Promise</h2>
+      <div class="magnifier-container" id="magContainer">
+        <div class="promise-big-text" id="promiseText">
+          Trust.<br>Fit.<br>Time.
         </div>
-        <div class="card-body">
-          <div class="card-price">₹1.85 Cr</div>
-          <div class="card-title">3 BHK Independent Villa</div>
-          <div class="card-location">📍 Gachibowli, Hyderabad</div>
-          <div class="card-specs">
-            <span>3 Bed</span>
-            <span>3 Bath</span>
-            <span>2,100 sqft</span>
+        <div class="magnifier-lens" id="magLens">
+          <div class="magnifier-lens-inner" id="magInner"></div>
+        </div>
+      </div>
+      <p class="promise-sub fade-in-text">Re-Ally exists to simplify real estate decisions through clarity, trust, and long-term relationships. We guide, not push.</p>
+      <div class="boxes-row">
+        <div class="promise-box" onclick="openPopup('popup1')">
+          <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&q=80" alt="Why Re-Ally" />
+          <span class="promise-box-label">Tap to watch</span>
+        </div>
+        <div class="promise-box" onclick="openPopup('popup2')">
+          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80" alt="Client story" />
+          <span class="promise-box-label">Tap to watch</span>
+        </div>
+        <div class="promise-box" onclick="openPopup('popup3')">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80" alt="Our process" />
+          <span class="promise-box-label">Tap to watch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO POPUPS -->
+  <div class="video-popup" id="popup1">
+    <div class="popup-inner">
+      <button class="popup-close" onclick="closePopup('popup1')">✕</button>
+      <div class="popup-placeholder" style="display:flex; align-items:center; justify-content:center;">
+        <span style="color:var(--travertine); font-style:italic; padding:2rem; text-align:center;">Video 1 — add your vertical video here</span>
+      </div>
+    </div>
+  </div>
+  <div class="video-popup" id="popup2">
+    <div class="popup-inner">
+      <button class="popup-close" onclick="closePopup('popup2')">✕</button>
+      <div class="popup-placeholder" style="display:flex; align-items:center; justify-content:center;">
+        <span style="color:var(--travertine); font-style:italic; padding:2rem; text-align:center;">Video 2 — add your vertical video here</span>
+      </div>
+    </div>
+  </div>
+  <div class="video-popup" id="popup3">
+    <div class="popup-inner">
+      <button class="popup-close" onclick="closePopup('popup3')">✕</button>
+      <div class="popup-placeholder" style="display:flex; align-items:center; justify-content:center;">
+        <span style="color:var(--travertine); font-style:italic; padding:2rem; text-align:center;">Video 3 — add your vertical video here</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOCIAL MEDIA -->
+  <div class="social-wrap">
+    <div class="social-inner">
+      <h2 class="section-title-left fade-in-text">Follow Us</h2>
+      <div class="social-grid">
+        <a class="social-box" href="https://facebook.com" target="_blank">
+          <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80" alt="Facebook" />
+          <div class="social-overlay">
+            <div class="social-icon">📘</div>
+            <div class="social-name">Facebook</div>
           </div>
-        </div>
-      </div>
-
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="2BHK Apartment Kondapur" loading="lazy" />
-          <span class="card-badge">For Sale</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹72 L</div>
-          <div class="card-title">2 BHK Premium Apartment</div>
-          <div class="card-location">📍 Kondapur, Hyderabad</div>
-          <div class="card-specs">
-            <span>2 Bed</span>
-            <span>2 Bath</span>
-            <span>1,250 sqft</span>
+        </a>
+        <a class="social-box" href="https://instagram.com" target="_blank">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&q=80" alt="Instagram" />
+          <div class="social-overlay">
+            <div class="social-icon">📸</div>
+            <div class="social-name">Instagram</div>
           </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR TEAM -->
+  <div class="team-wrap">
+    <div class="team-inner">
+      <h2 class="section-title-left fade-in-text">Our People</h2>
+      <div class="team-row">
+        <div class="team-card-new">
+          <div class="team-sq">👤</div>
+          <div class="team-card-name">Founder Name</div>
+          <div class="team-card-role">Founder & CEO</div>
+        </div>
+        <div class="team-card-new">
+          <div class="team-sq">👤</div>
+          <div class="team-card-name">Co-Founder</div>
+          <div class="team-card-role">Co-Founder</div>
+        </div>
+        <div class="team-card-new">
+          <div class="team-sq">👤</div>
+          <div class="team-card-name">Team Member</div>
+          <div class="team-card-role">Sales Lead</div>
+        </div>
+        <div class="team-card-new">
+          <div class="team-sq">👤</div>
+          <div class="team-card-name">Team Member</div>
+          <div class="team-card-role">Marketing</div>
+        </div>
+        <div class="team-card-new">
+          <div class="team-sq">👤</div>
+          <div class="team-card-name">Team Member</div>
+          <div class="team-card-role">Operations</div>
         </div>
       </div>
-
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Plot Shamshabad" loading="lazy" />
-          <span class="card-badge">Plot</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹45 L</div>
-          <div class="card-title">Residential Plot — HMDA Approved</div>
-          <div class="card-location">📍 Shamshabad, Hyderabad</div>
-          <div class="card-specs">
-            <span>200 sq yds</span>
-            <span>East Facing</span>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <div style="text-align:center; margin-top:2.5rem;">
-      <a href="listings.html" class="btn btn-dark">See All Listings</a>
-    </div>
-  </section>
-
-  <!-- SERVICES PREVIEW -->
-  <section class="bg-white">
-    <span class="section-label">What We Do</span>
-    <h2 class="section-heading">We Handle the Hard Part</h2>
-    <p class="section-intro">From your first search to the final handover — we're with you at every step.</p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-icon">🏠</span>
-        <h3>Buying</h3>
-        <p>We find properties that fit your budget, needs, and future plans — not just what's available.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">📋</span>
-        <h3>Selling</h3>
-        <p>We price it right, market it properly, and handle negotiations so you get the best deal.</p>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">📣</span>
-        <h3>Real Estate Marketing</h3>
-        <p>Meta ads, reels, and social content that bring real buyers — not just traffic.</p>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top:2.5rem;">
-      <a href="services.html" class="btn btn-dark">View All Services</a>
-    </div>
-  </section>
-
-  <!-- WHY RE-ALLY -->
-  <section class="bg-linen">
-    <span class="section-label">Why Re-Ally</span>
-    <h2 class="section-heading">Trust. Fit. Time.</h2>
-    <p class="section-intro">We built Re-Ally because real estate in Hyderabad needed something better than brokers.</p>
-
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-number">01</div>
-        <h3>Guidance Before Transactions</h3>
-        <p>We talk to you before showing you anything. Understanding your situation comes first.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-number">02</div>
-        <h3>No Commission Inflation</h3>
-        <p>Your price is your price. We don't pad deals to earn more — our interest is your trust.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-number">03</div>
-        <h3>Fit Before Sales</h3>
-        <p>If a property doesn't fit you, we say so. We'd rather lose a deal than lose your trust.</p>
-      </div>
-      <div class="why-item">
-        <div class="why-number">04</div>
-        <h3>Long-Term Relationships</h3>
-        <p>Most of our clients come from referrals. That says more than any ad.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section class="cta-band" style="text-align:center; padding: 80px 5%;">
-    <span class="section-label" style="color: var(--travertine);">Get Started</span>
-    <h2 style="color: var(--linen); margin-bottom: 1rem; max-width: 500px; margin-left: auto; margin-right: auto;">Ready to find your place?</h2>
-    <p style="color: var(--travertine); max-width: 460px; margin: 0 auto 2rem;">Tell us what you're looking for. A 10-minute conversation is all it takes to get started.</p>
-    <a href="contact.html" class="btn btn-primary">Talk to Re-Ally</a>
-  </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div>
-        <div class="footer-brand-name">Re<span>-</span>Ally</div>
+        <div class="footer-brand-name">Re-Ally</div>
         <div class="footer-tagline">Your real estate ally.</div>
-        <p style="font-size:0.875rem; color: rgba(248,248,247,0.5); max-width: 280px;">Re-Ally exists to simplify real estate decisions through clarity, trust, and long-term relationships. We guide, not push.</p>
+        <p style="font-size:0.875rem; color:var(--travertine); max-width:280px;">Guiding real estate decisions across Hyderabad and beyond.</p>
       </div>
       <div class="footer-col">
         <h4>Pages</h4>
@@ -232,9 +799,69 @@
   </div>
 
   <script>
+    // Mobile nav
     const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    if (hamburger) hamburger.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+
+    // Scroll fade animation
+    const fadeEls = document.querySelectorAll('.fade-in-text');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Magnifier
+    const container = document.getElementById('magContainer');
+    const lens = document.getElementById('magLens');
+    const lensInner = document.getElementById('magInner');
+    const promiseText = document.getElementById('promiseText');
+
+    if (container && lens) {
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        lens.style.display = 'block';
+        lens.style.left = x + 'px';
+        lens.style.top = y + 'px';
+        const scale = 2;
+        lensInner.style.fontSize = parseFloat(getComputedStyle(promiseText).fontSize) * scale + 'px';
+        lensInner.style.fontFamily = 'Georgia, serif';
+        lensInner.style.lineHeight = '1.05';
+        lensInner.style.left = (-x * scale + 90) + 'px';
+        lensInner.style.top = (-y * scale + 90) + 'px';
+        lensInner.innerHTML = promiseText.innerHTML;
+      });
+      container.addEventListener('mouseleave', () => { lens.style.display = 'none'; });
+
+      // Grow lens on scroll
+      window.addEventListener('scroll', () => {
+        const rect = container.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, 1 - rect.top / window.innerHeight));
+        const size = 100 + progress * 160;
+        lens.style.width = size + 'px';
+        lens.style.height = size + 'px';
+      });
+    }
+
+    // Popup
+    function openPopup(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.video-popup').forEach(p => {
+      p.addEventListener('click', (e) => {
+        if (e.target === p) closePopup(p.id);
+      });
+    });
   </script>
 </body>
 </html>
