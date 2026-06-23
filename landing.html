@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Your Home in Hyderabad — Re-Ally</title>
+  <meta name="description" content="Looking for properties in Hyderabad? Talk to Re-Ally — your honest real estate partner." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body { background: var(--espresso); }
+    .lp-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 5%;
+      background: var(--espresso);
+    }
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(248,248,247,0.1);
+      border: 1px solid rgba(248,248,247,0.15);
+      border-radius: 50px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      color: var(--travertine);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .lp-form-box {
+      background: var(--linen);
+      padding: 2.5rem;
+      border-radius: 3px;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1.25rem;
+    }
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(248,248,247,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MINIMAL NAV (no links — keeps user on page) -->
+  <div class="lp-nav">
+    <span style="font-family:Georgia,serif; font-size:1.4rem; color:var(--linen);">Re<span style="color:var(--claret);">-</span>Ally</span>
+  </div>
+
+  <!-- LANDING HERO -->
+  <div class="landing-hero">
+    <div class="landing-grid">
+
+      <!-- LEFT: Headline + benefits -->
+      <div>
+        <div class="trust-pill">✅ 200+ Deals Closed in Hyderabad</div>
+        <h1 style="color:var(--linen); margin-bottom:1.25rem; font-size:clamp(2rem, 4vw, 3.2rem);">Find your place in Hyderabad.<br><em style="color:var(--claret);">We'll do the rest.</em></h1>
+        <p style="color:rgba(248,248,247,0.65); font-size:1.05rem; margin-bottom:2.5rem; max-width:460px;">Re-Ally is not just another broker. We guide you to the right property — honestly, without pressure, and with full transparency.</p>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">🏠</div>
+          <div>
+            <div style="font-weight:600; color:var(--linen); font-size:0.95rem;">Verified Properties Only</div>
+            <div style="font-size:0.85rem; color:rgba(248,248,247,0.5);">Every listing is checked before we show it to you.</div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💬</div>
+          <div>
+            <div style="font-weight:600; color:var(--linen); font-size:0.95rem;">No Pressure, Ever</div>
+            <div style="font-size:0.85rem; color:rgba(248,248,247,0.5);">We guide — you decide. No fake urgency.</div>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📋</div>
+          <div>
+            <div style="font-weight:600; color:var(--linen); font-size:0.95rem;">End-to-End Support</div>
+            <div style="font-size:0.85rem; color:rgba(248,248,247,0.5);">Search to registration — we're with you every step.</div>
+          </div>
+        </div>
+
+        <!-- Social proof -->
+        <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(248,248,247,0.1);">
+          <div style="font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--travertine); margin-bottom:0.75rem;">Trusted by families across Hyderabad</div>
+          <div style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+            <div style="text-align:center;">
+              <div style="font-family:Georgia,serif; font-size:1.6rem; color:var(--linen);">200<span style="color:var(--claret);">+</span></div>
+              <div style="font-size:0.7rem; color:var(--travertine); text-transform:uppercase; letter-spacing:0.1em;">Deals</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:Georgia,serif; font-size:1.6rem; color:var(--linen);">5<span style="color:var(--claret);">+</span></div>
+              <div style="font-size:0.7rem; color:var(--travertine); text-transform:uppercase; letter-spacing:0.1em;">Years</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-family:Georgia,serif; font-size:1.6rem; color:var(--linen);">98<span style="color:var(--claret);">%</span></div>
+              <div style="font-size:0.7rem; color:var(--travertine); text-transform:uppercase; letter-spacing:0.1em;">Satisfied</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Lead form -->
+      <div class="lp-form-box">
+        <h3 style="margin-bottom:0.5rem; color:var(--espresso);">Get a free consultation</h3>
+        <p style="font-size:0.875rem; color:var(--text-mid); margin-bottom:1.75rem;">Tell us what you're looking for. We'll call you back today.</p>
+
+        <form id="lpForm" onsubmit="handleLPSubmit(event)">
+          <div class="form-group">
+            <label for="lp-name">Your Name *</label>
+            <input type="text" id="lp-name" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label for="lp-phone">Phone Number *</label>
+            <input type="tel" id="lp-phone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-group">
+            <label for="lp-looking">I'm Looking To *</label>
+            <select id="lp-looking">
+              <option value="">Select</option>
+              <option>Buy a property</option>
+              <option>Sell my property</option>
+              <option>Rent a property</option>
+              <option>Invest in real estate</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lp-budget">Budget Range</label>
+            <select id="lp-budget">
+              <option value="">Select budget</option>
+              <option>Under ₹50L</option>
+              <option>₹50L – ₹1 Cr</option>
+              <option>₹1Cr – ₹2Cr</option>
+              <option>Above ₹2Cr</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%; font-size:1rem; padding:16px;">
+            Get Free Consultation →
+          </button>
+          <p style="font-size:0.75rem; color:var(--text-mid); text-align:center; margin-top:0.75rem;">No spam. We call once to understand your needs.</p>
+        </form>
+
+        <div id="lpSuccess" style="display:none; text-align:center; padding:2rem 1rem;">
+          <div style="font-size:3rem; margin-bottom:1rem;">🎉</div>
+          <h3 style="color:var(--espresso); margin-bottom:0.5rem;">We'll call you shortly!</h3>
+          <p style="color:var(--text-mid); font-size:0.9rem;">Our team will reach out within a few hours. Meanwhile, you can WhatsApp us for anything urgent.</p>
+          <a href="https://wa.me/919100000000" class="btn btn-primary" style="margin-top:1.5rem; display:inline-block;" target="_blank">💬 WhatsApp Now</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER (minimal) -->
+  <div style="text-align:center; padding:2rem 5%; border-top:1px solid rgba(248,248,247,0.08);">
+    <p style="font-size:0.8rem; color:rgba(248,248,247,0.3);">© 2025 Re-Ally · Hyderabad · re-ally.in · hello@re-ally.in</p>
+  </div>
+
+  <script>
+    function handleLPSubmit(e) {
+      e.preventDefault();
+      document.getElementById('lpForm').style.display = 'none';
+      document.getElementById('lpSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

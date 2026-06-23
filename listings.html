@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Listings — Re-Ally Hyderabad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .listings-hero {
+      background: var(--espresso);
+      padding: 140px 5% 70px;
+      text-align: center;
+    }
+    .listings-hero h1 { color: var(--linen); margin-bottom: 0.75rem; }
+    .listings-hero p { color: var(--travertine); max-width: 480px; margin: 0 auto; }
+
+    .filter-bar {
+      background: var(--white);
+      padding: 1.5rem 5%;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      border-bottom: 1px solid #ede8e2;
+    }
+    .filter-bar select {
+      padding: 9px 14px;
+      border: 1px solid #ddd6ce;
+      border-radius: 2px;
+      font-family: 'Urbanist', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-dark);
+      background: var(--white);
+      cursor: pointer;
+      outline: none;
+    }
+    .filter-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--travertine);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Re<span>-</span>Ally</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Talk to Us</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="listings-hero">
+    <span class="section-label" style="color: var(--travertine);">Hyderabad Properties</span>
+    <h1>Current Listings</h1>
+    <p>Every property here has been reviewed by our team. No inflated prices, no vague descriptions.</p>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <select>
+      <option>All Types</option>
+      <option>Apartment</option>
+      <option>Villa</option>
+      <option>Plot</option>
+    </select>
+    <select>
+      <option>All Locations</option>
+      <option>Gachibowli</option>
+      <option>Kondapur</option>
+      <option>Shamshabad</option>
+      <option>Jubilee Hills</option>
+      <option>Banjara Hills</option>
+    </select>
+    <select>
+      <option>Any Budget</option>
+      <option>Under ₹50L</option>
+      <option>₹50L – ₹1Cr</option>
+      <option>₹1Cr – ₹2Cr</option>
+      <option>Above ₹2Cr</option>
+    </select>
+    <select>
+      <option>For Sale or Rent</option>
+      <option>For Sale</option>
+      <option>For Rent</option>
+    </select>
+  </div>
+
+  <section class="bg-linen">
+    <div class="listings-grid">
+
+      <div class="property-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="3BHK Villa Gachibowli" loading="lazy" />
+          <span class="card-badge">For Sale</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹1.85 Cr</div>
+          <div class="card-title">3 BHK Independent Villa</div>
+          <div class="card-location">📍 Gachibowli, Hyderabad</div>
+          <div class="card-specs">
+            <span>3 Bed</span><span>3 Bath</span><span>2,100 sqft</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="2BHK Apartment" loading="lazy" />
+          <span class="card-badge">For Sale</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹72 L</div>
+          <div class="card-title">2 BHK Premium Apartment</div>
+          <div class="card-location">📍 Kondapur, Hyderabad</div>
+          <div class="card-specs">
+            <span>2 Bed</span><span>2 Bath</span><span>1,250 sqft</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Plot Shamshabad" loading="lazy" />
+          <span class="card-badge">Plot</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹45 L</div>
+          <div class="card-title">Residential Plot — HMDA Approved</div>
+          <div class="card-location">📍 Shamshabad, Hyderabad</div>
+          <div class="card-specs">
+            <span>200 sq yds</span><span>East Facing</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="4BHK Villa Jubilee Hills" loading="lazy" />
+          <span class="card-badge">For Sale</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹3.2 Cr</div>
+          <div class="card-title">4 BHK Luxury Villa</div>
+          <div class="card-location">📍 Jubilee Hills, Hyderabad</div>
+          <div class="card-specs">
+            <span>4 Bed</span><span>4 Bath</span><span>3,500 sqft</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="1BHK Apartment Rent" loading="lazy" />
+          <span class="card-badge" style="background:var(--travertine);">For Rent</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹22,000/mo</div>
+          <div class="card-title">2 BHK Apartment — Furnished</div>
+          <div class="card-location">📍 Banjara Hills, Hyderabad</div>
+          <div class="card-specs">
+            <span>2 Bed</span><span>2 Bath</span><span>1,100 sqft</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Plot Kompally" loading="lazy" />
+          <span class="card-badge">Plot</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">₹28 L</div>
+          <div class="card-title">Open Plot — DTCP Approved</div>
+          <div class="card-location">📍 Kompally, Hyderabad</div>
+          <div class="card-specs">
+            <span>150 sq yds</span><span>Corner Plot</span>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-espresso" style="text-align:center; padding: 70px 5%;">
+    <h2 style="color:var(--linen); margin-bottom:1rem;">Don't see what you're looking for?</h2>
+    <p style="color:var(--travertine); max-width:420px; margin:0 auto 2rem;">Tell us your requirements. We find properties that aren't even listed publicly.</p>
+    <a href="contact.html" class="btn btn-primary">Tell Us What You Need</a>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Re<span>-</span>Ally</div>
+        <div class="footer-tagline">Your real estate ally.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919100000000">+91 91000 00000</a></li>
+          <li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li>
+          <li><a href="#">Hyderabad, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Re-Ally. All rights reserved.</span>
+      <span>re-ally.in</span>
+    </div>
+  </footer>
+
+  <div class="float-cta">
+    <a href="https://wa.me/919100000000" class="float-btn float-wa" target="_blank">💬 WhatsApp</a>
+    <a href="tel:+919100000000" class="float-btn float-call">📞 Call Now</a>
+  </div>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
