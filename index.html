@@ -232,29 +232,29 @@
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="nav-left">
-      <a href="listings.html">Listings</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
+    <div style="display:flex;gap:1.5rem;align-items:center;">
+      <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Listings</a>
+      <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
+      <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
     </div>
-    <div class="nav-center"><a href="index.html">Re-Ally</a></div>
-    <div class="nav-right"><a href="contact.html">Contact Us</a></div>
+    <a href="index.html" style="font-family:Georgia,serif;font-size:1.4rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
+    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 18px;border-radius:50px;text-decoration:none;">Contact Us</a>
   </nav>
 
   <!-- HERO -->
-  <section style="background:#f8f8f7; display:block; width:100%; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; justify-content:center;">
-    <div style="width:100%; display:flex; flex-direction:column; height:100%; padding-top:64px; box-sizing:border-box;">
+  <section style="background:#f8f8f7;width:100%;padding-top:64px;box-sizing:border-box;">
+    <div style="width:100%;">
 
       <!-- TEXT -->
-      <div style="padding: 2.5vh 4% 1.5vh; flex-shrink:0;">
-        <h1 style="color:#960018; font-family:Georgia,serif; font-size:clamp(1.8rem,3.2vw,3.2rem); line-height:1.08; margin:0 0 0.75rem 0; text-align:left;">Not a broker —<br><em style="color:#3f3027; font-style:italic;">an ally.</em></h1>
-        <p style="color:#3f3027; font-size:0.95rem; line-height:1.7; margin:0; text-align:left; max-width:520px;">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
+      <div style="padding:2rem 4% 1.5rem;">
+        <h1 style="color:#960018;font-family:Georgia,serif;font-size:clamp(1.8rem,3.2vw,3.2rem);line-height:1.08;margin:0 0 0.75rem 0;text-align:left;">Not a broker —<br><em style="color:#3f3027;font-style:italic;">an ally.</em></h1>
+        <p style="color:#3f3027;font-size:0.95rem;line-height:1.7;margin:0;text-align:left;max-width:520px;">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
       </div>
 
-      <!-- VIDEO — fills remaining space -->
-      <div style="padding: 0 4% 2.5vh; box-sizing:border-box; flex:1; min-height:0;">
-        <div id="heroVideoBox" style="width:100%; height:100%; background:linear-gradient(145deg,#c4b8ac,#a09080,#8a7a6a); border-radius:16px; overflow:hidden; position:relative; box-shadow:0 8px 40px rgba(63,48,39,0.14); cursor:pointer; display:block;">
+      <!-- VIDEO — fixed 16:9, full width -->
+      <div style="padding:0 4% 3rem;box-sizing:border-box;">
+        <div id="heroVideoBox" style="width:100%;aspect-ratio:16/9;background:linear-gradient(145deg,#c4b8ac,#a09080,#8a7a6a);border-radius:16px;overflow:hidden;position:relative;box-shadow:0 8px 40px rgba(63,48,39,0.14);cursor:pointer;display:block;">
           <video id="heroVideo" muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;">
             <!-- <source src="your-video.mp4" type="video/mp4"> -->
           </video>
