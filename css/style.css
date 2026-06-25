@@ -679,3 +679,147 @@ footer {
   .why-grid { grid-template-columns: 1fr; }
   .landing-grid { grid-template-columns: 1fr; gap: 3rem; }
 }
+
+/* ============================================
+   GLOBAL MOBILE RESPONSIVE — ALL PAGES
+   ============================================ */
+
+/* NAV — fixed on all pages */
+nav {
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  z-index: 1000 !important;
+  background: var(--claret) !important;
+  height: 64px !important;
+}
+
+@media (max-width: 768px) {
+
+  /* NAV MOBILE */
+  nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 5% !important;
+    grid-template-columns: none !important;
+  }
+  .nav-left { display: none !important; }
+  .nav-center { flex: 1; text-align: center; }
+  .nav-center a { font-size: 1.3rem !important; }
+  .nav-right a { font-size: 0.7rem !important; padding: 7px 14px !important; }
+
+  /* SECTIONS */
+  .sec { padding: 40px 5% !important; }
+  .sec-inner { max-width: 100% !important; }
+  .sec-title { font-size: 1.4rem !important; white-space: normal !important; }
+
+  /* LISTINGS SECTION */
+  .listings-wrap .sec-inner > div[style*="grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* PROMISE CARDS */
+  .promise-wrap .sec-inner > div[style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* SOCIAL */
+  .social-center { text-align: center !important; }
+  .social-row { flex-direction: column !important; align-items: center !important; }
+
+  /* TEAM */
+  .team-center > div[style*="flex"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+  }
+
+  /* FOOTER */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .footer-bot { flex-direction: column !important; gap: 0.4rem !important; text-align: center !important; }
+  .f-brand { font-size: 1.3rem !important; }
+
+  /* FLOAT BUTTONS */
+  .float-cta { bottom: 16px !important; right: 16px !important; gap: 8px !important; }
+  .float-btn { padding: 10px 14px !important; font-size: 0.78rem !important; }
+
+  /* ABOUT PAGE */
+  .story-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .mission-cards { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .pipeline-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .team-cards { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+
+  /* SERVICES PAGE */
+  .svc-section { grid-template-columns: 1fr !important; padding: 40px 5% !important; direction: ltr !important; min-height: auto !important; }
+  .svc-section.reverse { direction: ltr !important; }
+  .svc-text { padding-right: 0 !important; padding-left: 0 !important; margin-bottom: 1.5rem; }
+  .svc-section.reverse .svc-text { padding-left: 0 !important; }
+  .svc-image { aspect-ratio: 16/9 !important; }
+  .svc-title { font-size: 1.4rem !important; }
+
+  /* LISTINGS PAGE */
+  .photo-gallery { grid-template-columns: 1fr !important; grid-template-rows: 220px 140px 140px !important; }
+  .h-card-body { grid-template-columns: 1fr !important; padding: 1.25rem !important; gap: 1.5rem !important; }
+  .h-card-right { min-width: auto !important; }
+  .h-card-btns { flex-wrap: wrap !important; }
+  .h-card-specs { gap: 1rem !important; flex-wrap: wrap !important; }
+  .coming-top { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* SREYAN DETAIL PAGE */
+  .detail-grid { grid-template-columns: 1fr !important; gap: 2rem !important; padding: 40px 5% !important; }
+
+  /* CONTACT PAGE */
+  .contact-wrap { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* HERO — text only, mobile friendly */
+  .hero-top { padding: 2rem 5% 1.5rem !important; }
+  .hero-headline h1 { font-size: clamp(1.8rem, 8vw, 2.6rem) !important; }
+  .hero-copy p { font-size: 0.9rem !important; }
+
+  /* General grid overrides */
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  div[style*="grid-template-columns:repeat(3,1fr)"],
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Sreyan detail grid */
+  div[style*="grid-template-columns:1.4fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Text sizes */
+  h1 { font-size: clamp(1.8rem, 7vw, 2.6rem) !important; }
+  h2 { font-size: clamp(1.3rem, 5vw, 1.8rem) !important; }
+
+  /* Padding fixes */
+  div[style*="padding:90px"],
+  div[style*="padding: 90px"] { padding: 40px 5% !important; }
+  div[style*="padding:80px"],
+  div[style*="padding: 80px"] { padding: 40px 5% !important; }
+  div[style*="padding:60px"],
+  div[style*="padding: 60px"] { padding: 35px 5% !important; }
+
+  /* Promise section */
+  .promise-wrap { padding: 40px 5% !important; }
+  .promise-big { font-size: 2rem !important; white-space: normal !important; }
+
+  /* About hero */
+  .about-hero { padding: 100px 5% 50px !important; }
+  .svc-hero { padding: 100px 5% 50px !important; }
+  .listings-hero { padding: 100px 5% 50px !important; }
+  .detail-hero { padding: 100px 5% 50px !important; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .mission-cards { grid-template-columns: 1fr 1fr !important; }
+  .team-cards { grid-template-columns: 1fr 1fr !important; }
+  .photo-gallery { grid-template-rows: 220px !important; }
+}
