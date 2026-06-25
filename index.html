@@ -44,9 +44,7 @@
       background: var(--linen);
       padding-top: 64px;
     }
-    .hero-inner {
-      width: 100%;
-    }
+    .hero-inner { width: 100%; }
 
     /* TEXT BLOCK */
     .hero-top {
@@ -75,10 +73,11 @@
     }
     .hero-cta { display: none; }
 
-    /* VIDEO — true full width, no side margins */
+    /* VIDEO — locked full width */
     .hero-video-wrap {
       width: 100%;
       padding: 0 4% 60px;
+      box-sizing: border-box;
     }
     .hero-video-box {
       width: 100%;
@@ -89,6 +88,7 @@
       position: relative;
       box-shadow: 0 8px 40px rgba(63,48,39,0.14);
       cursor: pointer;
+      display: block;
     }
     .hero-video-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-play-overlay {
@@ -102,7 +102,7 @@
       background: rgba(248,248,247,0.92); backdrop-filter: blur(6px);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 6px 24px rgba(63,48,39,0.25);
-      transition: transform 0.22s, box-shadow 0.22s;
+      transition: transform 0.22s;
     }
     .hero-video-box:hover .hero-play-btn { transform: scale(1.08); }
     .hero-play-btn svg { width: 26px; height: 26px; fill: var(--claret); margin-left: 4px; }
@@ -217,10 +217,10 @@
       nav { grid-template-columns: 0 1fr auto; }
       .nav-left { display: none; }
       .nav-center { text-align: left; }
-      .hero { padding: 80px 4% 40px; }
-      .hero-top { grid-template-columns: 1fr; gap: 1.25rem; align-items: flex-start; }
-      .hero-headline h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
-      .hero-video-box { aspect-ratio: 16/9; border-radius: 14px; }
+      .hero { padding-top: 64px; }
+      .hero-top { padding: 2.5rem 4% 1.5rem; }
+      .hero-headline h1 { font-size: clamp(2rem, 8vw, 3rem); }
+      .hero-video-box { aspect-ratio: 16/9; border-radius: 12px; }
       .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .footer-bot { flex-direction: column; gap: 0.4rem; text-align: center; }
       .promise-big { white-space: normal; }
