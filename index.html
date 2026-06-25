@@ -4,317 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Re-Ally — Your Real Estate Ally | Hyderabad</title>
-  <meta name="description" content="Re-Ally helps you buy, sell, and invest in Hyderabad real estate. Not a broker — an ally." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    :root {
-      --linen: #f8f8f7;
-      --claret: #960018;
-      --claret-dark: #6e0011;
-      --espresso: #3f3027;
-      --travertine: #96816e;
-      --white: #ffffff;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: var(--claret);
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      padding: 0 4%;
-      height: 64px;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-    }
-    .nav-left { display: flex; gap: 1.75rem; align-items: center; }
-    .nav-left a { color: var(--linen); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; transition: opacity 0.2s; }
-    .nav-left a:hover { opacity: 1; }
-    .nav-center a { font-family: 'Georgia', serif; font-size: 1.5rem; color: var(--linen); text-decoration: none; letter-spacing: 0.04em; }
-    .nav-right { display: flex; justify-content: flex-end; }
-    .nav-right a { background: var(--linen); color: var(--claret); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 20px; border-radius: 50px; text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,0.15); transition: background 0.2s, transform 0.2s; }
-    .nav-right a:hover { background: #ece9e4; transform: translateY(-1px); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--linen);
-      padding-top: 0;
-    }
-    .hero-inner { width: 100%; }
-
-    /* TEXT BLOCK */
-    .hero-top {
-      padding: 120px 4% 2rem;
-      max-width: none;
-      margin-left: 0;
-    }
-    .hero-eyebrow { display: none; }
-    .hero-headline h1 {
-      color: var(--claret);
-      font-family: 'Georgia', serif;
-      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-      line-height: 1.05;
-      margin: 0 0 1rem 0;
-      text-align: left;
-    }
-    .hero-headline h1 em { color: var(--espresso); font-style: italic; }
-    .hero-copy { display: block; }
-    .hero-copy p {
-      color: var(--espresso);
-      font-size: 1rem;
-      line-height: 1.78;
-      margin: 0;
-      text-align: left;
-      max-width: 560px;
-    }
-    .hero-cta { display: none; }
-
-    /* VIDEO — locked full width */
-    .hero-video-wrap {
-      width: 100%;
-      padding: 0 4% 60px;
-      box-sizing: border-box;
-    }
-    .hero-video-box {
-      width: 100%;
-      aspect-ratio: 16/7;
-      background: linear-gradient(145deg, #c4b8ac 0%, #a09080 50%, #8a7a6a 100%);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 8px 40px rgba(63,48,39,0.14);
-      cursor: pointer;
-      display: block;
-    }
-    .hero-video-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .hero-play-overlay {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(63,48,39,0.04); transition: background 0.3s;
-    }
-    .hero-video-box:hover .hero-play-overlay { background: rgba(63,48,39,0.1); }
-    .hero-play-btn {
-      width: 72px; height: 72px;
-      background: rgba(248,248,247,0.92); backdrop-filter: blur(6px);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 24px rgba(63,48,39,0.25);
-      transition: transform 0.22s;
-    }
-    .hero-video-box:hover .hero-play-btn { transform: scale(1.08); }
-    .hero-play-btn svg { width: 26px; height: 26px; fill: var(--claret); margin-left: 4px; }
-    .video-placeholder-label {
-      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
-      font-size: 0.75rem; font-style: italic;
-      color: rgba(248,248,247,0.5); white-space: nowrap;
-    }
-
-    /* ── SECTIONS ── */
-    .sec { padding: 56px 4%; }
-    .sec-inner { max-width: 1200px; margin: 0 auto; }
-
-    /* section title — same size across all sections */
-    .sec-title {
-      font-family: 'Georgia', serif;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      color: var(--claret);
-      margin-bottom: 1.25rem;
-      white-space: nowrap;
-    }
-
-    /* ── LISTINGS ── */
-    .listings-wrap { background: var(--white); }
-    .portrait-row { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.75rem; scroll-snap-type: x mandatory; }
-    .portrait-row::-webkit-scrollbar { height: 4px; }
-    .portrait-row::-webkit-scrollbar-track { background: #f0ece8; border-radius: 2px; }
-    .portrait-row::-webkit-scrollbar-thumb { background: var(--travertine); border-radius: 2px; }
-    .p-card { min-width: 175px; flex-shrink: 0; scroll-snap-align: start; background: var(--linen); border-radius: 14px; overflow: hidden; border: 1px solid #e8e2dc; transition: transform 0.25s, box-shadow 0.25s; }
-    .p-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(63,48,39,0.12); }
-    .p-img { aspect-ratio: 6/5; background: linear-gradient(160deg, #d9d0c7, #b8a99a); overflow: hidden; position: relative; }
-    .p-img img { width: 100%; height: 100%; object-fit: cover; }
-    .p-badge { position: absolute; top: 10px; left: 10px; background: var(--claret); color: var(--linen); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 50px; }
-    .p-body { padding: 0.8rem 0.9rem 0.9rem; }
-    .p-price { font-family: 'Georgia', serif; font-size: 1rem; color: var(--claret); margin-bottom: 3px; }
-    .p-name { font-weight: 600; font-size: 0.8rem; color: var(--espresso); margin-bottom: 3px; }
-    .p-loc { font-size: 0.7rem; color: var(--travertine); margin-bottom: 0.6rem; }
-    .p-btn { display: block; width: 100%; background: var(--espresso); color: var(--linen); text-align: center; padding: 7px; border-radius: 50px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; box-shadow: 0 2px 8px rgba(63,48,39,0.2); transition: background 0.2s; }
-    .p-btn:hover { background: #2a1f17; }
-    .listings-sub { margin-top: 1.1rem; font-size: 0.88rem; color: var(--espresso); }
-
-    /* ── OUR PROMISE — single line title, compact text ── */
-    .promise-wrap { background: var(--linen); }
-    .promise-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--travertine); margin-bottom: 0.75rem; display: block; }
-    .promise-big {
-      font-family: 'Georgia', serif;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      color: var(--espresso);
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      white-space: nowrap;
-    }
-    .promise-sub { font-size: 0.92rem; color: var(--espresso); max-width: 460px; margin-bottom: 2rem; line-height: 1.75; }
-    .promise-boxes { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .pr-box { flex: 1; min-width: 140px; aspect-ratio: 1/1; background: var(--espresso); border-radius: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(63,48,39,0.18); }
-    .pr-box:hover { transform: scale(1.03); box-shadow: 0 10px 28px rgba(63,48,39,0.22); }
-    .pr-play { width: 52px; height: 52px; background: var(--linen); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--claret); font-size: 1.3rem; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
-
-    /* video popup horizontal */
-    .vid-popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 999; align-items: center; justify-content: center; }
-    .vid-popup.open { display: flex; }
-    .vid-inner { position: relative; width: 90vw; max-width: 820px; aspect-ratio: 16/9; background: #000; border-radius: 14px; overflow: hidden; }
-    .vid-close { position: absolute; top: 10px; right: 10px; background: var(--claret); color: white; border: none; width: 34px; height: 34px; border-radius: 50%; font-size: 1rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
-    .vid-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1a1209; color: var(--travertine); font-style: italic; font-size: 0.9rem; }
-
-    /* ── FOLLOW US — center aligned ── */
-    .social-wrap { background: var(--white); }
-    .social-center { text-align: center; }
-    .social-center .sec-title { white-space: nowrap; display: inline-block; }
-    .social-sub { font-size: 0.9rem; color: var(--travertine); margin-bottom: 1.75rem; line-height: 1.7; }
-    .social-row { display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center; }
-    .soc-box { width: 220px; aspect-ratio: 1/1; border-radius: 14px; background: var(--espresso); display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(63,48,39,0.16); }
-    .soc-box:hover { transform: scale(1.04); box-shadow: 0 10px 28px rgba(63,48,39,0.2); }
-    .soc-name { font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--linen); }
-
-    /* ── OUR PEOPLE — center aligned ── */
-    .team-wrap { background: var(--linen); }
-    .team-center { text-align: center; }
-    .team-center .sec-title { display: inline-block; }
-    .team-row { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.75rem; scroll-snap-type: x mandatory; justify-content: center; flex-wrap: wrap; }
-    .t-card { width: 175px; flex-shrink: 0; scroll-snap-align: start; text-align: center; }
-    .t-sq { aspect-ratio: 1/1; background: linear-gradient(160deg, #e8e2dc, #c4b8ac); border-radius: 14px; overflow: hidden; margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: center; color: var(--travertine); font-size: 2rem; }
-    .t-sq img { width: 100%; height: 100%; object-fit: cover; }
-    .t-name { font-family: 'Georgia', serif; font-size: 0.92rem; color: var(--claret); margin-bottom: 2px; }
-    .t-role { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--travertine); }
-
-    /* ── FOOTER — RED ── */
-    footer { background: var(--claret); color: var(--linen); padding: 48px 4% 24px; }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2.5rem; max-width: 1200px; margin: 0 auto 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(248,248,247,0.15); }
-    .f-brand { font-family: 'Georgia', serif; font-size: 1.5rem; color: var(--linen); margin-bottom: 4px; }
-    .f-tag { font-size: 0.85rem; color: rgba(248,248,247,0.65); font-style: italic; margin-bottom: 1rem; }
-    .f-desc { font-size: 0.82rem; color: rgba(248,248,247,0.5); max-width: 260px; }
-    .f-col h4 { color: rgba(248,248,247,0.5); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.85rem; font-family: 'Urbanist', sans-serif; font-weight: 600; }
-    .f-col ul { list-style: none; }
-    .f-col ul li { margin-bottom: 0.5rem; }
-    .f-col ul a { color: rgba(248,248,247,0.7); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-    .f-col ul a:hover { color: var(--linen); }
-    .footer-bot { display: flex; justify-content: space-between; font-size: 0.75rem; color: rgba(248,248,247,0.35); max-width: 1200px; margin: 0 auto; }
-
-    /* ── SCROLL FADE ── */
-    .fade-text { color: var(--travertine); transition: color 0.65s ease; }
-    .fade-text.visible { color: var(--espresso); }
-
-    /* ── FLOAT ── */
-    .float-cta { position: fixed; bottom: 22px; right: 22px; z-index: 99; display: flex; flex-direction: column; gap: 9px; align-items: flex-end; }
-    .float-btn { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-radius: 50px; text-decoration: none; font-size: 0.82rem; font-weight: 600; box-shadow: 0 4px 18px rgba(0,0,0,0.18); transition: transform 0.2s; }
-    .float-btn:hover { transform: translateY(-2px); }
-    .float-wa { background: #25D366; color: white; }
-    .float-call { background: var(--claret); color: white; }
-
-    @media (max-width: 768px) {
-      nav { grid-template-columns: 0 1fr auto; }
-      .nav-left { display: none; }
-      .nav-center { text-align: left; }
-      .hero { padding-top: 64px; }
-      .hero-top { padding: 2.5rem 4% 1.5rem; }
-      .hero-headline h1 { font-size: clamp(2rem, 8vw, 3rem); }
-      .hero-video-box { aspect-ratio: 16/9; border-radius: 12px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .footer-bot { flex-direction: column; gap: 0.4rem; text-align: center; }
-      .promise-big { white-space: normal; }
-      .sec-title { white-space: normal; }
-      .team-row { justify-content: flex-start; flex-wrap: nowrap; }
-    }
-  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
-    <div style="display:flex;gap:1.5rem;align-items:center;">
+    <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;" aria-label="Menu">
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+    </button>
+    <div id="desktopLinks" style="display:flex;gap:1.5rem;align-items:center;">
       <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Listings</a>
       <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
       <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
     </div>
     <a href="index.html" style="font-family:Georgia,serif;font-size:1.4rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
-    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 18px;border-radius:50px;text-decoration:none;">Contact Us</a>
+    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 18px;border-radius:50px;text-decoration:none;white-space:nowrap;">Contact Us</a>
   </nav>
 
+  <!-- MOBILE DRAWER -->
+  <div id="mobileDrawer" style="display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(63,48,39,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+    <a href="index.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Home</a>
+    <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Listings</a>
+    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(248,248,247,0.06);display:block;color:rgba(248,248,247,0.55);">↳ Sreyan by Elegans VRG</a>
+    <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Services</a>
+    <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">About Us</a>
+    <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#960018;color:#f8f8f7;padding:14px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
+  </div>
+  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}}</style>
+
   <!-- HERO -->
-  <section style="background:#f8f8f7;width:100%;height:100vh;min-height:600px;box-sizing:border-box;padding-top:64px;display:flex;flex-direction:column;">
-    <div style="flex:1;display:flex;flex-direction:column;padding:2rem 4% 2rem;min-height:0;box-sizing:border-box;">
-
-      <!-- TEXT -->
-      <div style="flex-shrink:0;margin-bottom:1.25rem;">
-        <h1 style="color:#960018;font-family:Georgia,serif;font-size:clamp(1.6rem,2.8vw,3rem);line-height:1.08;margin:0 0 0.6rem 0;text-align:left;">Not a broker —<br><em style="color:#3f3027;font-style:italic;">an ally.</em></h1>
-        <p style="color:#3f3027;font-size:clamp(0.82rem,1.1vw,0.95rem);line-height:1.7;margin:0;text-align:left;max-width:520px;">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
-      </div>
-
-      <!-- VIDEO — fills remaining height, locked 16:9 max -->
-      <div style="flex:1;min-height:0;display:flex;align-items:flex-start;">
-        <div id="heroVideoBox" style="width:100%;max-height:100%;aspect-ratio:16/9;background:linear-gradient(145deg,#c4b8ac,#a09080,#8a7a6a);border-radius:16px;overflow:hidden;position:relative;box-shadow:0 8px 40px rgba(63,48,39,0.14);cursor:pointer;">
-          <video id="heroVideo" muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;">
-            <!-- <source src="your-video.mp4" type="video/mp4"> -->
-          </video>
-          <div id="heroPlayOverlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(63,48,39,0.05);">
-            <div style="width:68px;height:68px;background:rgba(248,248,247,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(63,48,39,0.25);">
-              <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#960018;margin-left:4px;"><path d="M8 5v14l11-7z"/></svg>
-            </div>
+  <section style="background:#f8f8f7;width:100%;padding-top:64px;box-sizing:border-box;">
+    <div style="padding:2rem 4% 1.25rem;">
+      <h1 style="color:#960018;font-family:Georgia,serif;font-size:clamp(1.8rem,2.8vw,3rem);line-height:1.08;margin:0 0 0.6rem;text-align:left;">Not a broker —<br><em style="color:#3f3027;font-style:italic;">an ally.</em></h1>
+      <p style="color:#3f3027;font-size:0.95rem;line-height:1.7;margin:0;max-width:520px;">We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
+    </div>
+    <div style="padding:0 4% 2.5rem;box-sizing:border-box;">
+      <div id="heroVideoBox" style="width:100%;aspect-ratio:16/9;background:linear-gradient(145deg,#c4b8ac,#a09080,#8a7a6a);border-radius:16px;overflow:hidden;position:relative;box-shadow:0 8px 40px rgba(63,48,39,0.14);cursor:pointer;">
+        <video id="heroVideo" muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(63,48,39,0.05);">
+          <div style="width:68px;height:68px;background:rgba(248,248,247,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(63,48,39,0.25);">
+            <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#960018;margin-left:4px;"><path d="M8 5v14l11-7z"/></svg>
           </div>
-          <span style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:0.72rem;font-style:italic;color:rgba(248,248,247,0.5);white-space:nowrap;font-family:Urbanist,sans-serif;">Your cinematic property video here</span>
         </div>
+        <span style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:0.72rem;font-style:italic;color:rgba(248,248,247,0.5);white-space:nowrap;">Your cinematic property video here</span>
       </div>
-
     </div>
   </section>
 
   <!-- OUR LISTINGS -->
-  <div class="sec listings-wrap">
+  <div class="sec listings-wrap" style="background:#fff;">
     <div class="sec-inner">
-
-      <!-- Section label -->
       <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#96816e;display:block;margin-bottom:0.6rem;">Properties</span>
-      <h2 class="sec-title fade-text" style="margin-bottom:3rem;">Our Listings</h2>
-
+      <h2 class="sec-title fade-text" style="margin-bottom:2.5rem;">Our Listings</h2>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
-
-        <!-- LEFT: Property card -->
+        <!-- LEFT: Card -->
         <div>
           <div style="background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 2px 8px rgba(63,48,39,0.06),0 12px 40px rgba(63,48,39,0.1);">
-
-            <!-- Image -->
             <div style="position:relative;aspect-ratio:3/2;overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Sreyan by Elegans VRG" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;" />
-              <!-- Gradient overlay -->
-              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(63,48,39,0.5) 0%,transparent 50%);"></div>
-              <!-- Badges -->
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Sreyan" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(63,48,39,0.5),transparent 50%);"></div>
               <span style="position:absolute;top:16px;left:16px;background:#960018;color:#f8f8f7;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 14px;border-radius:50px;">For Sale</span>
               <span style="position:absolute;top:16px;right:16px;background:rgba(248,248,247,0.15);color:#f8f8f7;font-size:0.6rem;font-weight:600;letter-spacing:0.08em;padding:5px 12px;border-radius:50px;backdrop-filter:blur(8px);border:1px solid rgba(248,248,247,0.25);">RERA · HMDA</span>
-              <!-- Price on image -->
               <div style="position:absolute;bottom:16px;left:16px;">
                 <div style="font-family:Georgia,serif;font-size:1.6rem;color:#f8f8f7;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,0.3);">₹5.5 Cr*</div>
-                <div style="font-size:0.72rem;color:rgba(248,248,247,0.75);letter-spacing:0.06em;">onwards</div>
+                <div style="font-size:0.72rem;color:rgba(248,248,247,0.75);">onwards</div>
               </div>
             </div>
-
-            <!-- Card body -->
             <div style="padding:1.5rem 1.75rem 1.75rem;">
-
-              <!-- Name + location -->
-              <div style="margin-bottom:1rem;">
-                <div style="font-weight:700;font-size:1.1rem;color:#3f3027;margin-bottom:5px;font-family:Georgia,serif;">Sreyan by Elegans VRG</div>
-                <div style="font-size:0.78rem;color:#96816e;display:flex;align-items:center;gap:5px;">
-                  <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#96816e;flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  Gundlapochampalli, Medchal, Hyderabad
-                </div>
-              </div>
-
-              <!-- Divider -->
-              <div style="height:1px;background:linear-gradient(to right,#e8e2dc,transparent);margin-bottom:1rem;"></div>
-
-              <!-- Spec chips -->
+              <div style="font-weight:700;font-size:1.1rem;color:#3f3027;margin-bottom:5px;font-family:Georgia,serif;">Sreyan by Elegans VRG</div>
+              <div style="font-size:0.78rem;color:#96816e;margin-bottom:1rem;">📍 Gundlapochampalli, Medchal, Hyderabad</div>
               <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;">
                 <span style="background:#f8f8f7;border:1px solid #e8e2dc;border-radius:50px;padding:4px 12px;font-size:0.7rem;color:#3f3027;font-weight:500;">4,500+ sft Triplex</span>
                 <span style="background:#f8f8f7;border:1px solid #e8e2dc;border-radius:50px;padding:4px 12px;font-size:0.7rem;color:#3f3027;font-weight:500;">G+2 Villa</span>
@@ -322,81 +86,28 @@
                 <span style="background:#f8f8f7;border:1px solid #e8e2dc;border-radius:50px;padding:4px 12px;font-size:0.7rem;color:#3f3027;font-weight:500;">9-acre community</span>
                 <span style="background:#fff0f2;border:1px solid #f5c6cc;border-radius:50px;padding:4px 12px;font-size:0.7rem;color:#960018;font-weight:600;">₹12,000/sft*</span>
               </div>
-
-              <!-- 3 Buttons -->
               <div style="display:grid;grid-template-columns:1.2fr 1fr 0.8fr;gap:8px;">
-                <a href="contact.html" style="background:#3f3027;color:#f8f8f7;text-align:center;padding:11px 8px;border-radius:50px;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(63,48,39,0.25);">Enquire</a>
+                <a href="contact.html" style="background:#3f3027;color:#f8f8f7;text-align:center;padding:11px 8px;border-radius:50px;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Enquire</a>
                 <a href="Sreyan_Handoff_Brief_v2.pdf" download style="background:#f8f8f7;color:#3f3027;text-align:center;padding:11px 8px;border-radius:50px;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid #d9d0c7;">⬇ Brochure</a>
                 <a href="sreyan.html" style="background:#f8f8f7;color:#960018;text-align:center;padding:11px 8px;border-radius:50px;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid #960018;">More →</a>
               </div>
-
-              <p style="font-size:0.65rem;color:#b8a99a;margin-top:0.85rem;margin-bottom:0;line-height:1.5;">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
+              <p style="font-size:0.65rem;color:#b8a99a;margin-top:0.85rem;margin-bottom:0;">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
             </div>
           </div>
         </div>
-
-        <!-- RIGHT: How we choose -->
+        <!-- RIGHT: How We Choose -->
         <div>
           <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#96816e;display:block;margin-bottom:1.1rem;">How We Choose</span>
           <h3 style="font-family:Georgia,serif;font-size:clamp(1.6rem,2.8vw,2.4rem);color:#960018;line-height:1.18;margin:0 0 1.25rem;">We don't list every project.<br>We list the right ones.</h3>
-          <p style="font-size:0.95rem;color:#3f3027;line-height:1.82;margin-bottom:2.25rem;max-width:420px;">Every project on Re-Ally goes through our own checklist before we show it to a single client. If it doesn't pass, it doesn't go up — no matter who's behind it.</p>
-
-          <!-- Checklist -->
+          <p style="font-size:0.95rem;color:#3f3027;line-height:1.82;margin-bottom:2.25rem;max-width:420px;">Every project on Re-Ally goes through our own checklist before we show it to a single client. If it doesn't pass, it doesn't go up.</p>
           <div style="display:flex;flex-direction:column;gap:0;">
-
-            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;">
-              <div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">RERA registered</div>
-                <div style="font-size:0.8rem;color:#96816e;">Legally compliant — no shortcuts</div>
-              </div>
-            </div>
-
-            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;">
-              <div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">HMDA or equivalent approval</div>
-                <div style="font-size:0.8rem;color:#96816e;">Government clearance confirmed</div>
-              </div>
-            </div>
-
-            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;">
-              <div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">Transparent pricing</div>
-                <div style="font-size:0.8rem;color:#96816e;">What you see is what you pay</div>
-              </div>
-            </div>
-
-            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;">
-              <div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">Credible developer track record</div>
-                <div style="font-size:0.8rem;color:#96816e;">We verify before we vouch</div>
-              </div>
-            </div>
-
-            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;">
-              <div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
-                <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              </div>
-              <div>
-                <div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">Fits real buyer needs</div>
-                <div style="font-size:0.8rem;color:#96816e;">Location, size and value that actually make sense</div>
-              </div>
-            </div>
-
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;"><div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">RERA registered</div><div style="font-size:0.8rem;color:#96816e;">Legally compliant — no shortcuts</div></div></div>
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;"><div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">HMDA or equivalent approval</div><div style="font-size:0.8rem;color:#96816e;">Government clearance confirmed</div></div></div>
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;"><div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">Transparent pricing</div><div style="font-size:0.8rem;color:#96816e;">What you see is what you pay</div></div></div>
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;border-bottom:1px solid #f0ece8;"><div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">Credible developer</div><div style="font-size:0.8rem;color:#96816e;">We verify before we vouch</div></div></div>
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:1rem 0;"><div style="width:24px;height:24px;background:#960018;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:#f8f8f7;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div style="font-weight:600;font-size:0.92rem;color:#3f3027;margin-bottom:2px;">Fits real buyer needs</div><div style="font-size:0.8rem;color:#96816e;">Location, size and value that make sense</div></div></div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -404,83 +115,45 @@
   <!-- OUR PROMISE -->
   <div class="sec promise-wrap">
     <div class="sec-inner">
-
-      <!-- Centered headline -->
       <div style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
         <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#96816e;display:block;margin-bottom:1rem;">Our Promise</span>
         <h2 style="font-family:Georgia,serif;font-size:clamp(1.8rem,3.5vw,3rem);color:#960018;line-height:1.2;margin:0;">Trust. Fit. Time.<br><span style="color:#3f3027;font-style:italic;">Your real estate ally.</span></h2>
       </div>
-
-      <!-- 3 Promise Cards -->
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
-
-        <!-- Card 1 -->
-        <div style="background:#ffffff;border-radius:16px;padding:2rem;border:1px solid #e8e2dc;display:flex;flex-direction:column;">
-          <div style="width:52px;height:52px;border:1.5px solid #e8e2dc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#3f3027;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-            </svg>
-          </div>
-          <h3 style="font-family:Georgia,serif;font-size:1.15rem;color:#3f3027;margin:0 0 0.75rem;font-weight:400;">Guidance Before Transactions</h3>
-          <p style="font-size:0.88rem;color:#96816e;line-height:1.8;margin:0 0 1.5rem;flex:1;">We talk to you before we show you anything. Understanding your situation comes first — not finding a deal.</p>
+        <div style="background:#fff;border-radius:16px;padding:2rem;border:1px solid #e8e2dc;display:flex;flex-direction:column;">
+          <div style="width:52px;height:52px;border:1.5px solid #e8e2dc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#3f3027;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h3 style="font-family:Georgia,serif;font-size:1.05rem;color:#3f3027;margin:0 0 0.75rem;font-weight:400;">Guidance Before Transactions</h3>
+          <p style="font-size:0.88rem;color:#96816e;line-height:1.8;margin:0;flex:1;">We talk to you before we show you anything. Understanding your situation comes first.</p>
         </div>
-
-        <!-- Card 2 -->
-        <div style="background:#ffffff;border-radius:16px;padding:2rem;border:1px solid #e8e2dc;display:flex;flex-direction:column;">
-          <div style="width:52px;height:52px;border:1.5px solid #e8e2dc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#3f3027;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;">
-              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-            </svg>
-          </div>
-          <h3 style="font-family:Georgia,serif;font-size:1.15rem;color:#3f3027;margin:0 0 0.75rem;font-weight:400;">Trust Before Urgency</h3>
-          <p style="font-size:0.88rem;color:#96816e;line-height:1.8;margin:0 0 1.5rem;flex:1;">We never create fake deadlines or pressure. If a property doesn't feel right, we say so — even if it means losing the deal.</p>
+        <div style="background:#fff;border-radius:16px;padding:2rem;border:1px solid #e8e2dc;display:flex;flex-direction:column;">
+          <div style="width:52px;height:52px;border:1.5px solid #e8e2dc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#3f3027;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <h3 style="font-family:Georgia,serif;font-size:1.05rem;color:#3f3027;margin:0 0 0.75rem;font-weight:400;">Trust Before Urgency</h3>
+          <p style="font-size:0.88rem;color:#96816e;line-height:1.8;margin:0;flex:1;">We never create fake deadlines. If it doesn't feel right, we say so — even if it costs us the deal.</p>
         </div>
-
-        <!-- Card 3 -->
-        <div style="background:#ffffff;border-radius:16px;padding:2rem;border:1px solid #e8e2dc;display:flex;flex-direction:column;">
-          <div style="width:52px;height:52px;border:1.5px solid #e8e2dc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-            <svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#3f3027;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-          </div>
-          <h3 style="font-family:Georgia,serif;font-size:1.15rem;color:#3f3027;margin:0 0 0.75rem;font-weight:400;">Fit Before Sales</h3>
-          <p style="font-size:0.88rem;color:#96816e;line-height:1.8;margin:0 0 1.5rem;flex:1;">The right property for you is different from the right commission for us. We only recommend what truly works for you.</p>
+        <div style="background:#fff;border-radius:16px;padding:2rem;border:1px solid #e8e2dc;display:flex;flex-direction:column;">
+          <div style="width:52px;height:52px;border:1.5px solid #e8e2dc;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;"><svg viewBox="0 0 24 24" style="width:22px;height:22px;fill:none;stroke:#3f3027;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3 style="font-family:Georgia,serif;font-size:1.05rem;color:#3f3027;margin:0 0 0.75rem;font-weight:400;">Fit Before Sales</h3>
+          <p style="font-size:0.88rem;color:#96816e;line-height:1.8;margin:0;flex:1;">The right property for you is different from the right commission for us. Your needs come first.</p>
         </div>
-
       </div>
     </div>
   </div>
 
-  <div class="vid-popup" id="v1"><div class="vid-inner"><button class="vid-close" onclick="closeVid('v1')">✕</button><div class="vid-ph">Video 1</div></div></div>
-  <div class="vid-popup" id="v2"><div class="vid-inner"><button class="vid-close" onclick="closeVid('v2')">✕</button><div class="vid-ph">Video 2</div></div></div>
-  <div class="vid-popup" id="v3"><div class="vid-inner"><button class="vid-close" onclick="closeVid('v3')">✕</button><div class="vid-ph">Video 3</div></div></div>
-
   <!-- JOIN OUR JOURNEY -->
-  <div class="sec social-wrap" style="padding:40px 4%;">
+  <div class="sec social-wrap" style="padding:40px 4%;background:#fff;">
     <div class="sec-inner">
       <div class="social-center">
         <h2 class="sec-title fade-text">Join Our Journey</h2>
-        <p class="social-sub" style="margin-bottom:1.75rem;">We're just getting started. Follow along as we build Re-Ally — one honest deal at a time.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;align-items:center;">
-
-          <!-- Facebook button -->
-          <a href="https://www.facebook.com/profile.php?id=61590922065817" target="_blank"
-            style="display:flex;align-items:center;gap:10px;background:#1877F2;color:#fff;padding:11px 22px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:0.04em;box-shadow:0 2px 12px rgba(24,119,242,0.3);transition:transform 0.2s;">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0;">
-              <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-            </svg>
+        <p class="social-sub">We're just getting started. Follow along as we build Re-Ally — one honest deal at a time.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap;">
+          <a href="https://www.facebook.com/profile.php?id=61590922065817" target="_blank" style="display:flex;align-items:center;gap:10px;background:#1877F2;color:#fff;padding:11px 22px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600;box-shadow:0 2px 12px rgba(24,119,242,0.3);">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0;"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
             Facebook
           </a>
-
-          <!-- Instagram button -->
-          <a href="https://www.instagram.com/re_ally.in" target="_blank"
-            style="display:flex;align-items:center;gap:10px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:11px 22px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:0.04em;box-shadow:0 2px 12px rgba(220,39,67,0.3);transition:transform 0.2s;">
-            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0;">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
+          <a href="https://www.instagram.com/re_ally.in" target="_blank" style="display:flex;align-items:center;gap:10px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:11px 22px;border-radius:50px;text-decoration:none;font-size:0.85rem;font-weight:600;box-shadow:0 2px 12px rgba(220,39,67,0.3);">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             Instagram
           </a>
-
         </div>
       </div>
     </div>
@@ -490,50 +163,32 @@
   <div class="sec team-wrap">
     <div class="sec-inner">
       <div class="team-center">
-
-        <!-- Centered heading -->
         <div style="text-align:center;max-width:560px;margin:0 auto 3rem;">
           <h2 class="sec-title fade-text" style="display:block;margin-bottom:0.75rem;">The People Behind Re-Ally</h2>
-          <p style="font-size:0.95rem;color:#96816e;line-height:1.8;margin:0;">A small, focused team built on trust — guiding real estate decisions across Hyderabad with honesty and care.</p>
+          <p style="font-size:0.95rem;color:#96816e;line-height:1.8;margin:0;">A small, focused team built on trust — guiding real estate decisions across Hyderabad.</p>
         </div>
-
-        <!-- 3 Team Members -->
         <div style="display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;">
-
-          <!-- Shrikar -->
           <div style="text-align:center;width:180px;">
-            <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1rem;border:3px solid #f0ece8;">
-              <!-- Replace src with real photo later -->
-              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#96816e;font-size:3rem;">👤</div>
-            </div>
+            <div style="width:160px;height:160px;border-radius:50%;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1rem;border:3px solid #f0ece8;display:flex;align-items:center;justify-content:center;font-size:3rem;">👤</div>
             <div style="font-family:Georgia,serif;font-size:1.05rem;color:#960018;margin-bottom:4px;">Shrikar</div>
             <div style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#96816e;">Founder</div>
           </div>
-
-          <!-- Sajath -->
           <div style="text-align:center;width:180px;">
-            <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1rem;border:3px solid #f0ece8;">
-              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#96816e;font-size:3rem;">👤</div>
-            </div>
+            <div style="width:160px;height:160px;border-radius:50%;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1rem;border:3px solid #f0ece8;display:flex;align-items:center;justify-content:center;font-size:3rem;">👤</div>
             <div style="font-family:Georgia,serif;font-size:1.05rem;color:#960018;margin-bottom:4px;">Sajath</div>
             <div style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#96816e;">Co-Founder</div>
           </div>
-
-          <!-- Anas -->
           <div style="text-align:center;width:180px;">
-            <div style="width:160px;height:160px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1rem;border:3px solid #f0ece8;">
-              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#96816e;font-size:3rem;">👤</div>
-            </div>
+            <div style="width:160px;height:160px;border-radius:50%;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1rem;border:3px solid #f0ece8;display:flex;align-items:center;justify-content:center;font-size:3rem;">👤</div>
             <div style="font-family:Georgia,serif;font-size:1.05rem;color:#960018;margin-bottom:4px;">Anas</div>
             <div style="font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:#96816e;">Social Media</div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER — RED -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div>
@@ -566,41 +221,19 @@
     </div>
   </footer>
 
-  <!-- FLOATING -->
+  <!-- FLOAT -->
   <div class="float-cta">
     <a href="https://wa.me/919381367140?text=Hi%2C%20I'm%20interested%20in%20a%20property." class="float-btn float-wa" target="_blank">💬 WhatsApp</a>
     <a href="tel:+919381367140" class="float-btn float-call">📞 Call Now</a>
   </div>
 
   <script>
-    // Hero video — autoplay muted, click to unmute/pause
-    const heroVideo = document.getElementById('heroVideo');
-    const heroOverlay = document.getElementById('heroPlayOverlay');
-    if (heroVideo && heroVideo.querySelector('source')) {
-      heroVideo.play().catch(() => {});
-      heroOverlay.style.opacity = '0';
-      heroOverlay.style.pointerEvents = 'none';
-    }
-    document.getElementById('heroVideoBox')?.addEventListener('click', () => {
-      if (heroVideo.paused) {
-        heroVideo.play();
-        heroOverlay.style.opacity = '0';
-        heroOverlay.style.pointerEvents = 'none';
-      } else {
-        heroVideo.muted = !heroVideo.muted;
-      }
-    });
-
-    const fadeEls = document.querySelectorAll('.fade-text');
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.2 });
-    fadeEls.forEach(el => io.observe(el));
-
-    function openVid(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
-    function closeVid(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
-    document.querySelectorAll('.vid-popup').forEach(p => {
-      p.addEventListener('click', e => { if (e.target === p) closeVid(p.id); });
+    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
+    document.addEventListener('DOMContentLoaded',function(){
+      document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});
+      var fadeEls=document.querySelectorAll('.fade-text');
+      var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.2});
+      fadeEls.forEach(function(el){io.observe(el);});
     });
   </script>
 </body>
