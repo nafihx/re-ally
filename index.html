@@ -39,24 +39,21 @@
     .nav-right a { background: var(--linen); color: var(--claret); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 20px; border-radius: 50px; text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,0.15); transition: background 0.2s, transform 0.2s; }
     .nav-right a:hover { background: #ece9e4; transform: translateY(-1px); }
 
-    /* ── HERO — Armonia-style editorial ── */
+    /* ── HERO ── */
     .hero {
       background: var(--linen);
-      padding: 80px 4% 60px;
+      padding-top: 64px;
     }
     .hero-inner {
-      max-width: 100%;
-      margin: 0;
+      width: 100%;
     }
 
-    /* HERO TEXT — stacked, left aligned */
+    /* TEXT BLOCK */
     .hero-top {
-      display: block;
-      padding-bottom: 2.5rem;
-      max-width: 680px;
+      padding: 3.5rem 4% 2rem;
+      max-width: none;
       margin-left: 0;
     }
-
     .hero-eyebrow { display: none; }
     .hero-headline h1 {
       color: var(--claret);
@@ -65,10 +62,8 @@
       line-height: 1.05;
       margin: 0 0 1rem 0;
       text-align: left;
-      letter-spacing: -0.01em;
     }
     .hero-headline h1 em { color: var(--espresso); font-style: italic; }
-
     .hero-copy { display: block; }
     .hero-copy p {
       color: var(--espresso);
@@ -76,18 +71,22 @@
       line-height: 1.78;
       margin: 0;
       text-align: left;
-      max-width: 520px;
+      max-width: 560px;
     }
     .hero-cta { display: none; }
 
-    /* VIDEO — all 4 corners rounded */
-    .hero-video-wrap { width: 100%; }
+    /* VIDEO — true full width, no side margins */
+    .hero-video-wrap {
+      width: 100%;
+      padding: 0 4% 60px;
+    }
     .hero-video-box {
       width: 100%;
       aspect-ratio: 16/7;
       background: linear-gradient(145deg, #c4b8ac 0%, #a09080 50%, #8a7a6a 100%);
       border-radius: 16px;
-      overflow: hidden; position: relative;
+      overflow: hidden;
+      position: relative;
       box-shadow: 0 8px 40px rgba(63,48,39,0.14);
       cursor: pointer;
     }
@@ -99,18 +98,18 @@
     }
     .hero-video-box:hover .hero-play-overlay { background: rgba(63,48,39,0.1); }
     .hero-play-btn {
-      width: 68px; height: 68px;
-      background: rgba(248,248,247,0.9); backdrop-filter: blur(6px);
+      width: 72px; height: 72px;
+      background: rgba(248,248,247,0.92); backdrop-filter: blur(6px);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 6px 24px rgba(63,48,39,0.25);
       transition: transform 0.22s, box-shadow 0.22s;
     }
-    .hero-video-box:hover .hero-play-btn { transform: scale(1.08); box-shadow: 0 10px 32px rgba(63,48,39,0.32); }
-    .hero-play-btn svg { width: 24px; height: 24px; fill: var(--claret); margin-left: 3px; }
+    .hero-video-box:hover .hero-play-btn { transform: scale(1.08); }
+    .hero-play-btn svg { width: 26px; height: 26px; fill: var(--claret); margin-left: 4px; }
     .video-placeholder-label {
       position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
       font-size: 0.75rem; font-style: italic;
-      color: rgba(248,248,247,0.5); letter-spacing: 0.06em; white-space: nowrap;
+      color: rgba(248,248,247,0.5); white-space: nowrap;
     }
 
     /* ── SECTIONS ── */
