@@ -3,208 +3,250 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property Listings — Re-Ally Hyderabad</title>
+  <title>Listings — Re-Ally Hyderabad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    /* PAGE HERO */
     .listings-hero {
       background: var(--claret);
-      padding: 140px 5% 70px;
-      text-align: center;
+      padding: 120px 4% 60px;
     }
-    .listings-hero h1 { color: var(--linen); margin-bottom: 0.75rem; }
-    .listings-hero p { color: var(--travertine); max-width: 480px; margin: 0 auto; }
+    .listings-hero span { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.5);display:block;margin-bottom:0.75rem; }
+    .listings-hero h1 { font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--linen);margin:0 0 0.5rem; }
+    .listings-hero p { color:rgba(248,248,247,0.65);font-size:1rem;max-width:480px; }
 
-    .filter-bar {
+    /* HORIZONTAL CARD */
+    .property-h-card {
       background: var(--white);
-      padding: 1.5rem 5%;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-      border-bottom: 1px solid #ede8e2;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(63,48,39,0.06), 0 12px 40px rgba(63,48,39,0.1);
+      margin-bottom: 2rem;
     }
-    .filter-bar select {
-      padding: 9px 14px;
-      border: 1px solid #ddd6ce;
-      border-radius: 2px;
-      font-family: 'Urbanist', sans-serif;
-      font-size: 0.875rem;
-      color: var(--text-dark);
-      background: var(--white);
-      cursor: pointer;
-      outline: none;
+
+    /* 3-photo gallery */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 280px;
+      gap: 3px;
     }
-    .filter-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--travertine);
+    .photo-gallery .main-photo { grid-row: 1; position:relative; overflow:hidden; }
+    .photo-gallery .side-photo { position:relative; overflow:hidden; }
+    .photo-gallery img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s; }
+    .photo-gallery img:hover { transform:scale(1.04); }
+    .photo-badge {
+      position:absolute;top:14px;left:14px;
+      background:var(--claret);color:var(--linen);
+      font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+      padding:5px 14px;border-radius:50px;
+    }
+    .rera-badge {
+      position:absolute;top:14px;right:14px;
+      background:rgba(63,48,39,0.75);color:var(--linen);
+      font-size:0.6rem;font-weight:600;padding:5px 12px;border-radius:50px;
+      backdrop-filter:blur(6px);border:1px solid rgba(248,248,247,0.2);
+    }
+
+    /* Card body */
+    .h-card-body {
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: start;
+    }
+    .h-card-left {}
+    .h-card-price { font-family:Georgia,serif;font-size:1.7rem;color:var(--claret);margin-bottom:4px; }
+    .h-card-name { font-weight:700;font-size:1.1rem;color:var(--espresso);margin-bottom:6px;font-family:Georgia,serif; }
+    .h-card-loc { font-size:0.8rem;color:var(--travertine);display:flex;align-items:center;gap:5px;margin-bottom:1.25rem; }
+    .h-card-chips { display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem; }
+    .chip { background:#f8f8f7;border:1px solid #e8e2dc;border-radius:50px;padding:4px 12px;font-size:0.72rem;color:var(--espresso);font-weight:500; }
+    .chip-red { background:#fff0f2;border:1px solid #f5c6cc;color:var(--claret);font-weight:600; }
+    .h-card-desc { font-size:0.88rem;color:var(--travertine);line-height:1.78;max-width:560px;margin-bottom:1.5rem; }
+    .h-card-specs {
+      display:flex;gap:2rem;padding:1rem 0;
+      border-top:1px solid #f0ece8;border-bottom:1px solid #f0ece8;
+      margin-bottom:1.5rem;
+    }
+    .spec-item { text-align:center; }
+    .spec-val { font-family:Georgia,serif;font-size:1.1rem;color:var(--espresso);display:block;line-height:1; }
+    .spec-key { font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--travertine);margin-top:3px;display:block; }
+
+    /* 3 buttons */
+    .h-card-btns { display:flex;gap:10px;flex-wrap:wrap; }
+    .btn-enq { background:var(--claret);color:var(--linen);padding:12px 28px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(150,0,24,0.24); }
+    .btn-brochure { background:var(--linen);color:var(--espresso);padding:12px 24px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid #d9d0c7; }
+    .btn-more { background:var(--linen);color:var(--claret);padding:12px 24px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--claret); }
+
+    /* Right side quick info */
+    .h-card-right {
+      min-width:220px;
+      background:var(--linen);
+      border-radius:14px;
+      padding:1.5rem;
+      border:1px solid #e8e2dc;
+    }
+    .h-card-right h4 { font-family:Georgia,serif;font-size:0.95rem;color:var(--claret);margin:0 0 1rem;font-weight:400; }
+    .quick-row { display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid #f0ece8;font-size:0.8rem; }
+    .quick-row:last-child { border-bottom:none; }
+    .quick-label { color:var(--travertine); }
+    .quick-val { color:var(--espresso);font-weight:600;text-align:right; }
+    .disclaimer { font-size:0.65rem;color:#b8a99a;margin-top:0.75rem;line-height:1.5; }
+
+    /* COMING SOON section */
+    .coming-wrap { background:var(--espresso);padding:80px 4%;margin-top:3rem;border-radius:20px; }
+    .coming-inner { max-width:1100px;margin:0 auto; }
+    .coming-top { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3rem; }
+    .coming-checklist { display:flex;flex-direction:column;gap:0; }
+    .coming-item { display:flex;align-items:flex-start;gap:14px;padding:0.9rem 0;border-bottom:1px solid rgba(248,248,247,0.08); }
+    .coming-item:last-child { border-bottom:none; }
+    .coming-check { width:22px;height:22px;background:var(--claret);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px; }
+    .coming-check svg { width:11px;height:11px;fill:var(--linen); }
+
+    @media (max-width:768px) {
+      .photo-gallery { grid-template-columns:1fr;grid-template-rows:220px 140px 140px; }
+      .h-card-body { grid-template-columns:1fr; }
+      .h-card-right { min-width:auto; }
+      .coming-top { grid-template-columns:1fr; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">Re<span>-</span>Ally</a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="listings.html">Listings</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="nav-cta">Talk to Us</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-left">
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-center"><a href="index.html">Re-Ally</a></div>
+    <div class="nav-right"><a href="contact.html">Contact Us</a></div>
   </nav>
 
+  <!-- PAGE HERO -->
   <div class="listings-hero">
-    <span class="section-label" style="color: var(--travertine);">Hyderabad Properties</span>
-    <h1>Current Listings</h1>
-    <p>Every property here has been reviewed by our team. No inflated prices, no vague descriptions.</p>
+    <span>Hyderabad · Curated Properties</span>
+    <h1>Our Listings</h1>
+    <p>Every project here has passed our checklist. No inflated prices, no vague descriptions — just properties we'd recommend to our own family.</p>
   </div>
 
-  <div class="filter-bar">
-    <span class="filter-label">Filter:</span>
-    <select>
-      <option>All Types</option>
-      <option>Apartment</option>
-      <option>Villa</option>
-      <option>Plot</option>
-    </select>
-    <select>
-      <option>All Locations</option>
-      <option>Gachibowli</option>
-      <option>Kondapur</option>
-      <option>Shamshabad</option>
-      <option>Jubilee Hills</option>
-      <option>Banjara Hills</option>
-    </select>
-    <select>
-      <option>Any Budget</option>
-      <option>Under ₹50L</option>
-      <option>₹50L – ₹1Cr</option>
-      <option>₹1Cr – ₹2Cr</option>
-      <option>Above ₹2Cr</option>
-    </select>
-    <select>
-      <option>For Sale or Rent</option>
-      <option>For Sale</option>
-      <option>For Rent</option>
-    </select>
-  </div>
+  <!-- MAIN CONTENT -->
+  <section style="padding:60px 4%; background:var(--linen);">
+    <div style="max-width:1200px;margin:0 auto;">
 
-  <section class="bg-linen">
-    <div class="listings-grid">
+      <!-- HORIZONTAL CARD — Sreyan -->
+      <div class="property-h-card">
 
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&q=80" alt="3BHK Villa Gachibowli" loading="lazy" />
-          <span class="card-badge">For Sale</span>
+        <!-- 3-photo gallery -->
+        <div class="photo-gallery">
+          <div class="main-photo">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sreyan Villa Front" />
+            <span class="photo-badge">For Sale</span>
+            <span class="rera-badge">RERA · HMDA</span>
+          </div>
+          <div class="side-photo">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Sreyan Villa Pool" />
+          </div>
+          <div class="side-photo">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Sreyan Villa Interior" />
+          </div>
         </div>
-        <div class="card-body">
-          <div class="card-price">₹1.85 Cr</div>
-          <div class="card-title">3 BHK Independent Villa</div>
-          <div class="card-location">📍 Gachibowli, Hyderabad</div>
-          <div class="card-specs">
-            <span>3 Bed</span><span>3 Bath</span><span>2,100 sqft</span>
+
+        <!-- Card body -->
+        <div class="h-card-body">
+
+          <!-- LEFT -->
+          <div class="h-card-left">
+            <div class="h-card-price">₹5.5 Cr* onwards</div>
+            <div class="h-card-name">Sreyan by Elegans VRG</div>
+            <div class="h-card-loc">
+              <svg viewBox="0 0 24 24" style="width:12px;height:12px;fill:var(--travertine);flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Gundlapochampalli, Medchal, Hyderabad
+            </div>
+
+            <div class="h-card-chips">
+              <span class="chip">4,500+ sft Triplex</span>
+              <span class="chip">G+2 Villa</span>
+              <span class="chip">309 sq.yd plot</span>
+              <span class="chip">9-acre community</span>
+              <span class="chip">Under Construction</span>
+              <span class="chip chip-red">₹12,000/sft*</span>
+            </div>
+
+            <p class="h-card-desc">A premium gated community of 82 triplex villas on 9 acres in Gundlapochampalli. Built by Elegans VRG with imported marble, teak doors, Grohe fittings, and a 20,000 sft Club Sreyan. Construction-linked payment across 10 stages.</p>
+
+            <div class="h-card-specs">
+              <div class="spec-item"><span class="spec-val">82</span><span class="spec-key">Total Villas</span></div>
+              <div class="spec-item"><span class="spec-val">9 ac</span><span class="spec-key">Site Area</span></div>
+              <div class="spec-item"><span class="spec-val">309 yd²</span><span class="spec-key">Plot Size</span></div>
+              <div class="spec-item"><span class="spec-val">20k sft</span><span class="spec-key">Club House</span></div>
+              <div class="spec-item"><span class="spec-val">300m</span><span class="spec-key">From NH-44</span></div>
+            </div>
+
+            <div class="h-card-btns">
+              <a href="contact.html" class="btn-enq">Enquire Now</a>
+              <a href="Sreyan_Handoff_Brief_v2.pdf" download class="btn-brochure">⬇ Brochure</a>
+              <a href="sreyan.html" class="btn-more">Full Details →</a>
+            </div>
+            <p class="disclaimer">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
           </div>
-          <div style="margin-top:1rem;">
-            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
+
+          <!-- RIGHT: quick info -->
+          <div class="h-card-right">
+            <h4>Quick Info</h4>
+            <div class="quick-row"><span class="quick-label">Developer</span><span class="quick-val">Elegans VRG</span></div>
+            <div class="quick-row"><span class="quick-label">RERA No.</span><span class="quick-val">P02200007108</span></div>
+            <div class="quick-row"><span class="quick-label">Approval</span><span class="quick-val">HMDA · CREDAI</span></div>
+            <div class="quick-row"><span class="quick-label">Status</span><span class="quick-val">Under Construction</span></div>
+            <div class="quick-row"><span class="quick-label">Payment</span><span class="quick-val">10-stage CLP</span></div>
+            <div class="quick-row"><span class="quick-label">Possession</span><span class="quick-val">To be confirmed</span></div>
+            <div class="quick-row"><span class="quick-label">East facing</span><span class="quick-val">4,586 sft</span></div>
+            <div class="quick-row"><span class="quick-label">West facing</span><span class="quick-val">4,675 sft</span></div>
           </div>
+
         </div>
       </div>
 
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="2BHK Apartment" loading="lazy" />
-          <span class="card-badge">For Sale</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹72 L</div>
-          <div class="card-title">2 BHK Premium Apartment</div>
-          <div class="card-location">📍 Kondapur, Hyderabad</div>
-          <div class="card-specs">
-            <span>2 Bed</span><span>2 Bath</span><span>1,250 sqft</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
-          </div>
-        </div>
-      </div>
+      <!-- COMING SOON -->
+      <div class="coming-wrap">
+        <div class="coming-inner">
+          <div class="coming-top">
 
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Plot Shamshabad" loading="lazy" />
-          <span class="card-badge">Plot</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹45 L</div>
-          <div class="card-title">Residential Plot — HMDA Approved</div>
-          <div class="card-location">📍 Shamshabad, Hyderabad</div>
-          <div class="card-specs">
-            <span>200 sq yds</span><span>East Facing</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
-          </div>
-        </div>
-      </div>
+            <div>
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.4);display:block;margin-bottom:1rem;">What's Next</span>
+              <h2 style="font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.6rem);color:var(--linen);line-height:1.2;margin:0 0 1.25rem;">More projects are coming.<br><em style="color:var(--travertine);">Each one handpicked.</em></h2>
+              <p style="font-size:0.95rem;color:rgba(248,248,247,0.55);line-height:1.8;max-width:420px;margin-bottom:2rem;">We don't add projects to fill space. Every listing we bring on has to earn its place — against the same checklist, every time.</p>
+              <a href="contact.html" style="display:inline-block;background:var(--linen);color:var(--claret);padding:12px 28px;border-radius:50px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.15);">Tell Us What You're Looking For</a>
+            </div>
 
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="4BHK Villa Jubilee Hills" loading="lazy" />
-          <span class="card-badge">For Sale</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹3.2 Cr</div>
-          <div class="card-title">4 BHK Luxury Villa</div>
-          <div class="card-location">📍 Jubilee Hills, Hyderabad</div>
-          <div class="card-specs">
-            <span>4 Bed</span><span>4 Bath</span><span>3,500 sqft</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
-          </div>
-        </div>
-      </div>
+            <div class="coming-checklist">
+              <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.4);margin-bottom:1rem;">Our Project Checklist</div>
+              <div class="coming-item">
+                <div class="coming-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                <div><div style="font-weight:600;font-size:0.9rem;color:var(--linen);margin-bottom:2px;">RERA registered</div><div style="font-size:0.78rem;color:rgba(248,248,247,0.45);">Legally compliant — no shortcuts</div></div>
+              </div>
+              <div class="coming-item">
+                <div class="coming-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                <div><div style="font-weight:600;font-size:0.9rem;color:var(--linen);margin-bottom:2px;">HMDA or equivalent approval</div><div style="font-size:0.78rem;color:rgba(248,248,247,0.45);">Government clearance confirmed</div></div>
+              </div>
+              <div class="coming-item">
+                <div class="coming-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                <div><div style="font-weight:600;font-size:0.9rem;color:var(--linen);margin-bottom:2px;">Transparent pricing</div><div style="font-size:0.78rem;color:rgba(248,248,247,0.45);">What you see is what you pay</div></div>
+              </div>
+              <div class="coming-item">
+                <div class="coming-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                <div><div style="font-weight:600;font-size:0.9rem;color:var(--linen);margin-bottom:2px;">Credible developer track record</div><div style="font-size:0.78rem;color:rgba(248,248,247,0.45);">We verify before we vouch</div></div>
+              </div>
+              <div class="coming-item">
+                <div class="coming-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+                <div><div style="font-weight:600;font-size:0.9rem;color:var(--linen);margin-bottom:2px;">Fits real buyer needs</div><div style="font-size:0.78rem;color:rgba(248,248,247,0.45);">Location, size and value that make sense</div></div>
+              </div>
+            </div>
 
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="1BHK Apartment Rent" loading="lazy" />
-          <span class="card-badge" style="background:var(--travertine);">For Rent</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹22,000/mo</div>
-          <div class="card-title">2 BHK Apartment — Furnished</div>
-          <div class="card-location">📍 Banjara Hills, Hyderabad</div>
-          <div class="card-specs">
-            <span>2 Bed</span><span>2 Bath</span><span>1,100 sqft</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="property-card">
-        <div class="card-image">
-          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Plot Kompally" loading="lazy" />
-          <span class="card-badge">Plot</span>
-        </div>
-        <div class="card-body">
-          <div class="card-price">₹28 L</div>
-          <div class="card-title">Open Plot — DTCP Approved</div>
-          <div class="card-location">📍 Kompally, Hyderabad</div>
-          <div class="card-specs">
-            <span>150 sq yds</span><span>Corner Plot</span>
-          </div>
-          <div style="margin-top:1rem;">
-            <a href="contact.html" class="btn btn-primary" style="font-size:0.8rem; padding:10px 20px;">Enquire</a>
           </div>
         </div>
       </div>
@@ -212,20 +254,15 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-band" style="text-align:center; padding: 70px 5%;">
-    <h2 style="color:var(--linen); margin-bottom:1rem;">Don't see what you're looking for?</h2>
-    <p style="color:var(--travertine); max-width:420px; margin:0 auto 2rem;">Tell us your requirements. We find properties that aren't even listed publicly.</p>
-    <a href="contact.html" class="btn btn-primary">Tell Us What You Need</a>
-  </section>
-
+  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div>
-        <div class="footer-brand-name">Re<span>-</span>Ally</div>
-        <div class="footer-tagline">Your real estate ally.</div>
+        <div class="f-brand">Re-Ally</div>
+        <div class="f-tag">Your real estate ally.</div>
+        <p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Pages</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -235,7 +272,7 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-col">
+      <div class="f-col">
         <h4>Contact</h4>
         <ul>
           <li><a href="tel:+919381367140">+91 93813 67140</a></li>
@@ -244,7 +281,7 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-bot">
       <span>© 2025 Re-Ally. All rights reserved.</span>
       <span>re-ally.in</span>
     </div>
@@ -255,10 +292,5 @@
     <a href="tel:+919381367140" class="float-btn float-call">📞 Call Now</a>
   </div>
 
-  <script>
-    document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
 </body>
 </html>
