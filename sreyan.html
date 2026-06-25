@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sreyan by Elegans VRG — Re-Ally</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .detail-hero { background: var(--claret); padding: 120px 4% 60px; }
+    .detail-hero h1 { color: var(--linen); font-family: Georgia,serif; font-size: clamp(2rem,4vw,3.4rem); margin-bottom: 0.5rem; }
+    .detail-hero p { color: rgba(248,248,247,0.7); font-size: 1rem; }
+    .detail-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; padding: 60px 4%; align-items: start; }
+    .spec-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .spec-table tr { border-bottom: 1px solid #e8e2dc; }
+    .spec-table td { padding: 10px 0; font-size: 0.9rem; }
+    .spec-table td:first-child { color: var(--travertine); font-weight: 500; width: 45%; }
+    .spec-table td:last-child { color: var(--espresso); font-weight: 600; }
+    .highlight-box { background: var(--linen); border-radius: 14px; padding: 1.5rem; border: 1px solid #e8e2dc; margin-bottom: 1.5rem; }
+    .highlight-box h3 { color: var(--claret); margin-bottom: 0.5rem; font-size: 1rem; }
+    .tag { display: inline-block; background: #f0ece8; border-radius: 50px; padding: 4px 12px; font-size: 0.75rem; color: var(--espresso); margin: 3px; font-weight: 500; }
+    .amenity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 1rem; }
+    .amenity-item { font-size: 0.82rem; color: var(--espresso); display: flex; align-items: center; gap: 6px; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <a href="listings.html">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-center"><a href="index.html">Re-Ally</a></div>
+    <div class="nav-right"><a href="contact.html">Contact Us</a></div>
+  </nav>
+
+  <div class="detail-hero">
+    <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.5);display:block;margin-bottom:0.75rem;">Gundlapochampalli · Medchal · Hyderabad</span>
+    <h1>Sreyan by Elegans VRG</h1>
+    <p>4,500+ sft Triplex Villas · 9-Acre Gated Community · RERA Registered</p>
+  </div>
+
+  <div class="detail-grid">
+
+    <!-- LEFT -->
+    <div>
+      <div style="aspect-ratio:4/3;background:linear-gradient(145deg,#d9d0c7,#b8a99a);border-radius:14px;overflow:hidden;margin-bottom:1.5rem;">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sreyan Villa" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+
+      <h2 style="color:var(--claret);margin-bottom:1rem;font-size:1.3rem;">Project Overview</h2>
+      <table class="spec-table">
+        <tr><td>Developer</td><td>Elegans VRG</td></tr>
+        <tr><td>Location</td><td>Gundlapochampalli, Medchal</td></tr>
+        <tr><td>Status</td><td>Under Construction</td></tr>
+        <tr><td>Total Villas</td><td>82 (approx. 80 remaining)</td></tr>
+        <tr><td>Site Area</td><td>9 Acres</td></tr>
+        <tr><td>Villa Type</td><td>Triplex (G+2)</td></tr>
+        <tr><td>Plot Size</td><td>309 sq.yds</td></tr>
+        <tr><td>RERA No.</td><td>P02200007108</td></tr>
+        <tr><td>Approvals</td><td>HMDA · CREDAI Member</td></tr>
+        <tr><td>Payment Plan</td><td>Construction-linked (10 stages)</td></tr>
+      </table>
+
+      <h2 style="color:var(--claret);margin:2rem 0 1rem;font-size:1.3rem;">Villa Sizes</h2>
+      <table class="spec-table">
+        <tr><td>East Facing</td><td>4,582 – 4,586 sft</td></tr>
+        <tr><td>West Facing</td><td>4,623 – 4,675 sft</td></tr>
+        <tr><td>Ground Floor</td><td>~1,500 – 1,560 sft</td></tr>
+        <tr><td>First Floor</td><td>~1,720 – 1,820 sft</td></tr>
+        <tr><td>Second Floor</td><td>~1,240 – 1,409 sft</td></tr>
+      </table>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="highlight-box">
+        <h3>Pricing</h3>
+        <div style="font-family:Georgia,serif;font-size:2rem;color:var(--claret);margin:0.5rem 0;">₹5.5 Cr*</div>
+        <div style="font-size:0.85rem;color:var(--travertine);margin-bottom:1rem;">Starting price · East facing villa</div>
+        <table class="spec-table">
+          <tr><td>Quote price</td><td>₹12,000 / sft</td></tr>
+          <tr><td>Club House</td><td>+ ₹12 L</td></tr>
+          <tr><td>East premium</td><td>+ ₹10 L</td></tr>
+          <tr><td>Corner premium</td><td>+ ₹10 L (if applicable)</td></tr>
+        </table>
+        <p style="font-size:0.7rem;color:var(--travertine);margin-top:0.75rem;margin-bottom:0;">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Location</h3>
+        <table class="spec-table">
+          <tr><td>From NH-44</td><td>300 mts</td></tr>
+          <tr><td>From ORR Exit-6</td><td>3.25 km</td></tr>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Key Features</h3>
+        <div style="margin-top:0.5rem;">
+          <span class="tag">Imported marble</span>
+          <span class="tag">Teak doors</span>
+          <span class="tag">Grohe fittings</span>
+          <span class="tag">100% power backup</span>
+          <span class="tag">Solar security</span>
+          <span class="tag">STP</span>
+          <span class="tag">Rainwater harvesting</span>
+          <span class="tag">20,000 sft Club Sreyan</span>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:1.5rem;">
+        <a href="contact.html" style="background:var(--claret);color:var(--linen);text-align:center;padding:14px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 3px 14px rgba(150,0,24,0.24);">Enquire Now</a>
+        <a href="Sreyan_Handoff_Brief_v2.pdf" download style="background:var(--linen);color:var(--espresso);text-align:center;padding:14px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--espresso);">⬇ Download Brochure</a>
+        <a href="https://wa.me/919381367140?text=Hi%2C%20I'm%20interested%20in%20Sreyan%20by%20Elegans%20VRG." target="_blank" style="background:#25D366;color:white;text-align:center;padding:14px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">💬 WhatsApp Us</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="f-brand">Re-Ally</div>
+        <div class="f-tag">Your real estate ally.</div>
+      </div>
+      <div class="f-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919381367140">+91 93813 67140</a></li>
+          <li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li>
+          <li><a href="#">Hyderabad, India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2025 Re-Ally. All rights reserved.</span>
+      <span>re-ally.in</span>
+    </div>
+  </footer>
+
+  <div class="float-cta">
+    <a href="https://wa.me/919381367140" class="float-btn float-wa" target="_blank">💬 WhatsApp</a>
+    <a href="tel:+919381367140" class="float-btn float-call">📞 Call Now</a>
+  </div>
+
+</body>
+</html>
