@@ -9,201 +9,150 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .svc-hero {
-      background: var(--claret);
-      padding: 130px 4% 70px;
-    }
-    .svc-hero span { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.45);display:block;margin-bottom:0.75rem; }
-    .svc-hero h1 { font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--linen);margin:0 0 0.75rem; }
-    .svc-hero p { color:rgba(248,248,247,0.6);font-size:1rem;max-width:480px;line-height:1.8; }
-
-    /* SERVICE SECTION */
-    .svc-section {
-      padding: 60px 4%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      align-items: center;
-      min-height: auto;
-    }
-    .svc-section.reverse { direction: rtl; }
-    .svc-section.reverse > * { direction: ltr; }
-
-    .svc-text { padding-right: 5%; }
-    .svc-section.reverse .svc-text { padding-right: 0; padding-left: 5%; }
-
-    .svc-eyebrow { font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--travertine);display:block;margin-bottom:0.5rem; }
-    .svc-title { font-family:Georgia,serif;font-size:clamp(1.4rem,2.5vw,2rem);color:var(--claret);margin:0 0 0.75rem;line-height:1.15; }
-    .svc-desc { font-size:0.88rem;color:var(--espresso);line-height:1.75;margin-bottom:1.25rem; }
-
-    .svc-list { list-style:none;padding:0;margin:0 0 1.5rem;display:flex;flex-direction:column;gap:0.5rem; }
-    .svc-list li { display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--espresso); }
-    .svc-list li::before {
-      content:'✓';
-      color:var(--claret);
-      font-weight:700;
-      font-size:0.85rem;
-      flex-shrink:0;
-    }
-
-    .svc-btn {
-      display:inline-block;
-      background:var(--claret);color:var(--linen);
-      padding:11px 24px;border-radius:4px;
-      font-size:0.75rem;font-weight:700;
-      letter-spacing:0.1em;text-transform:uppercase;
-      text-decoration:none;
-      transition:background 0.2s,transform 0.2s;
-    }
-    .svc-btn:hover { background:var(--claret-dark);transform:translateY(-1px); }
-
-    /* Image side */
-    .svc-image {
-      aspect-ratio: 3/2;
-      background: linear-gradient(160deg, #d9d0c7, #b8a99a);
-      overflow: hidden;
-      position: relative;
-    }
-    .svc-image img { width:100%;height:100%;object-fit:cover;display:block; }
-
-    /* Divider */
-    .svc-divider { border:none;border-top:1px solid #e8e2dc;margin:0 4%; }
-
-    /* CTA */
-    .svc-cta { background:var(--espresso);padding:80px 4%;text-align:center; }
-    .svc-cta h2 { font-family:Georgia,serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--linen);margin:0 0 1rem;max-width:500px;margin-left:auto;margin-right:auto; }
-    .svc-cta p { color:rgba(248,248,247,0.55);max-width:400px;margin:0 auto 2rem;font-size:0.95rem;line-height:1.8; }
-
-    @media (max-width:768px) {
-      .svc-section { grid-template-columns:1fr;direction:ltr;min-height:auto; }
-      .svc-section.reverse { direction:ltr; }
-      .svc-text { padding-right:0;padding-left:0; }
-      .svc-section.reverse .svc-text { padding-left:0; }
-      .svc-image { aspect-ratio:4/3; }
+    .svc-card { display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 8px rgba(63,48,39,0.06),0 8px 32px rgba(63,48,39,0.08);margin-bottom:1.5rem; }
+    .svc-card.flip { direction:rtl; }
+    .svc-card.flip > * { direction:ltr; }
+    .svc-card-text { padding:3rem; display:flex; flex-direction:column; justify-content:center; }
+    .svc-card-img { aspect-ratio:1/1; overflow:hidden; position:relative; }
+    .svc-card-img img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s; }
+    .svc-card:hover .svc-card-img img { transform:scale(1.04); }
+    .svc-num { font-family:Georgia,serif;font-size:3.5rem;color:#e8e2dc;line-height:1;margin-bottom:0.75rem; }
+    .svc-card h2 { font-family:Georgia,serif;font-size:clamp(1.4rem,2.5vw,2rem);color:#960018;margin-bottom:1rem;line-height:1.2; }
+    .svc-card p { font-size:0.9rem;color:#3f3027;line-height:1.8;margin-bottom:1.5rem; }
+    .svc-card ul { list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.6rem; }
+    .svc-card ul li { display:flex;align-items:center;gap:10px;font-size:0.85rem;color:#3f3027; }
+    .svc-card ul li::before { content:'→';color:#960018;font-weight:700;flex-shrink:0; }
+    .svc-card-btn { display:inline-block;background:#960018;color:#f8f8f7;padding:12px 28px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(150,0,24,0.2);align-self:flex-start;transition:all 0.2s; }
+    .svc-card-btn:hover { background:#6e0011;transform:translateY(-1px); }
+    @media(max-width:768px) {
+      .svc-card { grid-template-columns:1fr!important;direction:ltr!important; }
+      .svc-card.flip { direction:ltr!important; }
+      .svc-card-text { padding:1.5rem!important; }
+      .svc-card-img { aspect-ratio:16/9!important; }
+      .svc-num { font-size:2.5rem!important; }
     }
   </style>
 </head>
 <body>
 
   <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
-    <div style="display:flex;gap:1.5rem;align-items:center;">
+    <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+    </button>
+    <div id="desktopLinks" style="display:flex;gap:1.5rem;align-items:center;">
       <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Listings</a>
       <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
       <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
     </div>
     <a href="index.html" style="font-family:Georgia,serif;font-size:1.4rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
-    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 18px;border-radius:50px;text-decoration:none;">Contact Us</a>
+    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
   </nav>
+  <div id="mobileDrawer" style="display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(63,48,39,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+    <a href="index.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Home</a>
+    <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Listings</a>
+    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(248,248,247,0.06);display:block;color:rgba(248,248,247,0.55);">↳ Sreyan by Elegans VRG</a>
+    <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Services</a>
+    <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">About Us</a>
+    <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#960018;color:#f8f8f7;padding:14px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
+  </div>
+  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}}</style>
+  <script>
+    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
+    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});});
+  </script>
 
-  <!-- HERO -->
-  <div class="svc-hero">
-    <span>What We Do</span>
-    <h1>We handle the hard part of real estate.</h1>
-    <p>Whether you're buying, selling, or marketing a property — we're with you from the first question to the final signature.</p>
+  <!-- HERO — linen not red -->
+  <div style="background:#f8f8f7;padding:100px 4% 50px;border-bottom:1px solid #e8e2dc;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#96816e;display:block;margin-bottom:0.75rem;">What We Do</span>
+      <h1 style="font-family:Georgia,serif;font-size:clamp(1.8rem,3.5vw,3rem);color:#960018;margin:0 0 1rem;">We handle the hard part<br>of real estate.</h1>
+      <p style="color:#3f3027;font-size:1rem;max-width:480px;line-height:1.75;">Whether you're buying, selling, or marketing a property — we're with you from the first question to the final signature.</p>
+    </div>
   </div>
 
-  <!-- SERVICE 01: BUYING -->
-  <section class="svc-section" style="background:var(--linen);">
-    <div class="svc-text">
-      <span class="svc-eyebrow">Service 01</span>
-      <h2 class="svc-title">Buying a Property</h2>
-      <p class="svc-desc">Finding a home or investment in Hyderabad shouldn't feel overwhelming. We make it simple — from shortlisting to final registration.</p>
-      <ul class="svc-list">
-        <li>Budget analysis and loan guidance</li>
-        <li>Shortlisting based on your real needs</li>
-        <li>Legal document verification</li>
-        <li>Price negotiation on your behalf</li>
-        <li>Registration and handover support</li>
-      </ul>
-      <a href="contact.html" class="svc-btn">I Want to Buy</a>
-    </div>
-    <div class="svc-image">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Buying a property" />
-    </div>
-  </section>
+  <!-- SERVICE CARDS -->
+  <section style="padding:60px 4%;background:#f8f8f7;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem;">
 
-  <hr class="svc-divider" />
+      <!-- Card 1: Buy -->
+      <div class="svc-card">
+        <div class="svc-card-text">
+          <div class="svc-num">01</div>
+          <h2>Buying a Property</h2>
+          <p>Finding a home or investment in Hyderabad shouldn't feel overwhelming. We make it simple — from shortlisting to final registration.</p>
+          <ul>
+            <li>Budget analysis and loan guidance</li>
+            <li>Shortlisting based on your real needs</li>
+            <li>Legal document verification</li>
+            <li>Price negotiation on your behalf</li>
+            <li>Registration and handover support</li>
+          </ul>
+          <a href="contact.html" class="svc-card-btn">I Want to Buy</a>
+        </div>
+        <div class="svc-card-img">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Buying" />
+        </div>
+      </div>
 
-  <!-- SERVICE 02: SELLING -->
-  <section class="svc-section reverse" style="background:var(--linen);">
-    <div class="svc-text">
-      <span class="svc-eyebrow">Service 02</span>
-      <h2 class="svc-title">Selling Your Property</h2>
-      <p class="svc-desc">Selling fast at the right price requires preparation, visibility, and negotiation. We handle all three so you don't leave money on the table.</p>
-      <ul class="svc-list">
-        <li>Accurate market pricing — no guesswork</li>
-        <li>Professional photography and listing</li>
-        <li>Targeted Meta ad campaigns</li>
-        <li>Buyer screening and negotiation</li>
-        <li>Full paperwork and legal support</li>
-      </ul>
-      <a href="contact.html" class="svc-btn">I Want to Sell</a>
-    </div>
-    <div class="svc-image">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Selling a property" />
-    </div>
-  </section>
+      <!-- Card 2: Sell -->
+      <div class="svc-card flip">
+        <div class="svc-card-text">
+          <div class="svc-num">02</div>
+          <h2>Selling Your Property</h2>
+          <p>Selling fast at the right price requires preparation, visibility, and negotiation. We handle all three so you don't leave money on the table.</p>
+          <ul>
+            <li>Accurate market pricing — no guesswork</li>
+            <li>Professional photography and listing</li>
+            <li>Targeted Meta ad campaigns</li>
+            <li>Buyer screening and negotiation</li>
+            <li>Full paperwork and legal support</li>
+          </ul>
+          <a href="contact.html" class="svc-card-btn">I Want to Sell</a>
+        </div>
+        <div class="svc-card-img">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Selling" />
+        </div>
+      </div>
 
-  <hr class="svc-divider" />
+      <!-- Card 3: Marketing -->
+      <div class="svc-card">
+        <div class="svc-card-text">
+          <div class="svc-num">03</div>
+          <h2>Real Estate Marketing</h2>
+          <p>We run Meta ad campaigns and produce social content specifically for real estate — designed to generate real enquiries, not just impressions.</p>
+          <ul>
+            <li>Facebook & Instagram ad campaigns</li>
+            <li>Lead generation forms and tracking</li>
+            <li>Property reels and video content</li>
+            <li>Monthly performance reports</li>
+            <li>Dedicated landing pages per campaign</li>
+          </ul>
+          <a href="contact.html" class="svc-card-btn">Get a Quote</a>
+        </div>
+        <div class="svc-card-img">
+          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=700&q=80" alt="Marketing" />
+        </div>
+      </div>
 
-  <!-- SERVICE 03: MARKETING -->
-  <section class="svc-section" style="background:var(--linen);">
-    <div class="svc-text">
-      <span class="svc-eyebrow">Service 03</span>
-      <h2 class="svc-title">Real Estate Marketing</h2>
-      <p class="svc-desc">We run Meta ad campaigns and produce social content specifically for real estate — designed to generate real enquiries, not just impressions.</p>
-      <ul class="svc-list">
-        <li>Facebook & Instagram ad campaigns</li>
-        <li>Lead generation forms and tracking</li>
-        <li>Property reels and video content</li>
-        <li>Monthly performance reports</li>
-        <li>Dedicated landing pages per campaign</li>
-      </ul>
-      <a href="contact.html" class="svc-btn">Get a Marketing Quote</a>
-    </div>
-    <div class="svc-image">
-      <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80" alt="Real estate marketing" />
     </div>
   </section>
 
   <!-- CTA -->
-  <div class="svc-cta">
-    <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.3);display:block;margin-bottom:1rem;">Not Sure?</span>
-    <h2>Tell us your situation. We'll figure out the rest.</h2>
-    <p>No commitment, no pressure. Just a conversation to understand what you actually need.</p>
-    <a href="contact.html" style="display:inline-block;background:var(--linen);color:var(--claret);padding:14px 32px;border-radius:4px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Talk to Us First</a>
+  <div style="background:#3f3027;padding:70px 4%;text-align:center;">
+    <h2 style="font-family:Georgia,serif;font-size:clamp(1.5rem,2.5vw,2.2rem);color:#f8f8f7;margin-bottom:1rem;">Not sure which service fits?</h2>
+    <p style="color:rgba(248,248,247,0.55);max-width:400px;margin:0 auto 2rem;font-size:0.92rem;line-height:1.8;">Tell us your situation — we'll figure out the right path. No commitment required.</p>
+    <a href="contact.html" style="display:inline-block;background:#f8f8f7;color:#960018;padding:13px 30px;border-radius:50px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Talk to Us First</a>
   </div>
 
   <footer>
     <div class="footer-grid">
-      <div>
-        <div class="f-brand">Re-Ally</div>
-        <div class="f-tag">Your real estate ally.</div>
-        <p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p>
-      </div>
-      <div class="f-col">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="listings.html">Listings</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+919381367140">+91 93813 67140</a></li>
-          <li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li>
-          <li><a href="#">Hyderabad, India</a></li>
-        </ul>
-      </div>
+      <div><div class="f-brand">Re-Ally</div><div class="f-tag">Your real estate ally.</div><p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p></div>
+      <div class="f-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="listings.html">Listings</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+919381367140">+91 93813 67140</a></li><li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li><li><a href="#">Hyderabad, India</a></li></ul></div>
     </div>
-    <div class="footer-bot">
-      <span>© 2025 Re-Ally. All rights reserved.</span>
-      <span>re-ally.in</span>
-    </div>
+    <div class="footer-bot"><span>© 2025 Re-Ally. All rights reserved.</span><span>re-ally.in</span></div>
   </footer>
 
   <div class="float-cta">

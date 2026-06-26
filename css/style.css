@@ -226,3 +226,87 @@ footer { background: var(--claret); color: var(--linen); padding: 48px 4% 24px; 
     min-height: 0 !important;
   }
 }
+
+/* ============================================
+   COMPREHENSIVE MOBILE FIXES
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* NAV */
+  #desktopLinks { display: none !important; }
+  #hamburgerBtn { display: flex !important; }
+
+  /* HERO - no empty space */
+  section[style*="min-height:100vh"] {
+    min-height: auto !important;
+    display: block !important;
+  }
+  #heroVideoBox { aspect-ratio: 16/9 !important; height: auto !important; min-height: 0 !important; }
+
+  /* ALL SECTIONS */
+  .sec { padding: 32px 4% !important; }
+
+  /* LISTINGS SECTION */
+  .listings-wrap .sec-inner > div { grid-template-columns: 1fr !important; }
+  .listings-wrap .sec-inner > div > div:last-child { display: none !important; }
+
+  /* PROMISE SECTION */
+  .promise-wrap div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+
+  /* PROMISE CARDS - horizontal on mobile */
+  .promise-wrap div[style*="background:#fff;border-radius:16px;padding:2rem"] {
+    flex-direction: row !important;
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+    align-items: flex-start !important;
+  }
+  .promise-wrap div[style*="width:52px;height:52px"] {
+    width: 36px !important; height: 36px !important; min-width: 36px !important; margin-bottom: 0 !important;
+  }
+
+  /* OUR PEOPLE - horizontal scroll row */
+  div[style*="display:flex;gap:3rem;justify-content:center;flex-wrap:wrap"] {
+    flex-wrap: nowrap !important;
+    gap: 1rem !important;
+    overflow-x: auto !important;
+    justify-content: flex-start !important;
+    padding-bottom: 1rem !important;
+  }
+  div[style*="text-align:center;width:180px"] { min-width: 120px !important; width: 120px !important; flex-shrink: 0 !important; }
+  div[style*="width:160px;height:160px;border-radius:50%"] { width: 100px !important; height: 100px !important; font-size: 1.8rem !important; }
+
+  /* FOOTER */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .footer-bot { flex-direction: column !important; text-align: center !important; gap: 0.3rem !important; }
+
+  /* SERVICE CARDS */
+  .svc-card { grid-template-columns: 1fr !important; direction: ltr !important; }
+  .svc-card.flip { direction: ltr !important; }
+  .svc-card-text { padding: 1.5rem !important; }
+  .svc-card-img { aspect-ratio: 16/9 !important; }
+
+  /* CONTACT */
+  .contact-wrap { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* ALL GENERIC 2-COL GRIDS */
+  div[style*="grid-template-columns:1fr 1.3fr"],
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns: 1fr 1fr"],
+  div[style*="grid-template-columns:1.4fr 1fr"],
+  div[style*="grid-template-columns:1fr 1fr;gap:4rem"],
+  div[style*="grid-template-columns:1fr 1fr;gap:5rem"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* ALL 3-COL GRIDS */
+  div[style*="grid-template-columns:1.5fr 1fr 1fr"],
+  .footer-grid { grid-template-columns: 1fr !important; }
+
+  /* TEXT */
+  h1 { font-size: clamp(1.5rem, 7vw, 2rem) !important; }
+  h2 { font-size: clamp(1.2rem, 5vw, 1.6rem) !important; }
+
+  /* FLOAT SMALLER */
+  .float-btn { padding: 9px 14px !important; font-size: 0.75rem !important; }
+}
