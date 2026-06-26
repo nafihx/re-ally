@@ -9,33 +9,90 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .svc-card { display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 2px 8px rgba(63,48,39,0.06),0 8px 32px rgba(63,48,39,0.08);margin-bottom:1.5rem; }
-    .svc-card.flip { direction:rtl; }
-    .svc-card.flip > * { direction:ltr; }
-    .svc-card-text { padding:3rem; display:flex; flex-direction:column; justify-content:center; }
-    .svc-card-img { aspect-ratio:1/1; overflow:hidden; position:relative; }
-    .svc-card-img img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s; }
-    .svc-card:hover .svc-card-img img { transform:scale(1.04); }
-    .svc-num { font-family:Georgia,serif;font-size:3.5rem;color:#e8e2dc;line-height:1;margin-bottom:0.75rem; }
-    .svc-card h2 { font-family:Georgia,serif;font-size:clamp(1.4rem,2.5vw,2rem);color:#960018;margin-bottom:1rem;line-height:1.2; }
-    .svc-card p { font-size:0.9rem;color:#3f3027;line-height:1.8;margin-bottom:1.5rem; }
-    .svc-card ul { list-style:none;padding:0;margin:0 0 2rem;display:flex;flex-direction:column;gap:0.6rem; }
-    .svc-card ul li { display:flex;align-items:center;gap:10px;font-size:0.85rem;color:#3f3027; }
-    .svc-card ul li::before { content:'→';color:#960018;font-weight:700;flex-shrink:0; }
-    .svc-card-btn { display:inline-block;background:#960018;color:#f8f8f7;padding:12px 28px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 2px 12px rgba(150,0,24,0.2);align-self:flex-start;transition:all 0.2s; }
-    .svc-card-btn:hover { background:#6e0011;transform:translateY(-1px); }
-    @media(max-width:768px) {
-      .svc-card { grid-template-columns:1fr!important;direction:ltr!important; }
-      .svc-card.flip { direction:ltr!important; }
-      .svc-card-text { padding:1.5rem!important; }
-      .svc-card-img { aspect-ratio:16/9!important; }
-      .svc-num { font-size:2.5rem!important; }
+    /* ── CAROUSEL ── */
+    .carousel-section { padding: 48px 0; background: #f8f8f7; overflow: hidden; }
+    .carousel-header { padding: 0 4% 2rem; max-width: 1100px; margin: 0 auto; }
+    .carousel-header span { font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#96816e; display:block; margin-bottom:0.5rem; }
+    .carousel-header h1 { font-family:Georgia,serif; font-size:clamp(1.6rem,2.8vw,2.6rem); color:#960018; line-height:1.15; margin-bottom:0.5rem; }
+    .carousel-header p { font-size:0.9rem; color:#3f3027; max-width:480px; line-height:1.72; }
+
+    /* Track */
+    .carousel-track-wrap { position: relative; }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: grab;
+      user-select: none;
+      will-change: transform;
+    }
+    .carousel-track.dragging { cursor: grabbing; transition: none; }
+
+    /* Each card = 100vw minus padding */
+    .carousel-slide {
+      min-width: 100%;
+      padding: 0 4%;
+      box-sizing: border-box;
+    }
+
+    .svc-slide-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(63,48,39,0.05), 0 12px 40px rgba(63,48,39,0.1);
+      min-height: 440px;
+    }
+
+    .svc-slide-text {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .svc-slide-num { font-family:Georgia,serif; font-size:4rem; color:#e8e2dc; line-height:1; margin-bottom:0.5rem; }
+    .svc-slide-text h2 { font-family:Georgia,serif; font-size:clamp(1.3rem,2.2vw,2rem); color:#960018; margin-bottom:0.75rem; line-height:1.2; }
+    .svc-slide-text p { font-size:0.86rem; color:#3f3027; line-height:1.78; margin-bottom:1.25rem; }
+    .svc-slide-text ul { list-style:none; padding:0; margin:0 0 1.75rem; display:flex; flex-direction:column; gap:0.5rem; }
+    .svc-slide-text ul li { display:flex; align-items:center; gap:8px; font-size:0.83rem; color:#3f3027; }
+    .svc-slide-text ul li::before { content:'→'; color:#960018; font-weight:700; flex-shrink:0; }
+    .svc-slide-btn { display:inline-block; background:#960018; color:#f8f8f7; padding:11px 26px; border-radius:50px; font-size:0.76rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; box-shadow:0 2px 10px rgba(150,0,24,0.22); align-self:flex-start; transition:all 0.2s; }
+    .svc-slide-btn:hover { background:#6e0011; transform:translateY(-1px); }
+
+    .svc-slide-img { overflow:hidden; position:relative; }
+    .svc-slide-img img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* Dots */
+    .carousel-dots { display:flex; justify-content:center; gap:8px; margin-top:1.75rem; padding:0 4%; }
+    .dot { width:8px; height:8px; border-radius:50%; background:#d9d0c7; cursor:pointer; transition:all 0.25s; border:none; padding:0; }
+    .dot.active { background:#960018; width:24px; border-radius:4px; }
+
+    /* Arrows */
+    .carousel-arrows { display:flex; justify-content:flex-end; gap:10px; padding:0 4%; margin-top:1rem; max-width:1100px; margin-left:auto; margin-right:auto; }
+    .arrow-btn { width:40px; height:40px; border-radius:50%; border:1.5px solid #e8e2dc; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#3f3027; font-size:1rem; transition:all 0.2s; }
+    .arrow-btn:hover { background:#960018; color:#fff; border-color:#960018; }
+    .arrow-btn:disabled { opacity:0.3; cursor:default; }
+
+    /* CTA band */
+    .svc-cta { background:#3f3027; padding:56px 4%; text-align:center; }
+    .svc-cta h2 { font-family:Georgia,serif; font-size:clamp(1.3rem,2vw,2rem); color:#f8f8f7; margin-bottom:0.75rem; }
+    .svc-cta p { color:rgba(248,248,247,0.5); max-width:380px; margin:0 auto 1.5rem; font-size:0.88rem; line-height:1.75; }
+
+    /* Mobile: single column image stacks below */
+    @media (max-width:768px) {
+      .svc-slide-card { grid-template-columns:1fr; min-height:auto; }
+      .svc-slide-text { padding:1.75rem; }
+      .svc-slide-img { aspect-ratio:16/9; }
+      .svc-slide-num { font-size:2.8rem; }
+      .carousel-header h1 { font-size:1.5rem; }
+      .carousel-dots { margin-top:1.25rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
+  <!-- NAV -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
     <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
       <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
       <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
@@ -46,10 +103,12 @@
       <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
       <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
     </div>
-    <a href="index.html" style="font-family:Georgia,serif;font-size:1.4rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
-    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
+    <a href="index.html" style="font-family:Georgia,serif;font-size:1.35rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
+    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:7px 15px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
   </nav>
-  <div id="mobileDrawer" style="display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(63,48,39,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+
+  <!-- MOBILE DRAWER -->
+  <div id="mobileDrawer" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(63,48,39,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
     <a href="index.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Home</a>
     <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Listings</a>
     <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(248,248,247,0.06);display:block;color:rgba(248,248,247,0.55);">↳ Sreyan by Elegans VRG</a>
@@ -58,92 +117,107 @@
     <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#960018;color:#f8f8f7;padding:14px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
   </div>
   <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}}</style>
-  <script>
-    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
-    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});});
-  </script>
 
-  <!-- HERO — linen not red -->
-  <div style="background:#f8f8f7;padding:100px 4% 50px;border-bottom:1px solid #e8e2dc;">
-    <div style="max-width:1100px;margin:0 auto;">
-      <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#96816e;display:block;margin-bottom:0.75rem;">What We Do</span>
-      <h1 style="font-family:Georgia,serif;font-size:clamp(1.8rem,3.5vw,3rem);color:#960018;margin:0 0 1rem;">We handle the hard part<br>of real estate.</h1>
-      <p style="color:#3f3027;font-size:1rem;max-width:480px;line-height:1.75;">Whether you're buying, selling, or marketing a property — we're with you from the first question to the final signature.</p>
+  <!-- CAROUSEL SECTION -->
+  <div class="carousel-section" style="padding-top:108px;">
+    <div class="carousel-header">
+      <span>What We Do</span>
+      <h1>We handle the hard part<br>of real estate.</h1>
+      <p>Whether you're buying, selling, or marketing — swipe to explore our services.</p>
+    </div>
+
+    <!-- Arrows -->
+    <div class="carousel-arrows">
+      <button class="arrow-btn" id="prevBtn" onclick="moveSlide(-1)">←</button>
+      <button class="arrow-btn" id="nextBtn" onclick="moveSlide(1)">→</button>
+    </div>
+
+    <!-- Track -->
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- Slide 1: Buy -->
+        <div class="carousel-slide">
+          <div class="svc-slide-card">
+            <div class="svc-slide-text">
+              <div class="svc-slide-num">01</div>
+              <h2>Buying a Property</h2>
+              <p>Finding a home or investment in Hyderabad shouldn't feel overwhelming. We make it simple — from shortlisting to final registration.</p>
+              <ul>
+                <li>Budget analysis and loan guidance</li>
+                <li>Shortlisting based on your real needs</li>
+                <li>Legal document verification</li>
+                <li>Price negotiation on your behalf</li>
+                <li>Registration and handover support</li>
+              </ul>
+              <a href="contact.html" class="svc-slide-btn">I Want to Buy</a>
+            </div>
+            <div class="svc-slide-img">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Buying" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Sell -->
+        <div class="carousel-slide">
+          <div class="svc-slide-card">
+            <div class="svc-slide-img">
+              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Selling" />
+            </div>
+            <div class="svc-slide-text">
+              <div class="svc-slide-num">02</div>
+              <h2>Selling Your Property</h2>
+              <p>Selling fast at the right price requires preparation, visibility, and negotiation. We handle all three so you don't leave money on the table.</p>
+              <ul>
+                <li>Accurate market pricing — no guesswork</li>
+                <li>Professional photography and listing</li>
+                <li>Targeted Meta ad campaigns</li>
+                <li>Buyer screening and negotiation</li>
+                <li>Full paperwork and legal support</li>
+              </ul>
+              <a href="contact.html" class="svc-slide-btn">I Want to Sell</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Marketing -->
+        <div class="carousel-slide">
+          <div class="svc-slide-card">
+            <div class="svc-slide-text">
+              <div class="svc-slide-num">03</div>
+              <h2>Real Estate Marketing</h2>
+              <p>We run Meta ad campaigns and produce social content specifically for real estate — designed to generate real enquiries, not just impressions.</p>
+              <ul>
+                <li>Facebook & Instagram ad campaigns</li>
+                <li>Lead generation forms and tracking</li>
+                <li>Property reels and video content</li>
+                <li>Monthly performance reports</li>
+                <li>Dedicated landing pages per campaign</li>
+              </ul>
+              <a href="contact.html" class="svc-slide-btn">Get a Quote</a>
+            </div>
+            <div class="svc-slide-img">
+              <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=700&q=80" alt="Marketing" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="carousel-dots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
     </div>
   </div>
 
-  <!-- SERVICE CARDS -->
-  <section style="padding:60px 4%;background:#f8f8f7;">
-    <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:1.5rem;">
-
-      <!-- Card 1: Buy -->
-      <div class="svc-card">
-        <div class="svc-card-text">
-          <div class="svc-num">01</div>
-          <h2>Buying a Property</h2>
-          <p>Finding a home or investment in Hyderabad shouldn't feel overwhelming. We make it simple — from shortlisting to final registration.</p>
-          <ul>
-            <li>Budget analysis and loan guidance</li>
-            <li>Shortlisting based on your real needs</li>
-            <li>Legal document verification</li>
-            <li>Price negotiation on your behalf</li>
-            <li>Registration and handover support</li>
-          </ul>
-          <a href="contact.html" class="svc-card-btn">I Want to Buy</a>
-        </div>
-        <div class="svc-card-img">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Buying" />
-        </div>
-      </div>
-
-      <!-- Card 2: Sell -->
-      <div class="svc-card flip">
-        <div class="svc-card-text">
-          <div class="svc-num">02</div>
-          <h2>Selling Your Property</h2>
-          <p>Selling fast at the right price requires preparation, visibility, and negotiation. We handle all three so you don't leave money on the table.</p>
-          <ul>
-            <li>Accurate market pricing — no guesswork</li>
-            <li>Professional photography and listing</li>
-            <li>Targeted Meta ad campaigns</li>
-            <li>Buyer screening and negotiation</li>
-            <li>Full paperwork and legal support</li>
-          </ul>
-          <a href="contact.html" class="svc-card-btn">I Want to Sell</a>
-        </div>
-        <div class="svc-card-img">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Selling" />
-        </div>
-      </div>
-
-      <!-- Card 3: Marketing -->
-      <div class="svc-card">
-        <div class="svc-card-text">
-          <div class="svc-num">03</div>
-          <h2>Real Estate Marketing</h2>
-          <p>We run Meta ad campaigns and produce social content specifically for real estate — designed to generate real enquiries, not just impressions.</p>
-          <ul>
-            <li>Facebook & Instagram ad campaigns</li>
-            <li>Lead generation forms and tracking</li>
-            <li>Property reels and video content</li>
-            <li>Monthly performance reports</li>
-            <li>Dedicated landing pages per campaign</li>
-          </ul>
-          <a href="contact.html" class="svc-card-btn">Get a Quote</a>
-        </div>
-        <div class="svc-card-img">
-          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=700&q=80" alt="Marketing" />
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- CTA -->
-  <div style="background:#3f3027;padding:70px 4%;text-align:center;">
-    <h2 style="font-family:Georgia,serif;font-size:clamp(1.5rem,2.5vw,2.2rem);color:#f8f8f7;margin-bottom:1rem;">Not sure which service fits?</h2>
-    <p style="color:rgba(248,248,247,0.55);max-width:400px;margin:0 auto 2rem;font-size:0.92rem;line-height:1.8;">Tell us your situation — we'll figure out the right path. No commitment required.</p>
-    <a href="contact.html" style="display:inline-block;background:#f8f8f7;color:#960018;padding:13px 30px;border-radius:50px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Talk to Us First</a>
+  <div class="svc-cta">
+    <h2>Not sure which service fits?</h2>
+    <p>Tell us your situation — we'll figure out the right path. No commitment required.</p>
+    <a href="contact.html" style="display:inline-block;background:#f8f8f7;color:#960018;padding:12px 28px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Talk to Us First</a>
   </div>
 
   <footer>
@@ -160,5 +234,45 @@
     <a href="tel:+919381367140" class="float-btn float-call">📞 Call Now</a>
   </div>
 
+  <script>
+    // Nav
+    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
+    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});});
+
+    // Carousel
+    var current = 0;
+    var total = 3;
+    var track = document.getElementById('carouselTrack');
+    var dots = document.querySelectorAll('.dot');
+    var startX = 0, isDragging = false, dragOffset = 0;
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      document.getElementById('prevBtn').disabled = current === 0;
+      document.getElementById('nextBtn').disabled = current === total - 1;
+    }
+
+    function moveSlide(dir) {
+      current = Math.max(0, Math.min(total - 1, current + dir));
+      updateCarousel();
+    }
+
+    function goToSlide(idx) {
+      current = idx;
+      updateCarousel();
+    }
+
+    // Touch / mouse drag
+    track.addEventListener('mousedown', function(e) { startX = e.clientX; isDragging = true; track.classList.add('dragging'); });
+    track.addEventListener('mousemove', function(e) { if (!isDragging) return; dragOffset = e.clientX - startX; });
+    track.addEventListener('mouseup', function() { if (!isDragging) return; isDragging = false; track.classList.remove('dragging'); if (dragOffset < -60) moveSlide(1); else if (dragOffset > 60) moveSlide(-1); dragOffset = 0; });
+    track.addEventListener('mouseleave', function() { if (isDragging) { isDragging = false; track.classList.remove('dragging'); dragOffset = 0; } });
+
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e) { var diff = e.changedTouches[0].clientX - startX; if (diff < -50) moveSlide(1); else if (diff > 50) moveSlide(-1); }, {passive:true});
+
+    updateCarousel();
+  </script>
 </body>
 </html>
