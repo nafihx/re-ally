@@ -970,3 +970,31 @@ nav {
     height: 120px !important;
   }
 }
+
+/* ── LISTINGS MOBILE — hide checklist, compact card ── */
+@media (max-width: 768px) {
+  /* Hide "How We Choose" entirely on mobile */
+  .listings-wrap .sec-inner > div[style*="grid-template-columns"] > div:last-child {
+    display: none !important;
+  }
+  /* Make card full width */
+  .listings-wrap .sec-inner > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Shrink image on card */
+  .listings-wrap div[style*="aspect-ratio:16/9"] {
+    aspect-ratio: 16/7 !important;
+  }
+  /* Compact card padding */
+  .listings-wrap div[style*="padding:1.1rem 1.4rem"] {
+    padding: 0.85rem 1rem 1rem !important;
+  }
+  /* Section title smaller */
+  .listings-wrap h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .listings-wrap .sec {
+    padding: 32px 5% !important;
+  }
+}
