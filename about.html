@@ -3,278 +3,241 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — Re-Ally Hyderabad</title>
+  <title>About — Re-Ally Hyderabad</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
+    .page-wrap { padding-top: 60px; }
+
     /* HERO */
-    .about-hero {
-      background: #f8f8f7;
-      padding: 100px 4% 60px;
-      text-align: left;
-      border-bottom: 1px solid #e8e2dc;
-    }
-    .about-hero span { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.45);display:block;margin-bottom:1rem; }
-    .about-hero h1 { font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,4rem);color:#960018;line-height:1.1;margin:0 0 1.25rem;max-width:700px;margin-left:auto;margin-right:auto; }
-    .about-hero p { color:#3f3027;font-size:1rem;max-width:520px;margin:0 auto;line-height:1.8; }
+    .about-hero { background: #f8f8f7; padding: 56px 4% 40px; border-bottom: 1px solid #e8e2dc; }
+    .about-hero-inner { max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-size:0.63rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#96816e; display:block; margin-bottom:0.5rem; }
+    .about-hero h1 { font-family:Georgia,serif; font-size:clamp(1.5rem,2.8vw,2.6rem); color:#960018; line-height:1.15; margin:0 0 0.75rem; max-width:640px; }
+    .about-hero p { font-size:0.9rem; color:#3f3027; max-width:520px; line-height:1.75; }
 
     /* STORY */
-    .story-wrap { padding:90px 4%; background:var(--linen); }
-    .story-inner { max-width:1100px;margin:0 auto; }
-    .story-grid { display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center; }
-    .story-visual {
-      aspect-ratio:4/5;
-      background:var(--espresso);
-      border-radius:20px;
-      display:flex;flex-direction:column;
-      align-items:center;justify-content:center;
-      padding:2.5rem;text-align:center;
-      position:relative;overflow:hidden;
-    }
-    .story-visual::before {
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,rgba(150,0,24,0.15),transparent);
-    }
-    .glass-icon { font-size:4rem;margin-bottom:1.5rem;position:relative;z-index:1; }
-    .story-visual blockquote {
-      font-family:Georgia,serif;font-size:1.2rem;color:var(--linen);
-      font-style:italic;line-height:1.6;margin:0;position:relative;z-index:1;
-    }
-    .story-visual cite {
-      display:block;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
-      color:var(--travertine);margin-top:1.25rem;font-style:normal;position:relative;z-index:1;
-    }
-    .story-text {}
-    .story-text .eyebrow { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--travertine);display:block;margin-bottom:1rem; }
-    .story-text h2 { font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--claret);line-height:1.2;margin:0 0 1.5rem; }
-    .story-text p { font-size:0.95rem;color:var(--espresso);line-height:1.85;margin-bottom:1.25rem; }
-    .story-text p:last-child { margin-bottom:0; }
+    .story-sec { padding: 48px 4%; background: #fff; }
+    .story-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .story-visual { background:#3f3027; border-radius:16px; padding:2.5rem; text-align:center; position:relative; overflow:hidden; }
+    .story-visual::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(150,0,24,0.12),transparent); }
+    .story-visual .glass { font-size:3rem; margin-bottom:1rem; position:relative; z-index:1; }
+    .story-visual blockquote { font-family:Georgia,serif; font-size:1.05rem; color:#f8f8f7; font-style:italic; line-height:1.6; margin:0; position:relative; z-index:1; }
+    .story-visual cite { display:block; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:#96816e; margin-top:1rem; font-style:normal; position:relative; z-index:1; }
+    .story-text .eyebrow { margin-bottom:0.5rem; }
+    .story-text h2 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:#960018; line-height:1.2; margin:0 0 1rem; }
+    .story-text p { font-size:0.86rem; color:#3f3027; line-height:1.78; margin-bottom:0.9rem; }
+    .stats-row { display:flex; gap:1.75rem; margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid #f0ece8; }
+    .stat-item .val { font-family:Georgia,serif; font-size:1.6rem; color:#960018; display:block; line-height:1; }
+    .stat-item .lbl { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:#96816e; margin-top:3px; display:block; }
 
     /* MISSION */
-    .mission-wrap { padding:90px 4%;background:var(--white); }
-    .mission-inner { max-width:1100px;margin:0 auto; }
-    .mission-top { text-align:center;max-width:640px;margin:0 auto 3.5rem; }
-    .mission-top .eyebrow { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--travertine);display:block;margin-bottom:1rem; }
-    .mission-top h2 { font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--claret);line-height:1.2;margin:0 0 1rem; }
-    .mission-top p { font-size:0.95rem;color:var(--espresso);line-height:1.8; }
-    .mission-cards { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem; }
-    .m-card { background:var(--linen);border-radius:16px;padding:2rem;border:1px solid #e8e2dc; }
-    .m-card-num { font-family:Georgia,serif;font-size:2.5rem;color:var(--claret);opacity:0.2;line-height:1;margin-bottom:1rem; }
-    .m-card h3 { font-family:Georgia,serif;font-size:1.05rem;color:var(--claret);margin:0 0 0.75rem;font-weight:400; }
-    .m-card p { font-size:0.85rem;color:var(--travertine);line-height:1.78;margin:0; }
+    .mission-sec { padding:48px 4%; background:#f8f8f7; }
+    .mission-inner { max-width:1100px; margin:0 auto; }
+    .mission-top { text-align:center; max-width:560px; margin:0 auto 2rem; }
+    .mission-top h2 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:#960018; line-height:1.2; margin:0 0 0.6rem; }
+    .mission-top p { font-size:0.86rem; color:#3f3027; line-height:1.75; }
+    .mission-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .m-card { background:#fff; border-radius:14px; padding:1.5rem; border:1px solid #e8e2dc; }
+    .m-num { font-family:Georgia,serif; font-size:2rem; color:#960018; opacity:0.18; line-height:1; margin-bottom:0.6rem; }
+    .m-card h3 { font-family:Georgia,serif; font-size:0.95rem; color:#3f3027; margin:0 0 0.5rem; font-weight:400; }
+    .m-card p { font-size:0.82rem; color:#96816e; line-height:1.72; margin:0; }
 
     /* PIPELINE */
-    .pipeline-wrap { padding:80px 4%;background:var(--espresso); }
-    .pipeline-inner { max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center; }
-    .pipeline-text .eyebrow { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.35);display:block;margin-bottom:1rem; }
-    .pipeline-text h2 { font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--linen);line-height:1.2;margin:0 0 1.25rem; }
-    .pipeline-text p { font-size:0.95rem;color:rgba(248,248,247,0.55);line-height:1.8;margin-bottom:2rem; }
-    .pipeline-items { display:flex;flex-direction:column;gap:1rem; }
-    .p-item { display:flex;align-items:flex-start;gap:14px;padding:1rem 1.25rem;background:rgba(248,248,247,0.05);border-radius:12px;border:1px solid rgba(248,248,247,0.08); }
-    .p-dot { width:8px;height:8px;background:#f8f8f7;border-radius:50%;flex-shrink:0;margin-top:5px; }
-    .p-item-title { font-weight:600;font-size:0.9rem;color:var(--linen);margin-bottom:2px; }
-    .p-item-desc { font-size:0.8rem;color:rgba(248,248,247,0.45); }
+    .pipeline-sec { padding:48px 4%; background:#3f3027; }
+    .pipeline-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .pipeline-text .eyebrow { color:rgba(248,248,247,0.35); }
+    .pipeline-text h2 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:#f8f8f7; line-height:1.2; margin:0 0 0.75rem; }
+    .pipeline-text p { font-size:0.86rem; color:rgba(248,248,247,0.5); line-height:1.75; margin-bottom:1.5rem; }
+    .pipeline-btn { display:inline-block; background:#f8f8f7; color:#960018; padding:10px 24px; border-radius:50px; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
+    .pipeline-items { display:flex; flex-direction:column; gap:0.75rem; }
+    .p-item { display:flex; align-items:flex-start; gap:12px; padding:1rem 1.1rem; background:rgba(248,248,247,0.05); border-radius:10px; border:1px solid rgba(248,248,247,0.07); }
+    .p-dot { width:7px; height:7px; background:#960018; border-radius:50%; flex-shrink:0; margin-top:5px; }
+    .p-title { font-weight:600; font-size:0.85rem; color:#f8f8f7; margin-bottom:1px; }
+    .p-desc { font-size:0.78rem; color:rgba(248,248,247,0.4); }
 
     /* TEAM */
-    .team-wrap { padding:90px 4%;background:var(--linen); }
-    .team-inner { max-width:1100px;margin:0 auto; }
-    .team-top { text-align:center;max-width:560px;margin:0 auto 3.5rem; }
-    .team-top .eyebrow { font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--travertine);display:block;margin-bottom:1rem; }
-    .team-top h2 { font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--claret);line-height:1.2;margin:0 0 0.75rem; }
-    .team-top p { font-size:0.95rem;color:var(--espresso);line-height:1.8; }
-    .team-cards { display:grid;grid-template-columns:repeat(3,1fr);gap:2rem; }
-    .t-card { background:var(--white);border-radius:20px;overflow:hidden;border:1px solid #e8e2dc;text-align:center;padding:2.5rem 2rem; }
-    .t-photo { width:120px;height:120px;border-radius:50%;background:linear-gradient(160deg,#e8e2dc,#c4b8ac);margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:3px solid #f0ece8; }
-    .t-name { font-family:Georgia,serif;font-size:1.2rem;color:var(--claret);margin-bottom:4px; }
-    .t-role { font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--travertine);margin-bottom:1.25rem; }
-    .t-desc { font-size:0.85rem;color:var(--espresso);line-height:1.75; }
+    .team-sec { padding:48px 4%; background:#f8f8f7; }
+    .team-inner { max-width:1100px; margin:0 auto; }
+    .team-top { text-align:center; max-width:500px; margin:0 auto 2rem; }
+    .team-top h2 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:#960018; margin:0 0 0.5rem; }
+    .team-top p { font-size:0.86rem; color:#96816e; line-height:1.72; }
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+    .team-card { background:#fff; border-radius:16px; padding:1.75rem 1.5rem; border:1px solid #e8e2dc; text-align:center; }
+    .team-photo { width:90px; height:90px; border-radius:50%; background:linear-gradient(160deg,#e8e2dc,#c4b8ac); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; font-size:1.8rem; border:2px solid #f0ece8; }
+    .team-name { font-family:Georgia,serif; font-size:1rem; color:#960018; margin-bottom:3px; }
+    .team-role { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:#96816e; margin-bottom:0.75rem; }
+    .team-desc { font-size:0.8rem; color:#3f3027; line-height:1.68; }
 
-    @media (max-width:768px) {
-      .story-grid { grid-template-columns:1fr; }
-      .mission-cards { grid-template-columns:1fr; }
-      .pipeline-inner { grid-template-columns:1fr; }
-      .team-cards { grid-template-columns:1fr; }
+    /* CTA */
+    .about-cta { background:#960018; padding:48px 4%; text-align:center; }
+    .about-cta h2 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:#f8f8f7; margin:0 0 0.6rem; }
+    .about-cta p { color:rgba(248,248,247,0.6); max-width:380px; margin:0 auto 1.5rem; font-size:0.86rem; line-height:1.72; }
+
+    @media(max-width:768px){
+      .story-inner,.pipeline-inner { grid-template-columns:1fr !important; gap:2rem !important; }
+      .mission-grid,.team-grid { grid-template-columns:1fr !important; gap:0.75rem !important; }
+      .stats-row { gap:1.25rem; }
+      .about-hero,.story-sec,.mission-sec,.pipeline-sec,.team-sec,.about-cta { padding:36px 4% !important; }
+      .about-hero { padding-top:36px !important; }
     }
   </style>
 </head>
 <body>
 
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
-    <div style="display:flex;gap:1.5rem;align-items:center;">
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#960018;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
+    <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#f8f8f7;border-radius:2px;"></span>
+    </button>
+    <div id="desktopLinks" style="display:flex;gap:1.5rem;align-items:center;">
       <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Listings</a>
       <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
       <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
     </div>
-    <a href="index.html" style="font-family:Georgia,serif;font-size:1.4rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
-    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 18px;border-radius:50px;text-decoration:none;">Contact Us</a>
+    <a href="index.html" style="font-family:Georgia,serif;font-size:1.35rem;color:#f8f8f7;text-decoration:none;letter-spacing:0.04em;position:absolute;left:50%;transform:translateX(-50%);">Re-Ally</a>
+    <a href="contact.html" style="background:#f8f8f7;color:#960018;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:7px 15px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
   </nav>
-
-  <!-- HERO -->
-  <div class="about-hero">
-    <span>Our Story</span>
-    <h1>It started with a glass raised at the right moment.</h1>
-    <p>Not a boardroom. Not a business plan. Just two people with the same crazy idea — and the honesty to say it out loud.</p>
+  <div id="mobileDrawer" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(63,48,39,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+    <a href="index.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Home</a>
+    <a href="listings.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Listings</a>
+    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(248,248,247,0.06);display:block;color:rgba(248,248,247,0.55);">↳ Sreyan by Elegans VRG</a>
+    <a href="services.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">Services</a>
+    <a href="about.html" style="color:#f8f8f7;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,248,247,0.1);display:block;">About Us</a>
+    <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#960018;color:#f8f8f7;padding:14px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
   </div>
+  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}}</style>
 
-  <!-- STORY -->
-  <div class="story-wrap">
-    <div class="story-inner">
-      <div class="story-grid">
+  <div class="page-wrap">
 
+    <!-- HERO -->
+    <div class="about-hero">
+      <div class="about-hero-inner">
+        <span class="eyebrow">Our Story</span>
+        <h1>It started with a glass raised at the right moment.</h1>
+        <p>Not a boardroom. Not a business plan. Just two people with the same crazy idea — and the honesty to say it out loud.</p>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <div class="story-sec">
+      <div class="story-inner">
         <div class="story-visual">
-          <div class="glass-icon">🥂</div>
+          <div class="glass">🥂</div>
           <blockquote>"What if real estate actually worked for the buyer?"</blockquote>
           <cite>— The conversation that started Re-Ally</cite>
         </div>
-
         <div class="story-text">
           <span class="eyebrow">How it began</span>
-          <h2>One party. One conversation. One idea that wouldn't go away.</h2>
-          <p>Shrikar had a great project and zero leads. He wasn't waiting for someone to fix it — he was teaching himself editing, marketing, and everything in between. He knew the product was right. He just needed the right approach.</p>
-          <p>Sajath had the approach. A head full of brand ideas, a sharp eye for what real estate marketing was missing, and a conviction that Hyderabad's buyers deserved better than what brokers were giving them.</p>
-          <p>They met at a party. Talked for hours. Raised a glass to an idea neither of them could let go of. By the end of the night, the name Re-Ally made sense — not just a play on real estate, but exactly what they wanted to be.</p>
-          <p>Not brokers. Allies.</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- MISSION -->
-  <div class="mission-wrap">
-    <div class="mission-inner">
-      <div class="mission-top">
-        <span class="eyebrow">Why We Exist</span>
-        <h2>Hyderabad doesn't need another broker. It needs someone on your side.</h2>
-        <p>Every day, new brokers enter the market with one goal — maximize their commission. We built Re-Ally to be the opposite of that. A brand people trust because we've earned it, not because we pushed for it.</p>
-      </div>
-
-      <div class="mission-cards">
-        <div class="m-card">
-          <div class="m-card-num">01</div>
-          <h3>Not commission-first</h3>
-          <p>Every broker in Hyderabad is chasing a cut. We're chasing something harder to build — a reputation. That means your interests come before our earnings, every single time.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">02</div>
-          <h3>A brand, not a brokerage</h3>
-          <p>We're building something people remember and return to. Not a transactional service that disappears after the deal — a name that means something in Hyderabad real estate.</p>
-        </div>
-        <div class="m-card">
-          <div class="m-card-num">03</div>
-          <h3>Long-term over short-term</h3>
-          <p>One good deal doesn't build a brand. Fifty honest ones do. We'd rather lose a commission today than lose a client's trust forever.</p>
+          <h2>One party. One conversation.<br>One idea that wouldn't go away.</h2>
+          <p>Shrikar had a great project and zero leads. He was teaching himself editing, marketing, everything — waiting for no one to fix it. He knew the product was right. He just needed the right approach.</p>
+          <p>Sajath had the approach. A head full of brand ideas and a conviction that Hyderabad's buyers deserved better than what brokers were giving them.</p>
+          <p>They met at a party. Talked for hours. Raised a glass to an idea neither could let go of. By the end of the night, Re-Ally made sense — not just a play on real estate, but exactly what they wanted to be. Not brokers. Allies.</p>
+          <div class="stats-row">
+            <div class="stat-item"><span class="val">200+</span><span class="lbl">Deals Closed</span></div>
+            <div class="stat-item"><span class="val">5+</span><span class="lbl">Years Active</span></div>
+            <div class="stat-item"><span class="val">100%</span><span class="lbl">Referral Driven</span></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- PIPELINE -->
-  <div class="pipeline-wrap">
-    <div class="pipeline-inner">
-      <div class="pipeline-text">
-        <span class="eyebrow">What's Coming</span>
-        <h2>We're just getting started.</h2>
-        <p>Re-Ally is more than a listings platform. We have a clear vision for what real estate advisory should look like — and we're building it, piece by piece.</p>
-        <a href="contact.html" style="display:inline-block;background:var(--linen);color:var(--claret);padding:12px 28px;border-radius:50px;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Work With Us</a>
-      </div>
-      <div class="pipeline-items">
-        <div class="p-item">
-          <div class="p-dot"></div>
-          <div><div class="p-item-title">Trusted advisory platform</div><div class="p-item-desc">The go-to name for honest real estate guidance in Hyderabad</div></div>
+    <!-- MISSION -->
+    <div class="mission-sec">
+      <div class="mission-inner">
+        <div class="mission-top">
+          <span class="eyebrow">Why We Exist</span>
+          <h2>Hyderabad doesn't need another broker.</h2>
+          <p>We built Re-Ally to be the opposite — a brand people trust because we've earned it, not because we pushed for it.</p>
         </div>
-        <div class="p-item">
-          <div class="p-dot"></div>
-          <div><div class="p-item-title">Re-Ally App</div><div class="p-item-desc">Easily discover and evaluate projects — vetted, transparent, simple</div></div>
-        </div>
-        <div class="p-item">
-          <div class="p-dot"></div>
-          <div><div class="p-item-title">Developer partnerships</div><div class="p-item-desc">Working directly with builders who meet our standards — not just anyone</div></div>
-        </div>
-        <div class="p-item">
-          <div class="p-dot"></div>
-          <div><div class="p-item-title">Real estate content & education</div><div class="p-item-desc">Helping buyers understand the market before they make the biggest decision of their life</div></div>
+        <div class="mission-grid">
+          <div class="m-card">
+            <div class="m-num">01</div>
+            <h3>Not commission-first</h3>
+            <p>Every broker chases a cut. We're chasing something harder to build — a reputation. Your interests come before our earnings.</p>
+          </div>
+          <div class="m-card">
+            <div class="m-num">02</div>
+            <h3>A brand, not a brokerage</h3>
+            <p>We're building something people remember and return to — a name that means something in Hyderabad real estate.</p>
+          </div>
+          <div class="m-card">
+            <div class="m-num">03</div>
+            <h3>Long-term over short-term</h3>
+            <p>One good deal doesn't build a brand. Fifty honest ones do. We'd rather lose a commission than lose a client's trust.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- TEAM -->
-  <div class="team-wrap">
-    <div class="team-inner">
-      <div class="team-top">
-        <span class="eyebrow">The People</span>
-        <h2>The People Behind Re-Ally</h2>
-        <p>A small team with a clear focus — building real estate the way it should have always been done.</p>
-      </div>
-
-      <div class="team-cards">
-
-        <div class="t-card">
-          <div class="t-photo">👤</div>
-          <div class="t-name">Shrikar</div>
-          <div class="t-role">Founder · Deals & Developers</div>
-          <p class="t-desc">Shrikar finds the projects, vets the developers, runs the checklist, and closes the deals. He's the one who walks the site before we list it.</p>
+    <!-- PIPELINE -->
+    <div class="pipeline-sec">
+      <div class="pipeline-inner">
+        <div class="pipeline-text">
+          <span class="eyebrow">What's Coming</span>
+          <h2>We're just getting started.</h2>
+          <p>Re-Ally is more than a listings platform. We're building what real estate advisory should look like.</p>
+          <a href="contact.html" class="pipeline-btn">Work With Us</a>
         </div>
-
-        <div class="t-card">
-          <div class="t-photo">👤</div>
-          <div class="t-name">Sajath</div>
-          <div class="t-role">Co-Founder · Brand & Content</div>
-          <p class="t-desc">Sajath is the brand. He designs, directs, and builds the identity of Re-Ally — making sure every piece of content looks and feels like it belongs.</p>
+        <div class="pipeline-items">
+          <div class="p-item"><div class="p-dot"></div><div><div class="p-title">Trusted advisory platform</div><div class="p-desc">The go-to name for honest real estate guidance in Hyderabad</div></div></div>
+          <div class="p-item"><div class="p-dot"></div><div><div class="p-title">Re-Ally App</div><div class="p-desc">Discover and evaluate projects — vetted, transparent, simple</div></div></div>
+          <div class="p-item"><div class="p-dot"></div><div><div class="p-title">Developer partnerships</div><div class="p-desc">Working directly with builders who meet our standards</div></div></div>
+          <div class="p-item"><div class="p-dot"></div><div><div class="p-title">Real estate content & education</div><div class="p-desc">Helping buyers understand the market before they decide</div></div></div>
         </div>
-
-        <div class="t-card">
-          <div class="t-photo">👤</div>
-          <div class="t-name">Anas</div>
-          <div class="t-role">Social Media & Content</div>
-          <p class="t-desc">Anas handles everything you see on our social — from shoots and reels to Instagram posts. The face of Re-Ally's online presence.</p>
-        </div>
-
       </div>
     </div>
-  </div>
 
-  <!-- CTA -->
-  <div style="background:#f8f8f7;padding:80px 4%;text-align:center;">
-    <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(248,248,247,0.45);display:block;margin-bottom:1rem;">Get in Touch</span>
-    <h2 style="font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--linen);margin:0 0 1rem;max-width:500px;margin-left:auto;margin-right:auto;">Want to work with people who actually care?</h2>
-    <p style="color:rgba(248,248,247,0.6);max-width:420px;margin:0 auto 2rem;font-size:0.95rem;">Whether you're buying, selling, or just exploring — we're happy to talk. No pressure, no pitch.</p>
-    <a href="contact.html" style="display:inline-block;background:var(--linen);color:var(--claret);padding:14px 32px;border-radius:50px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 3px 16px rgba(0,0,0,0.15);">Talk to Re-Ally</a>
+    <!-- TEAM -->
+    <div class="team-sec">
+      <div class="team-inner">
+        <div class="team-top">
+          <span class="eyebrow">The People</span>
+          <h2>The People Behind Re-Ally</h2>
+          <p>A small team with a clear focus — building real estate the way it should always have been done.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo">👤</div>
+            <div class="team-name">Shrikar</div>
+            <div class="team-role">Founder · Deals & Developers</div>
+            <p class="team-desc">Shrikar finds the projects, vets the developers, runs the checklist, and closes the deals. He walks the site before we list it.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-photo">👤</div>
+            <div class="team-name">Sajath</div>
+            <div class="team-role">Co-Founder · Brand & Content</div>
+            <p class="team-desc">Sajath is the brand. He designs, directs, and builds Re-Ally's identity — making sure every piece of content belongs.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-photo">👤</div>
+            <div class="team-name">Anas</div>
+            <div class="team-role">Social Media & Content</div>
+            <p class="team-desc">Anas handles everything you see on our social — shoots, reels, and Instagram posts. The face of Re-Ally online.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="about-cta">
+      <h2>Want to work with people who actually care?</h2>
+      <p>Whether you're buying, selling, or just exploring — we're happy to talk. No pressure, no pitch.</p>
+      <a href="contact.html" style="display:inline-block;background:#f8f8f7;color:#960018;padding:11px 28px;border-radius:50px;font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Talk to Re-Ally</a>
+    </div>
+
   </div>
 
   <footer>
     <div class="footer-grid">
-      <div>
-        <div class="f-brand">Re-Ally</div>
-        <div class="f-tag">Your real estate ally.</div>
-        <p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p>
-      </div>
-      <div class="f-col">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="listings.html">Listings</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="f-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+919381367140">+91 93813 67140</a></li>
-          <li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li>
-          <li><a href="#">Hyderabad, India</a></li>
-        </ul>
-      </div>
+      <div><div class="f-brand">Re-Ally</div><div class="f-tag">Your real estate ally.</div><p class="f-desc">Guiding real estate decisions across Hyderabad.</p></div>
+      <div class="f-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="listings.html">Listings</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+919381367140">+91 93813 67140</a></li><li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li><li><a href="#">Hyderabad, India</a></li></ul></div>
     </div>
-    <div class="footer-bot">
-      <span>© 2025 Re-Ally. All rights reserved.</span>
-      <span>re-ally.in</span>
-    </div>
+    <div class="footer-bot"><span>© 2025 Re-Ally. All rights reserved.</span><span>re-ally.in</span></div>
   </footer>
 
   <div class="float-cta">
@@ -282,5 +245,9 @@
     <a href="tel:+919381367140" class="float-btn float-call">📞 Call Now</a>
   </div>
 
+  <script>
+    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
+    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});});
+  </script>
 </body>
 </html>
