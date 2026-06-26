@@ -11,10 +11,10 @@
   <style>
     /* ── CAROUSEL ── */
     .carousel-section { padding: 48px 0; background: #f8f8f7; overflow: hidden; }
-    .carousel-header { padding: 0 4% 2rem; max-width: 1100px; margin: 0 auto; }
+    .carousel-header { padding: 0 4% 2rem; max-width: 1100px; margin: 0 auto; text-align: center; }
     .carousel-header span { font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#96816e; display:block; margin-bottom:0.5rem; }
     .carousel-header h1 { font-family:Georgia,serif; font-size:clamp(1.6rem,2.8vw,2.6rem); color:#960018; line-height:1.15; margin-bottom:0.5rem; }
-    .carousel-header p { font-size:0.9rem; color:#3f3027; max-width:480px; line-height:1.72; }
+    .carousel-header p { font-size:0.9rem; color:#3f3027; max-width:480px; line-height:1.72; margin: 0 auto; }
 
     /* Track */
     .carousel-track-wrap { position: relative; }
@@ -126,12 +126,6 @@
       <p>Whether you're buying, selling, or marketing — swipe to explore our services.</p>
     </div>
 
-    <!-- Arrows -->
-    <div class="carousel-arrows">
-      <button class="arrow-btn" id="prevBtn" onclick="moveSlide(-1)">←</button>
-      <button class="arrow-btn" id="nextBtn" onclick="moveSlide(1)">→</button>
-    </div>
-
     <!-- Track -->
     <div class="carousel-track-wrap">
       <div class="carousel-track" id="carouselTrack">
@@ -205,11 +199,15 @@
       </div>
     </div>
 
-    <!-- Dots -->
-    <div class="carousel-dots">
-      <button class="dot active" onclick="goToSlide(0)"></button>
-      <button class="dot" onclick="goToSlide(1)"></button>
-      <button class="dot" onclick="goToSlide(2)"></button>
+    <!-- Controls: arrows + dots centered at bottom -->
+    <div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-top:1.5rem;padding:0 4%;">
+      <button class="arrow-btn" id="prevBtn" onclick="moveSlide(-1)">←</button>
+      <div class="carousel-dots">
+        <button class="dot active" onclick="goToSlide(0)"></button>
+        <button class="dot" onclick="goToSlide(1)"></button>
+        <button class="dot" onclick="goToSlide(2)"></button>
+      </div>
+      <button class="arrow-btn" id="nextBtn" onclick="moveSlide(1)">→</button>
     </div>
   </div>
 
