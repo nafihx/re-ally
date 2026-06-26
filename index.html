@@ -21,7 +21,7 @@
       width: 100%; aspect-ratio: 16/9;
       background: var(--mocha);
       position: relative; overflow: hidden;
-      border-radius: 0;
+      border-radius: 30px;
       margin-bottom: 0;
     }
     .hero-video video { width:100%; height:100%; object-fit:cover; display:block; }
@@ -34,7 +34,7 @@
       width: 60px; height: 60px;
       background: rgba(248,244,238,0.15);
       border: 1px solid rgba(248,244,238,0.3);
-      border-radius: 0;
+      border-radius: 30px;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; margin-bottom: 1rem;
     }
@@ -42,24 +42,24 @@
     .hero-video-label { font-family:'Tenor Sans',sans-serif; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mellow); }
 
     /* OUR LISTINGS — Espresso (dark) */
-    .listings-sec { background: var(--espresso); padding: 56px 4%; }
+    .listings-sec { background: var(--mocha); padding: 56px 4%; }
     .listings-inner { max-width: 1100px; margin: 0 auto; }
     .listings-sec .label { color: var(--mellow); }
     .listings-sec h2 { color: var(--vanilla); font-size: clamp(1.3rem,2vw,1.9rem); margin-bottom: 2rem; }
-    .listing-card { background: var(--mocha); border-radius: 0; overflow: hidden; }
+    .listing-card { background: var(--mocha); border-radius: 30px; overflow: hidden; }
     .listing-card-img { position:relative; aspect-ratio:16/9; overflow:hidden; background: var(--stone); }
     .listing-card-img img { width:100%; height:100%; object-fit:cover; display:block; }
-    .listing-badge { position:absolute; top:14px; left:14px; background:var(--vanilla); color:var(--mocha); font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; padding:4px 12px; border-radius:0; }
-    .listing-rera { position:absolute; top:14px; right:14px; background:rgba(15,15,5,0.6); color:var(--mellow); font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.1em; padding:4px 10px; border-radius:0; }
+    .listing-badge { position:absolute; top:14px; left:14px; background:var(--vanilla); color:var(--mocha); font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; padding:4px 12px; border-radius:30px; }
+    .listing-rera { position:absolute; top:14px; right:14px; background:rgba(15,15,5,0.6); color:var(--mellow); font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.1em; padding:4px 10px; border-radius:30px; }
     .listing-card-body { padding: 1.5rem; }
     .listing-price { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; color:var(--vanilla); margin-bottom:4px; }
     .listing-name { font-family:'Michroma',monospace; font-size:0.78rem; color:var(--mellow); letter-spacing:0.08em; margin-bottom:4px; }
     .listing-loc { font-family:'Tenor Sans',sans-serif; font-size:0.75rem; color:var(--stone); margin-bottom:1rem; }
     .listing-chips { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:1rem; }
-    .chip { background:rgba(248,244,238,0.06); border:1px solid rgba(248,244,238,0.12); color:var(--mellow); font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.06em; padding:3px 10px; border-radius:0; }
+    .chip { background:rgba(248,244,238,0.06); border:1px solid rgba(248,244,238,0.12); color:var(--mellow); font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.06em; padding:3px 10px; border-radius:30px; }
     .chip-accent { background:rgba(170,158,144,0.15); border-color:var(--mellow); color:var(--vanilla); }
     .listing-btns { display:grid; grid-template-columns:1.2fr 1fr 0.8fr; gap:6px; margin-top:1rem; }
-    .listing-btns a { text-align:center; padding:9px 6px; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-radius:0; }
+    .listing-btns a { text-align:center; padding:9px 6px; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-radius:30px; }
     .listing-btn-enq { background:var(--vanilla); color:var(--mocha); }
     .listing-btn-brochure { background:transparent; color:var(--mellow); border:1px solid var(--stone); }
     .listing-btn-more { background:transparent; color:var(--vanilla); border:1px solid var(--vanilla); }
@@ -90,12 +90,12 @@
     .promise-card p { font-size:0.8rem; color:var(--stone); line-height:1.7; font-family:'Tenor Sans',sans-serif; }
 
     /* JOIN OUR JOURNEY — Espresso */
-    .journey-sec { background: var(--espresso); padding: 48px 4%; text-align:center; }
+    .journey-sec { background: var(--mocha); padding: 48px 4%; text-align:center; }
     .journey-inner { max-width:600px; margin:0 auto; }
     .journey-sec h2 { color:var(--vanilla); font-size:clamp(1.2rem,1.8vw,1.7rem); margin-bottom:0.5rem; }
     .journey-sec p { font-size:0.84rem; color:var(--stone); margin-bottom:1.5rem; font-family:'Tenor Sans',sans-serif; }
     .journey-btns { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
-    .journey-btns a { font-family:'Tenor Sans',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:10px 20px; text-decoration:none; border-radius:0; display:flex; align-items:center; gap:8px; }
+    .journey-btns a { font-family:'Tenor Sans',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:10px 20px; text-decoration:none; border-radius:30px; display:flex; align-items:center; gap:8px; }
     .journey-fb { background:#1877F2; color:#fff; }
     .journey-ig { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
 
@@ -107,7 +107,7 @@
     .people-header p { font-size:0.82rem; color:var(--stone); font-family:'Tenor Sans',sans-serif; line-height:1.7; }
     .people-row { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; }
     .person-card { text-align:center; width:160px; }
-    .person-photo { width:120px; height:120px; background:var(--mocha); margin:0 auto 0.75rem; display:flex; align-items:center; justify-content:center; border-radius:0; }
+    .person-photo { width:120px; height:120px; background:var(--mocha); margin:0 auto 0.75rem; display:flex; align-items:center; justify-content:center; border-radius:30px; }
     .person-photo svg { width:40px; height:40px; fill:var(--mellow); }
     .person-name { font-family:'Playfair Display',Georgia,serif; font-size:0.95rem; color:var(--mocha); margin-bottom:2px; }
     .person-role { font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mellow); }
@@ -133,9 +133,9 @@
   <!-- NAV -->
   <nav>
     <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
-      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:0;"></span>
-      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:0;"></span>
-      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:0;"></span>
+      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:30px;"></span>
+      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:30px;"></span>
+      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:30px;"></span>
     </button>
     <div id="desktopLinks" style="display:flex;gap:2rem;align-items:center;">
       <a href="listings.html" class="nav-link">Listings</a>
@@ -147,7 +147,7 @@
   </nav>
 
   <!-- MOBILE DRAWER -->
-  <div id="mobileDrawer" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--espresso);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+  <div id="mobileDrawer" style="display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:var(--mocha);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
     <a href="index.html" style="color:var(--vanilla);text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,244,238,0.08);display:block;">Home</a>
     <a href="listings.html" style="color:var(--vanilla);text-decoration:none;font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(248,244,238,0.08);display:block;">Listings</a>
     <a href="sreyan.html" style="text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:1rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(248,244,238,0.05);display:block;color:var(--stone);">↳ Sreyan by Elegans VRG</a>
@@ -159,7 +159,7 @@
   <div class="page-wrap">
 
     <!-- HERO — Vanilla -->
-    <section class="hero" style="min-height:100vh;display:flex;flex-direction:column;">
+    <section class="hero" style="min-height:100vh;display:flex;flex-direction:column;padding-bottom:2vh;">
       <div class="hero-text" style="flex-shrink:0;">
         <span class="label">Hyderabad · Real Estate</span>
         <h1>Not a broker —<br><em>an ally.</em></h1>
@@ -175,22 +175,22 @@
     </section>
 
     <!-- OUR LISTINGS — Espresso (dark) -->
-    <div class="listings-sec">
+    <div class="listings-sec" style="background:var(--mocha);">
       <div class="listings-inner">
         <span class="label" style="color:var(--mellow);">Properties</span>
         <h2 style="color:var(--vanilla);font-size:clamp(1.3rem,2vw,1.9rem);margin-bottom:2rem;font-family:'Playfair Display',Georgia,serif;font-weight:400;">Our Listings</h2>
         <div class="listings-grid">
           <!-- Card -->
-          <div class="listing-card">
-            <div class="listing-card-img">
+          <div class="listing-card" style="background:var(--vanilla);border-radius:20px;">
+            <div class="listing-card-img" style="border-radius:20px 20px 0 0;">
               <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Sreyan" loading="lazy" />
               <span class="listing-badge">For Sale</span>
               <span class="listing-rera">RERA · HMDA</span>
             </div>
             <div class="listing-card-body">
-              <div class="listing-price">₹5.5 Cr* onwards</div>
-              <div class="listing-name">Sreyan by Elegans VRG</div>
-              <div class="listing-loc">Gundlapochampalli, Medchal, Hyderabad</div>
+              <div class="listing-price" style="color:var(--mocha);">₹5.5 Cr* onwards</div>
+              <div class="listing-name" style="color:var(--stone);">Sreyan by Elegans VRG</div>
+              <div class="listing-loc" style="color:var(--mellow);">Gundlapochampalli, Medchal, Hyderabad</div>
               <div class="listing-chips">
                 <span class="chip">4,500+ sft Triplex</span>
                 <span class="chip">G+2 Villa</span>
@@ -199,11 +199,11 @@
                 <span class="chip chip-accent">₹12,000/sft*</span>
               </div>
               <div class="listing-btns">
-                <a href="contact.html" class="listing-btn-enq">Enquire</a>
-                <a href="Sreyan_Handoff_Brief_v2.pdf" download class="listing-btn-brochure">⬇ Brochure</a>
-                <a href="sreyan.html" class="listing-btn-more">More →</a>
+                <a href="contact.html" class="listing-btn-enq" style="background:var(--mocha);color:var(--vanilla);border-radius:30px;padding:9px 6px;font-family:Tenor Sans,sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">Enquire</a>
+                <a href="Sreyan_Handoff_Brief_v2.pdf" download class="listing-btn-brochure" style="background:transparent;color:var(--mocha);border:1px solid var(--mocha);border-radius:30px;padding:9px 6px;font-family:Tenor Sans,sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">⬇ Brochure</a>
+                <a href="sreyan.html" class="listing-btn-more" style="background:transparent;color:var(--mocha);border:1px solid var(--mocha);border-radius:30px;padding:9px 6px;font-family:Tenor Sans,sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">More →</a>
               </div>
-              <p class="listing-disclaimer">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
+              <p class="listing-disclaimer" style="color:var(--mellow);">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
             </div>
           </div>
 
@@ -213,11 +213,11 @@
             <h3>We don't list every project.<br>We list the right ones.</h3>
             <p>Every project on Re-Ally goes through our checklist before we show it to a single client.</p>
             <div class="checklist">
-              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title">RERA registered</div><div class="check-desc">Legally compliant — no shortcuts</div></div></div>
-              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title">HMDA approved</div><div class="check-desc">Government clearance confirmed</div></div></div>
-              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title">Transparent pricing</div><div class="check-desc">No hidden costs, ever</div></div></div>
-              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title">Credible developer</div><div class="check-desc">We verify before we vouch</div></div></div>
-              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title">Fits real buyer needs</div><div class="check-desc">Location, size and value that make sense</div></div></div>
+              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title" style="color:var(--vanilla);">RERA registered</div><div class="check-desc" style="color:var(--mellow);">Legally compliant — no shortcuts</div></div></div>
+              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title" style="color:var(--vanilla);">HMDA approved</div><div class="check-desc" style="color:var(--mellow);">Government clearance confirmed</div></div></div>
+              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title" style="color:var(--vanilla);">Transparent pricing</div><div class="check-desc" style="color:var(--mellow);">No hidden costs, ever</div></div></div>
+              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title" style="color:var(--vanilla);">Credible developer</div><div class="check-desc" style="color:var(--mellow);">We verify before we vouch</div></div></div>
+              <div class="check-item"><div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div><div class="check-title" style="color:var(--vanilla);">Fits real buyer needs</div><div class="check-desc" style="color:var(--mellow);">Location, size and value that make sense</div></div></div>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@
     <!-- JOIN OUR JOURNEY — Espresso -->
     <div class="journey-sec">
       <div class="journey-inner">
-        <span class="label" style="color:var(--mellow);">Follow Along</span>
+        <span class="label" style="color:rgba(248,244,238,0.5);">Follow Along</span>
         <h2>Join Our Journey</h2>
         <p>We're just getting started. Follow along as we build Re-Ally — one honest deal at a time.</p>
         <div class="journey-btns">
@@ -281,21 +281,21 @@
         </div>
         <div class="people-row" id="teamRow">
           <div class="person-card">
-            <div class="person-photo">
+            <div class="person-photo" style="border-radius:30px;">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
             <div class="person-name">Shrikar</div>
             <div class="person-role">Founder</div>
           </div>
           <div class="person-card">
-            <div class="person-photo">
+            <div class="person-photo" style="border-radius:30px;">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
             <div class="person-name">Sajath</div>
             <div class="person-role">Co-Founder</div>
           </div>
           <div class="person-card">
-            <div class="person-photo">
+            <div class="person-photo" style="border-radius:30px;">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
             <div class="person-name">Anas</div>

@@ -45,7 +45,7 @@ p { color: var(--mocha); line-height: 1.75; }
 /* ── NAV ── */
 nav {
   position: fixed; top:0; left:0; right:0; z-index:1000;
-  background: var(--espresso);
+  background: var(--mocha);
   height: 60px;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 4%;
@@ -69,14 +69,14 @@ nav {
   letter-spacing: 0.04em;
 }
 .nav-cta {
-  background: var(--mocha);
+  background: rgba(255,255,255,0.12);
   color: var(--vanilla);
   font-family: 'Tenor Sans', sans-serif;
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 8px 16px;
-  border-radius: 0;
+  border-radius: 30px;
   text-decoration: none;
   transition: background 0.2s;
 }
@@ -92,7 +92,7 @@ nav {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 11px 24px;
-  border-radius: 0;
+  border-radius: 30px;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -108,7 +108,7 @@ nav {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 10px 22px;
-  border-radius: 0;
+  border-radius: 30px;
   text-decoration: none;
   border: 1px solid var(--mocha);
   transition: all 0.2s;
@@ -123,7 +123,7 @@ nav {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 11px 24px;
-  border-radius: 0;
+  border-radius: 30px;
   text-decoration: none;
   transition: background 0.2s;
 }
@@ -131,7 +131,7 @@ nav {
 
 /* ── FOOTER ── */
 footer {
-  background: var(--espresso);
+  background: var(--mocha);
   color: var(--vanilla);
   padding: 48px 4% 24px;
 }
@@ -155,7 +155,7 @@ footer {
 
 /* ── FLOAT BUTTONS ── */
 .float-cta { position:fixed; bottom:20px; right:20px; z-index:99; display:flex; flex-direction:column; gap:8px; }
-.float-btn { display:flex; align-items:center; gap:6px; padding:9px 14px; border-radius:0; text-decoration:none; font-size:0.75rem; font-weight:400; font-family:'Tenor Sans',sans-serif; letter-spacing:0.08em; transition:opacity 0.2s; box-shadow:0 2px 12px rgba(0,0,0,0.2); }
+.float-btn { display:flex; align-items:center; gap:6px; padding:9px 14px; border-radius:30px; text-decoration:none; font-size:0.75rem; font-weight:400; font-family:'Tenor Sans',sans-serif; letter-spacing:0.08em; transition:opacity 0.2s; box-shadow:0 2px 12px rgba(0,0,0,0.2); }
 .float-wa { background:#25D366; color:#fff; }
 .float-call { background:var(--mocha); color:var(--vanilla); }
 
@@ -168,3 +168,14 @@ footer {
   .footer-bot { flex-direction:column; text-align:center; gap:0.25rem; }
   .float-btn { padding:8px 12px; font-size:0.7rem; }
 }
+
+/* Global 30px radius */
+.listing-card, .promise-card, .person-photo,
+.btn-primary, .btn-secondary, .btn-vanilla,
+.nav-cta, .chip, .float-btn,
+.play-btn, .check-icon,
+.listing-btns a, .journey-btns a {
+  border-radius: 30px !important;
+}
+/* Sharp exceptions */
+.check-icon { border-radius: 4px !important; }
