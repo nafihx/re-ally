@@ -15,8 +15,8 @@
     /* HERO — Vanilla */
     .hero { background: #51504E; padding: 0 4%; }
     .hero-text { padding: 3.5vh 0 2vh; }
-    .hero-text h1 { font-size: clamp(1.8rem, 3.2vw, 3.2rem); color: #570D0E; margin-bottom: 0.6rem; }
-    .hero-text p { font-size: 0.88rem; color: #9F9C97; max-width: 480px; line-height: 1.72; }
+    .hero-text h1 { font-size: clamp(1.8rem, 3.2vw, 3.2rem); color: #EEEEE2; margin-bottom: 0.6rem; }
+    .hero-text p { font-size: 0.88rem; color: rgba(238,238,226,0.6); max-width: 480px; line-height: 1.72; }
     .hero-video {
       width: 100%; aspect-ratio: 16/9;
       background: var(--mocha);
@@ -133,9 +133,9 @@
   <!-- NAV -->
   <nav>
     <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
-      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:30px;"></span>
-      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:30px;"></span>
-      <span style="display:block;width:22px;height:2px;background:var(--vanilla);border-radius:30px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#9F9C97;border-radius:30px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#9F9C97;border-radius:30px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#9F9C97;border-radius:30px;"></span>
     </button>
     <div id="desktopLinks" style="display:flex;gap:2rem;align-items:center;">
       <a href="listings.html" class="nav-link">Listings</a>
@@ -143,7 +143,7 @@
       <a href="about.html" class="nav-link">About</a>
     </div>
     <a href="index.html" class="nav-logo">Re-Ally</a>
-    <a href="contact.html" class="nav-cta" style="color:#EEEEE2;background:rgba(238,238,226,0.15);">Contact Us</a>
+    <a href="contact.html" class="nav-cta" style="color:#9F9C97;background:rgba(159,156,151,0.15);border:1px solid rgba(159,156,151,0.3);">Contact Us</a>
   </nav>
 
   <!-- MOBILE DRAWER -->
@@ -159,9 +159,9 @@
   <div class="page-wrap">
 
     <!-- HERO — Vanilla -->
-    <section class="hero" style="background:#9F9C97;min-height:100vh;display:flex;flex-direction:column;padding-bottom:2vh;">
+    <section class="hero" style="background:#3a3835;min-height:calc(100vh - 60px);display:flex;flex-direction:column;padding-bottom:2vh;">
       <div class="hero-text" style="flex-shrink:0;">
-        <span class="label" style="color:#9F9C97;">Hyderabad · Real Estate</span>
+        <span class="label" style="color:rgba(238,238,226,0.45);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;font-family:'Tenor Sans',sans-serif;display:block;margin-bottom:0.5rem;">Hyderabad · Real Estate</span>
         <h1>Not a broker —<br><em>an ally.</em></h1>
         <p>We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
       </div>
