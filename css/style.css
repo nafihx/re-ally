@@ -238,14 +238,14 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 
 
 
-/* ── LISTINGS MOBILE — compact card ── */
+/* ── LISTINGS 3-BOX MOBILE ── */
 @media (max-width: 768px) {
   .listings-sec { padding: 28px 4% !important; }
-  .listings-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-  #howWeChooseHome { display: none !important; }
+  .listings-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
   .listing-card-img { aspect-ratio: 16/9 !important; }
-  .listing-card-body { padding: 1.1rem 1.2rem 1.2rem !important; }
 }
+/* Box hover */
+.prop-box:hover { transform: translateY(-5px); }
 
 /* ── LISTING CARD HOVER ANIMATIONS ── */
 .listing-card-link { display:block; }
