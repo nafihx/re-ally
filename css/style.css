@@ -307,3 +307,18 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
   .team-bento h2 { font-size: 1.6rem !important; }
   .bento-card { aspect-ratio: 1/1 !important; }
 }
+
+/* ── HERO SPLIT ── */
+.hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(101,0,2,0.35); }
+.hero-btn-secondary:hover { border-color: #1a1a1a !important; background: #1a1a1a !important; color: #fafafa !important; }
+
+@media (max-width: 768px) {
+  .hero { min-height: auto !important; padding: 1.5rem 4% 2.5rem !important; }
+  .hero-split { grid-template-columns: 1fr !important; gap: 1.75rem !important; }
+  .hero-text-col h1 { font-size: clamp(1.8rem,8vw,2.4rem) !important; }
+  .hero-text-col p { font-size: 0.88rem !important; }
+  .hero-video-col { aspect-ratio: 16/9 !important; }
+  /* Show video first or text first? Text first on mobile */
+  .hero-text-col { order: 1; }
+  .hero-video-col { order: 2; }
+}

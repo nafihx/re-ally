@@ -164,19 +164,38 @@
 
   <div class="page-wrap">
 
-    <!-- HERO — Vanilla -->
-    <section class="hero" style="background:#fafafa;min-height:calc(100vh - 60px);display:flex;flex-direction:column;padding-bottom:2vh;">
-      <div class="hero-text" style="flex-shrink:0;">
-        <span class="label" style="color:#b3b3b3;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;font-family:'Tenor Sans',sans-serif;display:block;margin-bottom:0.5rem;">Hyderabad · Real Estate</span>
-        <h1>Not a broker —<br><em>an ally.</em></h1>
-        <p>We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
-      </div>
-      <div id="heroVideoBox" style="flex:1;min-height:200px;background:#565656;border-radius:16px;border:1px solid rgba(159,156,151,0.2);position:relative;overflow:hidden;margin-bottom:0;">
-        <video muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        <div class="hero-video-placeholder" style="background:linear-gradient(145deg,#565656,#b3b3b3,#565656);border-radius:16px;">
-          <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-          <span class="hero-video-label">Your cinematic property video here</span>
+    <!-- HERO — split: text left, video right -->
+    <section class="hero" style="background:#fafafa;min-height:calc(100vh - 72px);display:flex;align-items:center;padding:2rem 4%;">
+      <div class="hero-split" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:3rem;align-items:center;width:100%;max-width:1200px;margin:0 auto;">
+
+        <!-- LEFT: Text -->
+        <div class="hero-text-col">
+          <span style="color:#b3b3b3;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;font-family:'Tenor Sans',sans-serif;display:block;margin-bottom:1rem;">Hyderabad · Real Estate</span>
+          <h1 style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,3.8vw,3.4rem);line-height:1.08;margin:0 0 1.25rem;font-weight:600;">Not a broker —<br><em style="color:#1a1a1a;font-style:italic;">an ally.</em></h1>
+          <p style="color:#1a1a1a;font-size:0.95rem;line-height:1.75;margin:0 0 1.25rem;max-width:440px;">We guide you to the right property. No pressure, no jargon — just honest advice from people who know Hyderabad inside out. Whether it's your first home or your next investment, we're on your side from the first question to the final signature.</p>
+          <p style="color:#565656;font-size:0.82rem;line-height:1.6;margin:0 0 2rem;font-style:italic;max-width:400px;">Built on honesty, not commission — real estate the way it should be.</p>
+          <div style="display:flex;gap:0.85rem;flex-wrap:wrap;">
+            <a href="listings.html" class="hero-btn-primary" style="display:inline-flex;align-items:center;gap:8px;background:#650002;color:#fafafa;padding:13px 26px;border-radius:30px;text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:0.76rem;letter-spacing:0.08em;text-transform:uppercase;transition:transform 0.25s,box-shadow 0.25s;">
+              View Listings
+              <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:none;stroke:#fafafa;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="contact.html" class="hero-btn-secondary" style="display:inline-flex;align-items:center;background:transparent;color:#1a1a1a;padding:13px 26px;border-radius:30px;text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:0.76rem;letter-spacing:0.08em;text-transform:uppercase;border:1.5px solid #ccc;transition:all 0.25s;">
+              Talk to Us
+            </a>
+          </div>
         </div>
+
+        <!-- RIGHT: Video -->
+        <div id="heroVideoBox" class="hero-video-col" style="aspect-ratio:4/3;background:#565656;border-radius:18px;border:1px solid rgba(159,156,151,0.2);position:relative;overflow:hidden;box-shadow:0 16px 50px rgba(0,0,0,0.18);">
+          <video muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <div class="hero-video-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#565656,#888,#565656);border-radius:18px;">
+            <div style="width:66px;height:66px;background:rgba(250,250,250,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.25);margin-bottom:1rem;">
+              <svg viewBox="0 0 24 24" style="width:24px;height:24px;fill:#650002;margin-left:4px;"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <span style="font-size:0.72rem;font-style:italic;color:rgba(250,250,250,0.6);letter-spacing:0.04em;">Your cinematic property video here</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
