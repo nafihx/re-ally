@@ -6,20 +6,20 @@
 
 :root {
   /* v3.0 palette */
-  --bordeaux:   #570D0E;   /* logo, titles, nav, accents, buttons */
-  --bordeaux-dk:#3d0909;   /* hover states */
+  --bordeaux:   #650002;   /* logo, titles, nav, accents, buttons */
+  --bordeaux-dk:#3d0001;   /* hover states */
   --midnight:   #0A0A0A;   /* body text, icons */
-  --ivory:      #EEEEE2;   /* light backgrounds ~10% */
-  --flint:      #9F9C97;   /* main page backgrounds ~50% */
-  --charcoal:   #51504E;   /* section cards/blocks ~40% */
+  --ivory:      #fafafa;   /* light backgrounds ~10% */
+  --flint:      #b3b3b3;   /* main page backgrounds ~50% */
+  --charcoal:   #565656;   /* section cards/blocks ~40% */
   --white:      #ffffff;
 
   /* Legacy aliases used in inline styles */
-  --claret:     #570D0E;
-  --claret-dark:#3d0909;
+  --claret:     #650002;
+  --claret-dark:#3d0001;
   --espresso:   #0A0A0A;
-  --travertine: #9F9C97;
-  --linen:      #EEEEE2;
+  --travertine: #b3b3b3;
+  --linen:      #fafafa;
 }
 
 /* ── RESET ── */
@@ -27,7 +27,7 @@
 html { scroll-behavior:smooth; }
 body {
   font-family:'Urbanist',sans-serif;
-  background: #51504E;
+  background: #565656;
   color: var(--midnight);
   font-size:15px;
   line-height:1.68;
@@ -45,7 +45,7 @@ nav {
   padding:0 4%;
 }
 .nav-link {
-  color: #9F9C97;
+  color: #b3b3b3;
   text-decoration: none;
   font-family: 'Tenor Sans', sans-serif;
   font-size: 0.72rem;
@@ -53,9 +53,9 @@ nav {
   text-transform: uppercase;
   transition: color 0.2s;
 }
-.nav-link:hover { color: #EEEEE2; }
+.nav-link:hover { color: #fafafa; }
 .nav-logo {
-  color: #9F9C97;
+  color: #b3b3b3;
   text-decoration: none;
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.3rem;
@@ -65,9 +65,9 @@ nav {
   transform: translateX(-50%);
   transition: color 0.2s;
 }
-.nav-logo:hover { color: #EEEEE2; }
+.nav-logo:hover { color: #fafafa; }
 .nav-cta {
-  color: #9F9C97 !important;
+  color: #b3b3b3 !important;
   background: rgba(159,156,151,0.12) !important;
   border: 1px solid rgba(159,156,151,0.25) !important;
   font-family: 'Tenor Sans', sans-serif;
@@ -80,7 +80,7 @@ nav {
   white-space: nowrap;
   transition: all 0.2s;
 }
-.nav-cta:hover { color: #EEEEE2 !important; background: rgba(159,156,151,0.2) !important; }
+.nav-cta:hover { color: #fafafa !important; background: rgba(159,156,151,0.2) !important; }
 
 /* ── SECTIONS ── */
 .sec { padding:48px 4%; }
@@ -88,19 +88,19 @@ nav {
 .sec-title { font-family:'Georgia',serif; font-size:clamp(1.2rem,1.8vw,1.7rem); color:var(--bordeaux); margin-bottom:1rem; }
 
 /* ── PROMISE ── */
-.promise-wrap { background:#9F9C97; }
+.promise-wrap { background:#b3b3b3; }
 
 /* ── SOCIAL ── */
-.social-wrap { background:#51504E; }
+.social-wrap { background:#565656; }
 .social-center { text-align:center; }
 .social-sub { font-size:0.85rem; color:var(--charcoal); margin-bottom:1.25rem; line-height:1.65; }
 
 /* ── TEAM ── */
-.team-wrap { background:#9F9C97; }
+.team-wrap { background:#b3b3b3; }
 .team-center { text-align:center; }
 
 /* ── LISTINGS ── */
-.listings-wrap { background:#51504E; }
+.listings-wrap { background:#565656; }
 
 /* ── FADE ── */
 .fade-text { color:var(--flint); transition:color 0.6s; }
@@ -155,7 +155,7 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 .mission-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:1.75rem; }
 .pipeline-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; max-width:1100px; margin:0 auto; }
 .team-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.t-card { background:#EEEEE2; border-radius:16px; overflow:hidden; border:1px solid rgba(159,156,151,0.2); text-align:center; padding:2rem 1.5rem; }
+.t-card { background:#fafafa; border-radius:16px; overflow:hidden; border:1px solid rgba(159,156,151,0.2); text-align:center; padding:2rem 1.5rem; }
 .t-photo { width:100px; height:100px; border-radius:50%; background:linear-gradient(160deg,var(--flint),var(--charcoal)); margin:0 auto 1.25rem; display:flex; align-items:center; justify-content:center; font-size:2rem; border:3px solid rgba(238,238,226,0.1); }
 
 /* ── LISTINGS PAGE ── */
