@@ -27,14 +27,14 @@
 html { scroll-behavior:smooth; }
 body {
   font-family:'Urbanist',sans-serif;
-  background: var(--flint);
+  background: #0A0A0A;
   color: var(--midnight);
   font-size:15px;
   line-height:1.68;
 }
 
 h1,h2,h3,h4 { font-family:'Georgia',serif; font-weight:400; color:var(--bordeaux); line-height:1.15; }
-p { color:var(--midnight); line-height:1.72; }
+p { color:#0A0A0A; line-height:1.72; }
 
 /* ── NAV — Bordeaux bg, ivory logo, flint links ── */
 nav {
@@ -51,23 +51,23 @@ nav {
 .sec-title { font-family:'Georgia',serif; font-size:clamp(1.2rem,1.8vw,1.7rem); color:var(--bordeaux); margin-bottom:1rem; }
 
 /* ── PROMISE ── */
-.promise-wrap { background:var(--flint); }
+.promise-wrap { background:#9F9C97; }
 
 /* ── SOCIAL ── */
-.social-wrap { background:var(--ivory); }
+.social-wrap { background:#51504E; }
 .social-center { text-align:center; }
 .social-sub { font-size:0.85rem; color:var(--charcoal); margin-bottom:1.25rem; line-height:1.65; }
 
 /* ── TEAM ── */
-.team-wrap { background:var(--flint); }
+.team-wrap { background:#9F9C97; }
 .team-center { text-align:center; }
 
 /* ── LISTINGS ── */
-.listings-wrap { background:var(--ivory); }
+.listings-wrap { background:#51504E; }
 
 /* ── FADE ── */
 .fade-text { color:var(--flint); transition:color 0.6s; }
-.fade-text.visible { color:var(--midnight); }
+.fade-text.visible { color:#0A0A0A; }
 
 /* ── FOOTER — Bordeaux bg, ivory text ── */
 footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
@@ -118,7 +118,7 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 .mission-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:1.75rem; }
 .pipeline-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; max-width:1100px; margin:0 auto; }
 .team-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
-.t-card { background:var(--charcoal); border-radius:16px; overflow:hidden; border:1px solid rgba(159,156,151,0.2); text-align:center; padding:2rem 1.5rem; }
+.t-card { background:#EEEEE2; border-radius:16px; overflow:hidden; border:1px solid rgba(159,156,151,0.2); text-align:center; padding:2rem 1.5rem; }
 .t-photo { width:100px; height:100px; border-radius:50%; background:linear-gradient(160deg,var(--flint),var(--charcoal)); margin:0 auto 1.25rem; display:flex; align-items:center; justify-content:center; font-size:2rem; border:3px solid rgba(238,238,226,0.1); }
 
 /* ── LISTINGS PAGE ── */
@@ -135,7 +135,7 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 .contact-wrap { display:grid; grid-template-columns:1fr 1.3fr; gap:4rem; align-items:start; }
 .form-group { margin-bottom:1rem; }
 .form-group label { display:block; font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--bordeaux); margin-bottom:5px; }
-.form-group input,.form-group textarea,.form-group select { width:100%; padding:10px 14px; background:var(--ivory); border:1px solid rgba(159,156,151,0.4); border-radius:6px; font-family:'Urbanist',sans-serif; font-size:0.88rem; color:var(--midnight); outline:none; transition:border-color 0.2s; }
+.form-group input,.form-group textarea,.form-group select { width:100%; padding:10px 14px; background:var(--ivory); border:1px solid rgba(159,156,151,0.4); border-radius:6px; font-family:'Urbanist',sans-serif; font-size:0.88rem; color:#0A0A0A; outline:none; transition:border-color 0.2s; }
 .form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:var(--bordeaux); }
 .form-group textarea { resize:vertical; min-height:100px; }
 
@@ -146,7 +146,7 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 .spec-table tr { border-bottom:1px solid rgba(159,156,151,0.2); }
 .spec-table td { padding:8px 0; font-size:0.82rem; }
 .spec-table td:first-child { color:var(--flint); font-weight:500; width:45%; }
-.spec-table td:last-child { color:var(--midnight); font-weight:600; }
+.spec-table td:last-child { color:#0A0A0A; font-weight:600; }
 
 /* ═══════════════════════════════════════
    MOBILE
