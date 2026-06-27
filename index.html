@@ -13,10 +13,10 @@
     .page-wrap { padding-top: 60px; }
 
     /* HERO — Vanilla */
-    .hero { background: #51504E; padding: 0 4%; }
+    .hero { background: var(--vanilla); padding: 0 4%; }
     .hero-text { padding: 3.5vh 0 2vh; }
-    .hero-text h1 { font-size: clamp(1.8rem, 3.2vw, 3.2rem); color: #570D0E; margin-bottom: 0.6rem; }
-    .hero-text p { font-size: 0.88rem; color: #9F9C97; max-width: 480px; line-height: 1.72; }
+    .hero-text h1 { font-size: clamp(1.8rem, 3.2vw, 3.2rem); color: var(--mocha); margin-bottom: 0.6rem; }
+    .hero-text p { font-size: 0.88rem; color: var(--stone); max-width: 480px; line-height: 1.72; }
     .hero-video {
       width: 100%; aspect-ratio: 16/9;
       background: var(--mocha);
@@ -42,75 +42,75 @@
     .hero-video-label { font-family:'Tenor Sans',sans-serif; font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mellow); }
 
     /* OUR LISTINGS — Espresso (dark) */
-    .listings-sec { background: #9F9C97; padding: 56px 4%; }
+    .listings-sec { background: var(--mocha); padding: 56px 4%; }
     .listings-inner { max-width: 1100px; margin: 0 auto; }
     .listings-sec .label { color: var(--mellow); }
     .listings-sec h2 { color: var(--vanilla); font-size: clamp(1.3rem,2vw,1.9rem); margin-bottom: 2rem; }
-    .listing-card { background: #EEEEE2; border-radius: 30px; overflow: hidden; }
+    .listing-card { background: var(--mocha); border-radius: 30px; overflow: hidden; }
     .listing-card-img { position:relative; aspect-ratio:16/9; overflow:hidden; background: var(--stone); }
     .listing-card-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .listing-badge { position:absolute; top:14px; left:14px; background:var(--vanilla); color:var(--mocha); font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; padding:4px 12px; border-radius:30px; }
     .listing-rera { position:absolute; top:14px; right:14px; background:rgba(15,15,5,0.6); color:var(--mellow); font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.1em; padding:4px 10px; border-radius:30px; }
     .listing-card-body { padding: 1.5rem; }
-    .listing-price { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; color:#570D0E; margin-bottom:4px; }
-    .listing-name { font-family:'Michroma',monospace; font-size:0.78rem; color:#51504E; letter-spacing:0.08em; margin-bottom:4px; }
-    .listing-loc { font-family:'Tenor Sans',sans-serif; font-size:0.75rem; color:#9F9C97; margin-bottom:1rem; }
+    .listing-price { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; color:var(--vanilla); margin-bottom:4px; }
+    .listing-name { font-family:'Michroma',monospace; font-size:0.78rem; color:var(--mellow); letter-spacing:0.08em; margin-bottom:4px; }
+    .listing-loc { font-family:'Tenor Sans',sans-serif; font-size:0.75rem; color:var(--stone); margin-bottom:1rem; }
     .listing-chips { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:1rem; }
-    .chip { background:rgba(81,80,78,0.1); border:1px solid rgba(159,156,151,0.3); color:#51504E; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.06em; padding:3px 10px; border-radius:30px; }
+    .chip { background:rgba(248,244,238,0.06); border:1px solid rgba(248,244,238,0.12); color:var(--mellow); font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.06em; padding:3px 10px; border-radius:30px; }
     .chip-accent { background:rgba(170,158,144,0.15); border-color:var(--mellow); color:var(--vanilla); }
     .listing-btns { display:grid; grid-template-columns:1.2fr 1fr 0.8fr; gap:6px; margin-top:1rem; }
     .listing-btns a { text-align:center; padding:9px 6px; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-radius:30px; }
-    .listing-btn-enq { background:#570D0E; color:#EEEEE2; }
-    .listing-btn-brochure { background:transparent; color:#51504E; border:1px solid #9F9C97; }
-    .listing-btn-more { background:transparent; color:#570D0E; border:1px solid #570D0E; }
+    .listing-btn-enq { background:var(--vanilla); color:var(--mocha); }
+    .listing-btn-brochure { background:transparent; color:var(--mellow); border:1px solid var(--stone); }
+    .listing-btn-more { background:transparent; color:var(--vanilla); border:1px solid var(--vanilla); }
     .listing-disclaimer { font-family:'Tenor Sans',sans-serif; font-size:0.62rem; color:var(--stone); margin-top:0.6rem; }
 
     /* How we choose — right col on desktop */
     .listings-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
-    .how-we-choose h3 { font-family:'Playfair Display',Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:#EEEEE2; line-height:1.2; margin-bottom:0.75rem; }
-    .how-we-choose p { font-size:0.84rem; color:#9F9C97; line-height:1.72; margin-bottom:1.5rem; }
+    .how-we-choose h3 { font-family:'Playfair Display',Georgia,serif; font-size:clamp(1.2rem,2vw,1.8rem); color:var(--vanilla); line-height:1.2; margin-bottom:0.75rem; }
+    .how-we-choose p { font-size:0.84rem; color:var(--stone); line-height:1.72; margin-bottom:1.5rem; }
     .checklist { display:flex; flex-direction:column; }
     .check-item { display:flex; align-items:flex-start; gap:12px; padding:0.8rem 0; border-bottom:1px solid rgba(248,244,238,0.07); }
     .check-item:last-child { border-bottom:none; }
-    .check-icon { width:18px; height:18px; border:1px solid #9F9C97; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
-    .check-icon svg { width:9px; height:9px; fill:#EEEEE2; }
-    .check-title { font-family:'Tenor Sans',sans-serif; font-size:0.85rem; color:#EEEEE2; margin-bottom:1px; }
-    .check-desc { font-family:'Tenor Sans',sans-serif; font-size:0.75rem; color:#9F9C97; }
+    .check-icon { width:18px; height:18px; border:1px solid var(--mellow); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px; }
+    .check-icon svg { width:9px; height:9px; fill:var(--mellow); }
+    .check-title { font-family:'Tenor Sans',sans-serif; font-size:0.85rem; color:var(--vanilla); margin-bottom:1px; }
+    .check-desc { font-family:'Tenor Sans',sans-serif; font-size:0.75rem; color:var(--stone); }
 
     /* OUR PROMISE — Vanilla (light) */
-    .promise-sec { background: #51504E; padding: 56px 4%; }
+    .promise-sec { background: var(--vanilla); padding: 56px 4%; }
     .promise-inner { max-width:1100px; margin:0 auto; }
     .promise-header { text-align:center; max-width:560px; margin:0 auto 2.5rem; }
-    .promise-header h2 { font-size:clamp(1.3rem,2vw,1.9rem); color:#570D0E; margin-bottom:0.5rem; }
-    .promise-header p { font-size:0.84rem; color:#0A0A0A; }
-    .promise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(159,156,151,0.3); border-radius:16px; overflow:hidden; }
-    .promise-card { background:#EEEEE2; padding:1.75rem; }
-    .promise-num { font-family:'Playfair Display',Georgia,serif; font-size:2.2rem; color:#9F9C97; line-height:1; margin-bottom:0.75rem; opacity:0.5; }
-    .promise-card h3 { font-size:0.95rem; color:#570D0E; margin-bottom:0.5rem; font-family:'Playfair Display',Georgia,serif; font-weight:400; }
-    .promise-card p { font-size:0.8rem; color:#0A0A0A; line-height:1.7; font-family:'Tenor Sans',sans-serif; }
+    .promise-header h2 { font-size:clamp(1.3rem,2vw,1.9rem); color:var(--mocha); margin-bottom:0.5rem; }
+    .promise-header p { font-size:0.84rem; color:var(--stone); }
+    .promise-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--mellow); }
+    .promise-card { background:var(--vanilla); padding:1.75rem; }
+    .promise-num { font-family:'Playfair Display',Georgia,serif; font-size:2.2rem; color:var(--mellow); line-height:1; margin-bottom:0.75rem; opacity:0.5; }
+    .promise-card h3 { font-size:0.95rem; color:var(--mocha); margin-bottom:0.5rem; font-family:'Playfair Display',Georgia,serif; font-weight:400; }
+    .promise-card p { font-size:0.8rem; color:var(--stone); line-height:1.7; font-family:'Tenor Sans',sans-serif; }
 
     /* JOIN OUR JOURNEY — Espresso */
-    .journey-sec { background: #9F9C97; padding: 48px 4%; text-align:center; }
+    .journey-sec { background: var(--mocha); padding: 48px 4%; text-align:center; }
     .journey-inner { max-width:600px; margin:0 auto; }
-    .journey-sec h2 { color:#0A0A0A; font-size:clamp(1.2rem,1.8vw,1.7rem); margin-bottom:0.5rem; }
-    .journey-sec p { font-size:0.84rem; color:#51504E; margin-bottom:1.5rem; font-family:'Tenor Sans',sans-serif; }
+    .journey-sec h2 { color:var(--vanilla); font-size:clamp(1.2rem,1.8vw,1.7rem); margin-bottom:0.5rem; }
+    .journey-sec p { font-size:0.84rem; color:var(--stone); margin-bottom:1.5rem; font-family:'Tenor Sans',sans-serif; }
     .journey-btns { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
     .journey-btns a { font-family:'Tenor Sans',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; padding:10px 20px; text-decoration:none; border-radius:30px; display:flex; align-items:center; gap:8px; }
     .journey-fb { background:#1877F2; color:#fff; }
     .journey-ig { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; }
 
     /* OUR PEOPLE — Vanilla */
-    .people-sec { background: #51504E; padding: 56px 4%; }
+    .people-sec { background: var(--vanilla); padding: 56px 4%; }
     .people-inner { max-width:1100px; margin:0 auto; }
     .people-header { text-align:center; max-width:480px; margin:0 auto 2.5rem; }
-    .people-header h2 { font-size:clamp(1.2rem,1.8vw,1.7rem); color:#EEEEE2; margin-bottom:0.5rem; }
-    .people-header p { font-size:0.82rem; color:#9F9C97; font-family:'Tenor Sans',sans-serif; line-height:1.7; }
+    .people-header h2 { font-size:clamp(1.2rem,1.8vw,1.7rem); color:var(--mocha); margin-bottom:0.5rem; }
+    .people-header p { font-size:0.82rem; color:var(--stone); font-family:'Tenor Sans',sans-serif; line-height:1.7; }
     .people-row { display:flex; gap:2rem; justify-content:center; flex-wrap:wrap; }
     .person-card { text-align:center; width:160px; }
-    .person-photo { width:110px; height:110px; background:#9F9C97; margin:0 auto 0.75rem; display:flex; align-items:center; justify-content:center; border-radius:50%; overflow:hidden; border:3px solid rgba(238,238,226,0.2); }
-    .person-photo svg { width:36px; height:36px; fill:#EEEEE2; opacity:0.5; }
-    .person-name { font-family:'Playfair Display',Georgia,serif; font-size:0.95rem; color:#EEEEE2; margin-bottom:2px; }
-    .person-role { font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:#9F9C97; }
+    .person-photo { width:120px; height:120px; background:var(--mocha); margin:0 auto 0.75rem; display:flex; align-items:center; justify-content:center; border-radius:30px; }
+    .person-photo svg { width:40px; height:40px; fill:var(--mellow); }
+    .person-name { font-family:'Playfair Display',Georgia,serif; font-size:0.95rem; color:var(--mocha); margin-bottom:2px; }
+    .person-role { font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--mellow); }
 
     @media(max-width:768px) {
       .listings-grid { grid-template-columns:1fr; }
@@ -143,7 +143,7 @@
       <a href="about.html" class="nav-link">About</a>
     </div>
     <a href="index.html" class="nav-logo">Re-Ally</a>
-    <a href="contact.html" class="nav-cta" style="color:#EEEEE2;background:rgba(238,238,226,0.15);">Contact Us</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
   </nav>
 
   <!-- MOBILE DRAWER -->
@@ -159,15 +159,15 @@
   <div class="page-wrap">
 
     <!-- HERO — Vanilla -->
-    <section class="hero" style="background:#9F9C97;min-height:100vh;display:flex;flex-direction:column;padding-bottom:2vh;">
+    <section class="hero" style="min-height:100vh;display:flex;flex-direction:column;padding-bottom:2vh;">
       <div class="hero-text" style="flex-shrink:0;">
-        <span class="label" style="color:#9F9C97;">Hyderabad · Real Estate</span>
+        <span class="label">Hyderabad · Real Estate</span>
         <h1>Not a broker —<br><em>an ally.</em></h1>
         <p>We guide you to the right property. No pressure, no jargon. Just honest advice from people who know Hyderabad inside out.</p>
       </div>
-      <div id="heroVideoBox" style="flex:1;min-height:200px;background:#51504E;border-radius:16px;border:1px solid rgba(159,156,151,0.2);position:relative;overflow:hidden;margin-bottom:0;">
+      <div id="heroVideoBox" style="flex:1;min-height:200px;background:var(--mocha);position:relative;overflow:hidden;margin-bottom:0;">
         <video muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;"></video>
-        <div class="hero-video-placeholder" style="background:linear-gradient(145deg,#51504E,#9F9C97,#51504E);border-radius:16px;">
+        <div class="hero-video-placeholder">
           <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
           <span class="hero-video-label">Your cinematic property video here</span>
         </div>
@@ -181,7 +181,7 @@
         <h2 style="color:var(--vanilla);font-size:clamp(1.3rem,2vw,1.9rem);margin-bottom:2rem;font-family:'Playfair Display',Georgia,serif;font-weight:400;">Our Listings</h2>
         <div class="listings-grid">
           <!-- Card -->
-          <div class="listing-card" style="background:#EEEEE2;border-radius:20px;">
+          <div class="listing-card" style="background:var(--vanilla);border-radius:20px;">
             <div class="listing-card-img" style="border-radius:20px 20px 0 0;">
               <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Sreyan" loading="lazy" />
               <span class="listing-badge">For Sale</span>
@@ -238,10 +238,10 @@
             <h3>Guidance Before Transactions</h3>
             <p>We talk to you before we show you anything. Understanding your situation comes first.</p>
           </div>
-          <div class="promise-card" style="background:#51504E;">
-            <div class="promise-num" style="color:#9F9C97;opacity:0.6;">02</div>
-            <h3 style="color:#EEEEE2;">Trust Before Urgency</h3>
-            <p style="color:rgba(238,238,226,0.7);">We never create fake deadlines. If it doesn't feel right, we say so — even if it costs us the deal.</p>
+          <div class="promise-card" style="background:var(--mocha);">
+            <div class="promise-num" style="color:var(--mellow);opacity:0.4;">02</div>
+            <h3 style="color:var(--vanilla);">Trust Before Urgency</h3>
+            <p style="color:var(--mellow);">We never create fake deadlines. If it doesn't feel right, we say so — even if it costs us the deal.</p>
           </div>
           <div class="promise-card">
             <div class="promise-num">03</div>
@@ -255,7 +255,7 @@
     <!-- JOIN OUR JOURNEY — Espresso -->
     <div class="journey-sec">
       <div class="journey-inner">
-        <span class="label" style="color:#51504E;">Follow Along</span>
+        <span class="label" style="color:rgba(248,244,238,0.5);">Follow Along</span>
         <h2>Join Our Journey</h2>
         <p>We're just getting started. Follow along as we build Re-Ally — one honest deal at a time.</p>
         <div class="journey-btns">
@@ -281,21 +281,21 @@
         </div>
         <div class="people-row" id="teamRow">
           <div class="person-card">
-            <div class="person-photo">
+            <div class="person-photo" style="border-radius:30px;">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
             <div class="person-name">Shrikar</div>
             <div class="person-role">Founder</div>
           </div>
           <div class="person-card">
-            <div class="person-photo">
+            <div class="person-photo" style="border-radius:30px;">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
             <div class="person-name">Sajath</div>
             <div class="person-role">Co-Founder</div>
           </div>
           <div class="person-card">
-            <div class="person-photo">
+            <div class="person-photo" style="border-radius:30px;">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
             </div>
             <div class="person-name">Anas</div>
