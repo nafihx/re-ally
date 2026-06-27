@@ -237,3 +237,18 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 }
 
 
+
+/* ── LISTINGS MOBILE — horizontal compact card ── */
+@media (max-width: 768px) {
+  .listings-sec { padding: 28px 4% !important; }
+  .listings-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  #howWeChooseHome { display: none !important; }
+
+  /* Card becomes compact */
+  .listing-card { display: flex !important; flex-direction: row !important; align-items: stretch !important; }
+  .listing-card-img { aspect-ratio: 1/1 !important; width: 40% !important; flex-shrink: 0 !important; border-radius: 16px 0 0 16px !important; }
+  .listing-card-body { padding: 0.85rem 1rem !important; flex: 1; }
+  .listing-card-body > div:first-child { font-size: 1.05rem !important; }
+  .listing-card-body .listing-chips, 
+  .listing-card-body > div[style*="flex-wrap:wrap"] { display: none !important; }
+}
