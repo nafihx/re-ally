@@ -238,17 +238,27 @@ footer { background:var(--bordeaux); color:var(--ivory); padding:40px 4% 20px; }
 
 
 
-/* ── LISTINGS MOBILE — horizontal compact card ── */
+/* ── LISTINGS MOBILE — compact card ── */
 @media (max-width: 768px) {
   .listings-sec { padding: 28px 4% !important; }
   .listings-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
   #howWeChooseHome { display: none !important; }
+  .listing-card-img { aspect-ratio: 16/9 !important; }
+  .listing-card-body { padding: 1.1rem 1.2rem 1.2rem !important; }
+}
 
-  /* Card becomes compact */
-  .listing-card { display: flex !important; flex-direction: row !important; align-items: stretch !important; }
-  .listing-card-img { aspect-ratio: 1/1 !important; width: 40% !important; flex-shrink: 0 !important; border-radius: 16px 0 0 16px !important; }
-  .listing-card-body { padding: 0.85rem 1rem !important; flex: 1; }
-  .listing-card-body > div:first-child { font-size: 1.05rem !important; }
-  .listing-card-body .listing-chips, 
-  .listing-card-body > div[style*="flex-wrap:wrap"] { display: none !important; }
+/* ── LISTING CARD HOVER ANIMATIONS ── */
+.listing-card-link { display:block; }
+.listing-card-link:hover .listing-card {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.28) !important;
+}
+.listing-card-link:hover .listing-img {
+  transform: scale(1.06);
+}
+/* Button pop on hover */
+.lcard-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(86,86,86,0.4);
+  background: #444 !important;
 }

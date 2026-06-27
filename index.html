@@ -188,32 +188,47 @@
           <h2 style="color:#650002;font-size:clamp(1.8rem,3.5vw,3rem);margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.1;">Our Listings</h2>
         </div>
         <div class="listings-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
-          <!-- Card -->
-          <div class="listing-card" style="background:#fafafa;border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.18);">
-            <div class="listing-card-img" style="position:relative;aspect-ratio:16/10;overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Sreyan" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-              <span style="position:absolute;top:14px;left:14px;background:#650002;color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;padding:4px 12px;border-radius:30px;">For Sale</span>
-              <span style="position:absolute;top:14px;right:14px;background:rgba(10,10,10,0.55);color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.08em;padding:4px 10px;border-radius:30px;backdrop-filter:blur(6px);">RERA · HMDA</span>
-            </div>
-            <div class="listing-card-body" style="padding:1.4rem 1.6rem 1.6rem;">
-              <div style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:1.4rem;margin-bottom:4px;">₹5.5 Cr* onwards</div>
-              <div style="color:#565656;font-weight:600;font-size:1rem;margin-bottom:4px;">Sreyan by Elegans VRG</div>
-              <div style="color:#888;font-size:0.78rem;margin-bottom:1rem;">📍 Gundlapochampalli, Medchal, Hyderabad</div>
-              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem;">
-                <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">4,500+ sft Triplex</span>
-                <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">G+2 Villa</span>
-                <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">309 sq.yd</span>
-                <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">9-acre community</span>
-                <span style="background:#fbe9e9;border:1px solid #f0c4c4;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#650002;font-weight:600;">₹12,000/sft*</span>
+          <!-- Card — entire card clickable to project page -->
+          <a href="sreyan.html" class="listing-card-link" style="text-decoration:none;display:block;">
+            <div class="listing-card" style="background:#fafafa;border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.18);transition:transform 0.3s cubic-bezier(0.25,0.46,0.45,0.94),box-shadow 0.3s;">
+              <div class="listing-card-img" style="position:relative;aspect-ratio:16/10;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Sreyan" loading="lazy" class="listing-img" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);" />
+                <span style="position:absolute;top:14px;left:14px;background:#650002;color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;padding:5px 14px;border-radius:30px;">For Sale</span>
+                <span style="position:absolute;top:14px;right:14px;background:rgba(10,10,10,0.55);color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.08em;padding:5px 12px;border-radius:30px;backdrop-filter:blur(6px);">RERA · HMDA</span>
               </div>
-              <div style="display:grid;grid-template-columns:1.2fr 1fr 0.8fr;gap:8px;">
-                <a href="contact.html" style="background:#650002;color:#fafafa;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">Enquire</a>
-                <a href="Sreyan_Handoff_Brief_v2.pdf" download style="background:transparent;color:#565656;border:1px solid #ccc;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">⬇ Brief</a>
-                <a href="sreyan.html" style="background:transparent;color:#650002;border:1px solid #650002;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;text-align:center;">More →</a>
+              <div class="listing-card-body" style="padding:1.5rem 1.6rem 1.6rem;">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.5rem;">
+                  <div>
+                    <div style="color:#222;font-weight:700;font-size:1.15rem;font-family:'Playfair Display',Georgia,serif;line-height:1.2;">Sreyan by Elegans VRG</div>
+                    <div style="color:#888;font-size:0.78rem;margin-top:3px;">📍 Gundlapochampalli, Medchal</div>
+                  </div>
+                  <div style="text-align:right;flex-shrink:0;margin-left:1rem;">
+                    <div style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:1.3rem;line-height:1;">₹5.5 Cr*</div>
+                    <div style="color:#999;font-size:0.68rem;">onwards</div>
+                  </div>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px;margin:1rem 0 1.25rem;">
+                  <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">4,500+ sft Triplex</span>
+                  <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">G+2 Villa</span>
+                  <span style="background:#f0f0f0;border:1px solid #ddd;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#565656;">309 sq.yd</span>
+                  <span style="background:#fbe9e9;border:1px solid #f0c4c4;border-radius:30px;padding:3px 11px;font-size:0.7rem;color:#650002;font-weight:600;">₹12,000/sft*</span>
+                </div>
+                <!-- Stats row like reference -->
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:0.9rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:1.25rem;">
+                  <div style="text-align:center;flex:1;"><div style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;color:#222;">82</div><div style="font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Villas</div></div>
+                  <div style="width:1px;height:28px;background:#eee;"></div>
+                  <div style="text-align:center;flex:1;"><div style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;color:#222;">9 ac</div><div style="font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Community</div></div>
+                  <div style="width:1px;height:28px;background:#eee;"></div>
+                  <div style="text-align:center;flex:1;"><div style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;color:#222;">20k</div><div style="font-size:0.62rem;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Sft Club</div></div>
+                </div>
+                <!-- 2 buttons -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                  <span class="lcard-btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='contact.html';" style="background:#565656;color:#fafafa;border-radius:30px;padding:12px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;text-align:center;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;display:block;">Enquire</span>
+                  <span class="lcard-btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='Sreyan_Handoff_Brief_v2.pdf';" style="background:#565656;color:#fafafa;border-radius:30px;padding:12px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;text-align:center;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,background 0.2s;display:block;">⬇ Brochure</span>
+                </div>
               </div>
-              <p style="color:#999;font-size:0.65rem;margin-top:0.85rem;margin-bottom:0;">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
             </div>
-          </div>
+          </a>
 
           <!-- How We Choose -->
           <div class="how-we-choose" id="howWeChooseHome">
