@@ -1,36 +1,9 @@
 /* ==============================================
-   RE-ALLY — MOBILE STYLESHEET (v3.0 pro)
-   Phone-only redesign (max-width 768px)
-   - Horizontal swipe rows for card sections
-   - Center-aligned text
-   - Compact pro typography & buttons
+   RE-ALLY — MOBILE STYLESHEET (v3.1)
+   Phone-only (max-width 768px)
    ============================================== */
 
 @media (max-width: 768px) {
-
-  /* ---------- GLOBAL TEXT CENTERING ---------- */
-  body { text-align: center; }
-  p, h1, h2, h3, h4, h5 { text-align: center !important; }
-
-  /* ---------- HORIZONTAL SCROLL ROW BASE ---------- */
-  .h-scroll {
-    display: flex !important;
-    gap: 0.6rem !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 4% 1rem !important;
-    margin: 0 -4% !important;
-    scrollbar-width: none;
-  }
-  .h-scroll::-webkit-scrollbar { display: none; }
-  .h-scroll > * {
-    scroll-snap-align: center;
-    flex-shrink: 0 !important;
-    width: 78vw !important;
-    max-width: 280px !important;
-  }
 
   /* ---------- NAV ---------- */
   nav {
@@ -38,349 +11,399 @@
     padding: 0 4% !important;
   }
   .nav-logo-img, nav img { height: 24px !important; }
-  #hamburgerBtn span { width: 18px !important; height: 1.5px !important; }
+  #hamburgerBtn span { width: 20px !important; height: 1.5px !important; }
   nav a[href="contact.html"] {
     font-size: 0.55rem !important;
-    padding: 5px 10px !important;
+    padding: 5px 11px !important;
     letter-spacing: 0.06em !important;
   }
 
-  /* Drawer */
+  /* ---------- MOBILE DRAWER — full-screen RED, left-align ---------- */
   #mobileDrawer {
     top: 56px !important;
-    padding: 1.5rem 6% !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: #650002 !important;
+    padding: 2rem 8% !important;
+    align-items: flex-start !important;
   }
   #mobileDrawer a {
-    font-size: 0.85rem !important;
-    padding: 0.75rem 0 !important;
-    letter-spacing: 0.12em !important;
-    text-align: center !important;
+    color: #fafafa !important;
+    font-family: 'Tenor Sans', sans-serif !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    padding: 1rem 0 !important;
+    border-bottom: 1px solid rgba(250,250,250,0.12) !important;
+    text-align: left !important;
+    width: 100% !important;
+    display: block !important;
   }
-
-  /* ---------- HERO SECTIONS ---------- */
-  .ab-hero, .ct-hero, .ls-hero, .svc-hero,
-  section[style*="min-height:100vh"],
-  [class*="-hero"] {
-    padding: 70px 4% 22px !important;
-    min-height: auto !important;
-    text-align: center !important;
-  }
-  .ab-hero h1, .ct-hero h1, .ls-hero h1, .svc-hero h1,
-  .hero-text h1 {
-    font-size: 1.5rem !important;
-    line-height: 1.18 !important;
-    margin: 0 0 0.5rem !important;
-  }
-  .ab-hero p, .ct-hero p, .ls-hero p, .svc-hero p,
-  .hero-text p {
+  #mobileDrawer a[href="sreyan.html"] {
+    color: rgba(250,250,250,0.6) !important;
     font-size: 0.8rem !important;
-    line-height: 1.5 !important;
-    max-width: 90% !important;
-    margin: 0 auto !important;
+    padding-left: 1.25rem !important;
   }
-
-  /* ---------- PILLS / LABELS ---------- */
-  .lbl, [class*="-lbl"], .pill, .ls-count {
-    font-size: 0.55rem !important;
-    padding: 3px 10px !important;
-    letter-spacing: 0.12em !important;
-  }
-
-  /* ---------- SECTIONS - tight padding ---------- */
-  .ab-story, .ab-values, .ab-team, .ab-cta,
-  .ct-main, .ct-info,
-  .ls-body, .ls-next,
-  .svc-cards, .svc-cta,
-  .promise-sec, .journey-sec, .people-sec, .listings-sec,
-  .team-section {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
-  }
-
-  /* ---------- HEADINGS ---------- */
-  h2 { font-size: 1.2rem !important; line-height: 1.2 !important; }
-  h3 { font-size: 0.95rem !important; }
-  h4 { font-size: 0.8rem !important; }
-
-  /* ---------- BUTTONS (compact pro) ---------- */
-  .ls-btns a, .ab-cta a, .ct-submit, .svc-card a,
-  .team-about-btn, .ls-next a, .hero-btn, .lp-submit,
-  a[class*="btn"], button[class*="btn"] {
-    font-size: 0.62rem !important;
-    padding: 9px 16px !important;
-    letter-spacing: 0.1em !important;
+  /* Contact CTA inside drawer — keep red+cream styling but with cream bg on red drawer */
+  #mobileDrawer a:last-child {
+    background: #fafafa !important;
+    color: #650002 !important;
+    margin-top: 1.75rem !important;
     border-radius: 30px !important;
+    border-bottom: none !important;
+    padding: 13px 28px !important;
+    text-align: center !important;
+    width: fit-content !important;
+    align-self: flex-start !important;
+    font-size: 0.8rem !important;
   }
 
-  /* ---------- INDEX: HERO ---------- */
-  .hero-grid { gap: 1.25rem !important; grid-template-columns: 1fr !important; }
-  #heroVideoBox { aspect-ratio: 16/9 !important; }
-
-  /* ---------- INDEX: LISTINGS ROW (horizontal scroll) ---------- */
-  .listings-sec { padding: 24px 0 !important; }
-  .listings-sec h2 { font-size: 1.15rem !important; margin: 0 4% 0.9rem !important; }
-  .listings-grid {
-    display: flex !important;
-    gap: 0.6rem !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 4% 1rem !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none;
-  }
-  .listings-grid::-webkit-scrollbar { display: none; }
-  .listing-card {
-    flex-shrink: 0 !important;
-    width: 78vw !important;
-    max-width: 280px !important;
-    scroll-snap-align: center;
-    max-width: 280px !important;
-  }
-  .listing-card-img { aspect-ratio: 16/10 !important; }
-  .listing-card-body { padding: 0.85rem 1rem 1rem !important; }
-  #howWeChooseHome { display: none !important; }
-
-  /* ---------- INDEX: PROMISE CARDS (horizontal scroll) ---------- */
-  .promise-grid {
-    display: flex !important;
-    gap: 0.6rem !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 4% 1rem !important;
-    margin: 0 -4% !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none;
-  }
-  .promise-grid::-webkit-scrollbar { display: none; }
-  .promise-card-new {
-    flex-shrink: 0 !important;
-    width: 78vw !important;
-    max-width: 280px !important;
-    scroll-snap-align: center;
-    padding: 1.1rem 1rem !important;
+  /* ---------- HERO — REORDER: H1 -> VIDEO -> TEXT -> BUTTON ---------- */
+  .hero {
+    padding: 70px 4% 32px !important;
     min-height: auto !important;
+    text-align: center !important;
   }
-  .promise-card-new h3 { font-size: 0.9rem !important; text-align: center !important; }
-  .promise-card-new p { font-size: 0.75rem !important; text-align: center !important; }
+  .hero-split {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.1rem !important;
+    grid-template-columns: none !important;
+  }
+  /* The text column itself becomes flex so children can be reordered */
+  .hero-text-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0;
+  }
+  /* Pill label */
+  .hero-text-col > span:first-child {
+    order: 1;
+    font-size: 0.6rem !important;
+    margin-bottom: 0.7rem !important;
+    letter-spacing: 0.16em !important;
+  }
+  /* H1 — uppercase, single line, then video */
+  .hero-text-col h1 {
+    order: 2;
+    color: #650002 !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 1.55rem !important;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+    margin: 0 0 1.1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap !important;
+  }
+  .hero-text-col h1 br { display: none !important; }
+  .hero-text-col h1 em {
+    color: #1a1a1a !important;
+    font-style: italic !important;
+  }
+  /* First paragraph */
+  .hero-text-col p:nth-of-type(1) {
+    order: 4;
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    margin: 0 auto 0.85rem !important;
+    max-width: 92% !important;
+    text-align: center !important;
+  }
+  /* Italic tagline */
+  .hero-text-col p:nth-of-type(2) {
+    order: 5;
+    font-size: 0.78rem !important;
+    line-height: 1.55 !important;
+    margin: 0 auto 1.25rem !important;
+    max-width: 88% !important;
+    text-align: center !important;
+  }
+  /* Buttons last */
+  .hero-text-col > div[style*="flex-wrap"] {
+    order: 6;
+    justify-content: center !important;
+    gap: 0.7rem !important;
+  }
+  .hero-btn-primary, .hero-btn-secondary {
+    padding: 11px 22px !important;
+    font-size: 0.66rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  .hero-btn-primary svg, .hero-btn-secondary svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  /* Video — order 3 (between h1 and text) */
+  .hero-video-col, #heroVideoBox {
+    order: 3;
+    aspect-ratio: 16/10 !important;
+    width: 100% !important;
+    margin: 0 0 1rem !important;
+    border-radius: 16px !important;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.16) !important;
+  }
+  /* Re-parent the video INTO the text column visually using order on the parent */
+  /* The hero-split has 2 columns: text & video. Reorder them so text comes first, but inside text col we already ordered h1->video isn't possible directly. So instead: make the SPLIT flex-direction column and order both children of the split, then re-order the text col's internal children to bring h1 up, and place video between h1 and p */
+  /* Easier solution: order on the split */
+  .hero-split > .hero-text-col { order: 1; }
+  .hero-split > .hero-video-col,
+  .hero-split > #heroVideoBox { order: 2; }
 
-  /* ---------- INDEX: JOURNEY / SOCIAL ---------- */
-  .journey-sec h2 { font-size: 1.2rem !important; }
-  .journey-sec p { font-size: 0.78rem !important; }
+  /* Since text and video are siblings, we can't physically interleave them.
+     SOLUTION: put video ABOVE everything except H1.
+     But that means moving things around within columns isn't possible.
+     PROPER SOLUTION: use grid with named areas */
+  .hero-split {
+    display: grid !important;
+    grid-template-areas:
+      "label"
+      "h1"
+      "video"
+      "text1"
+      "text2"
+      "btns" !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .hero-text-col {
+    display: contents !important;
+  }
+  .hero-text-col > span:first-child { grid-area: label; }
+  .hero-text-col h1 { grid-area: h1; }
+  .hero-video-col, #heroVideoBox { grid-area: video; }
+  .hero-text-col p:nth-of-type(1) { grid-area: text1; }
+  .hero-text-col p:nth-of-type(2) { grid-area: text2; }
+  .hero-text-col > div[style*="flex-wrap"] { grid-area: btns; }
 
-  /* ---------- INDEX: TEAM (horizontal swipe row) ---------- */
-  .team-section { padding: 22px 0 !important; }
-  .team-bento {
+  /* ---------- LISTINGS — Sreyan on top + 2 swipe cards below ---------- */
+  .listings-sec { padding: 28px 0 !important; text-align: center !important; }
+  .listings-sec > div:first-child { margin: 0 4% 1rem !important; }
+  .listings-sec h2 { font-size: 1.2rem !important; text-align: center !important; }
+  .listings-sec > div:first-child span { font-size: 0.58rem !important; }
+
+  /* Listings grid: stack Sreyan, then 2-card swipe row */
+  .listings-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 0.75rem !important;
     padding: 0 4% !important;
   }
-  .team-bento h2 {
-    font-size: 1.1rem !important;
+  /* Sreyan card — smaller, full width but compact */
+  .listings-grid > a.listing-card-link {
+    order: 1;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+  }
+  .listing-card-img { aspect-ratio: 16/9 !important; }
+  .listing-card-body, .listing-card > div:last-child { padding: 0.85rem 1rem 1rem !important; }
+  .listing-card { border-radius: 14px !important; }
+
+  /* Wrap the 2 other cards in a swipe row */
+  .listings-grid > .prop-box {
+    order: 2;
+    flex-shrink: 0 !important;
+    width: 72vw !important;
+    max-width: 260px !important;
+    scroll-snap-align: center;
+    padding: 1.1rem 1rem !important;
+    border-radius: 14px !important;
+  }
+  /* Container hack: turn grid into a wrapper that has Sreyan as first row,
+     then a flex swipe row for the 2 prop-boxes. We can't add a wrapper without HTML edit.
+     Workaround: use display:grid with first item full-width, then for the remaining children flow into a horizontal scroll row. CSS can't do that natively. ALT: keep them stacked but tiny. */
+  /* Final solution: hide #howWeChooseHome on mobile, keep only Sreyan + Coming Soon. OR show both stacked smaller. */
+  /* Per user request: Sreyan top + 2 swipe. Best CSS-only approach: */
+  .listings-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+  }
+  /* Create the swipe row by using a flex container around prop-boxes */
+  /* Without HTML wrapper we can't, so use this approach: */
+  /* Sreyan = full width row 1. Then both prop-boxes side-by-side with horizontal scroll using flex-wrap:nowrap on a sub-container... still need wrapper. */
+  /* CLEANEST WITHOUT HTML CHANGE: render all 3 in a column, but make the 2 prop-boxes smaller and side-by-side using nth-child positioning. */
+
+  /* Stronger override: layout becomes Sreyan on top full, then 2 boxes as a 2-column row */
+  .listings-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.7rem !important;
+  }
+  .listings-grid > a.listing-card-link {
+    grid-column: 1 / -1 !important; /* spans both cols */
+  }
+  .listings-grid > .prop-box {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 1rem 0.85rem !important;
+    border-radius: 14px !important;
+  }
+  .listings-grid > .prop-box h3 { font-size: 0.95rem !important; }
+  .listings-grid > .prop-box span,
+  .listings-grid > .prop-box div span { font-size: 0.7rem !important; }
+  .listings-grid > .prop-box p { font-size: 0.7rem !important; }
+  .listings-grid > .prop-box svg { width: 14px !important; height: 14px !important; }
+
+  /* ---------- PROMISE — 3 cards 1:1 in 1 row, no swipe ---------- */
+  .promise-sec { padding: 28px 4% !important; text-align: center !important; }
+  .promise-sec > div:first-child {
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+  }
+  .promise-sec h2 { font-size: 1.2rem !important; text-align: center !important; }
+
+  .promise-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 4px !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+  .promise-card-new {
+    aspect-ratio: 1/1 !important;
+    padding: 0.6rem 0.4rem !important;
+    min-height: auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .promise-card-new > span,
+  .promise-card-new > div:first-child {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .promise-card-new h3 {
+    font-size: 0.72rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.4rem !important;
+    text-align: center !important;
+    margin: 0 0 0.3rem !important;
+  }
+  .promise-card-new p {
+    font-size: 0.55rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* ---------- JOURNEY / SOCIAL ---------- */
+  .journey-sec { padding: 24px 4% !important; text-align: center !important; }
+  .journey-sec h2 { font-size: 1.2rem !important; }
+  .journey-sec p { font-size: 0.8rem !important; }
+
+  /* ---------- TEAM — round photos centered, no "Building" card ---------- */
+  .team-section { padding: 24px 4% !important; text-align: center !important; }
+  .team-bento {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    text-align: center !important;
+  }
+  .team-bento > div:first-child {
+    text-align: center !important;
+  }
+  .team-bento h2 {
+    font-size: 1.15rem !important;
+    line-height: 1.2 !important;
+    margin: 0 0 0.5rem !important;
     text-align: center !important;
   }
   .team-bento h2 br { display: none !important; }
   .team-bento p {
-    font-size: 0.72rem !important;
-    line-height: 1.45 !important;
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
     max-width: 92% !important;
-    margin: 0 auto !important;
+    margin: 0 auto 0.75rem !important;
     text-align: center !important;
   }
   .team-about-btn {
-    margin: 0.5rem auto 0 !important;
-    padding: 7px 14px !important;
-    font-size: 0.58rem !important;
-  }
-  /* The bento grid becomes a horizontal scroll strip */
-  .bento-grid {
-    display: flex !important;
-    gap: 0.5rem !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.75rem 4% 0.5rem !important;
-    margin: 0 -4% !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none;
-  }
-  .bento-grid::-webkit-scrollbar { display: none; }
-  .bento-card {
-    flex-shrink: 0 !important;
-    width: 38vw !important;
-    max-width: 150px !important;
-    aspect-ratio: 1/1 !important;
-    border-radius: 12px !important;
-    scroll-snap-align: center;
-  }
-  /* Avatar SVGs */
-  .bento-card svg[viewBox="0 0 24 24"] {
-    width: 24px !important;
-    height: 24px !important;
-  }
-  /* Name pills */
-  .bento-card > div[style*="position:absolute"] {
-    padding: 4px 9px !important;
-    bottom: 7px !important;
-    left: 7px !important;
-  }
-  .bento-card > div[style*="position:absolute"] > div:first-child {
+    margin: 0.25rem auto 0 !important;
+    padding: 9px 18px !important;
     font-size: 0.62rem !important;
   }
-  .bento-card > div[style*="position:absolute"] > div:last-child {
-    font-size: 0.46rem !important;
+
+  /* Bento grid: 3 round photos in a row (Building card hidden) */
+  .bento-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 0.6rem !important;
+    margin-top: 0.85rem !important;
   }
-  /* Red text card */
-  .bento-card[style*="#650002"] { padding: 0.6rem !important; }
-  .bento-card[style*="#650002"] > div {
+  /* Hide the red "Building from day one" card (it's the only #650002 bg card) */
+  .bento-card[style*="#650002"] { display: none !important; }
+  /* Round photo cards */
+  .bento-card {
+    aspect-ratio: 1/1 !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+  /* Avatar SVG centered, larger */
+  .bento-card svg[viewBox="0 0 24 24"] {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  /* Move name pill BELOW the round photo as a label, not absolute on the photo */
+  .bento-card > div[style*="position:absolute"] {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    margin: 0.5rem auto 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    transform: translateY(110%) !important; /* push below the round photo */
+  }
+  .bento-card > div[style*="position:absolute"] > div:first-child {
+    color: #1a1a1a !important;
     font-size: 0.7rem !important;
-    line-height: 1.2 !important;
-    text-align: center !important;
+    font-weight: 600 !important;
   }
-  .bento-card[style*="#650002"] > p {
+  .bento-card > div[style*="position:absolute"] > div:last-child {
+    color: #565656 !important;
     font-size: 0.55rem !important;
-    line-height: 1.35 !important;
+    letter-spacing: 0.06em !important;
+  }
+  /* Give space for the labels below the photos */
+  .bento-grid { padding-bottom: 2.5rem !important; }
+
+  /* ---------- FOOTER — smaller ---------- */
+  footer { padding: 22px 4% 14px !important; text-align: center !important; }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
     text-align: center !important;
   }
-
-  /* ---------- LISTINGS PAGE: MAIN CARD ---------- */
-  .ls-card {
-    grid-template-columns: 1fr !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
-    border-radius: 14px !important;
-    text-align: left !important;
+  .footer-grid > div { text-align: center !important; }
+  .footer-grid img {
+    margin: 0 auto 8px !important;
+    height: 32px !important;
   }
-  .ls-gallery { padding: 6px !important; gap: 4px !important; }
-  .ls-gallery .main-img { aspect-ratio: 16/9 !important; border-radius: 10px !important; }
-  .ls-gallery .thumbs { display: none !important; } /* hide thumb row */
-  .ls-detail { padding: 0.85rem 1rem 1rem !important; text-align: center !important; }
-
-  .ls-price-block { margin-bottom: 0.5rem !important; text-align: center !important; }
-  .ls-price { font-size: 1.4rem !important; text-align: center !important; }
-  .ls-price-sub { font-size: 0.65rem !important; gap: 6px !important; justify-content: center !important; }
-  .ls-price-mkt { font-size: 0.62rem !important; padding-left: 6px !important; }
-
-  .ls-name { font-size: 1rem !important; margin-bottom: 2px !important; text-align: center !important; }
-  .ls-loc { font-size: 0.72rem !important; margin: 0 0 0.6rem !important; text-align: center !important; }
-
-  .ls-chips { gap: 4px !important; margin-bottom: 0.6rem !important; justify-content: center !important; }
-  .ls-chips span { font-size: 0.6rem !important; padding: 2px 8px !important; }
-  .ls-chips span:nth-child(4),
-  .ls-chips span:nth-child(5):not(.accent) { display: none !important; }
-
-  .ls-desc { display: none !important; }
-
-  .ls-stats {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 2px !important;
-    padding: 0.6rem 0 !important;
-    margin-bottom: 0.6rem !important;
+  .footer-grid h4 {
+    font-size: 0.6rem !important;
+    margin-bottom: 0.35rem !important;
+    letter-spacing: 0.14em !important;
+    text-align: center !important;
   }
-  .ls-stats .st b { font-size: 0.72rem !important; }
-  .ls-stats .st small { font-size: 0.46rem !important; }
-
-  .ls-btns { gap: 6px !important; margin-bottom: 0.35rem !important; }
-  .ls-btns a { padding: 9px 6px !important; font-size: 0.6rem !important; }
-  .ls-disc { font-size: 0.55rem !important; margin-top: 3px !important; }
-
-  .ls-save {
-    width: 30px !important; height: 30px !important;
-    top: 12px !important; right: 12px !important;
+  .footer-grid ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+  .footer-grid ul li { font-size: 0.72rem !important; margin-bottom: 0.25rem !important; }
+  .footer-grid a, .f-desc, .f-tag {
+    font-size: 0.72rem !important;
+    text-align: center !important;
   }
-  .ls-save svg { width: 14px !important; height: 14px !important; }
-
-  /* Quick Info */
-  .ls-quickinfo { padding: 1rem !important; margin-top: 1rem !important; }
-  .ls-qi-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.7rem 0.5rem !important;
+  .f-tag { margin-bottom: 6px !important; }
+  .f-desc { font-size: 0.68rem !important; line-height: 1.5 !important; }
+  .footer-bot {
+    flex-direction: column !important;
+    gap: 3px !important;
+    align-items: center !important;
+    font-size: 0.6rem !important;
+    margin-top: 0.85rem !important;
+    padding-top: 0.7rem !important;
   }
-  .ls-qi-grid .qi { text-align: center !important; }
-  .ls-qi-grid .qi b { font-size: 0.5rem !important; margin-bottom: 2px !important; }
-  .ls-qi-grid .qi span { font-size: 0.72rem !important; }
-
-  /* Coming soon block */
-  .ls-next-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-  .ls-next h2 { font-size: 1.2rem !important; }
-  .ls-next p { font-size: 0.78rem !important; }
-  .ls-check { text-align: left !important; }
-  .ls-check .tx b { font-size: 0.78rem !important; text-align: left !important; }
-  .ls-check .tx span { font-size: 0.68rem !important; text-align: left !important; }
-
-  /* ---------- ABOUT PAGE ---------- */
-  .ab-story p { font-size: 0.82rem !important; line-height: 1.6 !important; text-align: center !important; }
-  .ab-values { padding-top: 24px !important; padding-bottom: 24px !important; }
-  /* Values cards become horizontal swipe */
-  .ab-values .grid, .ab-values > div > div[style*="grid-template-columns"] {
-    display: flex !important;
-    gap: 0.6rem !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    padding: 0.5rem 4% 1rem !important;
-    margin: 0 -4% !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none;
-  }
-  .ab-values .val-card {
-    flex-shrink: 0 !important;
-    width: 78vw !important;
-    max-width: 280px !important;
-    scroll-snap-align: center;
-    padding: 1.1rem 1rem !important;
-  }
-  .ab-values .val-card h3 { font-size: 0.95rem !important; }
-  .ab-values .val-card p { font-size: 0.78rem !important; }
-  .ab-team .head h2 { font-size: 1.3rem !important; }
-
-  /* ---------- SERVICES PAGE (horizontal scroll cards) ---------- */
-  .svc-cards {
-    display: flex !important;
-    gap: 0.6rem !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 4% 1rem !important;
-    margin: 0 -4% !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none;
-  }
-  .svc-cards::-webkit-scrollbar { display: none; }
-  .svc-card {
-    flex-shrink: 0 !important;
-    width: 82vw !important;
-    max-width: 300px !important;
-    scroll-snap-align: center;
-  }
-  .svc-card h3 { font-size: 1.05rem !important; text-align: center !important; }
-  .svc-card p { font-size: 0.8rem !important; text-align: center !important; }
-
-  /* ---------- CONTACT PAGE ---------- */
-  .ct-main {
-    grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-  }
-  .ct-field { text-align: left !important; }
-  .ct-field label { text-align: left !important; font-size: 0.65rem !important; }
-  .ct-field input, .ct-field textarea, .ct-field select {
-    font-size: 0.88rem !important;
-    padding: 10px 12px !important;
-  }
-  .ct-submit { font-size: 0.68rem !important; padding: 13px 20px !important; }
-  .ct-item { padding: 1rem !important; text-align: left !important; }
-
-  /* ---------- LANDING PAGE ---------- */
-  .landing-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  .lp-h1 { font-size: 1.5rem !important; }
-  .lp-sub { font-size: 0.85rem !important; }
-  .lp-form-box { padding: 1.5rem 1.25rem !important; }
-  .benefit-item { text-align: left !important; }
-  .trust-items { justify-content: center !important; }
-
-  /* ---------- SREYAN PAGE ---------- */
-  .sreyan-hero, .sreyan-section { padding: 24px 4% !important; }
 
   /* ---------- FLOATING WHATSAPP / CALL ---------- */
   .float-cta {
@@ -389,35 +412,100 @@
     gap: 6px !important;
   }
   .float-btn {
-    font-size: 0.6rem !important;
-    padding: 8px 13px !important;
+    font-size: 0.58rem !important;
+    padding: 8px 12px !important;
   }
 
-  /* ---------- FOOTER ---------- */
-  footer { padding: 28px 4% 18px !important; text-align: center !important; }
-  .footer-grid {
+  /* ---------- OTHER PAGES (kept compact from previous version) ---------- */
+  .ab-hero, .ct-hero, .ls-hero, .svc-hero {
+    padding-top: 70px !important;
+    padding-bottom: 24px !important;
+    text-align: center !important;
+  }
+  .ab-hero h1, .ct-hero h1, .ls-hero h1, .svc-hero h1 {
+    font-size: 1.55rem !important;
+    line-height: 1.18 !important;
+  }
+  .ab-hero p, .ct-hero p, .ls-hero p, .svc-hero p {
+    font-size: 0.82rem !important;
+    text-align: center !important;
+  }
+
+  .ab-story, .ab-values, .ab-team, .ab-cta,
+  .ct-main, .ct-info, .ls-body, .ls-next,
+  .svc-cards, .svc-cta {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+
+  /* Services & About — horizontal swipe (keep from before) */
+  .svc-cards {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 4% 1rem !important;
+    margin: 0 -4% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
+  }
+  .svc-cards::-webkit-scrollbar { display: none; }
+  .svc-card {
+    flex-shrink: 0 !important;
+    width: 80vw !important;
+    max-width: 290px !important;
+    scroll-snap-align: center;
+  }
+
+  /* Listings page main card */
+  .ls-card {
     grid-template-columns: 1fr !important;
-    gap: 1.25rem !important;
-    text-align: center !important;
+    border-radius: 14px !important;
   }
-  .footer-grid > div { text-align: center !important; }
-  .footer-grid img { margin: 0 auto 10px !important; height: 38px !important; }
-  .footer-grid h4 { font-size: 0.65rem !important; margin-bottom: 0.5rem !important; text-align: center !important; }
-  .footer-grid ul { list-style: none !important; padding: 0 !important; }
-  .footer-grid ul li { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; }
-  .footer-grid a, .f-desc, .f-tag {
-    font-size: 0.75rem !important;
-    text-align: center !important;
+  .ls-gallery .thumbs { display: none !important; }
+  .ls-gallery .main-img { aspect-ratio: 16/9 !important; }
+  .ls-detail { padding: 0.85rem 1rem 1rem !important; text-align: center !important; }
+  .ls-price { font-size: 1.4rem !important; text-align: center !important; }
+  .ls-price-sub { justify-content: center !important; font-size: 0.65rem !important; }
+  .ls-name { font-size: 1rem !important; text-align: center !important; }
+  .ls-loc { font-size: 0.72rem !important; text-align: center !important; }
+  .ls-chips { justify-content: center !important; gap: 4px !important; }
+  .ls-chips span { font-size: 0.6rem !important; padding: 2px 8px !important; }
+  .ls-chips span:nth-child(4), .ls-chips span:nth-child(5):not(.accent) { display: none !important; }
+  .ls-desc { display: none !important; }
+  .ls-stats { gap: 2px !important; padding: 0.6rem 0 !important; }
+  .ls-stats .st b { font-size: 0.72rem !important; }
+  .ls-stats .st small { font-size: 0.46rem !important; }
+  .ls-btns a { padding: 9px 6px !important; font-size: 0.6rem !important; }
+  .ls-quickinfo { padding: 1rem !important; }
+  .ls-qi-grid { grid-template-columns: 1fr 1fr !important; gap: 0.7rem 0.5rem !important; }
+  .ls-qi-grid .qi { text-align: center !important; }
+  .ls-qi-grid .qi b { font-size: 0.5rem !important; }
+  .ls-qi-grid .qi span { font-size: 0.72rem !important; }
+  .ls-next-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .ls-next h2 { font-size: 1.2rem !important; }
+  .ls-next p { font-size: 0.78rem !important; }
+
+  /* Contact */
+  .ct-main { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+  .ct-field label { font-size: 0.65rem !important; }
+  .ct-field input, .ct-field textarea, .ct-field select {
+    font-size: 0.88rem !important;
+    padding: 10px 12px !important;
   }
-  .footer-bot {
-    flex-direction: column !important;
-    gap: 4px !important;
-    align-items: center !important;
-    font-size: 0.65rem !important;
-    text-align: center !important;
-    margin-top: 1rem !important;
-    padding-top: 0.85rem !important;
-  }
+  .ct-submit { font-size: 0.66rem !important; padding: 12px 18px !important; }
+
+  /* Landing */
+  .landing-grid { grid-template-columns: 1fr !important; gap: 1.75rem !important; }
+  .lp-h1 { font-size: 1.55rem !important; }
+  .lp-form-box { padding: 1.5rem 1.25rem !important; }
+
+  /* About */
+  .ab-story p { font-size: 0.82rem !important; line-height: 1.6 !important; text-align: center !important; }
+  .ab-values .val-card { padding: 1.1rem 1rem !important; }
+  .ab-values .val-card h3 { font-size: 0.95rem !important; }
+  .ab-values .val-card p { font-size: 0.78rem !important; }
+
 }
 
 /* ==============================================
@@ -425,10 +513,8 @@
    ============================================== */
 @media (max-width: 380px) {
   nav { height: 52px !important; }
-  .nav-logo-img, nav img { height: 21px !important; }
-  h1 { font-size: 1.35rem !important; }
-  h2 { font-size: 1.1rem !important; }
-  .listing-card, .promise-card-new, .ab-values .val-card,
-  .svc-card, .ls-card { border-radius: 12px !important; }
-  .bento-card { width: 42vw !important; }
+  .nav-logo-img, nav img { height: 22px !important; }
+  .hero-text-col h1 { font-size: 1.35rem !important; }
+  .promise-card-new h3 { font-size: 0.65rem !important; }
+  .promise-card-new p { font-size: 0.5rem !important; }
 }
