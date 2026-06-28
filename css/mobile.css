@@ -1,332 +1,434 @@
 /* ==============================================
-   RE-ALLY — MOBILE STYLESHEET (v3.0)
-   Applies to all pages on phones (max-width 768px)
+   RE-ALLY — MOBILE STYLESHEET (v3.0 pro)
+   Phone-only redesign (max-width 768px)
+   - Horizontal swipe rows for card sections
+   - Center-aligned text
+   - Compact pro typography & buttons
    ============================================== */
 
 @media (max-width: 768px) {
 
+  /* ---------- GLOBAL TEXT CENTERING ---------- */
+  body { text-align: center; }
+  p, h1, h2, h3, h4, h5 { text-align: center !important; }
+
+  /* ---------- HORIZONTAL SCROLL ROW BASE ---------- */
+  .h-scroll {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 4% 1rem !important;
+    margin: 0 -4% !important;
+    scrollbar-width: none;
+  }
+  .h-scroll::-webkit-scrollbar { display: none; }
+  .h-scroll > * {
+    scroll-snap-align: center;
+    flex-shrink: 0 !important;
+    width: 78vw !important;
+    max-width: 280px !important;
+  }
+
   /* ---------- NAV ---------- */
   nav {
-    height: 60px !important;
+    height: 56px !important;
+    padding: 0 4% !important;
   }
-  .nav-logo-img,
-  nav img {
-    height: 26px !important;
-  }
-  #hamburgerBtn span {
-    width: 20px !important;
-  }
+  .nav-logo-img, nav img { height: 24px !important; }
+  #hamburgerBtn span { width: 18px !important; height: 1.5px !important; }
   nav a[href="contact.html"] {
-    font-size: 0.6rem !important;
-    padding: 6px 12px !important;
+    font-size: 0.55rem !important;
+    padding: 5px 10px !important;
     letter-spacing: 0.06em !important;
   }
 
-  /* Push content below shorter nav */
-  body { padding-top: 0 !important; }
-
-  /* ---------- MOBILE DRAWER ---------- */
+  /* Drawer */
   #mobileDrawer {
-    top: 60px !important;
+    top: 56px !important;
     padding: 1.5rem 6% !important;
   }
   #mobileDrawer a {
-    font-size: 0.9rem !important;
-    padding: 0.85rem 0 !important;
+    font-size: 0.85rem !important;
+    padding: 0.75rem 0 !important;
+    letter-spacing: 0.12em !important;
+    text-align: center !important;
+  }
+
+  /* ---------- HERO SECTIONS ---------- */
+  .ab-hero, .ct-hero, .ls-hero, .svc-hero,
+  section[style*="min-height:100vh"],
+  [class*="-hero"] {
+    padding: 70px 4% 22px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+  .ab-hero h1, .ct-hero h1, .ls-hero h1, .svc-hero h1,
+  .hero-text h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.18 !important;
+    margin: 0 0 0.5rem !important;
+  }
+  .ab-hero p, .ct-hero p, .ls-hero p, .svc-hero p,
+  .hero-text p {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  /* ---------- PILLS / LABELS ---------- */
+  .lbl, [class*="-lbl"], .pill, .ls-count {
+    font-size: 0.55rem !important;
+    padding: 3px 10px !important;
     letter-spacing: 0.12em !important;
   }
 
-  /* ---------- HERO SECTIONS (any page) ---------- */
-  .ab-hero, .ct-hero, .ls-hero, .svc-hero,
-  [class*="-hero"] {
-    padding-top: 80px !important;
-    padding-bottom: 28px !important;
-  }
-  .ab-hero h1, .ct-hero h1, .ls-hero h1, .svc-hero h1 {
-    font-size: 1.7rem !important;
-    line-height: 1.15 !important;
-    margin-bottom: 0.6rem !important;
-  }
-  .ab-hero p, .ct-hero p, .ls-hero p, .svc-hero p {
-    font-size: 0.85rem !important;
-    line-height: 1.55 !important;
-  }
-
-  /* ---------- ALL SECTIONS — tighter padding ---------- */
+  /* ---------- SECTIONS - tight padding ---------- */
   .ab-story, .ab-values, .ab-team, .ab-cta,
   .ct-main, .ct-info,
   .ls-body, .ls-next,
   .svc-cards, .svc-cta,
   .promise-sec, .journey-sec, .people-sec, .listings-sec,
-  .ls-next, .team-section {
-    padding-top: 28px !important;
-    padding-bottom: 28px !important;
+  .team-section {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
   }
 
-  /* ---------- SECTION HEADINGS ---------- */
-  h2 {
-    font-size: 1.3rem !important;
-    line-height: 1.2 !important;
-  }
-  h3 {
-    font-size: 1rem !important;
-  }
+  /* ---------- HEADINGS ---------- */
+  h2 { font-size: 1.2rem !important; line-height: 1.2 !important; }
+  h3 { font-size: 0.95rem !important; }
+  h4 { font-size: 0.8rem !important; }
 
-  /* ---------- PILLS / LABELS ---------- */
-  .lbl, .pill, [class*="-lbl"] {
-    font-size: 0.58rem !important;
-    padding: 4px 11px !important;
-  }
-
-  /* ---------- BUTTONS ---------- */
+  /* ---------- BUTTONS (compact pro) ---------- */
   .ls-btns a, .ab-cta a, .ct-submit, .svc-card a,
-  .team-about-btn, .ls-next a {
-    font-size: 0.65rem !important;
-    padding: 10px 18px !important;
+  .team-about-btn, .ls-next a, .hero-btn, .lp-submit,
+  a[class*="btn"], button[class*="btn"] {
+    font-size: 0.62rem !important;
+    padding: 9px 16px !important;
+    letter-spacing: 0.1em !important;
+    border-radius: 30px !important;
   }
 
-  /* ---------- GENERIC CARDS — tighter padding ---------- */
-  .ab-story, .ab-values .val-card, .svc-card, .ct-item {
-    padding: 1rem !important;
+  /* ---------- INDEX: HERO ---------- */
+  .hero-grid { gap: 1.25rem !important; grid-template-columns: 1fr !important; }
+  #heroVideoBox { aspect-ratio: 16/9 !important; }
+
+  /* ---------- INDEX: LISTINGS ROW (horizontal scroll) ---------- */
+  .listings-sec { padding: 24px 0 !important; }
+  .listings-sec h2 { font-size: 1.15rem !important; margin: 0 4% 0.9rem !important; }
+  .listings-grid {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 4% 1rem !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
   }
-
-  /* ---------- LISTING CARD — compact mobile view ---------- */
-  .ls-card {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
-    border-radius: 14px !important;
+  .listings-grid::-webkit-scrollbar { display: none; }
+  .listing-card {
+    flex-shrink: 0 !important;
+    width: 78vw !important;
+    max-width: 280px !important;
+    scroll-snap-align: center;
+    max-width: 280px !important;
   }
-  .ls-gallery { padding: 6px !important; gap: 4px !important; }
-  .ls-gallery .main-img { aspect-ratio: 16/9 !important; border-radius: 10px !important; }
-  /* HIDE the thumbnail row to cut scrolling */
-  .ls-gallery .thumbs { display: none !important; }
+  .listing-card-img { aspect-ratio: 16/10 !important; }
+  .listing-card-body { padding: 0.85rem 1rem 1rem !important; }
+  #howWeChooseHome { display: none !important; }
 
-  .ls-detail { padding: 0.85rem 1rem 1rem !important; }
-
-  /* Price — compact */
-  .ls-price-block { margin-bottom: 0.5rem !important; }
-  .ls-price { font-size: 1.35rem !important; }
-  .ls-price-sub { font-size: 0.65rem !important; gap: 6px !important; }
-  .ls-price-mkt { font-size: 0.62rem !important; padding-left: 6px !important; }
-
-  .ls-name { font-size: 1rem !important; margin-bottom: 2px !important; }
-  .ls-loc { font-size: 0.72rem !important; margin: 0 0 0.6rem !important; }
-
-  /* Chips — show only first 3 most important */
-  .ls-chips { gap: 4px !important; margin-bottom: 0.6rem !important; }
-  .ls-chips span { font-size: 0.6rem !important; padding: 2px 8px !important; }
-  /* Hide chips 4 and 5 — keep only first 3 + accent */
-  .ls-chips span:nth-child(4),
-  .ls-chips span:nth-child(5):not(.accent) { display: none !important; }
-
-  /* HIDE the long description on mobile to cut scroll */
-  .ls-desc { display: none !important; }
-
-  /* Stats — tighter, all 5 still visible */
-  .ls-stats {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 2px !important;
-    padding: 0.6rem 0 !important;
-    margin-bottom: 0.75rem !important;
+  /* ---------- INDEX: PROMISE CARDS (horizontal scroll) ---------- */
+  .promise-grid {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 4% 1rem !important;
+    margin: 0 -4% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
   }
-  .ls-stats .st b { font-size: 0.72rem !important; }
-  .ls-stats .st small { font-size: 0.46rem !important; }
-
-  /* Buttons compact */
-  .ls-btns { gap: 6px !important; margin-bottom: 0.4rem !important; }
-  .ls-btns a { padding: 9px 6px !important; font-size: 0.62rem !important; }
-
-  .ls-disc { font-size: 0.6rem !important; margin-top: 4px !important; }
-
-  /* Save heart smaller */
-  .ls-save {
-    width: 30px !important;
-    height: 30px !important;
-    top: 12px !important;
-    right: 12px !important;
-  }
-  .ls-save svg { width: 14px !important; height: 14px !important; }
-
-  /* Quick Info — compact */
-  .ls-quickinfo { padding: 1rem !important; margin-top: 1rem !important; }
-  .ls-qi-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.75rem 0.5rem !important;
-  }
-  .ls-qi-grid .qi b { font-size: 0.5rem !important; margin-bottom: 2px !important; }
-  .ls-qi-grid .qi span { font-size: 0.72rem !important; }
-
-  /* ---------- FLOATING WHATSAPP / CALL ---------- */
-  .float-cta {
-    bottom: 16px !important;
-    right: 16px !important;
-    gap: 8px !important;
-  }
-  .float-btn {
-    font-size: 0.65rem !important;
-    padding: 9px 14px !important;
-  }
-
-  /* ---------- FOOTER ---------- */
-  footer {
-    padding: 32px 4% 20px !important;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
-  .footer-grid h4 {
-    font-size: 0.7rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-  .footer-grid ul li,
-  .footer-grid a,
-  .f-desc, .f-tag {
-    font-size: 0.78rem !important;
-  }
-  .footer-bot {
-    flex-direction: column !important;
-    gap: 6px !important;
-    align-items: flex-start !important;
-    font-size: 0.7rem !important;
-    margin-top: 1.25rem !important;
-    padding-top: 1rem !important;
-  }
-  footer img {
-    height: 42px !important;
-  }
-
-  /* ---------- INDEX-SPECIFIC ---------- */
-  .hero-grid { gap: 1.5rem !important; }
-  .hero-text h1 { font-size: 1.7rem !important; }
-  .hero-text p { font-size: 0.88rem !important; }
-  .listings-sec h2 { font-size: 1.2rem !important; }
-
-  /* Promise section */
+  .promise-grid::-webkit-scrollbar { display: none; }
   .promise-card-new {
-    padding: 1.25rem 1rem !important;
+    flex-shrink: 0 !important;
+    width: 78vw !important;
+    max-width: 280px !important;
+    scroll-snap-align: center;
+    padding: 1.1rem 1rem !important;
     min-height: auto !important;
   }
-  .promise-card-new h3 { font-size: 0.95rem !important; }
-  .promise-card-new p { font-size: 0.78rem !important; }
+  .promise-card-new h3 { font-size: 0.9rem !important; text-align: center !important; }
+  .promise-card-new p { font-size: 0.75rem !important; text-align: center !important; }
 
-  /* Journey / social block */
-  .journey-sec h2 { font-size: 1.3rem !important; }
+  /* ---------- INDEX: JOURNEY / SOCIAL ---------- */
+  .journey-sec h2 { font-size: 1.2rem !important; }
+  .journey-sec p { font-size: 0.78rem !important; }
 
-  /* ---------- TEAM SECTION — 2x2 tiny grid on mobile ---------- */
-  .team-section { padding: 16px 4% !important; }
+  /* ---------- INDEX: TEAM (horizontal swipe row) ---------- */
+  .team-section { padding: 22px 0 !important; }
   .team-bento {
     grid-template-columns: 1fr !important;
     gap: 0.75rem !important;
-  }
-  .team-bento > div:first-child { /* text block above cards */
-    text-align: center;
+    padding: 0 4% !important;
   }
   .team-bento h2 {
-    font-size: 1.05rem !important;
+    font-size: 1.1rem !important;
     line-height: 1.2 !important;
-    margin-bottom: 0.35rem !important;
+    margin: 0 0 0.4rem !important;
+    text-align: center !important;
   }
   .team-bento h2 br { display: none !important; }
   .team-bento p {
     font-size: 0.72rem !important;
     line-height: 1.45 !important;
-    max-width: 100% !important;
+    max-width: 92% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
   }
   .team-about-btn {
-    margin-top: 0.6rem !important;
+    margin: 0.5rem auto 0 !important;
     padding: 7px 14px !important;
-    font-size: 0.6rem !important;
+    font-size: 0.58rem !important;
   }
-  /* The 2x2 grid — all 4 tiny squares */
+  /* The bento grid becomes a horizontal scroll strip */
   .bento-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.4rem !important;
+    display: flex !important;
+    gap: 0.5rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.75rem 4% 0.5rem !important;
+    margin: 0 -4% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
   }
+  .bento-grid::-webkit-scrollbar { display: none; }
   .bento-card {
+    flex-shrink: 0 !important;
+    width: 38vw !important;
+    max-width: 150px !important;
     aspect-ratio: 1/1 !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
+    scroll-snap-align: center;
   }
-  /* Shrink avatar SVGs inside person cards */
+  /* Avatar SVGs */
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 22px !important;
-    height: 22px !important;
+    width: 24px !important;
+    height: 24px !important;
   }
-  /* Shrink name pill on person cards */
+  /* Name pills */
   .bento-card > div[style*="position:absolute"] {
-    padding: 4px 8px !important;
-    bottom: 6px !important;
-    left: 6px !important;
+    padding: 4px 9px !important;
+    bottom: 7px !important;
+    left: 7px !important;
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
     font-size: 0.62rem !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
-    font-size: 0.48rem !important;
+    font-size: 0.46rem !important;
   }
-  /* Red text card content shrink */
-  .bento-card[style*="#650002"] {
-    padding: 0.6rem !important;
-  }
+  /* Red text card */
+  .bento-card[style*="#650002"] { padding: 0.6rem !important; }
   .bento-card[style*="#650002"] > div {
     font-size: 0.7rem !important;
     line-height: 1.2 !important;
-    margin-bottom: 0.2rem !important;
+    text-align: center !important;
   }
   .bento-card[style*="#650002"] > p {
     font-size: 0.55rem !important;
     line-height: 1.35 !important;
+    text-align: center !important;
   }
+
+  /* ---------- LISTINGS PAGE: MAIN CARD ---------- */
+  .ls-card {
+    grid-template-columns: 1fr !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+    border-radius: 14px !important;
+    text-align: left !important;
+  }
+  .ls-gallery { padding: 6px !important; gap: 4px !important; }
+  .ls-gallery .main-img { aspect-ratio: 16/9 !important; border-radius: 10px !important; }
+  .ls-gallery .thumbs { display: none !important; } /* hide thumb row */
+  .ls-detail { padding: 0.85rem 1rem 1rem !important; text-align: center !important; }
+
+  .ls-price-block { margin-bottom: 0.5rem !important; text-align: center !important; }
+  .ls-price { font-size: 1.4rem !important; text-align: center !important; }
+  .ls-price-sub { font-size: 0.65rem !important; gap: 6px !important; justify-content: center !important; }
+  .ls-price-mkt { font-size: 0.62rem !important; padding-left: 6px !important; }
+
+  .ls-name { font-size: 1rem !important; margin-bottom: 2px !important; text-align: center !important; }
+  .ls-loc { font-size: 0.72rem !important; margin: 0 0 0.6rem !important; text-align: center !important; }
+
+  .ls-chips { gap: 4px !important; margin-bottom: 0.6rem !important; justify-content: center !important; }
+  .ls-chips span { font-size: 0.6rem !important; padding: 2px 8px !important; }
+  .ls-chips span:nth-child(4),
+  .ls-chips span:nth-child(5):not(.accent) { display: none !important; }
+
+  .ls-desc { display: none !important; }
+
+  .ls-stats {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 2px !important;
+    padding: 0.6rem 0 !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .ls-stats .st b { font-size: 0.72rem !important; }
+  .ls-stats .st small { font-size: 0.46rem !important; }
+
+  .ls-btns { gap: 6px !important; margin-bottom: 0.35rem !important; }
+  .ls-btns a { padding: 9px 6px !important; font-size: 0.6rem !important; }
+  .ls-disc { font-size: 0.55rem !important; margin-top: 3px !important; }
+
+  .ls-save {
+    width: 30px !important; height: 30px !important;
+    top: 12px !important; right: 12px !important;
+  }
+  .ls-save svg { width: 14px !important; height: 14px !important; }
+
+  /* Quick Info */
+  .ls-quickinfo { padding: 1rem !important; margin-top: 1rem !important; }
+  .ls-qi-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.7rem 0.5rem !important;
+  }
+  .ls-qi-grid .qi { text-align: center !important; }
+  .ls-qi-grid .qi b { font-size: 0.5rem !important; margin-bottom: 2px !important; }
+  .ls-qi-grid .qi span { font-size: 0.72rem !important; }
+
+  /* Coming soon block */
+  .ls-next-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .ls-next h2 { font-size: 1.2rem !important; }
+  .ls-next p { font-size: 0.78rem !important; }
+  .ls-check { text-align: left !important; }
+  .ls-check .tx b { font-size: 0.78rem !important; text-align: left !important; }
+  .ls-check .tx span { font-size: 0.68rem !important; text-align: left !important; }
 
   /* ---------- ABOUT PAGE ---------- */
-  .ab-story p { font-size: 0.88rem !important; line-height: 1.65 !important; }
-  .ab-values .val-card { padding: 1.25rem !important; }
-  .ab-values .val-card h3 { font-size: 1rem !important; }
-  .ab-values .val-card p { font-size: 0.82rem !important; }
-  .ab-team .head h2 { font-size: 1.4rem !important; }
-
-  /* ---------- SERVICES PAGE ---------- */
-  .svc-cards {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
+  .ab-story p { font-size: 0.82rem !important; line-height: 1.6 !important; text-align: center !important; }
+  .ab-values { padding-top: 24px !important; padding-bottom: 24px !important; }
+  /* Values cards become horizontal swipe */
+  .ab-values .grid, .ab-values > div > div[style*="grid-template-columns"] {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 4% 1rem !important;
+    margin: 0 -4% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
   }
-  .svc-card h3 { font-size: 1.1rem !important; }
-  .svc-card p { font-size: 0.85rem !important; }
+  .ab-values .val-card {
+    flex-shrink: 0 !important;
+    width: 78vw !important;
+    max-width: 280px !important;
+    scroll-snap-align: center;
+    padding: 1.1rem 1rem !important;
+  }
+  .ab-values .val-card h3 { font-size: 0.95rem !important; }
+  .ab-values .val-card p { font-size: 0.78rem !important; }
+  .ab-team .head h2 { font-size: 1.3rem !important; }
+
+  /* ---------- SERVICES PAGE (horizontal scroll cards) ---------- */
+  .svc-cards {
+    display: flex !important;
+    gap: 0.6rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 4% 1rem !important;
+    margin: 0 -4% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
+  }
+  .svc-cards::-webkit-scrollbar { display: none; }
+  .svc-card {
+    flex-shrink: 0 !important;
+    width: 82vw !important;
+    max-width: 300px !important;
+    scroll-snap-align: center;
+  }
+  .svc-card h3 { font-size: 1.05rem !important; text-align: center !important; }
+  .svc-card p { font-size: 0.8rem !important; text-align: center !important; }
 
   /* ---------- CONTACT PAGE ---------- */
   .ct-main {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+    gap: 1.25rem !important;
   }
-  .ct-field input,
-  .ct-field textarea,
-  .ct-field select {
-    font-size: 0.9rem !important;
+  .ct-field { text-align: left !important; }
+  .ct-field label { text-align: left !important; font-size: 0.65rem !important; }
+  .ct-field input, .ct-field textarea, .ct-field select {
+    font-size: 0.88rem !important;
     padding: 10px 12px !important;
   }
-  .ct-submit { font-size: 0.7rem !important; padding: 13px 20px !important; }
-
-  /* ---------- SREYAN PAGE ---------- */
-  .sreyan-hero, .sreyan-section {
-    padding: 28px 4% !important;
-  }
+  .ct-submit { font-size: 0.68rem !important; padding: 13px 20px !important; }
+  .ct-item { padding: 1rem !important; text-align: left !important; }
 
   /* ---------- LANDING PAGE ---------- */
-  .lp-h1 { font-size: 1.7rem !important; }
+  .landing-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .lp-h1 { font-size: 1.5rem !important; }
+  .lp-sub { font-size: 0.85rem !important; }
   .lp-form-box { padding: 1.5rem 1.25rem !important; }
+  .benefit-item { text-align: left !important; }
+  .trust-items { justify-content: center !important; }
 
+  /* ---------- SREYAN PAGE ---------- */
+  .sreyan-hero, .sreyan-section { padding: 24px 4% !important; }
+
+  /* ---------- FLOATING WHATSAPP / CALL ---------- */
+  .float-cta {
+    bottom: 14px !important;
+    right: 14px !important;
+    gap: 6px !important;
+  }
+  .float-btn {
+    font-size: 0.6rem !important;
+    padding: 8px 13px !important;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer { padding: 28px 4% 18px !important; text-align: center !important; }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    text-align: center !important;
+  }
+  .footer-grid > div { text-align: center !important; }
+  .footer-grid img { margin: 0 auto 10px !important; height: 38px !important; }
+  .footer-grid h4 { font-size: 0.65rem !important; margin-bottom: 0.5rem !important; text-align: center !important; }
+  .footer-grid ul { list-style: none !important; padding: 0 !important; }
+  .footer-grid ul li { font-size: 0.75rem !important; margin-bottom: 0.3rem !important; }
+  .footer-grid a, .f-desc, .f-tag {
+    font-size: 0.75rem !important;
+    text-align: center !important;
+  }
+  .footer-bot {
+    flex-direction: column !important;
+    gap: 4px !important;
+    align-items: center !important;
+    font-size: 0.65rem !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+    padding-top: 0.85rem !important;
+  }
 }
 
 /* ==============================================
-   VERY SMALL PHONES (max-width 380px)
+   VERY SMALL PHONES (≤380px)
    ============================================== */
 @media (max-width: 380px) {
-  nav { height: 56px !important; }
-  .nav-logo-img, nav img { height: 22px !important; }
-
-  h1 { font-size: 1.45rem !important; }
-  h2 { font-size: 1.15rem !important; }
-
-  .ls-card, .svc-card, .promise-card-new {
-    border-radius: 12px !important;
-  }
+  nav { height: 52px !important; }
+  .nav-logo-img, nav img { height: 21px !important; }
+  h1 { font-size: 1.35rem !important; }
+  h2 { font-size: 1.1rem !important; }
+  .listing-card, .promise-card-new, .ab-values .val-card,
+  .svc-card, .ls-card { border-radius: 12px !important; }
+  .bento-card { width: 42vw !important; }
 }
