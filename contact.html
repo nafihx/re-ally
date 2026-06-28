@@ -3,124 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Re‑Ally Hyderabad</title>
+  <title>Contact — Re-Ally Hyderabad</title>
+  <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .ct-hero { background:#fafafa; padding:116px 4% 44px; border-bottom:1px solid #ececec; text-align:center; }
+    .ct-hero span.lbl { color:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; display:block; margin-bottom:1rem; background:#fbe9e9; padding:6px 16px; border-radius:30px; width:fit-content; margin:0 auto 1rem; }
+    .ct-hero h1 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:600; line-height:1.1; margin:0 0 1rem; }
+    .ct-hero p { color:#565656; font-size:0.95rem; line-height:1.75; margin:0 auto; max-width:520px; }
+
+    .ct-body { background:#fafafa; padding:48px 4% 64px; }
+    .ct-grid { max-width:1040px; margin:0 auto; display:grid; grid-template-columns:0.9fr 1.1fr; gap:2.5rem; align-items:start; }
+
+    /* Left — details */
+    .ct-details .lbl { color:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; display:block; margin-bottom:0.7rem; }
+    .ct-details h2 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:1.6rem; font-weight:600; margin:0 0 0.75rem; }
+    .ct-details > p { color:#565656; font-size:0.88rem; line-height:1.7; margin:0 0 1.75rem; }
+    .ct-item { display:flex; gap:13px; align-items:flex-start; padding:0.9rem 0; border-bottom:1px solid #ececec; }
+    .ct-item .ic { width:38px; height:38px; background:#f0f0ee; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .ct-item .tx b { display:block; color:#999; font-size:0.62rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:2px; font-weight:600; }
+    .ct-item .tx a, .ct-item .tx span { color:#1a1a1a; font-size:0.92rem; font-weight:500; text-decoration:none; }
+    .ct-item .tx a:hover { color:#650002; }
+    .ct-quick { display:flex; gap:0.75rem; margin-top:1.5rem; flex-wrap:wrap; }
+    .ct-quick a { display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:30px; font-family:'Tenor Sans',sans-serif; font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; transition:transform 0.25s; }
+    .ct-quick a.wa { background:#25D366; color:#fff; }
+    .ct-quick a.cl { background:#1a1a1a; color:#fafafa; }
+    .ct-quick a:hover { transform:translateY(-2px); }
+
+    /* Right — form */
+    .ct-form { background:#fff; border:1px solid #ececec; border-radius:20px; padding:2rem; box-shadow:0 12px 44px rgba(0,0,0,0.06); }
+    .ct-form h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.3rem; font-weight:600; color:#1a1a1a; margin:0 0 1.5rem; }
+    .ct-field { margin-bottom:1.1rem; }
+    .ct-field label { display:block; font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase; color:#777; margin-bottom:0.45rem; font-weight:600; }
+    .ct-field input, .ct-field select, .ct-field textarea { width:100%; box-sizing:border-box; padding:12px 14px; border:1px solid #ddd; border-radius:12px; font-family:inherit; font-size:0.9rem; color:#1a1a1a; background:#fafafa; transition:border 0.2s; }
+    .ct-field input:focus, .ct-field select:focus, .ct-field textarea:focus { outline:none; border-color:#650002; background:#fff; }
+    .ct-field textarea { resize:vertical; min-height:90px; }
+    .ct-row { display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; }
+    .ct-submit { width:100%; background:#650002; color:#fafafa; border:none; padding:14px; border-radius:30px; font-family:'Tenor Sans',sans-serif; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; transition:transform 0.25s,background 0.25s; }
+    .ct-submit:hover { transform:translateY(-2px); background:#4d0001; }
+    .ct-success { display:none; text-align:center; padding:2rem 1rem; }
+    .ct-success .chk { width:60px; height:60px; background:#e8f5e9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin:0 auto 1rem; }
+    .ct-success h3 { margin:0 0 0.5rem; }
+    .ct-success p { color:#565656; font-size:0.88rem; margin:0; }
+
+    @media (max-width:768px) {
+      .ct-hero { padding:92px 4% 36px; }
+      .ct-grid { grid-template-columns:1fr; gap:2rem; }
+      .ct-row { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#650002;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
     <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
-      <span style="display:block;width:22px;height:2px;background:#fafafa;border-radius:2px;"></span>
-      <span style="display:block;width:22px;height:2px;background:#fafafa;border-radius:2px;"></span>
-      <span style="display:block;width:22px;height:2px;background:#fafafa;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#b3b3b3;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#b3b3b3;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#b3b3b3;border-radius:2px;"></span>
     </button>
     <div id="desktopLinks" style="display:flex;gap:1.5rem;align-items:center;">
-      <a href="listings.html" style="color:#fafafa;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Listings</a>
-      <a href="services.html" style="color:#fafafa;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
-      <a href="about.html" style="color:#fafafa;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
+      <a href="listings.html" style="color:#b3b3b3;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Listings</a>
+      <a href="services.html" style="color:#b3b3b3;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Services</a>
+      <a href="about.html" style="color:#b3b3b3;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">About</a>
     </div>
-    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%);"><img src="logo.png" alt="Re-Ally" style="height:42px;display:block;" /></a>
-    <a href="contact.html" style="background:#fafafa;color:#650002;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
+    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%);"><img src="logo.png" alt="Re-Ally" class="nav-logo-img" style="height:38px;display:block;" /></a>
+    <a href="contact.html" style="background:rgba(159,156,151,0.15);color:#b3b3b3;border:1px solid rgba(159,156,151,0.3);font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
   </nav>
-  <div id="mobileDrawer" style="display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:rgba(10,10,10,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
-    <a href="index.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">Home</a>
-    <a href="listings.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">Listings</a>
-    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(238,238,226,0.06);display:block;color:rgba(238,238,226,0.55);">↳ Sreyan by Elegans VRG</a>
-    <a href="services.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">Services</a>
-    <a href="about.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">About Us</a>
+  <div id="mobileDrawer" style="display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(26,26,26,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+    <a href="index.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Home</a>
+    <a href="listings.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Listings</a>
+    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(250,250,250,0.06);display:block;color:rgba(250,250,250,0.55);">↳ Sreyan by Elegans VRG</a>
+    <a href="services.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Services</a>
+    <a href="about.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">About Us</a>
     <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#650002;color:#fafafa;padding:14px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
   </div>
-  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}}</style>
-  <script>
-    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
-    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});});
-  </script>
+  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}.nav-logo-img{height:30px!important;}}</style>
 
-  <!-- PAGE HERO — linen background not red -->
-  <div style="background:#b3b3b3;padding:96px 4% 50px;border-bottom:1px solid #b3b3b3;">
-    <div style="max-width:1100px;margin:0 auto;">
-      <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#b3b3b3;display:block;margin-bottom:0.75rem;">Get in Touch</span>
-      <h1 style="font-family:Georgia,serif;font-size:clamp(1.8rem,3.5vw,3rem);color:#650002;margin:0 0 0.75rem;">Let's talk about your property.</h1>
-      <p style="color:#0A0A0A;font-size:1rem;max-width:480px;line-height:1.75;">Fill the form and we'll get back to you within a few hours. No spam, no pressure.</p>
-    </div>
+  <!-- HERO -->
+  <div class="ct-hero">
+    <span class="lbl">Get in Touch</span>
+    <h1>Let's talk about your property.</h1>
+    <p>Fill the form and we'll get back to you within a few hours. No spam, no pressure.</p>
   </div>
 
-  <!-- CONTACT SECTION -->
-  <section style="padding:60px 4%;background:#b3b3b3;">
-    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start;" class="contact-wrap">
+  <!-- BODY -->
+  <div class="ct-body">
+    <div class="ct-grid">
 
-      <!-- LEFT -->
-      <div>
-        <h2 style="font-family:Georgia,serif;font-size:1.6rem;color:#650002;margin-bottom:0.75rem;">Talk to a real person.</h2>
-        <p style="font-size:0.92rem;color:#0A0A0A;margin-bottom:2rem;line-height:1.75;">We respond fast — usually within a few hours. WhatsApp is the quickest way to reach us.</p>
+      <!-- Left: details -->
+      <div class="ct-details">
+        <span class="lbl">Our Details</span>
+        <h2>Talk to a real person.</h2>
+        <p>We respond fast — usually within a few hours on working days. WhatsApp is the quickest way to reach us.</p>
 
-        <div style="display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem;">
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="width:40px;height:40px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fafafa;flex-shrink:0;font-size:1rem;">📞</div>
-            <div><div style="font-weight:600;color:#0A0A0A;font-size:0.9rem;">+91 93813 67140</div><div style="font-size:0.8rem;color:#b3b3b3;">Phone / WhatsApp</div></div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="width:40px;height:40px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fafafa;flex-shrink:0;font-size:1rem;">✉️</div>
-            <div><div style="font-weight:600;color:#0A0A0A;font-size:0.9rem;">hello@re-ally.in</div><div style="font-size:0.8rem;color:#b3b3b3;">Email</div></div>
-          </div>
-          <div style="display:flex;gap:12px;align-items:center;">
-            <div style="width:40px;height:40px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fafafa;flex-shrink:0;font-size:1rem;">📍</div>
-            <div><div style="font-weight:600;color:#0A0A0A;font-size:0.9rem;">Hyderabad, Telangana</div><div style="font-size:0.8rem;color:#b3b3b3;">Mon–Sat, 9 AM to 7 PM</div></div>
-          </div>
-        </div>
+        <div class="ct-item"><div class="ic">📞</div><div class="tx"><b>Phone / WhatsApp</b><a href="tel:+919381367140">+91 93813 67140</a></div></div>
+        <div class="ct-item"><div class="ic">✉️</div><div class="tx"><b>Email</b><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></div></div>
+        <div class="ct-item"><div class="ic">📍</div><div class="tx"><b>Location</b><span>Hyderabad, Telangana, India</span></div></div>
+        <div class="ct-item"><div class="ic">🕐</div><div class="tx"><b>Working Hours</b><span>Mon – Sat, 9 AM to 7 PM</span></div></div>
 
-        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-          <a href="https://wa.me/919381367140" target="_blank" style="background:#25D366;color:#fff;padding:11px 22px;border-radius:50px;font-size:0.8rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">💬 WhatsApp Us</a>
-          <a href="tel:+919381367140" style="background:#565656;color:#fafafa;padding:11px 22px;border-radius:50px;font-size:0.8rem;font-weight:700;text-decoration:none;">📞 Call Now</a>
+        <div class="ct-quick">
+          <a href="https://wa.me/919381367140?text=Hi%2C%20I%27m%20interested%20in%20a%20property." class="wa" target="_blank">💬 WhatsApp Us</a>
+          <a href="tel:+919381367140" class="cl">📞 Call Now</a>
         </div>
       </div>
 
-      <!-- RIGHT: Form -->
-      <div style="background:#fafafa;border-radius:16px;padding:2.5rem;border:1px solid #b3b3b3;box-shadow:0 4px 24px rgba(10,10,10,0.07);">
-        <h3 style="font-family:Georgia,serif;font-size:1.2rem;color:#0A0A0A;margin-bottom:1.5rem;">Send us a message</h3>
-        <form id="contactForm" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Full name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+91 98765 43210" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="you@email.com" />
-          </div>
-          <div class="form-group">
-            <label for="interest">I'm Interested In</label>
-            <select id="interest">
-              <option value="">Select an option</option>
-              <option>Buying a property</option>
-              <option>Selling my property</option>
-              <option>Real estate marketing</option>
-              <option>Renting</option>
-              <option>Just exploring</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" placeholder="Tell us what you're looking for..."></textarea>
-          </div>
-          <button type="submit" style="width:100%;background:#650002;color:#fafafa;padding:14px;border:none;border-radius:50px;font-family:'Urbanist',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Send Message</button>
-        </form>
-        <div id="successMsg" style="display:none;text-align:center;padding:2rem;">
-          <div style="font-size:2.5rem;margin-bottom:1rem;">✅</div>
-          <h3 style="color:#0A0A0A;margin-bottom:0.5rem;">Message Sent!</h3>
-          <p style="color:#b3b3b3;font-size:0.9rem;">We'll get back to you within a few hours.</p>
+      <!-- Right: form -->
+      <div class="ct-form">
+        <div id="formWrap">
+          <h3>Send us a message</h3>
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="ct-row">
+              <div class="ct-field"><label>Your Name</label><input type="text" name="name" required placeholder="Full name" /></div>
+              <div class="ct-field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="+91 ..." /></div>
+            </div>
+            <div class="ct-field"><label>Email Address</label><input type="email" name="email" placeholder="you@email.com" /></div>
+            <div class="ct-field">
+              <label>I'm Interested In</label>
+              <select name="interest" required>
+                <option value="">Select an option</option>
+                <option>Buying a property</option>
+                <option>Selling my property</option>
+                <option>Real estate marketing</option>
+                <option>Renting</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+            <div class="ct-field"><label>Your Message</label><textarea name="message" placeholder="Tell us a bit about what you're looking for..."></textarea></div>
+            <button type="submit" class="ct-submit">Send Message</button>
+          </form>
+        </div>
+        <div class="ct-success" id="successMsg">
+          <div class="chk">✅</div>
+          <h3>Message Sent!</h3>
+          <p>We'll get back to you within a few hours.</p>
         </div>
       </div>
 
     </div>
-  </section>
+  </div>
 
   <footer>
     <div class="footer-grid">
@@ -128,7 +152,7 @@
       <div class="f-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="listings.html">Listings</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+919381367140">+91 93813 67140</a></li><li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li><li><a href="#">Hyderabad, India</a></li></ul></div>
     </div>
-    <div class="footer-bot"><span>© 2025 Re‑Ally. All rights reserved.</span><span>re-ally.in</span></div>
+    <div class="footer-bot"><span>© 2025 Re-Ally. All rights reserved.</span><span>re-ally.in</span></div>
   </footer>
 
   <div class="float-cta">
@@ -137,11 +161,25 @@
   </div>
 
   <script>
-    function handleSubmit(e) {
+    function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
+    document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});});
+
+    // Form submit via Formspree (AJAX so we show success without leaving page)
+    var form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
       e.preventDefault();
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-    }
+      var data = new FormData(form);
+      fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} })
+        .then(function(res){
+          if(res.ok){
+            document.getElementById('formWrap').style.display='none';
+            document.getElementById('successMsg').style.display='block';
+          } else {
+            alert('Something went wrong. Please WhatsApp us instead.');
+          }
+        })
+        .catch(function(){ alert('Something went wrong. Please WhatsApp us instead.'); });
+    });
   </script>
 </body>
 </html>
