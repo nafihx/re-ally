@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .ct-hero { background:#fafafa; padding:116px 4% 44px; border-bottom:1px solid #ececec; text-align:center; }
+    .ct-hero { background:#fafafa; padding:116px 4% 44px; border-bottom:1px solid #e5e5e5; text-align:center; }
     .ct-hero span.lbl { color:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; display:block; margin-bottom:1rem; background:#fbe9e9; padding:6px 16px; border-radius:30px; width:fit-content; margin:0 auto 1rem; }
     .ct-hero h1 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:600; line-height:1.1; margin:0 0 1rem; }
     .ct-hero p { color:#565656; font-size:0.95rem; line-height:1.75; margin:0 auto; max-width:520px; }
@@ -25,9 +25,9 @@
     .ct-details .lbl { color:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; display:block; margin-bottom:0.7rem; }
     .ct-details h2 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:1.6rem; font-weight:600; margin:0 0 0.75rem; }
     .ct-details > p { color:#565656; font-size:0.88rem; line-height:1.7; margin:0 0 1.75rem; }
-    .ct-item { display:flex; gap:13px; align-items:flex-start; padding:0.9rem 0; border-bottom:1px solid #ececec; }
+    .ct-item { display:flex; gap:13px; align-items:flex-start; padding:0.9rem 0; border-bottom:1px solid #e5e5e5; }
     .ct-item .ic { width:38px; height:38px; background:#f0f0ee; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-    .ct-item .tx b { display:block; color:#999; font-size:0.62rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:2px; font-weight:600; }
+    .ct-item .tx b { display:block; color:#565656; font-size:0.62rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:2px; font-weight:600; }
     .ct-item .tx a, .ct-item .tx span { color:#1a1a1a; font-size:0.92rem; font-weight:500; text-decoration:none; }
     .ct-item .tx a:hover { color:#650002; }
     .ct-quick { display:flex; gap:0.75rem; margin-top:1.5rem; flex-wrap:wrap; }
@@ -37,16 +37,16 @@
     .ct-quick a:hover { transform:translateY(-2px); }
 
     /* Right — form */
-    .ct-form { background:#fff; border:1px solid #ececec; border-radius:20px; padding:2rem; box-shadow:0 12px 44px rgba(0,0,0,0.06); }
+    .ct-form { background:#fff; border:1px solid #e5e5e5; border-radius:20px; padding:2rem; box-shadow:0 12px 44px rgba(0,0,0,0.06); }
     .ct-form h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.3rem; font-weight:600; color:#1a1a1a; margin:0 0 1.5rem; }
     .ct-field { margin-bottom:1.1rem; }
-    .ct-field label { display:block; font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase; color:#777; margin-bottom:0.45rem; font-weight:600; }
-    .ct-field input, .ct-field select, .ct-field textarea { width:100%; box-sizing:border-box; padding:12px 14px; border:1px solid #ddd; border-radius:12px; font-family:inherit; font-size:0.9rem; color:#1a1a1a; background:#fafafa; transition:border 0.2s; }
+    .ct-field label { display:block; font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase; color:#565656; margin-bottom:0.45rem; font-weight:600; }
+    .ct-field input, .ct-field select, .ct-field textarea { width:100%; box-sizing:border-box; padding:12px 14px; border:1px solid #b3b3b3; border-radius:12px; font-family:inherit; font-size:0.9rem; color:#1a1a1a; background:#fafafa; transition:border 0.2s; }
     .ct-field input:focus, .ct-field select:focus, .ct-field textarea:focus { outline:none; border-color:#650002; background:#fff; }
     .ct-field textarea { resize:vertical; min-height:90px; }
     .ct-row { display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; }
     .ct-submit { width:100%; background:#650002; color:#fafafa; border:none; padding:14px; border-radius:30px; font-family:'Tenor Sans',sans-serif; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; transition:transform 0.25s,background 0.25s; }
-    .ct-submit:hover { transform:translateY(-2px); background:#4d0001; }
+    .ct-submit:hover { transform:translateY(-2px); background:#3d0001; }
     .ct-success { display:none; text-align:center; padding:2rem 1rem; }
     .ct-success .chk { width:60px; height:60px; background:#e8f5e9; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin:0 auto 1rem; }
     .ct-success h3 { margin:0 0 0.5rem; }
