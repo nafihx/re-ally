@@ -3,216 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listings — Re‑Ally Hyderabad</title>
+  <title>Listings — Re-Ally Hyderabad</title>
+  <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="logo.png" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .page-wrap { padding-top: 60px; }
+    .ls-hero { background:#fafafa; padding:116px 4% 48px; border-bottom:1px solid #ececec; text-align:center; }
+    .ls-hero span.lbl { color:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; display:block; margin-bottom:1rem; background:#fbe9e9; padding:6px 16px; border-radius:30px; width:fit-content; margin:0 auto 1rem; }
+    .ls-hero h1 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:600; line-height:1.1; margin:0 0 1rem; }
+    .ls-hero p { color:#565656; font-size:0.95rem; line-height:1.75; margin:0 auto; max-width:600px; }
 
-    /* PAGE HERO */
-    .listings-hero { background:#b3b3b3; padding:48px 4% 36px; border-bottom:1px solid #b3b3b3; }
-    .listings-hero-inner { max-width:1100px; margin:0 auto; }
-    .eyebrow { font-size:0.63rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#b3b3b3; display:block; margin-bottom:0.5rem; }
-    .listings-hero h1 { font-family:Georgia,serif; font-size:clamp(1.5rem,2.5vw,2.2rem); color:#650002; margin:0 0 0.5rem; }
-    .listings-hero p { font-size:0.86rem; color:#0A0A0A; max-width:520px; line-height:1.72; }
+    .ls-body { background:#fafafa; padding:48px 4% 56px; }
+    .ls-inner { max-width:1080px; margin:0 auto; }
 
-    /* MAIN CONTENT */
-    .listings-body { padding:40px 4%; background:#fafafa; }
-    .listings-inner { max-width:1100px; margin:0 auto; }
+    /* Main listing card */
+    .ls-card { display:grid; grid-template-columns:1.1fr 0.9fr; gap:0; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 12px 44px rgba(0,0,0,0.1); border:1px solid #eee; }
+    .ls-gallery { display:flex; flex-direction:column; gap:6px; padding:6px; }
+    .ls-gallery .main-img { position:relative; aspect-ratio:16/11; border-radius:14px; overflow:hidden; }
+    .ls-gallery .main-img img { width:100%;height:100%;object-fit:cover;display:block; }
+    .ls-gallery .thumbs { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+    .ls-gallery .thumbs img { width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:10px; display:block; }
+    .ls-badge { position:absolute; top:12px; left:12px; background:#650002; color:#fafafa; font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:5px 13px; border-radius:30px; }
+    .ls-rera { position:absolute; top:12px; right:12px; background:rgba(10,10,10,0.55); color:#fafafa; font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.06em; padding:5px 11px; border-radius:30px; backdrop-filter:blur(6px); }
 
-    /* HORIZONTAL CARD */
-    .property-card { background:#fafafa; border-radius:16px; overflow:hidden; box-shadow:0 2px 6px rgba(10,10,10,0.05),0 8px 28px rgba(10,10,10,0.08); margin-bottom:1.5rem; }
+    .ls-detail { padding:1.75rem; }
+    .ls-price { color:#650002; font-family:'Playfair Display',Georgia,serif; font-size:1.6rem; line-height:1; margin-bottom:0.3rem; }
+    .ls-name { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:1.25rem; font-weight:600; }
+    .ls-loc { color:#888; font-size:0.8rem; margin:4px 0 1rem; }
+    .ls-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.1rem; }
+    .ls-chips span { background:#f0f0f0; border:1px solid #ddd; border-radius:30px; padding:3px 11px; font-size:0.68rem; color:#565656; }
+    .ls-chips span.accent { background:#fbe9e9; border-color:#f0c4c4; color:#650002; font-weight:600; }
+    .ls-desc { color:#555; font-size:0.84rem; line-height:1.7; margin-bottom:1.25rem; }
+    .ls-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem; padding:1rem 0; border-top:1px solid #eee; border-bottom:1px solid #eee; margin-bottom:1.25rem; }
+    .ls-stats .st { text-align:center; }
+    .ls-stats .st b { display:block; font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; color:#1a1a1a; font-weight:600; }
+    .ls-stats .st small { font-size:0.6rem; letter-spacing:0.06em; text-transform:uppercase; color:#999; }
+    .ls-btns { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:0.75rem; }
+    .ls-btns a { padding:11px 6px; border-radius:30px; text-align:center; font-family:'Tenor Sans',sans-serif; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:all 0.2s; }
+    .ls-btns a.b1 { background:#565656; color:#fafafa; }
+    .ls-btns a.b1:hover { background:#444; }
+    .ls-btns a.b2 { background:transparent; color:#565656; border:1px solid #ccc; }
+    .ls-btns a.full { grid-column:1 / 3; background:#1a1a1a; color:#fafafa; }
+    .ls-disc { color:#999; font-size:0.64rem; margin:0; }
 
-    /* 3-photo gallery */
-    .photo-row { display:grid; grid-template-columns:2fr 1fr 1fr; height:220px; gap:2px; }
-    .photo-main { position:relative; overflow:hidden; }
-    .photo-side { overflow:hidden; }
-    .photo-main img,.photo-side img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s; }
-    .property-card:hover .photo-main img { transform:scale(1.02); }
-    .badge { position:absolute; top:12px; left:12px; background:#650002; color:#fafafa; font-size:0.58rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 11px; border-radius:50px; }
-    .rera-badge { position:absolute; top:12px; right:12px; background:rgba(10,10,10,0.7); color:#fafafa; font-size:0.58rem; font-weight:600; padding:4px 10px; border-radius:50px; backdrop-filter:blur(6px); }
+    /* Quick info */
+    .ls-quickinfo { margin-top:1.25rem; background:#f0f0ee; border-radius:18px; padding:1.5rem; }
+    .ls-quickinfo h4 { font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:#650002; margin:0 0 1rem; }
+    .ls-qi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
+    .ls-qi-grid .qi b { display:block; color:#999; font-size:0.6rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:3px; font-weight:500; }
+    .ls-qi-grid .qi span { color:#1a1a1a; font-size:0.82rem; font-weight:600; }
 
-    /* Card body */
-    .card-body { padding:1.5rem 1.75rem; display:grid; grid-template-columns:1fr 200px; gap:1.75rem; align-items:start; }
-    .card-left {}
-    .card-price { font-family:Georgia,serif; font-size:1.4rem; color:#650002; margin-bottom:3px; }
-    .card-name { font-weight:700; font-size:0.95rem; color:#0A0A0A; font-family:Georgia,serif; margin-bottom:4px; }
-    .card-loc { font-size:0.75rem; color:#b3b3b3; margin-bottom:0.9rem; display:flex; align-items:center; gap:4px; }
-    .chips { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:0.9rem; }
-    .chip { background:#fafafa; border:1px solid #b3b3b3; border-radius:50px; padding:3px 10px; font-size:0.67rem; color:#0A0A0A; font-weight:500; }
-    .chip-red { background:#fafafa0f2; border:1px solid rgba(87,13,14,0.3); color:#650002; font-weight:600; }
-    .card-desc { font-size:0.82rem; color:#b3b3b3; line-height:1.72; margin-bottom:1rem; }
-    .stats-row { display:flex; gap:1.5rem; padding:0.75rem 0; border-top:1px solid rgba(159,156,151,0.2); border-bottom:1px solid rgba(159,156,151,0.2); margin-bottom:1rem; }
-    .stat-box { text-align:center; }
-    .stat-val { font-family:Georgia,serif; font-size:1rem; color:#0A0A0A; display:block; line-height:1; }
-    .stat-key { font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:#b3b3b3; margin-top:2px; display:block; }
-    .card-btns { display:flex; gap:8px; flex-wrap:wrap; }
-    .btn-enq { background:#650002; color:#fafafa; padding:9px 22px; border-radius:50px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; box-shadow:0 2px 10px rgba(87,13,14,0.2); }
-    .btn-brochure { background:#fafafa; color:#0A0A0A; padding:9px 18px; border-radius:50px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid rgba(159,156,151,0.5); }
-    .btn-more { background:#fafafa; color:#650002; padding:9px 18px; border-radius:50px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border:1.5px solid #650002; }
-    .disclaimer { font-size:0.62rem; color:#b3b3b3; margin-top:0.6rem; }
+    /* Coming soon */
+    .ls-next { background:#1a1a1a; padding:56px 4%; }
+    .ls-next-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    .ls-next .lbl { color:#e0a5a5; font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; display:block; margin-bottom:0.9rem; }
+    .ls-next h2 { color:#fafafa; font-family:'Playfair Display',Georgia,serif; font-size:clamp(1.5rem,2.8vw,2.2rem); font-weight:600; line-height:1.2; margin:0 0 1rem; }
+    .ls-next h2 em { color:#e0a5a5; font-style:italic; }
+    .ls-next p { color:#bbb; font-size:0.9rem; line-height:1.7; margin:0 0 1.75rem; }
+    .ls-next a { display:inline-block; background:#fafafa; color:#1a1a1a; padding:13px 28px; border-radius:30px; font-family:'Tenor Sans',sans-serif; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:transform 0.25s; }
+    .ls-next a:hover { transform:translateY(-2px); }
+    .ls-checklist { display:flex; flex-direction:column; gap:0.75rem; }
+    .ls-check { display:flex; align-items:flex-start; gap:11px; }
+    .ls-check .ic { width:22px; height:22px; background:rgba(224,165,165,0.2); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .ls-check .ic svg { width:11px; height:11px; fill:#e0a5a5; }
+    .ls-check .tx b { display:block; color:#fafafa; font-size:0.85rem; font-weight:600; }
+    .ls-check .tx span { color:#999; font-size:0.76rem; }
 
-    /* Quick Info panel */
-    .quick-panel { background:#fafafa; border-radius:12px; padding:1.1rem; border:1px solid #b3b3b3; }
-    .quick-panel h4 { font-family:Georgia,serif; font-size:0.85rem; color:#650002; margin:0 0 0.75rem; font-weight:400; }
-    .quick-row { display:flex; justify-content:space-between; padding:0.45rem 0; border-bottom:1px solid rgba(159,156,151,0.2); font-size:0.75rem; }
-    .quick-row:last-child { border-bottom:none; }
-    .quick-label { color:#b3b3b3; }
-    .quick-val { color:#0A0A0A; font-weight:600; text-align:right; font-size:0.72rem; }
-
-    /* COMING SOON */
-    .coming-sec { background:#565656; border-radius:14px; padding:40px; margin-top:1.25rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-    .coming-left h2 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.7rem); color:#fafafa; line-height:1.2; margin:0 0 0.6rem; }
-    .coming-left p { font-size:0.84rem; color:rgba(238,238,226,0.5); line-height:1.72; margin-bottom:1.25rem; }
-    .coming-btn { display:inline-block; background:#fafafa; color:#650002; padding:9px 22px; border-radius:50px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
-    .coming-items { display:flex; flex-direction:column; gap:0.6rem; }
-    .coming-item { display:flex; align-items:flex-start; gap:10px; padding:0.75rem 1rem; background:rgba(238,238,226,0.05); border-radius:8px; border:1px solid rgba(238,238,226,0.07); }
-    .coming-dot { width:6px; height:6px; background:#650002; border-radius:50%; flex-shrink:0; margin-top:5px; }
-    .coming-title { font-weight:600; font-size:0.8rem; color:#fafafa; margin-bottom:1px; }
-    .coming-desc { font-size:0.73rem; color:rgba(238,238,226,0.4); }
-
-    @media(max-width:768px) {
-      .photo-row { height:160px; grid-template-columns:1fr; height:auto; }
-      .photo-main { height:180px; }
-      .photo-side { display:none; }
-      .card-body { grid-template-columns:1fr; padding:1.1rem; gap:1rem; }
-      .quick-panel { display:none; }
-      .stats-row { gap:0.85rem; flex-wrap:wrap; }
-      .card-btns { flex-wrap:wrap; }
-      .coming-sec { grid-template-columns:1fr; padding:28px; gap:1.5rem; }
-      .listings-body { padding:28px 4%; }
-      .listings-hero { padding:32px 4% 24px; }
+    @media (max-width:768px) {
+      .ls-hero { padding:92px 4% 36px; }
+      .ls-card { grid-template-columns:1fr; }
+      .ls-qi-grid { grid-template-columns:1fr 1fr; }
+      .ls-next-inner { grid-template-columns:1fr; gap:2rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav style="position:fixed;top:0;left:0;right:0;z-index:1000;background:#650002;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;box-sizing:border-box;">
     <button onclick="toggleMenu()" id="hamburgerBtn" style="background:none;border:none;cursor:pointer;padding:6px;display:none;flex-direction:column;gap:5px;align-items:center;justify-content:center;flex-shrink:0;" aria-label="Menu">
-      <span style="display:block;width:22px;height:2px;background:#fafafa;border-radius:2px;"></span>
-      <span style="display:block;width:22px;height:2px;background:#fafafa;border-radius:2px;"></span>
-      <span style="display:block;width:22px;height:2px;background:#fafafa;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#b3b3b3;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#b3b3b3;border-radius:2px;"></span>
+      <span style="display:block;width:22px;height:2px;background:#b3b3b3;border-radius:2px;"></span>
     </button>
     <div id="desktopLinks" style="display:flex;gap:1.5rem;align-items:center;">
-      <a href="listings.html" style="color:#fafafa;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Listings</a>
-      <a href="services.html" style="color:#fafafa;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">Services</a>
-      <a href="about.html" style="color:#fafafa;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;opacity:0.8;">About</a>
+      <a href="listings.html" style="color:#b3b3b3;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Listings</a>
+      <a href="services.html" style="color:#b3b3b3;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Services</a>
+      <a href="about.html" style="color:#b3b3b3;text-decoration:none;font-size:0.75rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">About</a>
     </div>
-    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%);"><img src="logo.png" alt="Re-Ally" style="height:42px;display:block;" /></a>
-    <a href="contact.html" style="background:#fafafa;color:#650002;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:7px 15px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
+    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%);"><img src="logo.png" alt="Re-Ally" class="nav-logo-img" style="height:38px;display:block;" /></a>
+    <a href="contact.html" style="background:rgba(159,156,151,0.15);color:#b3b3b3;border:1px solid rgba(159,156,151,0.3);font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Contact Us</a>
   </nav>
-  <div id="mobileDrawer" style="display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(10,10,10,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
-    <a href="index.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">Home</a>
-    <a href="listings.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">Listings</a>
-    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(238,238,226,0.06);display:block;color:rgba(238,238,226,0.55);">↳ Sreyan by Elegans VRG</a>
-    <a href="services.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">Services</a>
-    <a href="about.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(238,238,226,0.1);display:block;">About Us</a>
+  <div id="mobileDrawer" style="display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(26,26,26,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
+    <a href="index.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Home</a>
+    <a href="listings.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Listings</a>
+    <a href="sreyan.html" style="text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;padding:0.65rem 0 0.65rem 1.5rem;border-bottom:1px solid rgba(250,250,250,0.06);display:block;color:rgba(250,250,250,0.55);">↳ Sreyan by Elegans VRG</a>
+    <a href="services.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Services</a>
+    <a href="about.html" style="color:#fafafa;text-decoration:none;font-family:Georgia,serif;font-size:1.4rem;padding:1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">About Us</a>
     <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#650002;color:#fafafa;padding:14px 32px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
   </div>
-  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}}</style>
+  <style>@media(max-width:768px){#hamburgerBtn{display:flex!important;}#desktopLinks{display:none!important;}.nav-logo-img{height:30px!important;}}</style>
 
-  <div class="page-wrap">
+  <!-- HERO -->
+  <div class="ls-hero">
+    <span class="lbl">Hyderabad · Curated Properties</span>
+    <h1>Our Listings</h1>
+    <p>Every project here has passed our checklist. No inflated prices, no vague descriptions — just properties we'd recommend to our own family.</p>
+  </div>
 
-    <!-- PAGE HERO -->
-    <div class="listings-hero">
-      <div class="listings-hero-inner">
-        <span class="eyebrow">Hyderabad · Curated Properties</span>
-        <h1>Our Listings</h1>
-        <p>Every project here has passed our checklist. No inflated prices, no vague descriptions — just properties we'd recommend to our own family.</p>
+  <!-- BODY -->
+  <div class="ls-body">
+    <div class="ls-inner">
+
+      <!-- Main card -->
+      <div class="ls-card">
+        <div class="ls-gallery">
+          <div class="main-img">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sreyan Villa Front" />
+            <span class="ls-badge">For Sale</span>
+            <span class="ls-rera">RERA · HMDA</span>
+          </div>
+          <div class="thumbs">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Sreyan Pool" />
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Sreyan Interior" />
+          </div>
+        </div>
+        <div class="ls-detail">
+          <div class="ls-price">₹5.5 Cr* onwards</div>
+          <div class="ls-name">Sreyan by Elegans VRG</div>
+          <div class="ls-loc">📍 Gundlapochampalli, Medchal, Hyderabad</div>
+          <div class="ls-chips">
+            <span>4,500+ sft Triplex</span>
+            <span>G+2 Villa</span>
+            <span>309 sq.yd plot</span>
+            <span>9-acre community</span>
+            <span class="accent">₹12,000/sft*</span>
+          </div>
+          <p class="ls-desc">A premium gated community of 82 triplex villas on 9 acres in Gundlapochampalli. Built by Elegans VRG with imported marble, teak doors, Grohe fittings, and a 20,000 sft Club Sreyan. Construction-linked payment across 10 stages.</p>
+          <div class="ls-stats">
+            <div class="st"><b>82</b><small>Villas</small></div>
+            <div class="st"><b>9 ac</b><small>Site Area</small></div>
+            <div class="st"><b>20k</b><small>Sft Club</small></div>
+          </div>
+          <div class="ls-btns">
+            <a href="contact.html" class="b1">Enquire Now</a>
+            <a href="Sreyan_Handoff_Brief_v2.pdf" class="b2" download>⬇ Brochure</a>
+            <a href="sreyan.html" class="full">Full Details →</a>
+          </div>
+          <p class="ls-disc">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
+        </div>
       </div>
+
+      <!-- Quick info -->
+      <div class="ls-quickinfo">
+        <h4>Quick Info</h4>
+        <div class="ls-qi-grid">
+          <div class="qi"><b>Developer</b><span>Elegans VRG</span></div>
+          <div class="qi"><b>RERA No.</b><span>P02200007108</span></div>
+          <div class="qi"><b>Approval</b><span>HMDA · CREDAI</span></div>
+          <div class="qi"><b>Status</b><span>Under Construction</span></div>
+          <div class="qi"><b>Payment</b><span>10-stage CLP</span></div>
+          <div class="qi"><b>Possession</b><span>To be confirmed</span></div>
+          <div class="qi"><b>East facing</b><span>4,586 sft</span></div>
+          <div class="qi"><b>West facing</b><span>4,675 sft</span></div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <!-- LISTINGS BODY -->
-    <div class="listings-body">
-      <div class="listings-inner">
-
-        <!-- SREYAN CARD -->
-        <div class="property-card">
-          <div class="photo-row">
-            <div class="photo-main">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sreyan" />
-              <span class="badge">For Sale</span>
-              <span class="rera-badge">RERA · HMDA</span>
-            </div>
-            <div class="photo-side"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Pool" /></div>
-            <div class="photo-side"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Interior" /></div>
-          </div>
-
-          <div class="card-body">
-            <div class="card-left">
-              <div class="card-price">₹5.5 Cr* onwards</div>
-              <div class="card-name">Sreyan by Elegans VRG</div>
-              <div class="card-loc">
-                <svg viewBox="0 0 24 24" style="width:11px;height:11px;fill:#b3b3b3;flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
-                Gundlapochampalli, Medchal, Hyderabad
-              </div>
-              <div class="chips">
-                <span class="chip">4,500+ sft Triplex</span>
-                <span class="chip">G+2 Villa</span>
-                <span class="chip">309 sq.yd plot</span>
-                <span class="chip">9-acre community</span>
-                <span class="chip">Under Construction</span>
-                <span class="chip chip-red">₹12,000/sft*</span>
-              </div>
-              <p class="card-desc">A premium gated community of 82 triplex villas on 9 acres. Imported marble, teak doors, Grohe fittings, and a 20,000 sft Club Sreyan. Construction-linked payment across 10 stages.</p>
-              <div class="stats-row">
-                <div class="stat-box"><span class="stat-val">82</span><span class="stat-key">Villas</span></div>
-                <div class="stat-box"><span class="stat-val">9 ac</span><span class="stat-key">Site</span></div>
-                <div class="stat-box"><span class="stat-val">309 yd²</span><span class="stat-key">Plot</span></div>
-                <div class="stat-box"><span class="stat-val">20k</span><span class="stat-key">Club sft</span></div>
-                <div class="stat-box"><span class="stat-val">300m</span><span class="stat-key">NH-44</span></div>
-              </div>
-              <div class="card-btns">
-                <a href="contact.html" class="btn-enq">Enquire Now</a>
-                <a href="Sreyan_Handoff_Brief_v2.pdf" download class="btn-brochure">⬇ Brochure</a>
-                <a href="sreyan.html" class="btn-more">Full Details →</a>
-              </div>
-              <p class="disclaimer">*Excl. GST, registration, stamp duty, corpus & maintenance</p>
-            </div>
-
-            <div class="quick-panel">
-              <h4>Quick Info</h4>
-              <div class="quick-row"><span class="quick-label">Developer</span><span class="quick-val">Elegans VRG</span></div>
-              <div class="quick-row"><span class="quick-label">RERA No.</span><span class="quick-val">P02200007108</span></div>
-              <div class="quick-row"><span class="quick-label">Approval</span><span class="quick-val">HMDA · CREDAI</span></div>
-              <div class="quick-row"><span class="quick-label">Status</span><span class="quick-val">Under Construction</span></div>
-              <div class="quick-row"><span class="quick-label">Payment</span><span class="quick-val">10-stage CLP</span></div>
-              <div class="quick-row"><span class="quick-label">East</span><span class="quick-val">4,586 sft</span></div>
-              <div class="quick-row"><span class="quick-label">West</span><span class="quick-val">4,675 sft</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- COMING SOON -->
-        <div class="coming-sec">
-          <div class="coming-left">
-            <span style="font-size:0.63rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(238,238,226,0.35);display:block;margin-bottom:0.75rem;">What's Next</span>
-            <h2>More projects are coming.<br><em style="color:#b3b3b3;">Each one handpicked.</em></h2>
-            <p>We don't add projects to fill space. Every listing has to earn its place — against the same checklist, every time.</p>
-            <a href="contact.html" class="coming-btn">Tell Us What You Need</a>
-          </div>
-          <div class="coming-items">
-            <div class="coming-item"><div class="coming-dot"></div><div><div class="coming-title">RERA registered</div><div class="coming-desc">Legally compliant — no shortcuts</div></div></div>
-            <div class="coming-item"><div class="coming-dot"></div><div><div class="coming-title">HMDA or equivalent approval</div><div class="coming-desc">Government clearance confirmed</div></div></div>
-            <div class="coming-item"><div class="coming-dot"></div><div><div class="coming-title">Transparent pricing</div><div class="coming-desc">What you see is what you pay</div></div></div>
-            <div class="coming-item"><div class="coming-dot"></div><div><div class="coming-title">Credible developer</div><div class="coming-desc">We verify before we vouch</div></div></div>
-          </div>
-        </div>
-
+  <!-- WHAT'S NEXT + CHECKLIST -->
+  <div class="ls-next">
+    <div class="ls-next-inner">
+      <div>
+        <span class="lbl">What's Next</span>
+        <h2>More projects are coming. <em>Each one handpicked.</em></h2>
+        <p>We don't add projects to fill space. Every listing we bring on has to earn its place — against the same checklist, every time.</p>
+        <a href="contact.html">Tell Us What You're Looking For</a>
+      </div>
+      <div class="ls-checklist">
+        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>RERA registered</b><span>Legally compliant — no shortcuts</span></div></div>
+        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>HMDA or equivalent approval</b><span>Government clearance confirmed</span></div></div>
+        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>Transparent pricing</b><span>What you see is what you pay</span></div></div>
+        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>Credible developer track record</b><span>We verify before we vouch</span></div></div>
+        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>Fits real buyer needs</b><span>Location, size and value that make sense</span></div></div>
       </div>
     </div>
   </div>
 
   <footer>
     <div class="footer-grid">
-      <div><img src="logo.png" alt="Re-Ally" style="height:56px;display:block;margin-bottom:10px;" /><div class="f-tag">Your real estate ally.</div><p class="f-desc">Guiding real estate decisions across Hyderabad.</p></div>
+      <div><img src="logo.png" alt="Re-Ally" style="height:56px;display:block;margin-bottom:10px;" /><div class="f-tag">Your real estate ally.</div><p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p></div>
       <div class="f-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="listings.html">Listings</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="f-col"><h4>Contact</h4><ul><li><a href="tel:+919381367140">+91 93813 67140</a></li><li><a href="mailto:hello@re-ally.in">hello@re-ally.in</a></li><li><a href="#">Hyderabad, India</a></li></ul></div>
     </div>
-    <div class="footer-bot"><span>© 2025 Re‑Ally. All rights reserved.</span><span>re-ally.in</span></div>
+    <div class="footer-bot"><span>© 2025 Re-Ally. All rights reserved.</span><span>re-ally.in</span></div>
   </footer>
 
   <div class="float-cta">
