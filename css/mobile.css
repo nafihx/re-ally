@@ -1,0 +1,237 @@
+/* ==============================================
+   RE-ALLY — MOBILE STYLESHEET (v3.0)
+   Applies to all pages on phones (max-width 768px)
+   ============================================== */
+
+@media (max-width: 768px) {
+
+  /* ---------- NAV ---------- */
+  nav {
+    height: 60px !important;
+  }
+  .nav-logo-img,
+  nav img {
+    height: 26px !important;
+  }
+  #hamburgerBtn span {
+    width: 20px !important;
+  }
+  nav a[href="contact.html"] {
+    font-size: 0.6rem !important;
+    padding: 6px 12px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  /* Push content below shorter nav */
+  body { padding-top: 0 !important; }
+
+  /* ---------- MOBILE DRAWER ---------- */
+  #mobileDrawer {
+    top: 60px !important;
+    padding: 1.5rem 6% !important;
+  }
+  #mobileDrawer a {
+    font-size: 0.9rem !important;
+    padding: 0.85rem 0 !important;
+    letter-spacing: 0.12em !important;
+  }
+
+  /* ---------- HERO SECTIONS (any page) ---------- */
+  .ab-hero, .ct-hero, .ls-hero, .svc-hero,
+  [class*="-hero"] {
+    padding-top: 80px !important;
+    padding-bottom: 28px !important;
+  }
+  .ab-hero h1, .ct-hero h1, .ls-hero h1, .svc-hero h1 {
+    font-size: 1.7rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .ab-hero p, .ct-hero p, .ls-hero p, .svc-hero p {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* ---------- ALL SECTIONS — tighter padding ---------- */
+  .ab-story, .ab-values, .ab-team, .ab-cta,
+  .ct-main, .ct-info,
+  .ls-body, .ls-next,
+  .svc-cards, .svc-cta,
+  .promise-sec, .journey-sec, .people-sec, .listings-sec,
+  .ls-next, .team-section {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  h2 {
+    font-size: 1.3rem !important;
+    line-height: 1.2 !important;
+  }
+  h3 {
+    font-size: 1rem !important;
+  }
+
+  /* ---------- PILLS / LABELS ---------- */
+  .lbl, .pill, [class*="-lbl"] {
+    font-size: 0.58rem !important;
+    padding: 4px 11px !important;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .ls-btns a, .ab-cta a, .ct-submit, .svc-card a,
+  .team-about-btn, .ls-next a {
+    font-size: 0.65rem !important;
+    padding: 10px 18px !important;
+  }
+
+  /* ---------- CARDS — full width, tighter padding ---------- */
+  .ls-card { box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important; }
+  .ls-detail, .ab-story, .ab-values .val-card,
+  .svc-card, .ct-item {
+    padding: 1rem !important;
+  }
+
+  /* ---------- LISTING CARD STATS ---------- */
+  .ls-stats .st b { font-size: 0.8rem !important; }
+  .ls-stats .st small { font-size: 0.5rem !important; }
+
+  /* ---------- QUICK INFO ---------- */
+  .ls-quickinfo { padding: 1.25rem !important; }
+  .ls-qi-grid { gap: 1rem 0.75rem !important; }
+  .ls-qi-grid .qi b { font-size: 0.55rem !important; }
+  .ls-qi-grid .qi span { font-size: 0.78rem !important; }
+
+  /* ---------- FLOATING WHATSAPP / CALL ---------- */
+  .float-cta {
+    bottom: 16px !important;
+    right: 16px !important;
+    gap: 8px !important;
+  }
+  .float-btn {
+    font-size: 0.65rem !important;
+    padding: 9px 14px !important;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    padding: 32px 4% 20px !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .footer-grid h4 {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .footer-grid ul li,
+  .footer-grid a,
+  .f-desc, .f-tag {
+    font-size: 0.78rem !important;
+  }
+  .footer-bot {
+    flex-direction: column !important;
+    gap: 6px !important;
+    align-items: flex-start !important;
+    font-size: 0.7rem !important;
+    margin-top: 1.25rem !important;
+    padding-top: 1rem !important;
+  }
+  footer img {
+    height: 42px !important;
+  }
+
+  /* ---------- INDEX-SPECIFIC ---------- */
+  .hero-grid { gap: 1.5rem !important; }
+  .hero-text h1 { font-size: 1.7rem !important; }
+  .hero-text p { font-size: 0.88rem !important; }
+  .listings-sec h2 { font-size: 1.2rem !important; }
+
+  /* Promise section */
+  .promise-card-new {
+    padding: 1.25rem 1rem !important;
+    min-height: auto !important;
+  }
+  .promise-card-new h3 { font-size: 0.95rem !important; }
+  .promise-card-new p { font-size: 0.78rem !important; }
+
+  /* Journey / social block */
+  .journey-sec h2 { font-size: 1.3rem !important; }
+
+  /* ---------- TEAM SECTION ---------- */
+  .team-section { padding: 18px 4% !important; }
+  .team-bento {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .team-bento h2 {
+    font-size: 1.2rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .team-bento p {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+  }
+  .team-about-btn {
+    margin-top: 0.85rem !important;
+    padding: 8px 16px !important;
+    font-size: 0.65rem !important;
+  }
+  .bento-grid { gap: 0.4rem !important; }
+  .bento-card { aspect-ratio: 1.6/1 !important; }
+
+  /* ---------- ABOUT PAGE ---------- */
+  .ab-story p { font-size: 0.88rem !important; line-height: 1.65 !important; }
+  .ab-values .val-card { padding: 1.25rem !important; }
+  .ab-values .val-card h3 { font-size: 1rem !important; }
+  .ab-values .val-card p { font-size: 0.82rem !important; }
+  .ab-team .head h2 { font-size: 1.4rem !important; }
+
+  /* ---------- SERVICES PAGE ---------- */
+  .svc-cards {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .svc-card h3 { font-size: 1.1rem !important; }
+  .svc-card p { font-size: 0.85rem !important; }
+
+  /* ---------- CONTACT PAGE ---------- */
+  .ct-main {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .ct-field input,
+  .ct-field textarea,
+  .ct-field select {
+    font-size: 0.9rem !important;
+    padding: 10px 12px !important;
+  }
+  .ct-submit { font-size: 0.7rem !important; padding: 13px 20px !important; }
+
+  /* ---------- SREYAN PAGE ---------- */
+  .sreyan-hero, .sreyan-section {
+    padding: 28px 4% !important;
+  }
+
+  /* ---------- LANDING PAGE ---------- */
+  .lp-h1 { font-size: 1.7rem !important; }
+  .lp-form-box { padding: 1.5rem 1.25rem !important; }
+
+}
+
+/* ==============================================
+   VERY SMALL PHONES (max-width 380px)
+   ============================================== */
+@media (max-width: 380px) {
+  nav { height: 56px !important; }
+  .nav-logo-img, nav img { height: 22px !important; }
+
+  h1 { font-size: 1.45rem !important; }
+  h2 { font-size: 1.15rem !important; }
+
+  .ls-card, .svc-card, .promise-card-new {
+    border-radius: 12px !important;
+  }
+}
