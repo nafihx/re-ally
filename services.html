@@ -17,38 +17,26 @@
     .svc-head h1 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); font-weight:600; line-height:1.15; margin:0 0 1rem; }
     .svc-head p { color:#565656; font-size:0.92rem; line-height:1.7; margin:0; }
 
-    /* BENTO GRID */
-    .bento { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; grid-auto-rows:minmax(0,auto); }
-
-    /* Big left card — spans 2 rows — FLINT GREY */
-    .b-buy { grid-column:1; grid-row:1 / 3; background:#b3b3b3; border-radius:20px; padding:1.5rem; display:flex; flex-direction:column; transition:transform 0.3s,box-shadow 0.3s; }
-    .b-buy-img { aspect-ratio:1/1; border-radius:14px; overflow:hidden; margin-bottom:1.5rem; }
-    .b-buy-img img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s; }
-    .b-buy:hover .b-buy-img img { transform:scale(1.05); }
-    .b-buy h3 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; font-weight:600; line-height:1.25; margin:0 0 1.25rem; }
-    .b-buy a { display:inline-flex; align-items:center; gap:10px; background:#1a1a1a; color:#fafafa; padding:11px 14px 11px 22px; border-radius:30px; text-decoration:none; font-family:'Tenor Sans',sans-serif; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; margin-top:auto; width:fit-content; transition:transform 0.25s; }
-    .b-buy a svg { background:#fafafa; border-radius:50%; padding:5px; width:26px; height:26px; box-sizing:border-box; }
-    .b-buy a:hover { transform:translateX(4px); }
-
-    /* Top middle — CHARCOAL GREY */
-    .b-trust { grid-column:2 / 4; grid-row:1; background:#565656; border-radius:20px; overflow:hidden; position:relative; min-height:230px; transition:transform 0.3s,box-shadow 0.3s; }
-    .b-trust img { position:absolute; inset:0; width:100%; height:48%; object-fit:cover; }
-    .b-trust .b-trust-text { position:absolute; bottom:0; left:0; right:0; padding:1.5rem; }
-    .b-trust h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.15rem; font-weight:600; line-height:1.3; margin:0; }
-    .b-trust h4 b { color:#fafafa; font-weight:600; }
-    .b-trust h4 span { color:#aaa; font-weight:400; }
-
-    /* Big bottom-right — FLINT GREY */
-    .b-sell { grid-column:2 / 4; grid-row:2; background:#b3b3b3; border-radius:20px; overflow:hidden; display:grid; grid-template-columns:1fr 0.85fr; transition:transform 0.3s,box-shadow 0.3s; }
-    .b-sell-text { padding:1.75rem; display:flex; flex-direction:column; justify-content:center; }
-    .b-sell-text h4 { font-family:'Playfair Display',Georgia,serif; font-size:1.2rem; font-weight:600; line-height:1.35; margin:0; }
-    .b-sell-text h4 b { color:#1a1a1a; font-weight:600; }
-    .b-sell-text h4 span { color:#aaa; font-weight:400; }
-    .b-sell-img { overflow:hidden; }
-    .b-sell-img img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s; }
-    .b-sell:hover .b-sell-img img { transform:scale(1.05); }
-
-    .b-buy:hover, .b-trust:hover, .b-sell:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.1); }
+    /* 3 EQUAL CARDS */
+    .bento { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+    .svc-card { border-radius:20px; padding:1.4rem; display:flex; flex-direction:column; transition:transform 0.3s,box-shadow 0.3s; }
+    .svc-card.flint { background:#b3b3b3; }
+    .svc-card.charcoal { background:#565656; }
+    .svc-card-img { aspect-ratio:16/11; border-radius:14px; overflow:hidden; margin-bottom:1.25rem; border:3px solid rgba(255,255,255,0.35); }
+    .svc-card-img img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s; }
+    .svc-card:hover .svc-card-img img { transform:scale(1.06); }
+    .svc-card .lbl { font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; display:block; margin-bottom:0.5rem; }
+    .svc-card.flint .lbl { color:#650002; }
+    .svc-card.charcoal .lbl { color:#e0a5a5; }
+    .svc-card h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.3rem; font-weight:600; line-height:1.25; margin:0 0 0.6rem; }
+    .svc-card.flint h3 { color:#1a1a1a; }
+    .svc-card.charcoal h3 { color:#fafafa; }
+    .svc-card p { font-size:0.84rem; line-height:1.6; margin:0 0 1.4rem; }
+    .svc-card.flint p { color:#444; }
+    .svc-card.charcoal p { color:#ccc; }
+    .svc-card .svc-btn { display:inline-flex; align-items:center; gap:9px; background:#1a1a1a; color:#fafafa; padding:11px 14px 11px 22px; border-radius:30px; text-decoration:none; font-family:'Tenor Sans',sans-serif; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase; margin-top:auto; width:fit-content; transition:transform 0.25s; cursor:pointer; border:none; }
+    .svc-card .svc-btn svg { background:#fafafa; border-radius:50%; padding:5px; width:26px; height:26px; box-sizing:border-box; }
+    .svc-card .svc-btn:hover { transform:translateX(4px); }
 
     /* CTA */
     .svc-cta { background:#f0f0ee; padding:60px 4%; text-align:center; }
@@ -60,11 +48,6 @@
     @media (max-width:768px) {
       .svc-section { padding:90px 4% 40px; }
       .bento { grid-template-columns:1fr; }
-      .b-buy, .b-trust, .b-sell { grid-column:1 !important; grid-row:auto !important; }
-      .b-buy-img { aspect-ratio:16/10; }
-      .b-trust { min-height:280px; }
-      .b-sell { grid-template-columns:1fr; }
-      .b-sell-img { aspect-ratio:16/9; order:-1; }
     }
   </style>
 </head>
@@ -107,40 +90,46 @@
 
       <div class="bento">
 
-        <!-- Big left — Buying -->
-        <div class="b-buy">
-          <div class="b-buy-img">
+        <!-- Service 01 — Buying (Flint) -->
+        <div class="svc-card flint">
+          <div class="svc-card-img">
             <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Buying" />
           </div>
-          <span style="color:#650002;font-family:'Tenor Sans',sans-serif;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:0.5rem;">Service 01</span>
-          <h3 style="margin-bottom:0.5rem;color:#1a1a1a;">Buying a Property</h3>
-          <p style="color:#3a3a3a;font-size:0.85rem;line-height:1.65;margin:0 0 1.25rem;">We guide you to the right home — from shortlisting and legal checks to price negotiation and final registration.</p>
-          <a href="contact.html">
+          <span class="lbl">Service 01</span>
+          <h3>Buying a Property</h3>
+          <p>We guide you to the right home — from shortlisting and legal checks to price negotiation and final registration.</p>
+          <a class="svc-btn" href="https://wa.me/919381367140?text=Hi%20Re-Ally%2C%20I%27m%20interested%20in%20BUYING%20a%20property.%20Can%20you%20help%3F" target="_blank">
             I Want to Buy
             <svg viewBox="0 0 24 24" style="fill:none;stroke:#1a1a1a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
 
-        <!-- Top middle — Selling -->
-        <div class="b-trust">
-          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Selling" />
-          <div class="b-trust-text">
-            <span style="color:#d99;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Service 02</span>
-            <h4 style="margin:0 0 0.3rem;"><b>Selling Your Property</b></h4>
-            <p style="color:#bbb;font-size:0.78rem;line-height:1.55;margin:0;">Priced right, marketed properly, negotiated hard — so you don't leave money on the table.</p>
+        <!-- Service 02 — Selling (Charcoal) -->
+        <div class="svc-card charcoal">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Selling" />
           </div>
+          <span class="lbl">Service 02</span>
+          <h3>Selling Your Property</h3>
+          <p>Priced right, marketed properly, negotiated hard — so you don't leave money on the table.</p>
+          <a class="svc-btn" href="https://wa.me/919381367140?text=Hi%20Re-Ally%2C%20I%20want%20to%20SELL%20my%20property.%20Can%20you%20help%3F" target="_blank">
+            I Want to Sell
+            <svg viewBox="0 0 24 24" style="fill:none;stroke:#1a1a1a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
 
-        <!-- Bottom right — Marketing -->
-        <div class="b-sell">
-          <div class="b-sell-text">
-            <span style="color:#650002;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:0.4rem;">Service 03</span>
-            <h4 style="margin:0 0 0.4rem;"><b>Real Estate Marketing</b></h4>
-            <p style="color:#777;font-size:0.78rem;line-height:1.55;margin:0;">Meta ads, reels and social content built for real estate — bringing real buyers, not just impressions.</p>
+        <!-- Service 03 — Marketing (Flint) -->
+        <div class="svc-card flint">
+          <div class="svc-card-img">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80" alt="Marketing" />
           </div>
-          <div class="b-sell-img">
-            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&q=80" alt="Marketing" />
-          </div>
+          <span class="lbl">Service 03</span>
+          <h3>Real Estate Marketing</h3>
+          <p>Meta ads, reels and social content built for real estate — bringing real buyers, not just impressions.</p>
+          <a class="svc-btn" href="https://wa.me/919381367140?text=Hi%20Re-Ally%2C%20I%20need%20help%20with%20real%20estate%20MARKETING.%20Can%20we%20talk%3F" target="_blank">
+            Market With Us
+            <svg viewBox="0 0 24 24" style="fill:none;stroke:#1a1a1a;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
 
       </div>
