@@ -7,7 +7,13 @@
 @media (max-width: 768px) {
 
   /* ---------- GLOBAL ---------- */
-  body { padding-bottom: 64px !important; }
+  body {
+    padding-bottom: 0 !important;
+    background: #fafafa !important;
+  }
+  .page-wrap {
+    padding-top: 56px !important;
+  }
 
   /* ---------- NAV ---------- */
   nav {
