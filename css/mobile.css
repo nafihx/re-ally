@@ -84,8 +84,8 @@
     line-height: 1.15 !important;
     margin: 0 0 0.85rem !important;
     text-align: center !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
     color: #1a1a1a !important;
     white-space: nowrap !important;
     padding: 0 !important;
@@ -135,71 +135,65 @@
      PROPERTIES — Picture 1 style (dark cards, swipe row)
      ============================================ */
   .listings-sec {
-    padding: 28px 0 !important;
-    background: #fafafa !important;
-    text-align: left !important;
+    padding: 28px 4% !important;
+    background: #b3b3b3 !important;
+    text-align: center !important;
   }
   .listings-inner { padding: 0 !important; }
   /* Header area */
   .listings-sec > div > div:first-child {
-    padding: 0 4% !important;
-    text-align: left !important;
-    margin-bottom: 1rem !important;
+    padding: 0 !important;
+    text-align: center !important;
+    margin-bottom: 1.1rem !important;
   }
   .listings-sec > div > div:first-child > span {
-    color: #565656 !important;
+    color: #1a1a1a !important;
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
     font-size: 0.58rem !important;
     letter-spacing: 0.16em !important;
     text-transform: uppercase !important;
-    text-align: left !important;
+    text-align: center !important;
     display: block !important;
     margin-bottom: 0.35rem !important;
   }
   .listings-sec h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.25rem !important;
     line-height: 1.2 !important;
-    text-align: left !important;
+    text-align: center !important;
     margin: 0 !important;
-    text-transform: none !important;
+    text-transform: uppercase !important;
     color: #1a1a1a !important;
-    letter-spacing: -0.01em !important;
+    letter-spacing: 0.02em !important;
   }
 
-  /* Grid → horizontal scroll row of dark cards (Picture 1) */
+  /* Grid → 3 columns in 1 row, no swipe */
   .listings-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 0.7rem !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 4% 1rem !important;
-    grid-template-columns: none !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 0.4rem !important;
+    overflow: visible !important;
+    padding: 0 !important;
     align-items: stretch !important;
-    scrollbar-width: none;
   }
-  .listings-grid::-webkit-scrollbar { display: none; }
 
-  /* Every card in the row — dark Picture 1 style */
+  /* Every card — tight Picture 1 style */
   .listings-grid > * {
-    flex-shrink: 0 !important;
-    width: 78vw !important;
-    max-width: 290px !important;
-    scroll-snap-align: center;
+    flex-shrink: initial !important;
+    width: auto !important;
+    max-width: none !important;
+    scroll-snap-align: none;
     background: #1a1a1a !important;
-    border-radius: 18px !important;
+    border-radius: 10px !important;
     overflow: hidden !important;
     position: relative !important;
-    aspect-ratio: 4/5 !important;
+    aspect-ratio: 3/4.5 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
     padding: 0 !important;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.18) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18) !important;
   }
 
   /* === SREYAN CARD === */
@@ -219,7 +213,7 @@
   }
   .listing-card-img {
     aspect-ratio: auto !important;
-    height: 60% !important;
+    height: 50% !important;
     border-radius: 0 !important;
     flex-shrink: 0 !important;
   }
@@ -228,7 +222,7 @@
   .listing-card-body, .listing-card > div:last-child {
     background: #1a1a1a !important;
     color: #fafafa !important;
-    padding: 0.9rem 1rem 1rem !important;
+    padding: 0.45rem 0.5rem 0.5rem !important;
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -236,31 +230,32 @@
   }
   .listing-card h3, .listing-card-body h3 {
     color: #fafafa !important;
-    font-size: 1.1rem !important;
-    margin: 0 0 0.4rem !important;
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
+    margin: 0 0 0.2rem !important;
     text-align: left !important;
   }
   .listing-card .listing-card-body * { color: #fafafa !important; }
   .listing-card-body span, .listing-card-body p {
-    color: rgba(250,250,250,0.7) !important;
-    font-size: 0.7rem !important;
+    color: rgba(250,250,250,0.65) !important;
+    font-size: 0.42rem !important;
+    line-height: 1.3 !important;
     text-align: left !important;
   }
-  /* Hide brochure button, keep only Enquire as a small Navigate pill */
+  /* Hide brochure button, keep only Enquire */
   .listings-grid .listing-card a[download] { display: none !important; }
-  /* Convert Enquire to "Navigate" style pill at bottom */
+  /* Convert Enquire to small pill */
   .listings-grid .listing-card a:not([download]):not(.listing-card-link) {
-    background: rgba(250,250,250,0.12) !important;
+    background: rgba(250,250,250,0.15) !important;
     color: #fafafa !important;
-    padding: 6px 14px !important;
+    padding: 3px 8px !important;
     border-radius: 30px !important;
-    font-size: 0.62rem !important;
-    text-align: left !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
+    font-size: 0.42rem !important;
+    letter-spacing: 0.04em !important;
+    text-align: center !important;
+    display: inline-block !important;
     width: fit-content !important;
-    margin-top: 0.5rem !important;
+    margin-top: 0.25rem !important;
   }
   /* Hide the button-row grid wrap from desktop */
   .listings-grid .listing-card div[style*="grid-template-columns"] {
@@ -271,84 +266,80 @@
   /* === How We Choose card === */
   .listings-grid > .prop-box:nth-child(2) {
     background: #565656 !important;
-    padding: 1rem 1.1rem !important;
-    aspect-ratio: 4/5 !important;
+    padding: 0.55rem 0.5rem !important;
+    aspect-ratio: 3/4.5 !important;
     text-align: left !important;
     color: #fafafa !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
-  .listings-grid > .prop-box:nth-child(2) span {
+  .listings-grid > .prop-box:nth-child(2) > span:first-child {
     color: rgba(250,250,250,0.55) !important;
-    font-size: 0.55rem !important;
-    letter-spacing: 0.14em !important;
+    font-size: 0.42rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 0.2rem !important;
   }
   .listings-grid > .prop-box:nth-child(2) h3 {
     color: #fafafa !important;
-    font-size: 1rem !important;
-    line-height: 1.25 !important;
-    margin: 0.4rem 0 0.7rem !important;
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
+    margin: 0 0 0.3rem !important;
     text-align: left !important;
   }
+  /* Hide the checklist on tiny mobile - won't fit */
   .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] {
-    gap: 0.5rem !important;
-  }
-  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div {
-    justify-content: flex-start !important;
-  }
-  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div span {
-    color: rgba(250,250,250,0.9) !important;
-    font-size: 0.72rem !important;
-    text-align: left !important;
-  }
-  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div > div {
-    width: 16px !important; height: 16px !important;
-    background: #650002 !important;
+    display: none !important;
   }
   .listings-grid > .prop-box:nth-child(2) > p {
-    color: rgba(250,250,250,0.55) !important;
-    font-size: 0.65rem !important;
-    line-height: 1.5 !important;
-    margin: 0.7rem 0 0 !important;
-    padding-top: 0.55rem !important;
-    border-top: 1px solid rgba(250,250,250,0.12) !important;
+    color: rgba(250,250,250,0.7) !important;
+    font-size: 0.42rem !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
     text-align: left !important;
   }
 
   /* === More projects coming soon === */
   .listings-grid > .prop-box:nth-child(3) {
     background: #650002 !important;
-    padding: 1.2rem 1rem !important;
-    aspect-ratio: 4/5 !important;
+    padding: 0.55rem 0.5rem !important;
+    aspect-ratio: 3/4.5 !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     justify-content: center !important;
-    text-align: left !important;
+    text-align: center !important;
   }
   .listings-grid > .prop-box:nth-child(3) > div:first-child {
-    width: 42px !important; height: 42px !important;
-    margin: 0 0 1rem !important;
+    width: 24px !important; height: 24px !important;
+    margin: 0 auto 0.4rem !important;
     background: rgba(250,250,250,0.15) !important;
   }
+  .listings-grid > .prop-box:nth-child(3) > div:first-child svg {
+    width: 12px !important; height: 12px !important;
+  }
   .listings-grid > .prop-box:nth-child(3) h3 {
-    font-size: 1.05rem !important;
+    font-size: 0.58rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.5rem !important;
-    text-align: left !important;
+    margin: 0 0 0.25rem !important;
+    text-align: center !important;
     color: #fafafa !important;
   }
   .listings-grid > .prop-box:nth-child(3) p {
-    font-size: 0.7rem !important;
-    line-height: 1.5 !important;
-    text-align: left !important;
+    font-size: 0.42rem !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
     margin: 0 !important;
-    color: rgba(250,250,250,0.78) !important;
+    color: rgba(250,250,250,0.75) !important;
   }
 
   /* Tagline below cards */
   .listings-tagline {
-    font-size: 0.75rem !important;
+    font-size: 0.7rem !important;
     line-height: 1.5 !important;
-    margin: 0.5rem 4% 0 !important;
+    margin: 0.85rem auto 0 !important;
     max-width: 92% !important;
     color: #565656 !important;
     text-align: center !important;
@@ -362,15 +353,16 @@
   div[style*="background:#fafafa;padding:64px"] {
     padding: 36px 0 !important;
   }
-  /* Header — left aligned */
+  /* Header — centered */
   div[style*="background:#fafafa"] > div > div:first-child {
-    text-align: left !important;
+    text-align: center !important;
     padding: 0 4% !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.25rem !important;
+    max-width: 100% !important;
   }
   div[style*="background:#fafafa"] > div > div:first-child > span:first-child {
     background: transparent !important;
-    color: #565656 !important;
+    color: #1a1a1a !important;
     padding: 0 !important;
     border: none !important;
     border-radius: 0 !important;
@@ -378,98 +370,95 @@
     font-size: 0.58rem !important;
     letter-spacing: 0.18em !important;
     display: inline-block !important;
-    margin-bottom: 0.4rem !important;
+    margin: 0 auto 0.4rem !important;
     font-family: 'Tenor Sans', sans-serif !important;
   }
   div[style*="background:#fafafa"] h2 {
-    font-size: 1.6rem !important;
+    font-size: 1.3rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.5rem !important;
-    text-align: left !important;
+    margin: 0 auto 0.45rem !important;
+    text-align: center !important;
     color: #1a1a1a !important;
-    text-transform: none !important;
-    letter-spacing: -0.01em !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
   }
   div[style*="background:#fafafa"] > div > div:first-child > p {
-    font-size: 0.82rem !important;
-    line-height: 1.55 !important;
-    margin: 0 !important;
-    max-width: 100% !important;
-    text-align: left !important;
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto !important;
+    max-width: 92% !important;
+    text-align: center !important;
     color: #565656 !important;
   }
 
-  /* Promise grid → horizontal swipe row */
-  .promise-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 0.75rem !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 0.5rem 4% 1.25rem !important;
+  /* Promise grid → 3 columns in 1 row, no swipe */
+  .promise-cards-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 0.4rem !important;
+    overflow: visible !important;
+    padding: 0 4% 0.5rem !important;
+    margin-bottom: 1.5rem !important;
     background: transparent !important;
     border-radius: 0 !important;
-    grid-template-columns: none !important;
     scrollbar-width: none;
   }
-  .promise-grid::-webkit-scrollbar { display: none; }
 
   .promise-card-new {
-    flex-shrink: 0 !important;
-    width: 70vw !important;
-    max-width: 260px !important;
-    scroll-snap-align: center;
-    aspect-ratio: 3/4 !important;
-    padding: 1.25rem 1.1rem !important;
-    border-radius: 18px !important;
+    flex-shrink: initial !important;
+    width: auto !important;
+    max-width: none !important;
+    scroll-snap-align: none;
+    aspect-ratio: 3/4.5 !important;
+    padding: 0.6rem 0.45rem !important;
+    border-radius: 10px !important;
     min-height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
-    text-align: left !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
     position: relative !important;
     overflow: hidden !important;
   }
 
-  /* Add a small "avatar" circle at top of each card */
+  /* Small "avatar" circle at top */
   .promise-card-new::before {
     content: '';
     display: block;
-    width: 36px;
-    height: 36px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background: linear-gradient(160deg, #b3b3b3, #565656);
-    margin-bottom: 1rem;
+    margin: 0 auto 0.45rem;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
   }
 
-  /* Hide the small number/label inside cards (was 01/02/03) */
+  /* Hide number labels */
   .promise-card-new > span,
   .promise-card-new > div:first-child {
     display: none !important;
   }
 
-  /* Card H3 = the "quote" title */
+  /* Card title — centered */
   .promise-card-new h3 {
-    font-size: 0.78rem !important;
-    line-height: 1.4 !important;
-    text-align: left !important;
-    margin: 0 0 0.6rem !important;
-    font-weight: 500 !important;
+    font-size: 0.55rem !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    margin: 0 0 0.3rem !important;
+    font-weight: 600 !important;
     font-family: 'Urbanist', sans-serif !important;
     text-transform: none !important;
     letter-spacing: 0 !important;
-    flex: 1 !important;
+    flex: initial !important;
   }
 
-  /* Card body = the quote text */
+  /* Card body — centered */
   .promise-card-new p {
-    font-size: 0.72rem !important;
-    line-height: 1.55 !important;
-    text-align: left !important;
+    font-size: 0.45rem !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
     margin: 0 !important;
     max-width: 100% !important;
     display: block !important;
@@ -510,6 +499,36 @@
   .promise-card-new:nth-child(1) h3,
   .promise-card-new:nth-child(1) p {
     color: #1a1a1a !important;
+  }
+
+  /* "Follow Along" / Join Our Journey block — centered tight */
+  div[style*="background:#fafafa"] > div > div[style*="border-top"] {
+    padding-top: 1.5rem !important;
+    margin-top: 0 !important;
+    text-align: center !important;
+  }
+  div[style*="background:#fafafa"] > div > div[style*="border-top"] > span {
+    font-size: 0.58rem !important;
+    margin-bottom: 0.35rem !important;
+    letter-spacing: 0.16em !important;
+    display: block !important;
+    text-align: center !important;
+  }
+  div[style*="background:#fafafa"] > div > div[style*="border-top"] > h2 {
+    font-size: 1.25rem !important;
+    margin: 0 0 0.5rem !important;
+    text-align: center !important;
+  }
+  div[style*="background:#fafafa"] > div > div[style*="border-top"] > p {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto 1rem !important;
+    max-width: 92% !important;
+    text-align: center !important;
+  }
+  div[style*="background:#fafafa"] > div > div[style*="border-top"] .social-pill {
+    padding: 8px 16px !important;
+    font-size: 0.62rem !important;
   }
 
   /* ---------- JOURNEY / SOCIAL ---------- */
@@ -577,28 +596,28 @@
     color: #565656 !important;
   }
 
-  /* Bento grid: 3 tall portrait cards, side-by-side, equal */
+  /* Bento grid: 3 portrait cards in 1 row */
   .bento-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.5rem !important;
+    gap: 0.4rem !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
   /* Hide the "Building from day one" red card */
   .bento-card[style*="#650002"] { display: none !important; }
-  /* Person cards — tall portrait (Picture 3) */
+  /* Person cards — tighter portrait */
   .bento-card {
-    aspect-ratio: 3/4.5 !important;
+    aspect-ratio: 3/4 !important;
     background: linear-gradient(180deg, rgba(86,86,86,0.4) 0%, rgba(26,26,26,0.85) 100%),
                 linear-gradient(160deg, #b3b3b3, #565656) !important;
-    border-radius: 14px !important;
+    border-radius: 10px !important;
     overflow: hidden !important;
     position: relative !important;
     padding: 0 !important;
     margin: 0 !important;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.18) !important;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18) !important;
     display: block !important;
   }
   /* Icon section */
@@ -614,27 +633,27 @@
     padding: 0 !important;
   }
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 36px !important;
-    height: 36px !important;
+    width: 24px !important;
+    height: 24px !important;
     fill: rgba(250,250,250,0.5) !important;
-    margin-bottom: 3.5rem !important;
+    margin-bottom: 2.2rem !important;
   }
   /* Name + role label at bottom */
   .bento-card > div[style*="position:absolute"] {
     position: absolute !important;
-    bottom: 10px !important;
-    left: 10px !important;
+    bottom: 6px !important;
+    left: 6px !important;
     transform: none !important;
     background: transparent !important;
     backdrop-filter: none !important;
     padding: 0 !important;
     text-align: left !important;
     display: block !important;
-    width: calc(100% - 20px) !important;
+    width: calc(100% - 12px) !important;
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
     color: #fafafa !important;
-    font-size: 0.72rem !important;
+    font-size: 0.56rem !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
     margin-bottom: 1px !important;
@@ -642,19 +661,15 @@
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
     color: rgba(250,250,250,0.65) !important;
-    font-size: 0.48rem !important;
+    font-size: 0.38rem !important;
     letter-spacing: 0.08em !important;
     line-height: 1.15 !important;
     text-transform: uppercase !important;
   }
 
-  /* About Us button — below cards, left aligned */
+  /* About Us button — hidden on mobile per request */
   .team-about-btn {
-    margin: 1.5rem 0 0 !important;
-    padding: 10px 22px !important;
-    font-size: 0.66rem !important;
-    letter-spacing: 0.1em !important;
-    align-self: flex-start !important;
+    display: none !important;
   }
 
   /* ---------- FOOTER (3-column horizontal) ---------- */

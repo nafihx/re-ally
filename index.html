@@ -443,15 +443,6 @@
     function toggleMute(){var v=document.getElementById('heroVideo'),on=document.getElementById('muteIconOn'),off=document.getElementById('muteIconOff');if(!v)return;v.muted=!v.muted;on.style.display=v.muted?'block':'none';off.style.display=v.muted?'none':'block';}
     document.addEventListener('DOMContentLoaded',function(){
       document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});
-      if(window.innerWidth<=768){
-        // Move "About Us" button after the bento grid on mobile
-        var aboutBtn=document.querySelector('.team-about-btn');
-        var bentoGrid=document.querySelector('.bento-grid');
-        var teamBento=document.querySelector('.team-bento');
-        if(aboutBtn && bentoGrid && teamBento){
-          teamBento.appendChild(aboutBtn);
-        }
-      }
     });
   </script>
 </body>
