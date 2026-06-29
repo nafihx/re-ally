@@ -800,41 +800,52 @@
   /* Promise grid — keep desktop design, just shrink */
   .promise-cards-row {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 0.5rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 4% 1.5rem !important;
+    width: 92% !important;
+    max-width: 92% !important;
+    margin: 0 auto 1.5rem !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
   }
   .promise-cards-row > .promise-card-new {
     min-width: 0 !important;
-    min-height: 130px !important;
-    width: auto !important;
-    padding: 0.75rem 0.6rem !important;
+    max-width: 100% !important;
+    min-height: 120px !important;
+    width: 100% !important;
+    padding: 0.6rem 0.45rem !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   /* Shrink the icon circle inside */
   .promise-card-new > div:first-child[style*="position:absolute"] {
-    width: 22px !important;
-    height: 22px !important;
-    top: 0.6rem !important;
-    right: 0.6rem !important;
+    width: 18px !important;
+    height: 18px !important;
+    top: 0.45rem !important;
+    right: 0.45rem !important;
   }
   .promise-card-new > div:first-child[style*="position:absolute"] svg {
-    width: 10px !important;
-    height: 10px !important;
+    width: 9px !important;
+    height: 9px !important;
+  }
+  /* The inner content wrapper */
+  .promise-card-new > div:not(:first-child),
+  .promise-card-new > div[style*="margin-top:auto"] {
+    margin: 0 !important;
+    max-width: 100% !important;
   }
   /* Title smaller */
   .promise-card-new h3 {
-    font-size: 0.62rem !important;
+    font-size: 0.55rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.3rem !important;
+    margin: 0 0 0.25rem !important;
     max-width: 100% !important;
   }
   /* Body smaller */
   .promise-card-new p {
-    font-size: 0.5rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.44rem !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
   }
 
   /* Force team grid to fit */
