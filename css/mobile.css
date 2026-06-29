@@ -1,30 +1,25 @@
 /* ==============================================
-   RE-ALLY — MOBILE STYLESHEET (v4.0)
-   Phone-only redesign (max-width 768px)
+   RE-ALLY — MOBILE STYLESHEET (v5.0)
+   Phone-only (max-width 768px)
+   Reference: Picture 1 (cards), Picture 2 (testimonials), Picture 3 (team)
    ============================================== */
 
 @media (max-width: 768px) {
 
-  /* ---------- GLOBAL TOKENS ---------- */
-  /* Unified vertical rhythm: 24px between major sections */
-  body {
-    padding-bottom: 64px !important;
-  }
+  /* ---------- GLOBAL ---------- */
+  body { padding-bottom: 64px !important; }
 
-  /* ---------- NAV (uniform across all pages, no Contact pill) ---------- */
+  /* ---------- NAV ---------- */
   nav {
     height: 56px !important;
     padding: 0 4% !important;
     justify-content: space-between !important;
   }
-  .nav-logo-img, nav img, nav .nav-logo img {
-    height: 28px !important;
-  }
+  .nav-logo-img, nav img, nav .nav-logo img { height: 28px !important; }
   #hamburgerBtn span { width: 20px !important; height: 1.5px !important; }
-  /* Hide desktop links on mobile (drawer takes over) */
   #desktopLinks { display: none !important; }
 
-  /* ---------- MOBILE DRAWER — full-screen red, left-aligned ---------- */
+  /* ---------- DRAWER (full-screen red, left-aligned) ---------- */
   #mobileDrawer {
     top: 56px !important;
     left: 0 !important; right: 0 !important; bottom: 0 !important;
@@ -56,338 +51,498 @@
     border-radius: 30px !important;
     border-bottom: none !important;
     padding: 12px 28px !important;
-    text-align: center !important;
     width: fit-content !important;
     align-self: flex-start !important;
     font-size: 0.78rem !important;
-    letter-spacing: 0.14em !important;
+    text-align: center !important;
   }
 
   /* ============================================
-     ===== HOME PAGE (index.html) ===============
+     HERO — tight top, smaller h1 single line
      ============================================ */
-
-  /* ---------- HERO ---------- */
   .hero {
-    padding: 76px 4% 24px !important;
+    padding: 64px 4% 22px !important;
     min-height: auto !important;
     text-align: center !important;
   }
   .hero-split {
     display: grid !important;
-    grid-template-areas:
-      "h1"
-      "video"
-      "text"
-      "btn" !important;
+    grid-template-areas: "h1" "video" "text" "btn" !important;
     grid-template-columns: 1fr !important;
     gap: 0 !important;
   }
   .hero-text-col { display: contents !important; }
-
-  /* Hide the "Hyderabad · Real Estate" pill on mobile */
+  /* Hide "Hyderabad · Real Estate" pill */
   .hero-text-col > span:first-child { display: none !important; }
 
-  /* H1 — uppercase, centered, "an ally" red, rest black */
+  /* H1 — single line, smaller, "Not a broker —" black + "an ally" red */
   .hero-text-col h1 {
     grid-area: h1;
     font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: clamp(1.4rem, 6.5vw, 1.85rem) !important;
+    font-size: clamp(1.05rem, 5vw, 1.4rem) !important;
     font-weight: 600 !important;
-    line-height: 1.18 !important;
-    margin: 0 0 1rem !important;
+    line-height: 1.15 !important;
+    margin: 0 0 0.85rem !important;
     text-align: center !important;
-    text-transform: uppercase !important;
+    text-transform: none !important;
     letter-spacing: 0 !important;
     color: #1a1a1a !important;
-    padding: 0 4% !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
   }
   .hero-text-col h1 span { color: #650002 !important; }
 
-  /* Video — centered, slightly smaller (not full width) */
+  /* Video — centered, smaller */
   .hero-video-col, #heroVideoBox {
     grid-area: video;
     aspect-ratio: 16/10 !important;
-    width: 88% !important;
-    max-width: 380px !important;
-    margin: 0 auto 1.1rem !important;
+    width: 86% !important;
+    max-width: 360px !important;
+    margin: 0 auto 1rem !important;
     border-radius: 14px !important;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.16) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.16) !important;
   }
-  /* Hide the play button placeholder content (still visible as soft gradient if no video) */
   .hero-video-placeholder { border-radius: 14px !important; }
 
   /* First paragraph */
   .hero-text-col p:nth-of-type(1) {
     grid-area: text;
-    font-size: 0.82rem !important;
+    font-size: 0.8rem !important;
     line-height: 1.55 !important;
-    margin: 0 auto 1.1rem !important;
+    margin: 0 auto 1rem !important;
     max-width: 92% !important;
-    text-align: center !important;
     color: #1a1a1a !important;
+    text-align: center !important;
   }
-  /* Hide italic tagline on mobile */
+  /* Hide italic tagline */
   .hero-text-col p:nth-of-type(2) { display: none !important; }
 
-  /* Hide "View Listings" button — only "Talk to Us" remains */
+  /* Buttons — only Talk to Us */
   .hero-text-col > div[style*="flex-wrap"] {
     grid-area: btn;
     justify-content: center !important;
-    gap: 0 !important;
   }
-  .hero-text-col > div[style*="flex-wrap"] > a.hero-btn-primary {
-    display: none !important;
-  }
+  .hero-text-col > div[style*="flex-wrap"] > a.hero-btn-primary { display: none !important; }
   .hero-text-col > div[style*="flex-wrap"] > a.hero-btn-secondary {
     padding: 11px 26px !important;
     font-size: 0.7rem !important;
-    letter-spacing: 0.1em !important;
     background: #650002 !important;
     color: #fafafa !important;
     border: none !important;
   }
 
-  /* ---------- LISTINGS SECTION ---------- */
+  /* ============================================
+     PROPERTIES — Picture 1 style (dark cards, swipe row)
+     ============================================ */
   .listings-sec {
-    padding: 36px 4% !important;
-    background: #b3b3b3 !important;
-    text-align: center !important;
-  }
-  .listings-inner { padding: 0 !important; }
-  /* Properties label (Tenor uppercase already) */
-  .listings-sec > div > div:first-child {
-    margin-bottom: 1.1rem !important;
-  }
-  /* Section H2 — full caps */
-  .listings-sec h2 {
-    font-size: 1.25rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.02em !important;
-    text-align: center !important;
-    margin: 0 0 1.2rem !important;
-  }
-
-  /* Listings grid: 3 cards stacked, each at 16:10-ish */
-  .listings-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 0.85rem !important;
-    align-items: stretch !important;
-  }
-
-  /* === Sreyan card (16:9 image, only Enquire button) === */
-  .listing-card { border-radius: 14px !important; overflow: hidden !important; }
-  .listing-card-img { aspect-ratio: 16/9 !important; }
-  /* The Sreyan card's body */
-  .listings-grid > a.listing-card-link > .listing-card > div:last-child,
-  .listings-grid > a.listing-card-link > .listing-card > .listing-card-body {
-    padding: 0.9rem 1rem 1rem !important;
-  }
-  /* Hide the Brochure button — keep only Enquire */
-  .listings-grid .listing-card a[download] { display: none !important; }
-  /* Make Enquire button full width */
-  .listings-grid .listing-card a:not([download]):not(.listing-card-link) {
-    width: 100% !important;
-    text-align: center !important;
-    grid-column: 1 / -1 !important;
-  }
-  /* Listing card buttons row → single column */
-  .listings-grid .listing-card div[style*="grid-template-columns"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* === How We Choose card (5:3, left-aligned list) === */
-  .listings-grid > .prop-box:nth-child(2) {
-    aspect-ratio: auto !important;
-    padding: 1rem 1.1rem !important;
-    border-radius: 14px !important;
+    padding: 28px 0 !important;
     background: #fafafa !important;
     text-align: left !important;
   }
+  .listings-inner { padding: 0 !important; }
+  /* Header area */
+  .listings-sec > div > div:first-child {
+    padding: 0 4% !important;
+    text-align: left !important;
+    margin-bottom: 1rem !important;
+  }
+  .listings-sec > div > div:first-child > span {
+    color: #565656 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 0.58rem !important;
+    letter-spacing: 0.16em !important;
+    text-transform: uppercase !important;
+    text-align: left !important;
+    display: block !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .listings-sec h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+    text-align: left !important;
+    margin: 0 !important;
+    text-transform: none !important;
+    color: #1a1a1a !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* Grid → horizontal scroll row of dark cards (Picture 1) */
+  .listings-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.7rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 4% 1rem !important;
+    grid-template-columns: none !important;
+    align-items: stretch !important;
+    scrollbar-width: none;
+  }
+  .listings-grid::-webkit-scrollbar { display: none; }
+
+  /* Every card in the row — dark Picture 1 style */
+  .listings-grid > * {
+    flex-shrink: 0 !important;
+    width: 78vw !important;
+    max-width: 290px !important;
+    scroll-snap-align: center;
+    background: #1a1a1a !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    position: relative !important;
+    aspect-ratio: 4/5 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 0 !important;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18) !important;
+  }
+
+  /* === SREYAN CARD === */
+  .listings-grid > a.listing-card-link {
+    color: #fafafa !important;
+    text-decoration: none !important;
+  }
+  /* Image fills the card as background */
+  .listings-grid > a.listing-card-link > .listing-card {
+    background: transparent !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .listing-card-img {
+    aspect-ratio: auto !important;
+    height: 60% !important;
+    border-radius: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .listing-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  /* Body section — dark with white text */
+  .listing-card-body, .listing-card > div:last-child {
+    background: #1a1a1a !important;
+    color: #fafafa !important;
+    padding: 0.9rem 1rem 1rem !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .listing-card h3, .listing-card-body h3 {
+    color: #fafafa !important;
+    font-size: 1.1rem !important;
+    margin: 0 0 0.4rem !important;
+    text-align: left !important;
+  }
+  .listing-card .listing-card-body * { color: #fafafa !important; }
+  .listing-card-body span, .listing-card-body p {
+    color: rgba(250,250,250,0.7) !important;
+    font-size: 0.7rem !important;
+    text-align: left !important;
+  }
+  /* Hide brochure button, keep only Enquire as a small Navigate pill */
+  .listings-grid .listing-card a[download] { display: none !important; }
+  /* Convert Enquire to "Navigate" style pill at bottom */
+  .listings-grid .listing-card a:not([download]):not(.listing-card-link) {
+    background: rgba(250,250,250,0.12) !important;
+    color: #fafafa !important;
+    padding: 6px 14px !important;
+    border-radius: 30px !important;
+    font-size: 0.62rem !important;
+    text-align: left !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: fit-content !important;
+    margin-top: 0.5rem !important;
+  }
+  /* Hide the button-row grid wrap from desktop */
+  .listings-grid .listing-card div[style*="grid-template-columns"] {
+    display: flex !important;
+    grid-template-columns: none !important;
+  }
+
+  /* === How We Choose card === */
+  .listings-grid > .prop-box:nth-child(2) {
+    background: #565656 !important;
+    padding: 1rem 1.1rem !important;
+    aspect-ratio: 4/5 !important;
+    text-align: left !important;
+    color: #fafafa !important;
+  }
   .listings-grid > .prop-box:nth-child(2) span {
+    color: rgba(250,250,250,0.55) !important;
     font-size: 0.55rem !important;
     letter-spacing: 0.14em !important;
   }
   .listings-grid > .prop-box:nth-child(2) h3 {
-    font-size: 0.95rem !important;
+    color: #fafafa !important;
+    font-size: 1rem !important;
     line-height: 1.25 !important;
-    margin: 0.5rem 0 0.85rem !important;
+    margin: 0.4rem 0 0.7rem !important;
     text-align: left !important;
   }
-  /* Checklist items - left aligned with proper spacing */
   .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] {
-    gap: 0.55rem !important;
+    gap: 0.5rem !important;
   }
   .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div {
     justify-content: flex-start !important;
   }
   .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div span {
-    font-size: 0.78rem !important;
+    color: rgba(250,250,250,0.9) !important;
+    font-size: 0.72rem !important;
     text-align: left !important;
   }
   .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div > div {
-    width: 16px !important;
-    height: 16px !important;
-  }
-  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div svg {
-    width: 8px !important; height: 8px !important;
+    width: 16px !important; height: 16px !important;
+    background: #650002 !important;
   }
   .listings-grid > .prop-box:nth-child(2) > p {
-    font-size: 0.7rem !important;
+    color: rgba(250,250,250,0.55) !important;
+    font-size: 0.65rem !important;
     line-height: 1.5 !important;
-    margin: 0.85rem 0 0 !important;
-    padding-top: 0.7rem !important;
+    margin: 0.7rem 0 0 !important;
+    padding-top: 0.55rem !important;
+    border-top: 1px solid rgba(250,250,250,0.12) !important;
     text-align: left !important;
   }
 
-  /* === More projects coming soon card (4:4 / 1:1, content centered) === */
+  /* === More projects coming soon === */
   .listings-grid > .prop-box:nth-child(3) {
-    aspect-ratio: 1/1 !important;
-    padding: 1.1rem 1rem !important;
-    border-radius: 14px !important;
     background: #650002 !important;
+    padding: 1.2rem 1rem !important;
+    aspect-ratio: 4/5 !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     justify-content: center !important;
-    text-align: center !important;
+    text-align: left !important;
   }
   .listings-grid > .prop-box:nth-child(3) > div:first-child {
-    width: 38px !important;
-    height: 38px !important;
-    margin: 0 auto 0.75rem !important;
-  }
-  .listings-grid > .prop-box:nth-child(3) > div:first-child svg {
-    width: 18px !important; height: 18px !important;
+    width: 42px !important; height: 42px !important;
+    margin: 0 0 1rem !important;
+    background: rgba(250,250,250,0.15) !important;
   }
   .listings-grid > .prop-box:nth-child(3) h3 {
-    font-size: 1rem !important;
+    font-size: 1.05rem !important;
     line-height: 1.2 !important;
     margin: 0 0 0.5rem !important;
-    text-align: center !important;
+    text-align: left !important;
     color: #fafafa !important;
   }
   .listings-grid > .prop-box:nth-child(3) p {
     font-size: 0.7rem !important;
     line-height: 1.5 !important;
-    text-align: center !important;
+    text-align: left !important;
     margin: 0 !important;
+    color: rgba(250,250,250,0.78) !important;
   }
 
-  /* The centered 1-line tagline */
+  /* Tagline below cards */
   .listings-tagline {
-    font-size: 0.78rem !important;
+    font-size: 0.75rem !important;
     line-height: 1.5 !important;
-    margin: 1.1rem auto 0 !important;
-    max-width: 88% !important;
+    margin: 0.5rem 4% 0 !important;
+    max-width: 92% !important;
     color: #565656 !important;
     text-align: center !important;
+    font-style: italic !important;
   }
 
-  /* ---------- OUR PROMISE ---------- */
-  /* The promise/journey wrapper */
+  /* ============================================
+     OUR PROMISE — Picture 2 style (testimonial)
+     ============================================ */
+  /* Wrapper */
   div[style*="background:#fafafa;padding:64px"] {
-    padding: 36px 4% !important;
+    padding: 36px 0 !important;
   }
-  /* Label "Our Promise" — no box, black, full caps */
-  .promise-sec > div:first-child > span,
+  /* Header — left aligned */
+  div[style*="background:#fafafa"] > div > div:first-child {
+    text-align: left !important;
+    padding: 0 4% !important;
+    margin-bottom: 1.5rem !important;
+  }
   div[style*="background:#fafafa"] > div > div:first-child > span:first-child {
     background: transparent !important;
-    color: #1a1a1a !important;
+    color: #565656 !important;
     padding: 0 !important;
     border: none !important;
     border-radius: 0 !important;
     text-transform: uppercase !important;
-    font-size: 0.65rem !important;
+    font-size: 0.58rem !important;
     letter-spacing: 0.18em !important;
     display: inline-block !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.4rem !important;
+    font-family: 'Tenor Sans', sans-serif !important;
   }
-  /* Section H2 */
   div[style*="background:#fafafa"] h2 {
-    font-size: 1.25rem !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.02em !important;
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
     margin: 0 0 0.5rem !important;
-    text-align: center !important;
+    text-align: left !important;
+    color: #1a1a1a !important;
+    text-transform: none !important;
+    letter-spacing: -0.01em !important;
   }
   div[style*="background:#fafafa"] > div > div:first-child > p {
-    font-size: 0.78rem !important;
-    line-height: 1.5 !important;
-    margin: 0 auto 1.5rem !important;
-    max-width: 88% !important;
-    text-align: center !important;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    color: #565656 !important;
   }
 
-  /* Promise cards — 4:4 (1:1) compact, no swipe, content visible */
+  /* Promise grid → horizontal swipe row */
   .promise-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 6px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.75rem !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 4% 1.25rem !important;
     background: transparent !important;
     border-radius: 0 !important;
-    overflow: visible !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none;
   }
+  .promise-grid::-webkit-scrollbar { display: none; }
+
   .promise-card-new {
-    aspect-ratio: 1/1 !important;
-    padding: 0.55rem 0.4rem !important;
+    flex-shrink: 0 !important;
+    width: 70vw !important;
+    max-width: 260px !important;
+    scroll-snap-align: center;
+    aspect-ratio: 3/4 !important;
+    padding: 1.25rem 1.1rem !important;
+    border-radius: 18px !important;
     min-height: auto !important;
-    text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    border-radius: 10px !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    position: relative !important;
+    overflow: hidden !important;
   }
-  /* Number/label inside promise card */
+
+  /* Add a small "avatar" circle at top of each card */
+  .promise-card-new::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(160deg, #b3b3b3, #565656);
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Hide the small number/label inside cards (was 01/02/03) */
   .promise-card-new > span,
   .promise-card-new > div:first-child {
-    font-size: 0.58rem !important;
-    margin-bottom: 0.3rem !important;
-    opacity: 0.55 !important;
-    letter-spacing: 0.1em !important;
+    display: none !important;
   }
+
+  /* Card H3 = the "quote" title */
   .promise-card-new h3 {
-    font-size: 0.58rem !important;
-    line-height: 1.15 !important;
-    text-align: center !important;
-    margin: 0 0 0.25rem !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
+    font-size: 0.78rem !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    margin: 0 0 0.6rem !important;
+    font-weight: 500 !important;
+    font-family: 'Urbanist', sans-serif !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    flex: 1 !important;
   }
+
+  /* Card body = the quote text */
   .promise-card-new p {
-    font-size: 0.5rem !important;
-    line-height: 1.3 !important;
-    text-align: center !important;
+    font-size: 0.72rem !important;
+    line-height: 1.55 !important;
+    text-align: left !important;
     margin: 0 !important;
     max-width: 100% !important;
     display: block !important;
   }
 
-  /* ---------- JOURNEY / SOCIAL SECTION ---------- */
-  .journey-sec, div[style*="background:#fafafa"] .journey-sec {
-    padding-top: 36px !important;
-    padding-bottom: 0 !important;
+  /* 3rd card — background photo style */
+  .promise-card-new:nth-child(3) {
+    background: linear-gradient(180deg, rgba(26,26,26,0.2) 0%, rgba(26,26,26,0.85) 100%),
+                url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80') center/cover !important;
+    color: #fafafa !important;
   }
-  .journey-sec h2 { font-size: 1.2rem !important; text-transform: uppercase !important; }
-  .journey-sec p { font-size: 0.78rem !important; }
+  .promise-card-new:nth-child(3)::before {
+    background: rgba(250,250,250,0.9) !important;
+  }
+  .promise-card-new:nth-child(3) h3,
+  .promise-card-new:nth-child(3) p {
+    color: #fafafa !important;
+  }
+
+  /* 2nd card (middle) — dark variant */
+  .promise-card-new:nth-child(2) {
+    background: #1a1a1a !important;
+    color: #fafafa !important;
+  }
+  .promise-card-new:nth-child(2) h3,
+  .promise-card-new:nth-child(2) p {
+    color: #fafafa !important;
+  }
+  .promise-card-new:nth-child(2)::before {
+    background: linear-gradient(160deg, #fafafa, #b3b3b3) !important;
+  }
+
+  /* 1st card — light cream */
+  .promise-card-new:nth-child(1) {
+    background: #fafafa !important;
+    border: 1px solid rgba(179,179,179,0.3) !important;
+  }
+  .promise-card-new:nth-child(1) h3,
+  .promise-card-new:nth-child(1) p {
+    color: #1a1a1a !important;
+  }
+
+  /* ---------- JOURNEY / SOCIAL ---------- */
+  .journey-sec {
+    padding: 28px 4% !important;
+    text-align: center !important;
+  }
+  .journey-sec h2 { font-size: 1.4rem !important; text-align: center !important; }
+  .journey-sec p { font-size: 0.8rem !important; text-align: center !important; }
 
   /* ============================================
-     ===== TEAM SECTION ==========================
+     TEAM — Picture 3 style (tall portrait cards)
      ============================================ */
   .team-section {
-    padding: 36px 4% !important;
-    text-align: center !important;
+    padding: 32px 4% !important;
+    text-align: left !important;
+    background: #b3b3b3 !important;
   }
   .team-bento {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    grid-template-columns: none !important;
+    text-align: left !important;
   }
-  /* "The Team" label — plain black text, no box */
-  .team-bento > div:first-child > span,
+  .team-bento > div:first-child {
+    text-align: left !important;
+    width: 100% !important;
+    margin-bottom: 1.25rem !important;
+  }
+  /* "The Team" label — left aligned plain black */
+  .team-bento > div:first-child > span:first-child,
   .team-bento span[class*="pill"],
   .team-bento span[style*="background"] {
     background: transparent !important;
@@ -395,52 +550,58 @@
     padding: 0 !important;
     border: none !important;
     border-radius: 0 !important;
-    text-transform: uppercase !important;
-    font-size: 0.65rem !important;
+    font-size: 0.58rem !important;
     letter-spacing: 0.18em !important;
-    margin-bottom: 0.5rem !important;
+    text-transform: uppercase !important;
     display: inline-block !important;
+    margin-bottom: 0.4rem !important;
+    text-align: left !important;
   }
-  /* H2 — 2 lines centered, no <br> hidden anymore */
+  /* Title left aligned, 2 lines */
   .team-bento h2 {
-    font-size: 1.2rem !important;
-    line-height: 1.25 !important;
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
     margin: 0 0 0.5rem !important;
-    text-align: center !important;
+    text-align: left !important;
     text-transform: none !important;
+    color: #1a1a1a !important;
+    letter-spacing: -0.01em !important;
   }
   .team-bento h2 br { display: inline !important; }
   .team-bento p {
-    font-size: 0.78rem !important;
-    line-height: 1.5 !important;
-    max-width: 92% !important;
-    margin: 0 auto 1.25rem !important;
-    text-align: center !important;
+    font-size: 0.8rem !important;
+    line-height: 1.55 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    color: #565656 !important;
   }
 
-  /* Bento grid: 3 person cards side-by-side, NO spacing, same size */
+  /* Bento grid: 3 tall portrait cards, side-by-side, equal */
   .bento-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0 !important;
-    margin: 1rem 0 0 !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    margin: 0 !important;
     padding: 0 !important;
   }
-  /* Hide "Building from day one" red card */
+  /* Hide the "Building from day one" red card */
   .bento-card[style*="#650002"] { display: none !important; }
-  /* Each person card — same size, no spacing */
+  /* Person cards — tall portrait (Picture 3) */
   .bento-card {
-    aspect-ratio: 1/1 !important;
-    background: linear-gradient(160deg, #b3b3b3, #565656) !important;
-    border-radius: 0 !important;
+    aspect-ratio: 3/4.5 !important;
+    background: linear-gradient(180deg, rgba(86,86,86,0.4) 0%, rgba(26,26,26,0.85) 100%),
+                linear-gradient(160deg, #b3b3b3, #565656) !important;
+    border-radius: 14px !important;
     overflow: hidden !important;
     position: relative !important;
     padding: 0 !important;
     margin: 0 !important;
-    box-shadow: none !important;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.18) !important;
     display: block !important;
   }
-  /* Avatar SVG centered */
+  /* Icon section */
   .bento-card > div:first-child {
     width: 100% !important;
     height: 100% !important;
@@ -450,63 +611,53 @@
     align-items: center !important;
     justify-content: center !important;
     margin: 0 !important;
-    padding-top: 0 !important;
+    padding: 0 !important;
   }
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 32px !important;
-    height: 32px !important;
-    margin-bottom: 2.5rem !important;
+    width: 36px !important;
+    height: 36px !important;
+    fill: rgba(250,250,250,0.5) !important;
+    margin-bottom: 3.5rem !important;
   }
-  /* Name + role pill — flow at bottom */
+  /* Name + role label at bottom */
   .bento-card > div[style*="position:absolute"] {
     position: absolute !important;
-    bottom: 8px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    transform: none !important;
     background: transparent !important;
     backdrop-filter: none !important;
     padding: 0 !important;
-    text-align: center !important;
+    text-align: left !important;
     display: block !important;
-    width: 90% !important;
+    width: calc(100% - 20px) !important;
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
     color: #fafafa !important;
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
     margin-bottom: 1px !important;
     font-family: 'Playfair Display', Georgia, serif !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
-    color: rgba(250,250,250,0.7) !important;
-    font-size: 0.5rem !important;
+    color: rgba(250,250,250,0.65) !important;
+    font-size: 0.48rem !important;
     letter-spacing: 0.08em !important;
     line-height: 1.15 !important;
     text-transform: uppercase !important;
   }
-  /* About Us button — below the team cards */
+
+  /* About Us button — below cards, left aligned */
   .team-about-btn {
-    margin: 1.25rem auto 0 !important;
+    margin: 1.5rem 0 0 !important;
     padding: 10px 22px !important;
     font-size: 0.66rem !important;
     letter-spacing: 0.1em !important;
+    align-self: flex-start !important;
   }
-  /* Move bento grid above the button (reorder) */
-  .team-bento {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  .team-bento > div:first-child { order: 1; width: 100%; }
-  .team-bento > div:last-child { order: 2; width: 100%; }
-  /* Ensure about button is last (it's inside the first div, so the grid below first div) */
-  /* The button is in the text col with h2/p, so it'll naturally be above bento. We need: text col without button on top, button after bento. */
-  /* CSS-only approach: visually move button using order if it's inside flex parent */
-  /* Easier: leave structure, just style button with margin-top to position below the cards via JS-free trick: keep button hidden in top col, show clone... too complex. Instead just style: */
-  /* The current layout: team-bento has 2 children — text-col (with h2, p, button) + bento-grid. Order: text first then bento. User wants button AFTER bento. So: move button to be visually after bento by manipulating margin/order via JS would be best. */
 
-  /* ---------- FOOTER — 16:9 3-column horizontal ---------- */
+  /* ---------- FOOTER (3-column horizontal) ---------- */
   footer {
     padding: 24px 4% 16px !important;
     text-align: left !important;
@@ -534,10 +685,7 @@
   }
   .footer-grid ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
   .footer-grid ul li { font-size: 0.62rem !important; margin-bottom: 0.3rem !important; line-height: 1.3 !important; }
-  .footer-grid a {
-    font-size: 0.62rem !important;
-    text-align: left !important;
-  }
+  .footer-grid a { font-size: 0.62rem !important; text-align: left !important; }
   .footer-bot {
     flex-direction: row !important;
     justify-content: space-between !important;
@@ -551,18 +699,11 @@
   }
 
   /* ---------- FLOATING WHATSAPP / CALL ---------- */
-  .float-cta {
-    bottom: 14px !important;
-    right: 14px !important;
-    gap: 6px !important;
-  }
-  .float-btn {
-    font-size: 0.6rem !important;
-    padding: 8px 13px !important;
-  }
+  .float-cta { bottom: 14px !important; right: 14px !important; gap: 6px !important; }
+  .float-btn { font-size: 0.6rem !important; padding: 8px 13px !important; }
 
   /* ============================================
-     ===== OTHER PAGES (kept compact) ============
+     OTHER PAGES (kept compact)
      ============================================ */
   .ab-hero, .ct-hero, .ls-hero, .svc-hero {
     padding-top: 76px !important;
@@ -584,13 +725,12 @@
     padding-bottom: 24px !important;
   }
 
-  /* Services & About — horizontal swipe */
+  /* Services swipe */
   .svc-cards, .ab-values .grid {
     display: flex !important;
     gap: 0.6rem !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     padding: 0.5rem 4% 1rem !important;
     margin: 0 -4% !important;
     grid-template-columns: none !important;
@@ -656,8 +796,8 @@
 @media (max-width: 380px) {
   nav { height: 52px !important; }
   .nav-logo-img, nav img { height: 24px !important; }
-  .hero-text-col h1 { font-size: 1.3rem !important; }
-  .promise-card-new h3 { font-size: 0.52rem !important; }
-  .promise-card-new p { font-size: 0.46rem !important; }
-  .bento-card svg[viewBox="0 0 24 24"] { width: 26px !important; height: 26px !important; }
+  .hero-text-col h1 { font-size: 1rem !important; }
+  .listings-sec h2 { font-size: 1.35rem !important; }
+  div[style*="background:#fafafa"] h2 { font-size: 1.4rem !important; }
+  .team-bento h2 { font-size: 1.35rem !important; }
 }
