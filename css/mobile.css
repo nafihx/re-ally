@@ -1,34 +1,33 @@
 /* ==============================================
-   RE-ALLY — MOBILE STYLESHEET (v3.1)
-   Phone-only (max-width 768px)
+   RE-ALLY — MOBILE STYLESHEET (v4.0)
+   Phone-only redesign (max-width 768px)
    ============================================== */
 
 @media (max-width: 768px) {
 
-  /* ---------- GLOBAL ---------- */
+  /* ---------- GLOBAL TOKENS ---------- */
+  /* Unified vertical rhythm: 24px between major sections */
   body {
-    padding-bottom: 64px !important; /* clearance for floating WhatsApp/Call */
+    padding-bottom: 64px !important;
   }
 
-  /* ---------- NAV ---------- */
+  /* ---------- NAV (uniform across all pages, no Contact pill) ---------- */
   nav {
     height: 56px !important;
     padding: 0 4% !important;
+    justify-content: space-between !important;
   }
-  .nav-logo-img, nav img { height: 28px !important; }
+  .nav-logo-img, nav img, nav .nav-logo img {
+    height: 28px !important;
+  }
   #hamburgerBtn span { width: 20px !important; height: 1.5px !important; }
-  nav a[href="contact.html"] {
-    font-size: 0.6rem !important;
-    padding: 6px 13px !important;
-    letter-spacing: 0.08em !important;
-  }
+  /* Hide desktop links on mobile (drawer takes over) */
+  #desktopLinks { display: none !important; }
 
-  /* ---------- MOBILE DRAWER — full-screen RED, left-align ---------- */
+  /* ---------- MOBILE DRAWER — full-screen red, left-aligned ---------- */
   #mobileDrawer {
     top: 56px !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
+    left: 0 !important; right: 0 !important; bottom: 0 !important;
     background: #650002 !important;
     padding: 2rem 8% !important;
     align-items: flex-start !important;
@@ -36,7 +35,7 @@
   #mobileDrawer a {
     color: #fafafa !important;
     font-family: 'Tenor Sans', sans-serif !important;
-    font-size: 1.05rem !important;
+    font-size: 1rem !important;
     letter-spacing: 0.16em !important;
     text-transform: uppercase !important;
     padding: 1rem 0 !important;
@@ -47,269 +46,281 @@
   }
   #mobileDrawer a[href="sreyan.html"] {
     color: rgba(250,250,250,0.6) !important;
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     padding-left: 1.25rem !important;
   }
-  /* Contact CTA inside drawer */
   #mobileDrawer a:last-child {
     background: #fafafa !important;
     color: #650002 !important;
-    margin-top: 2rem !important;
+    margin-top: 1.75rem !important;
     border-radius: 30px !important;
     border-bottom: none !important;
-    padding: 13px 32px !important;
+    padding: 12px 28px !important;
     text-align: center !important;
     width: fit-content !important;
     align-self: flex-start !important;
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     letter-spacing: 0.14em !important;
-    font-weight: 600 !important;
   }
 
-  /* ---------- HERO — REORDER: H1 -> VIDEO -> TEXT -> BUTTON ---------- */
+  /* ============================================
+     ===== HOME PAGE (index.html) ===============
+     ============================================ */
+
+  /* ---------- HERO ---------- */
   .hero {
-    padding: 84px 4% 32px !important;
+    padding: 76px 4% 24px !important;
     min-height: auto !important;
     text-align: center !important;
   }
   .hero-split {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 1.1rem !important;
-    grid-template-columns: none !important;
-  }
-  /* The text column itself becomes flex so children can be reordered */
-  .hero-text-col {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 0;
-  }
-  /* Pill label */
-  .hero-text-col > span:first-child {
-    order: 1;
-    font-size: 0.58rem !important;
-    margin: 0 auto 0.85rem !important;
-    letter-spacing: 0.14em !important;
-    background: #fafafa !important;
-    color: #650002 !important;
-    padding: 5px 13px !important;
-    border-radius: 30px !important;
-    width: fit-content !important;
-    text-transform: uppercase !important;
-    font-family: 'Tenor Sans', sans-serif !important;
-    border: 1px solid #650002 !important;
-  }
-  /* H1 — single style, scales safely */
-  .hero-text-col h1 {
-    order: 2;
-    color: #650002 !important;
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: clamp(1.35rem, 6.8vw, 1.75rem) !important;
-    font-weight: 600 !important;
-    line-height: 1.15 !important;
-    margin: 0 0 0.9rem !important;
-    letter-spacing: 0 !important;
-    white-space: normal !important;
-    padding: 0 4% !important;
-  }
-  .hero-text-col h1 br { display: none !important; }
-  /* First paragraph */
-  .hero-text-col p:nth-of-type(1) {
-    order: 4;
-    font-size: 0.82rem !important;
-    line-height: 1.55 !important;
-    margin: 0 auto 1.1rem !important;
-    max-width: 90% !important;
-    text-align: center !important;
-    color: #1a1a1a !important;
-  }
-  /* Italic tagline — hide on mobile to reduce clutter */
-  .hero-text-col p:nth-of-type(2) {
-    display: none !important;
-  }
-  /* Buttons last */
-  .hero-text-col > div[style*="flex-wrap"] {
-    order: 6;
-    justify-content: center !important;
-    gap: 0.5rem !important;
-    flex-wrap: wrap !important;
-  }
-  .hero-btn-primary, .hero-btn-secondary {
-    padding: 10px 20px !important;
-    font-size: 0.64rem !important;
-    letter-spacing: 0.08em !important;
-  }
-  .hero-btn-primary svg, .hero-btn-secondary svg {
-    width: 13px !important;
-    height: 13px !important;
-  }
-  /* Video — order 3 (between h1 and text) */
-  .hero-video-col, #heroVideoBox {
-    order: 3;
-    aspect-ratio: 16/10 !important;
-    width: 100% !important;
-    margin: 0 0 1.25rem !important;
-    border-radius: 16px !important;
-    box-shadow: 0 14px 36px rgba(0,0,0,0.16) !important;
-  }
-  /* Re-parent the video INTO the text column visually using order on the parent */
-  /* The hero-split has 2 columns: text & video. Reorder them so text comes first, but inside text col we already ordered h1->video isn't possible directly. So instead: make the SPLIT flex-direction column and order both children of the split, then re-order the text col's internal children to bring h1 up, and place video between h1 and p */
-  /* Easier solution: order on the split */
-  .hero-split > .hero-text-col { order: 1; }
-  .hero-split > .hero-video-col,
-  .hero-split > #heroVideoBox { order: 2; }
-
-  /* Since text and video are siblings, we can't physically interleave them.
-     SOLUTION: put video ABOVE everything except H1.
-     But that means moving things around within columns isn't possible.
-     PROPER SOLUTION: use grid with named areas */
-  .hero-split {
     display: grid !important;
     grid-template-areas:
-      "label"
       "h1"
       "video"
-      "text1"
-      "text2"
-      "btns" !important;
+      "text"
+      "btn" !important;
     grid-template-columns: 1fr !important;
     gap: 0 !important;
   }
-  .hero-text-col {
-    display: contents !important;
+  .hero-text-col { display: contents !important; }
+
+  /* Hide the "Hyderabad · Real Estate" pill on mobile */
+  .hero-text-col > span:first-child { display: none !important; }
+
+  /* H1 — uppercase, centered, "an ally" red, rest black */
+  .hero-text-col h1 {
+    grid-area: h1;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: clamp(1.4rem, 6.5vw, 1.85rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.18 !important;
+    margin: 0 0 1rem !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0 !important;
+    color: #1a1a1a !important;
+    padding: 0 4% !important;
   }
-  .hero-text-col > span:first-child { grid-area: label; }
-  .hero-text-col h1 { grid-area: h1; }
-  .hero-video-col, #heroVideoBox { grid-area: video; }
-  .hero-text-col p:nth-of-type(1) { grid-area: text1; }
-  .hero-text-col p:nth-of-type(2) { grid-area: text2; }
-  .hero-text-col > div[style*="flex-wrap"] { grid-area: btns; }
+  .hero-text-col h1 span { color: #650002 !important; }
 
-  /* ---------- LISTINGS — Sreyan on top + 2 swipe cards below ---------- */
-  .listings-sec { padding: 28px 0 !important; text-align: center !important; }
-  .listings-sec > div:first-child { margin: 0 4% 1rem !important; }
-  .listings-sec h2 { font-size: 1.2rem !important; text-align: center !important; }
-  .listings-sec > div:first-child span { font-size: 0.58rem !important; }
+  /* Video — centered, slightly smaller (not full width) */
+  .hero-video-col, #heroVideoBox {
+    grid-area: video;
+    aspect-ratio: 16/10 !important;
+    width: 88% !important;
+    max-width: 380px !important;
+    margin: 0 auto 1.1rem !important;
+    border-radius: 14px !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.16) !important;
+  }
+  /* Hide the play button placeholder content (still visible as soft gradient if no video) */
+  .hero-video-placeholder { border-radius: 14px !important; }
 
-  /* Listings grid: stack Sreyan, then 2-card swipe row */
+  /* First paragraph */
+  .hero-text-col p:nth-of-type(1) {
+    grid-area: text;
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    margin: 0 auto 1.1rem !important;
+    max-width: 92% !important;
+    text-align: center !important;
+    color: #1a1a1a !important;
+  }
+  /* Hide italic tagline on mobile */
+  .hero-text-col p:nth-of-type(2) { display: none !important; }
+
+  /* Hide "View Listings" button — only "Talk to Us" remains */
+  .hero-text-col > div[style*="flex-wrap"] {
+    grid-area: btn;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+  .hero-text-col > div[style*="flex-wrap"] > a.hero-btn-primary {
+    display: none !important;
+  }
+  .hero-text-col > div[style*="flex-wrap"] > a.hero-btn-secondary {
+    padding: 11px 26px !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em !important;
+    background: #650002 !important;
+    color: #fafafa !important;
+    border: none !important;
+  }
+
+  /* ---------- LISTINGS SECTION ---------- */
+  .listings-sec {
+    padding: 36px 4% !important;
+    background: #b3b3b3 !important;
+    text-align: center !important;
+  }
+  .listings-inner { padding: 0 !important; }
+  /* Properties label (Tenor uppercase already) */
+  .listings-sec > div > div:first-child {
+    margin-bottom: 1.1rem !important;
+  }
+  /* Section H2 — full caps */
+  .listings-sec h2 {
+    font-size: 1.25rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    text-align: center !important;
+    margin: 0 0 1.2rem !important;
+  }
+
+  /* Listings grid: 3 cards stacked, each at 16:10-ish */
   .listings-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
-    padding: 0 4% !important;
-  }
-  /* Sreyan card — smaller, full width but compact */
-  .listings-grid > a.listing-card-link {
-    order: 1;
-    max-width: 92% !important;
-    margin: 0 auto !important;
-  }
-  .listing-card-img { aspect-ratio: 16/9 !important; }
-  .listing-card-body, .listing-card > div:last-child { padding: 0.85rem 1rem 1rem !important; }
-  .listing-card { border-radius: 14px !important; }
-
-  /* Wrap the 2 other cards in a swipe row */
-  .listings-grid > .prop-box {
-    order: 2;
-    flex-shrink: 0 !important;
-    width: 72vw !important;
-    max-width: 260px !important;
-    scroll-snap-align: center;
-    padding: 1.1rem 1rem !important;
-    border-radius: 14px !important;
-  }
-  /* Container hack: turn grid into a wrapper that has Sreyan as first row,
-     then a flex swipe row for the 2 prop-boxes. We can't add a wrapper without HTML edit.
-     Workaround: use display:grid with first item full-width, then for the remaining children flow into a horizontal scroll row. CSS can't do that natively. ALT: keep them stacked but tiny. */
-  /* Final solution: hide #howWeChooseHome on mobile, keep only Sreyan + Coming Soon. OR show both stacked smaller. */
-  /* Per user request: Sreyan top + 2 swipe. Best CSS-only approach: */
-  .listings-grid {
-    display: flex !important;
-    flex-direction: column !important;
     gap: 0.85rem !important;
-  }
-  /* Create the swipe row by using a flex container around prop-boxes */
-  /* Without HTML wrapper we can't, so use this approach: */
-  /* Sreyan = full width row 1. Then both prop-boxes side-by-side with horizontal scroll using flex-wrap:nowrap on a sub-container... still need wrapper. */
-  /* CLEANEST WITHOUT HTML CHANGE: render all 3 in a column, but make the 2 prop-boxes smaller and side-by-side using nth-child positioning. */
-
-  /* Stronger override: layout becomes Sreyan on top full, then 2 boxes as a 2-column row */
-  .listings-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.7rem !important;
-    padding: 0 4% !important;
-  }
-  .listings-grid > a.listing-card-link {
-    grid-column: 1 / -1 !important;
-    max-width: 100% !important;
-  }
-  .listing-card-img { aspect-ratio: 16/8 !important; }
-  .listing-card-body, .listing-card > div:last-child {
-    padding: 0.7rem 0.9rem 0.85rem !important;
-  }
-  .listing-card { border-radius: 14px !important; box-shadow: 0 6px 22px rgba(0,0,0,0.08) !important; }
-
-  /* Sreyan card text scale */
-  .listing-card-body > div:first-child > div:first-child > div:first-child,
-  .listing-card > div:last-child > div:first-child > div:first-child > div:first-child {
-    font-size: 0.88rem !important;
-  }
-  .listing-card-body > div:first-child > div:nth-child(2) > div:first-child,
-  .listing-card > div:last-child > div:first-child > div:nth-child(2) > div:first-child {
-    font-size: 0.95rem !important;
+    align-items: stretch !important;
   }
 
-  /* Prop-boxes */
-  .listings-grid > .prop-box {
+  /* === Sreyan card (16:9 image, only Enquire button) === */
+  .listing-card { border-radius: 14px !important; overflow: hidden !important; }
+  .listing-card-img { aspect-ratio: 16/9 !important; }
+  /* The Sreyan card's body */
+  .listings-grid > a.listing-card-link > .listing-card > div:last-child,
+  .listings-grid > a.listing-card-link > .listing-card > .listing-card-body {
+    padding: 0.9rem 1rem 1rem !important;
+  }
+  /* Hide the Brochure button — keep only Enquire */
+  .listings-grid .listing-card a[download] { display: none !important; }
+  /* Make Enquire button full width */
+  .listings-grid .listing-card a:not([download]):not(.listing-card-link) {
     width: 100% !important;
-    max-width: none !important;
-    padding: 0.9rem 0.75rem !important;
+    text-align: center !important;
+    grid-column: 1 / -1 !important;
+  }
+  /* Listing card buttons row → single column */
+  .listings-grid .listing-card div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* === How We Choose card (5:3, left-aligned list) === */
+  .listings-grid > .prop-box:nth-child(2) {
+    aspect-ratio: auto !important;
+    padding: 1rem 1.1rem !important;
     border-radius: 14px !important;
+    background: #fafafa !important;
+    text-align: left !important;
   }
-  .listings-grid > .prop-box span,
-  .listings-grid > .prop-box > span:first-child {
+  .listings-grid > .prop-box:nth-child(2) span {
     font-size: 0.55rem !important;
-    letter-spacing: 0.12em !important;
+    letter-spacing: 0.14em !important;
   }
-  .listings-grid > .prop-box h3 {
-    font-size: 0.85rem !important;
-    margin: 0 0 0.6rem !important;
-    line-height: 1.2 !important;
+  .listings-grid > .prop-box:nth-child(2) h3 {
+    font-size: 0.95rem !important;
+    line-height: 1.25 !important;
+    margin: 0.5rem 0 0.85rem !important;
+    text-align: left !important;
   }
-  .listings-grid > .prop-box div span {
-    font-size: 0.65rem !important;
-    line-height: 1.3 !important;
+  /* Checklist items - left aligned with proper spacing */
+  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] {
+    gap: 0.55rem !important;
   }
-  .listings-grid > .prop-box p {
-    font-size: 0.6rem !important;
-    line-height: 1.4 !important;
-    margin-top: 0.75rem !important;
-    padding-top: 0.6rem !important;
+  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div {
+    justify-content: flex-start !important;
   }
-  .listings-grid > .prop-box svg { width: 12px !important; height: 12px !important; }
-  .listings-grid > .prop-box div[style*="background:#650002;border-radius:50%"] {
-    width: 14px !important;
-    height: 14px !important;
+  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div span {
+    font-size: 0.78rem !important;
+    text-align: left !important;
   }
-  .listings-grid > .prop-box div[style*="background:rgba(250,250,250,0.12)"] {
-    width: 32px !important;
-    height: 32px !important;
-  }
-  .listings-grid > .prop-box div[style*="background:rgba(250,250,250,0.12)"] svg {
+  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div > div {
     width: 16px !important;
     height: 16px !important;
   }
-
-  /* ---------- PROMISE — 3 cards 1:1 in 1 row, no swipe ---------- */
-  .promise-sec { padding: 28px 4% !important; text-align: center !important; }
-  .promise-sec > div:first-child {
-    text-align: center !important;
-    margin-bottom: 1rem !important;
+  .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] > div svg {
+    width: 8px !important; height: 8px !important;
   }
-  .promise-sec h2 { font-size: 1.2rem !important; text-align: center !important; }
+  .listings-grid > .prop-box:nth-child(2) > p {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+    margin: 0.85rem 0 0 !important;
+    padding-top: 0.7rem !important;
+    text-align: left !important;
+  }
 
+  /* === More projects coming soon card (4:4 / 1:1, content centered) === */
+  .listings-grid > .prop-box:nth-child(3) {
+    aspect-ratio: 1/1 !important;
+    padding: 1.1rem 1rem !important;
+    border-radius: 14px !important;
+    background: #650002 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  .listings-grid > .prop-box:nth-child(3) > div:first-child {
+    width: 38px !important;
+    height: 38px !important;
+    margin: 0 auto 0.75rem !important;
+  }
+  .listings-grid > .prop-box:nth-child(3) > div:first-child svg {
+    width: 18px !important; height: 18px !important;
+  }
+  .listings-grid > .prop-box:nth-child(3) h3 {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+    margin: 0 0 0.5rem !important;
+    text-align: center !important;
+    color: #fafafa !important;
+  }
+  .listings-grid > .prop-box:nth-child(3) p {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  /* The centered 1-line tagline */
+  .listings-tagline {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+    margin: 1.1rem auto 0 !important;
+    max-width: 88% !important;
+    color: #565656 !important;
+    text-align: center !important;
+  }
+
+  /* ---------- OUR PROMISE ---------- */
+  /* The promise/journey wrapper */
+  div[style*="background:#fafafa;padding:64px"] {
+    padding: 36px 4% !important;
+  }
+  /* Label "Our Promise" — no box, black, full caps */
+  .promise-sec > div:first-child > span,
+  div[style*="background:#fafafa"] > div > div:first-child > span:first-child {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.18em !important;
+    display: inline-block !important;
+    margin-bottom: 0.5rem !important;
+  }
+  /* Section H2 */
+  div[style*="background:#fafafa"] h2 {
+    font-size: 1.25rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    margin: 0 0 0.5rem !important;
+    text-align: center !important;
+  }
+  div[style*="background:#fafafa"] > div > div:first-child > p {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+    margin: 0 auto 1.5rem !important;
+    max-width: 88% !important;
+    text-align: center !important;
+  }
+
+  /* Promise cards — 4:4 (1:1) compact, no swipe, content visible */
   .promise-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
@@ -319,8 +330,8 @@
     overflow: visible !important;
   }
   .promise-card-new {
-    aspect-ratio: 1/1.05 !important;
-    padding: 0.5rem 0.35rem !important;
+    aspect-ratio: 1/1 !important;
+    padding: 0.55rem 0.4rem !important;
     min-height: auto !important;
     text-align: center !important;
     display: flex !important;
@@ -329,167 +340,214 @@
     align-items: center !important;
     border-radius: 10px !important;
   }
+  /* Number/label inside promise card */
   .promise-card-new > span,
   .promise-card-new > div:first-child {
-    font-size: 0.62rem !important;
-    margin-bottom: 0.25rem !important;
-    opacity: 0.6 !important;
+    font-size: 0.58rem !important;
+    margin-bottom: 0.3rem !important;
+    opacity: 0.55 !important;
+    letter-spacing: 0.1em !important;
   }
   .promise-card-new h3 {
-    font-size: 0.62rem !important;
-    line-height: 1.18 !important;
+    font-size: 0.58rem !important;
+    line-height: 1.15 !important;
     text-align: center !important;
     margin: 0 0 0.25rem !important;
     font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
   }
   .promise-card-new p {
-    display: none !important;
+    font-size: 0.5rem !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    display: block !important;
   }
 
-  /* ---------- JOURNEY / SOCIAL ---------- */
-  .journey-sec { padding: 28px 4% !important; text-align: center !important; }
-  .journey-sec h2 { font-size: 1.2rem !important; }
-  .journey-sec p { font-size: 0.8rem !important; }
+  /* ---------- JOURNEY / SOCIAL SECTION ---------- */
+  .journey-sec, div[style*="background:#fafafa"] .journey-sec {
+    padding-top: 36px !important;
+    padding-bottom: 0 !important;
+  }
+  .journey-sec h2 { font-size: 1.2rem !important; text-transform: uppercase !important; }
+  .journey-sec p { font-size: 0.78rem !important; }
 
-  /* ---------- TEAM — round photos centered, no "Building" card ---------- */
-  .team-section { padding: 28px 4% !important; text-align: center !important; }
+  /* ============================================
+     ===== TEAM SECTION ==========================
+     ============================================ */
+  .team-section {
+    padding: 36px 4% !important;
+    text-align: center !important;
+  }
   .team-bento {
     grid-template-columns: 1fr !important;
-    gap: 0.5rem !important;
+    gap: 1rem !important;
     text-align: center !important;
   }
-  .team-bento > div:first-child {
-    text-align: center !important;
+  /* "The Team" label — plain black text, no box */
+  .team-bento > div:first-child > span,
+  .team-bento span[class*="pill"],
+  .team-bento span[style*="background"] {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    text-transform: uppercase !important;
+    font-size: 0.65rem !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 0.5rem !important;
+    display: inline-block !important;
   }
+  /* H2 — 2 lines centered, no <br> hidden anymore */
   .team-bento h2 {
-    font-size: 1.1rem !important;
-    line-height: 1.2 !important;
-    margin: 0 0 0.4rem !important;
+    font-size: 1.2rem !important;
+    line-height: 1.25 !important;
+    margin: 0 0 0.5rem !important;
     text-align: center !important;
+    text-transform: none !important;
   }
-  .team-bento h2 br { display: none !important; }
+  .team-bento h2 br { display: inline !important; }
   .team-bento p {
-    font-size: 0.74rem !important;
+    font-size: 0.78rem !important;
     line-height: 1.5 !important;
     max-width: 92% !important;
-    margin: 0 auto 0.6rem !important;
+    margin: 0 auto 1.25rem !important;
     text-align: center !important;
   }
-  .team-about-btn {
-    margin: 0.6rem auto 0 !important;
-    padding: 8px 16px !important;
-    font-size: 0.58rem !important;
-  }
 
-  /* Bento grid: 3 small round photos in 1 row */
+  /* Bento grid: 3 person cards side-by-side, NO spacing, same size */
   .bento-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.4rem !important;
-    margin-top: 1rem !important;
-    padding: 0 6% !important;
-  }
-  /* Hide the red "Building from day one" card */
-  .bento-card[style*="#650002"] { display: none !important; }
-  /* Each bento card = round photo on top + name/role below */
-  .bento-card {
-    aspect-ratio: auto !important;
-    height: auto !important;
-    background: transparent !important;
-    overflow: visible !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    gap: 0 !important;
+    margin: 1rem 0 0 !important;
     padding: 0 !important;
   }
-  /* Inner photo container = the round circle */
-  .bento-card > div:first-child {
-    width: 72px !important;
-    height: 72px !important;
+  /* Hide "Building from day one" red card */
+  .bento-card[style*="#650002"] { display: none !important; }
+  /* Each person card — same size, no spacing */
+  .bento-card {
     aspect-ratio: 1/1 !important;
-    border-radius: 50% !important;
     background: linear-gradient(160deg, #b3b3b3, #565656) !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    display: block !important;
+  }
+  /* Avatar SVG centered */
+  .bento-card > div:first-child {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+    border-radius: 0 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 auto 0.5rem !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.18) !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
   }
-  /* Avatar SVG inside round photo */
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 30px !important;
-    height: 30px !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin-bottom: 2.5rem !important;
   }
-  /* Name + role — flow below the photo */
+  /* Name + role pill — flow at bottom */
   .bento-card > div[style*="position:absolute"] {
-    position: static !important;
+    position: absolute !important;
+    bottom: 8px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     background: transparent !important;
     backdrop-filter: none !important;
-    transform: none !important;
-    margin: 0 !important;
     padding: 0 !important;
     text-align: center !important;
     display: block !important;
-    width: 100% !important;
-    left: auto !important;
-    bottom: auto !important;
+    width: 90% !important;
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
-    color: #1a1a1a !important;
-    font-size: 0.72rem !important;
+    color: #fafafa !important;
+    font-size: 0.7rem !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
-    margin-bottom: 2px !important;
-    letter-spacing: 0 !important;
+    margin-bottom: 1px !important;
     font-family: 'Playfair Display', Georgia, serif !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
-    color: #565656 !important;
-    font-size: 0.52rem !important;
+    color: rgba(250,250,250,0.7) !important;
+    font-size: 0.5rem !important;
     letter-spacing: 0.08em !important;
     line-height: 1.15 !important;
     text-transform: uppercase !important;
-    font-family: 'Tenor Sans', sans-serif !important;
   }
+  /* About Us button — below the team cards */
+  .team-about-btn {
+    margin: 1.25rem auto 0 !important;
+    padding: 10px 22px !important;
+    font-size: 0.66rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  /* Move bento grid above the button (reorder) */
+  .team-bento {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .team-bento > div:first-child { order: 1; width: 100%; }
+  .team-bento > div:last-child { order: 2; width: 100%; }
+  /* Ensure about button is last (it's inside the first div, so the grid below first div) */
+  /* The button is in the text col with h2/p, so it'll naturally be above bento. We need: text col without button on top, button after bento. */
+  /* CSS-only approach: visually move button using order if it's inside flex parent */
+  /* Easier: leave structure, just style button with margin-top to position below the cards via JS-free trick: keep button hidden in top col, show clone... too complex. Instead just style: */
+  /* The current layout: team-bento has 2 children — text-col (with h2, p, button) + bento-grid. Order: text first then bento. User wants button AFTER bento. So: move button to be visually after bento by manipulating margin/order via JS would be best. */
 
-  /* ---------- FOOTER — smaller ---------- */
-  footer { padding: 28px 4% 18px !important; text-align: center !important; }
+  /* ---------- FOOTER — 16:9 3-column horizontal ---------- */
+  footer {
+    padding: 24px 4% 16px !important;
+    text-align: left !important;
+  }
   .footer-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.4rem !important;
-    text-align: center !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 0.8rem !important;
+    text-align: left !important;
+    align-items: start !important;
   }
-  .footer-grid > div { text-align: center !important; }
-  .footer-grid img {
-    margin: 0 auto 10px !important;
-    height: 40px !important;
+  .footer-grid > div { text-align: left !important; }
+  .footer-grid > div:first-child img {
+    height: 28px !important;
+    margin: 0 0 6px !important;
   }
+  .f-tag { font-size: 0.62rem !important; margin: 0 0 4px !important; text-align: left !important; }
+  .f-desc { font-size: 0.58rem !important; line-height: 1.4 !important; text-align: left !important; max-width: 100% !important; margin: 0 !important; }
   .footer-grid h4 {
-    font-size: 0.62rem !important;
-    margin-bottom: 0.5rem !important;
-    letter-spacing: 0.16em !important;
-    text-align: center !important;
+    font-size: 0.55rem !important;
+    margin: 0 0 0.4rem !important;
+    letter-spacing: 0.14em !important;
+    text-align: left !important;
     color: #b3b3b3 !important;
   }
   .footer-grid ul { list-style: none !important; padding: 0 !important; margin: 0 !important; }
-  .footer-grid ul li { font-size: 0.75rem !important; margin-bottom: 0.4rem !important; }
-  .footer-grid a, .f-desc, .f-tag {
-    font-size: 0.75rem !important;
-    text-align: center !important;
-  }
-  .f-tag { margin: 4px auto 8px !important; font-size: 0.72rem !important; }
-  .f-desc { font-size: 0.7rem !important; line-height: 1.55 !important; max-width: 80% !important; margin: 0 auto !important; }
-  .footer-bot {
-    flex-direction: column !important;
-    gap: 4px !important;
-    align-items: center !important;
+  .footer-grid ul li { font-size: 0.62rem !important; margin-bottom: 0.3rem !important; line-height: 1.3 !important; }
+  .footer-grid a {
     font-size: 0.62rem !important;
-    margin-top: 1.25rem !important;
-    padding-top: 1rem !important;
+    text-align: left !important;
+  }
+  .footer-bot {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.56rem !important;
+    margin-top: 0.9rem !important;
+    padding-top: 0.7rem !important;
     border-top: 1px solid rgba(179,179,179,0.2) !important;
+    flex-wrap: wrap !important;
   }
 
   /* ---------- FLOATING WHATSAPP / CALL ---------- */
@@ -499,25 +557,26 @@
     gap: 6px !important;
   }
   .float-btn {
-    font-size: 0.58rem !important;
-    padding: 8px 12px !important;
+    font-size: 0.6rem !important;
+    padding: 8px 13px !important;
   }
 
-  /* ---------- OTHER PAGES (kept compact from previous version) ---------- */
+  /* ============================================
+     ===== OTHER PAGES (kept compact) ============
+     ============================================ */
   .ab-hero, .ct-hero, .ls-hero, .svc-hero {
-    padding-top: 84px !important;
-    padding-bottom: 28px !important;
+    padding-top: 76px !important;
+    padding-bottom: 24px !important;
     text-align: center !important;
   }
   .ab-hero h1, .ct-hero h1, .ls-hero h1, .svc-hero h1 {
-    font-size: 1.55rem !important;
-    line-height: 1.18 !important;
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
   }
   .ab-hero p, .ct-hero p, .ls-hero p, .svc-hero p {
-    font-size: 0.82rem !important;
+    font-size: 0.8rem !important;
     text-align: center !important;
   }
-
   .ab-story, .ab-values, .ab-team, .ab-cta,
   .ct-main, .ct-info, .ls-body, .ls-next,
   .svc-cards, .svc-cta {
@@ -525,19 +584,20 @@
     padding-bottom: 24px !important;
   }
 
-  /* Services & About — horizontal swipe (keep from before) */
-  .svc-cards {
+  /* Services & About — horizontal swipe */
+  .svc-cards, .ab-values .grid {
     display: flex !important;
     gap: 0.6rem !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     padding: 0.5rem 4% 1rem !important;
     margin: 0 -4% !important;
     grid-template-columns: none !important;
     scrollbar-width: none;
   }
-  .svc-cards::-webkit-scrollbar { display: none; }
-  .svc-card {
+  .svc-cards::-webkit-scrollbar, .ab-values .grid::-webkit-scrollbar { display: none; }
+  .svc-card, .ab-values .val-card {
     flex-shrink: 0 !important;
     width: 80vw !important;
     max-width: 290px !important;
@@ -545,10 +605,7 @@
   }
 
   /* Listings page main card */
-  .ls-card {
-    grid-template-columns: 1fr !important;
-    border-radius: 14px !important;
-  }
+  .ls-card { grid-template-columns: 1fr !important; border-radius: 14px !important; }
   .ls-gallery .thumbs { display: none !important; }
   .ls-gallery .main-img { aspect-ratio: 16/9 !important; }
   .ls-detail { padding: 0.85rem 1rem 1rem !important; text-align: center !important; }
@@ -570,8 +627,6 @@
   .ls-qi-grid .qi b { font-size: 0.5rem !important; }
   .ls-qi-grid .qi span { font-size: 0.72rem !important; }
   .ls-next-inner { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-  .ls-next h2 { font-size: 1.2rem !important; }
-  .ls-next p { font-size: 0.78rem !important; }
 
   /* Contact */
   .ct-main { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
@@ -600,8 +655,9 @@
    ============================================== */
 @media (max-width: 380px) {
   nav { height: 52px !important; }
-  .nav-logo-img, nav img { height: 22px !important; }
-  .hero-text-col h1 { font-size: 1.35rem !important; }
-  .promise-card-new h3 { font-size: 0.65rem !important; }
-  .promise-card-new p { font-size: 0.5rem !important; }
+  .nav-logo-img, nav img { height: 24px !important; }
+  .hero-text-col h1 { font-size: 1.3rem !important; }
+  .promise-card-new h3 { font-size: 0.52rem !important; }
+  .promise-card-new p { font-size: 0.46rem !important; }
+  .bento-card svg[viewBox="0 0 24 24"] { width: 26px !important; height: 26px !important; }
 }

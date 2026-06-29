@@ -163,7 +163,6 @@
       <a href="about.html" class="nav-link">About</a>
     </div>
     <a href="index.html" class="nav-logo" style="position:absolute;left:50%;transform:translateX(-50%);"><img src="logo.png" alt="Re-Ally" style="height:42px;display:block;" /></a>
-    <a href="contact.html" class="nav-cta" style="color:#b3b3b3;background:rgba(179,179,179,0.15);border:1px solid rgba(179,179,179,0.3);">Contact Us</a>
   </nav>
 
   <!-- MOBILE DRAWER -->
@@ -185,7 +184,7 @@
         <!-- LEFT: Text -->
         <div class="hero-text-col">
           <span style="color:#b3b3b3;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;font-family:'Tenor Sans',sans-serif;display:block;margin-bottom:1.4rem;">Hyderabad · Real Estate</span>
-          <h1 style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.8rem,5vw,4.6rem);line-height:1.04;margin:0 0 1.75rem;font-weight:600;">Not a broker — an ally.</h1>
+          <h1 style="color:#1a1a1a;font-family:'Playfair Display',Georgia,serif;font-size:clamp(2.8rem,5vw,4.6rem);line-height:1.04;margin:0 0 1.75rem;font-weight:600;">Not a broker — <span style="color:#650002;">an ally.</span></h1>
           <p style="color:#1a1a1a;font-size:1.1rem;line-height:1.8;margin:0 0 1.4rem;max-width:520px;">We guide you to the right property. No pressure, no jargon — just honest advice from people who know Hyderabad inside out. Whether it's your first home or your next investment, we're on your side from the first question to the final signature.</p>
           <p style="color:#565656;font-size:0.98rem;line-height:1.65;margin:0 0 2.5rem;font-style:italic;max-width:480px;">Built on honesty, not commission — real estate the way it should be.</p>
           <div style="display:flex;gap:1.1rem;flex-wrap:wrap;">
@@ -201,13 +200,14 @@
 
         <!-- RIGHT: Video 16:9 -->
         <div id="heroVideoBox" class="hero-video-col" style="aspect-ratio:16/9;background:#565656;border-radius:20px;border:1px solid rgba(179,179,179,0.2);position:relative;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,0.2);">
-          <video muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+          <video id="heroVideo" autoplay muted playsinline loop style="width:100%;height:100%;object-fit:cover;display:block;"></video>
           <div class="hero-video-placeholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#565656,#b3b3b3,#565656);border-radius:20px;">
-            <div style="width:82px;height:82px;background:rgba(250,250,250,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.25);margin-bottom:1.2rem;">
-              <svg viewBox="0 0 24 24" style="width:30px;height:30px;fill:#650002;margin-left:5px;"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span style="font-family:'Tenor Sans',sans-serif;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,250,250,0.5);">Property tours · Coming soon</span>
+            <span style="font-family:'Tenor Sans',sans-serif;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,250,250,0.55);">Video Coming Soon</span>
           </div>
+          <button id="muteBtn" onclick="toggleMute()" aria-label="Toggle sound" style="position:absolute;bottom:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(26,26,26,0.65);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;backdrop-filter:blur(6px);">
+            <svg id="muteIconOn" viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fafafa;display:block;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM3 9v6h4l5 5V4L7 9H3z"/><path d="M19 12c0 2.39-1.37 4.47-3.36 5.49l1.21 1.21A8.96 8.96 0 0021 12c0-3.93-2.5-7.27-6-8.5v2.06c2.34 1.11 4 3.49 4 6.44z" opacity=".25"/></svg>
+            <svg id="muteIconOff" viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fafafa;display:none;"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77S18.01 4.14 14 3.23z"/></svg>
+          </button>
         </div>
 
       </div>
@@ -279,6 +279,7 @@
           </div>
 
         </div>
+        <p class="listings-tagline" style="text-align:center;color:#565656;font-size:0.85rem;font-style:italic;margin:1.5rem auto 0;max-width:520px;line-height:1.55;">Every property here has earned its place — because the right home should never be a gamble.</p>
       </div>
     </div>
 
@@ -439,13 +440,17 @@
 
   <script>
     function toggleMenu(){var d=document.getElementById('mobileDrawer');d.style.display=d.style.display==='flex'?'none':'flex';document.body.style.overflow=d.style.display==='flex'?'hidden':'';}
+    function toggleMute(){var v=document.getElementById('heroVideo'),on=document.getElementById('muteIconOn'),off=document.getElementById('muteIconOff');if(!v)return;v.muted=!v.muted;on.style.display=v.muted?'block':'none';off.style.display=v.muted?'none':'block';}
     document.addEventListener('DOMContentLoaded',function(){
       document.querySelectorAll('#mobileDrawer a').forEach(function(l){l.addEventListener('click',function(){document.getElementById('mobileDrawer').style.display='none';document.body.style.overflow='';});});
       if(window.innerWidth<=768){
-        var hw=document.getElementById('howWeChooseHome');
-        if(hw)hw.style.display='none';
-        var tr=document.getElementById('teamRow');
-        if(tr){tr.style.flexWrap='nowrap';tr.style.overflowX='auto';tr.style.justifyContent='flex-start';}
+        // Move "About Us" button after the bento grid on mobile
+        var aboutBtn=document.querySelector('.team-about-btn');
+        var bentoGrid=document.querySelector('.bento-grid');
+        var teamBento=document.querySelector('.team-bento');
+        if(aboutBtn && bentoGrid && teamBento){
+          teamBento.appendChild(aboutBtn);
+        }
       }
     });
   </script>
