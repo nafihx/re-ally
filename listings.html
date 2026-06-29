@@ -15,104 +15,12 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/mobile.css" />
   <style>
-    /* HERO — tightened spacing, visible pill */
-    .ls-hero { background:#fafafa; padding:96px 4% 44px; border-bottom:1px solid rgba(179,179,179,0.4); text-align:center; }
+    /* HERO */
+    .ls-hero { background:#fafafa; padding:96px 4% 44px; text-align:center; }
     .ls-hero .lbl { color:#fafafa; background:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 16px; border-radius:30px; display:inline-block; margin-bottom:1rem; }
     .ls-hero h1 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:600; line-height:1.1; margin:0 0 1rem; }
+    .ls-hero h1 em { color:#650002; font-style:italic; }
     .ls-hero p { color:#565656; font-size:0.95rem; line-height:1.75; margin:0 auto; max-width:600px; }
-    .ls-count { display:inline-block; margin-top:1rem; font-family:'Tenor Sans',sans-serif; font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:#565656; }
-
-    .ls-body { background:#fafafa; padding:44px 4% 56px; }
-    .ls-inner { max-width:1080px; margin:0 auto; }
-
-    /* MAIN CARD — softer shadow, no harsh border, aligned padding */
-    .ls-card { display:grid; grid-template-columns:1.1fr 0.9fr; gap:0; background:#fafafa; border-radius:20px; overflow:hidden; box-shadow:0 16px 50px rgba(0,0,0,0.08); position:relative; }
-    .ls-gallery { display:flex; flex-direction:column; gap:8px; padding:8px; }
-    .ls-gallery .main-img { position:relative; aspect-ratio:16/11; border-radius:14px; overflow:hidden; }
-    .ls-gallery .main-img img { width:100%;height:100%;object-fit:cover;display:block; }
-    .ls-gallery .thumbs { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-    .ls-gallery .thumbs img { width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:10px; display:block; }
-    .ls-badge { position:absolute; top:14px; left:14px; background:#650002; color:#fafafa; font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:5px 13px; border-radius:30px; }
-    .ls-rera { position:absolute; top:14px; right:14px; background:rgba(10,10,10,0.55); color:#fafafa; font-family:'Tenor Sans',sans-serif; font-size:0.6rem; letter-spacing:0.06em; padding:5px 11px; border-radius:30px; backdrop-filter:blur(6px); }
-
-    /* SAVE icon (top-right of detail side) */
-    .ls-save { position:absolute; top:18px; right:18px; width:36px; height:36px; border-radius:50%; background:rgba(250,250,250,0.9); border:1px solid rgba(179,179,179,0.4); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.2s; z-index:2; }
-    .ls-save:hover { background:#fafafa; transform:scale(1.08); }
-    .ls-save svg { width:16px; height:16px; fill:none; stroke:#565656; stroke-width:2; }
-    .ls-save.saved svg { fill:#650002; stroke:#650002; }
-
-    /* DETAIL side — aligned padding 24px */
-    .ls-detail { padding:1.5rem 1.5rem 1.5rem 0.5rem; position:relative; }
-
-    /* PRICE block — hero price + small per-sft + market context */
-    .ls-price-block { margin-bottom:0.9rem; }
-    .ls-price { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:2rem; font-weight:500; line-height:1; }
-    .ls-price-sub { color:#565656; font-size:0.72rem; margin-top:4px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-    .ls-price-sft { color:#650002; font-weight:600; }
-    .ls-price-mkt { color:#565656; font-size:0.7rem; padding-left:8px; border-left:1px solid rgba(179,179,179,0.4); }
-
-    .ls-name { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:1.35rem; font-weight:600; margin-bottom:4px; }
-    .ls-loc { color:#565656; font-size:0.82rem; margin:0 0 1rem; }
-    .ls-loc b { color:#1a1a1a; font-weight:600; }
-
-    /* CHIPS — accent now filled red */
-    .ls-chips { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.1rem; }
-    .ls-chips span { background:#fafafa; border:1px solid rgba(179,179,179,0.5); border-radius:30px; padding:4px 11px; font-size:0.68rem; color:#565656; }
-    .ls-chips span.accent { background:#650002; border-color:#650002; color:#fafafa; font-weight:600; }
-
-    .ls-desc { color:#565656; font-size:0.85rem; line-height:1.7; margin-bottom:1.1rem; }
-
-    /* STATS — 5 columns, subtle dividers */
-    .ls-stats { display:grid; grid-template-columns:repeat(5,1fr); gap:0.4rem; padding:1rem 0; border-top:1px solid rgba(179,179,179,0.3); border-bottom:1px solid rgba(179,179,179,0.3); margin-bottom:1.1rem; }
-    .ls-stats .st { text-align:center; min-width:0; }
-    .ls-stats .st b { display:block; font-family:'Playfair Display',Georgia,serif; font-size:1rem; color:#1a1a1a; font-weight:600; line-height:1.2; }
-    .ls-stats .st small { font-size:0.56rem; letter-spacing:0.06em; text-transform:uppercase; color:#565656; }
-
-    /* BUTTONS — primary red, secondary outline */
-    .ls-btns { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:0.6rem; }
-    .ls-btns a { padding:12px 6px; border-radius:30px; text-align:center; font-family:'Tenor Sans',sans-serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:all 0.2s; }
-    .ls-btns a.b1 { background:#650002; color:#fafafa; }
-    .ls-btns a.b1:hover { background:#1a1a1a; transform:translateY(-1px); }
-    .ls-btns a.b2 { background:transparent; color:#565656; border:1px solid rgba(179,179,179,0.5); }
-    .ls-btns a.b2:hover { border-color:#1a1a1a; color:#1a1a1a; }
-    .ls-btns a.full { grid-column:1 / 3; background:transparent; color:#1a1a1a; border:1px solid #1a1a1a; }
-    .ls-btns a.full:hover { background:#1a1a1a; color:#fafafa; }
-
-    .ls-disc { color:#b3b3b3; font-size:0.7rem; margin:6px 0 0; line-height:1.5; }
-
-    /* QUICK INFO — defined card, distinct bg */
-    .ls-quickinfo { margin-top:1.5rem; background:#1a1a1a; border-radius:18px; padding:1.75rem; }
-    .ls-quickinfo h4 { font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; color:#fafafa; margin:0 0 1.25rem; }
-    .ls-qi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem 1rem; }
-    .ls-qi-grid .qi b { display:block; color:#b3b3b3; font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:5px; font-weight:500; font-family:'Tenor Sans',sans-serif; }
-    .ls-qi-grid .qi span { color:#fafafa; font-size:0.85rem; font-weight:500; font-family:'Playfair Display',Georgia,serif; }
-
-    /* COMING SOON — balanced grid */
-    .ls-next { background:#1a1a1a; padding:64px 4%; border-top:1px solid rgba(250,250,250,0.05); }
-    .ls-next-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:center; }
-    .ls-next .lbl { color:#fafafa; background:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; display:inline-block; padding:5px 14px; border-radius:30px; margin-bottom:1.25rem; }
-    .ls-next h2 { color:#fafafa; font-family:'Playfair Display',Georgia,serif; font-size:clamp(1.5rem,2.8vw,2.2rem); font-weight:600; line-height:1.2; margin:0 0 1.1rem; }
-    .ls-next h2 em { color:#fafafa; font-style:italic; opacity:0.85; }
-    .ls-next p { color:#b3b3b3; font-size:0.92rem; line-height:1.7; margin:0 0 1.75rem; }
-    .ls-next a { display:inline-block; background:#650002; color:#fafafa; padding:13px 28px; border-radius:30px; font-family:'Tenor Sans',sans-serif; font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; transition:all 0.25s; }
-    .ls-next a:hover { background:#fafafa; color:#1a1a1a; transform:translateY(-2px); }
-    .ls-checklist { display:flex; flex-direction:column; gap:0.85rem; }
-    .ls-check { display:flex; align-items:flex-start; gap:12px; }
-    .ls-check .ic { width:24px; height:24px; background:#650002; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-    .ls-check .ic svg { width:12px; height:12px; fill:#fafafa; }
-    .ls-check .tx b { display:block; color:#fafafa; font-size:0.88rem; font-weight:600; margin-bottom:2px; }
-    .ls-check .tx span { color:#b3b3b3; font-size:0.76rem; }
-
-    @media (max-width:768px) {
-      .ls-hero { padding:88px 4% 32px; }
-      .ls-card { grid-template-columns:1fr; }
-      .ls-detail { padding:1.25rem; }
-      .ls-stats { grid-template-columns:repeat(5,1fr); gap:0.25rem; }
-      .ls-stats .st b { font-size:0.85rem; }
-      .ls-qi-grid { grid-template-columns:1fr 1fr; }
-      .ls-next-inner { grid-template-columns:1fr; gap:2rem; }
-      .ls-price { font-size:1.7rem; }
-    }
   </style>
 </head>
 <body>
@@ -144,109 +52,76 @@
   <!-- HERO -->
   <div class="ls-hero">
     <span class="lbl">Hyderabad · Curated Properties</span>
-    <h1>Our Listings</h1>
+    <h1>Our <em>Listings</em></h1>
     <p>Every project here has passed our checklist. No inflated prices, no vague descriptions — just properties we&rsquo;d recommend to our own family.</p>
-    <div class="ls-count">Showing 1 listing · More coming soon</div>
   </div>
 
-  <!-- BODY -->
-  <div class="ls-body">
-    <div class="ls-inner">
+  <!-- 3-CARD LISTINGS SECTION (same as home) -->
+  <div class="listings-sec" style="background:#b3b3b3;padding:44px 4%;">
+    <div class="listings-inner" style="max-width:1100px;margin:0 auto;">
+      <div class="listings-grid" style="display:grid;grid-template-columns:1.15fr 1fr 0.85fr;gap:1rem;align-items:stretch;">
 
-      <!-- Main card -->
-      <div class="ls-card">
-        <div class="ls-gallery">
-          <div class="main-img">
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Sreyan villa front exterior — triplex G+2 design" />
-            <span class="ls-badge">For Sale</span>
-            <span class="ls-rera">RERA · HMDA</span>
-          </div>
-          <div class="thumbs">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Sreyan villa pool area — Club Sreyan amenities" />
-            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Sreyan villa interior — imported marble finishes" />
-          </div>
-        </div>
-        <div class="ls-detail">
-
-          <div class="ls-save" onclick="this.classList.toggle('saved')" title="Save this property">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9.5C1 8 3 4 7 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4 0 6 4 4.5 7.5C19 16.5 12 21 12 21z"/></svg>
-          </div>
-
-          <div class="ls-price-block">
-            <div class="ls-price">₹5.5 Cr<span style="font-size:0.55em;color:#565656;">*</span> onwards</div>
-            <div class="ls-price-sub">
-              <span class="ls-price-sft">₹12,000/sft</span>
-              <span class="ls-price-mkt">Area avg ₹10K–₹14K</span>
+        <!-- BOX 1: Project card -->
+        <a href="sreyan.html" class="listing-card-link" style="text-decoration:none;display:block;">
+          <div class="listing-card" style="background:#fafafa;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.16);transition:transform 0.3s,box-shadow 0.3s;height:100%;display:flex;flex-direction:column;">
+            <div class="listing-card-img" style="position:relative;aspect-ratio:16/10;overflow:hidden;">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Sreyan by Elegans VRG — triplex villa exterior in Gundlapochampalli, Hyderabad" loading="lazy" class="listing-img" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;" />
+              <span style="position:absolute;top:12px;left:12px;background:#650002;color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:30px;">For Sale</span>
+              <span style="position:absolute;top:12px;right:12px;background:rgba(10,10,10,0.55);color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.58rem;letter-spacing:0.06em;padding:4px 10px;border-radius:30px;backdrop-filter:blur(6px);">RERA · HMDA</span>
+            </div>
+            <div style="padding:1.25rem 1.4rem 1.4rem;flex:1;display:flex;flex-direction:column;">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.85rem;">
+                <div>
+                  <div style="color:#1a1a1a;font-weight:700;font-size:1.05rem;font-family:'Playfair Display',Georgia,serif;line-height:1.2;">Sreyan by Elegans VRG</div>
+                  <div style="color:#565656;font-size:0.74rem;margin-top:3px;">📍 Gundlapochampalli, Medchal</div>
+                </div>
+                <div style="text-align:right;flex-shrink:0;margin-left:0.75rem;">
+                  <div style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;line-height:1;">₹5.5 Cr*</div>
+                  <div style="color:#565656;font-size:0.64rem;">onwards</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;">
+                <span style="background:#fafafa;border:1px solid #b3b3b3;border-radius:30px;padding:3px 10px;font-size:0.66rem;color:#565656;">4,500+ sft</span>
+                <span style="background:#fafafa;border:1px solid #b3b3b3;border-radius:30px;padding:3px 10px;font-size:0.66rem;color:#565656;">G+2 Villa</span>
+                <span style="background:#fafafa;border:1px solid #650002;border-radius:30px;padding:3px 10px;font-size:0.66rem;color:#650002;font-weight:600;">₹12,000/sft*</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;">
+                <span class="lcard-btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='contact.html';" style="background:#565656;color:#fafafa;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all 0.2s;display:block;">Enquire</span>
+                <span class="lcard-btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='Sreyan_Handoff_Brief_v2.pdf';" style="background:#565656;color:#fafafa;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all 0.2s;display:block;">⬇ Brochure</span>
+              </div>
             </div>
           </div>
+        </a>
 
-          <div class="ls-name">Sreyan by Elegans VRG</div>
-          <div class="ls-loc"><b>Gundlapochampalli</b> · Medchal, Hyderabad</div>
-
-          <div class="ls-chips">
-            <span>4,500+ sft Triplex</span>
-            <span>G+2 Villa</span>
-            <span>309 sq.yd plot</span>
-            <span>9-acre community</span>
-            <span class="accent">Construction-linked</span>
+        <!-- BOX 2: How We Choose -->
+        <div class="prop-box" style="background:#fafafa;border-radius:16px;padding:1.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.1);height:100%;transition:transform 0.3s;">
+          <span style="color:#565656;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:0.6rem;">How We Choose</span>
+          <h3 style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:600;line-height:1.25;margin:0 0 1rem;">We don't list every project.</h3>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;">
+            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">RERA registered</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">HMDA approved</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">Transparent pricing</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">Credible developer</span></div>
+            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">Fits real buyer needs</span></div>
           </div>
-
-          <p class="ls-desc">A premium gated community of 82 triplex villas on 9 acres in Gundlapochampalli. Imported marble, teak doors, Grohe fittings, and a 20,000 sft Club Sreyan. 10-stage construction-linked payment.</p>
-
-          <div class="ls-stats">
-            <div class="st"><b>82</b><small>Villas</small></div>
-            <div class="st"><b>9 ac</b><small>Site</small></div>
-            <div class="st"><b>309</b><small>Sq.Yd Plot</small></div>
-            <div class="st"><b>20k</b><small>Sft Club</small></div>
-            <div class="st"><b>300m</b><small>From NH-44</small></div>
-          </div>
-
-          <div class="ls-btns">
-            <a href="contact.html" class="b1">Enquire Now</a>
-            <a href="Sreyan_Handoff_Brief_v2.pdf" class="b2" download>⬇ Brochure</a>
-            <a href="sreyan.html" class="full">Full Details →</a>
-          </div>
-          <p class="ls-disc">*Price excludes GST, registration, stamp duty, corpus &amp; maintenance</p>
+          <p style="color:#565656;font-size:0.76rem;line-height:1.6;margin:1rem 0 0;padding-top:0.85rem;border-top:1px solid #b3b3b3;">If it doesn't pass our checklist, it doesn't go up — no matter who's behind it.</p>
         </div>
-      </div>
 
-      <!-- Quick info -->
-      <div class="ls-quickinfo">
-        <h4>Quick Info</h4>
-        <div class="ls-qi-grid">
-          <div class="qi"><b>Developer</b><span>Elegans VRG</span></div>
-          <div class="qi"><b>RERA No.</b><span>P02200007108</span></div>
-          <div class="qi"><b>Approval</b><span>HMDA · CREDAI</span></div>
-          <div class="qi"><b>Status</b><span>Under Construction</span></div>
-          <div class="qi"><b>Payment</b><span>10-stage CLP</span></div>
-          <div class="qi"><b>East Facing</b><span>4,586 sft</span></div>
-          <div class="qi"><b>West Facing</b><span>4,675 sft</span></div>
-          <div class="qi"><b>Possession</b><span>Tentative</span></div>
+        <!-- BOX 3: More coming soon -->
+        <div class="prop-box" style="background:#650002;border-radius:16px;padding:1.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.16);height:100%;display:flex;flex-direction:column;justify-content:center;transition:transform 0.3s;">
+          <div style="width:40px;height:40px;background:rgba(250,250,250,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#fafafa;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 style="color:#fafafa;font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.25;margin:0 0 0.6rem;">More projects coming soon.</h3>
+          <p style="color:rgba(250,250,250,0.7);font-size:0.8rem;line-height:1.65;margin:0;">We&rsquo;re handpicking the next set of properties — each one vetted against the same checklist. Stay tuned.</p>
         </div>
-      </div>
 
+      </div>
+      <p class="listings-tagline" style="text-align:center;color:#565656;font-size:0.85rem;font-style:italic;margin:1.5rem auto 0;max-width:520px;line-height:1.55;">Every property here has earned its place — because the right home should never be a gamble.</p>
     </div>
   </div>
 
-  <!-- WHAT'S NEXT + CHECKLIST -->
-  <div class="ls-next">
-    <div class="ls-next-inner">
-      <div>
-        <span class="lbl">What&rsquo;s Next</span>
-        <h2>More projects are coming. <em>Each one handpicked.</em></h2>
-        <p>We don&rsquo;t add projects to fill space. Every listing we bring on has to earn its place — against the same checklist, every time.</p>
-        <a href="contact.html">Tell Us What You&rsquo;re Looking For</a>
-      </div>
-      <div class="ls-checklist">
-        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>RERA registered</b><span>Legally compliant — no shortcuts</span></div></div>
-        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>HMDA or equivalent approval</b><span>Government clearance confirmed</span></div></div>
-        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>Transparent pricing</b><span>What you see is what you pay</span></div></div>
-        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>Credible developer track record</b><span>We verify before we vouch</span></div></div>
-        <div class="ls-check"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><div class="tx"><b>Fits real buyer needs</b><span>Location, size and value that make sense</span></div></div>
-      </div>
-    </div>
-  </div>
-
+  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div><img src="logo.png" alt="Re-Ally" style="height:56px;display:block;margin-bottom:10px;" /><div class="f-tag">Your real estate ally.</div><p class="f-desc">Guiding real estate decisions across Hyderabad and beyond.</p></div>
