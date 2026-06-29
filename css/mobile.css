@@ -223,21 +223,31 @@
   .listing-card-body, .listing-card > div:last-child {
     display: none !important;
   }
-  /* Add project name at top of image as overlay (no gradient) */
-  .listing-card-img::after {
-    content: 'Sreyan by Elegans VRG';
+  /* 10% black overlay on image */
+  .listing-card-img::before {
+    content: '';
     position: absolute;
-    top: 12px;
-    left: 12px;
-    right: 12px;
+    inset: 0;
+    background: rgba(0,0,0,0.1);
+    z-index: 1;
+  }
+  /* Project name centered on image, uppercase, no shadow */
+  .listing-card-img::after {
+    content: 'SREYAN VILLA PROPERTIES';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #fafafa;
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     font-weight: 600;
     line-height: 1.2;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
     z-index: 2;
-    text-align: left;
+    width: 85%;
   }
   /* Hide "For Sale" badge — clean look */
   .listing-card-img > span[style*="left:12px"] {
