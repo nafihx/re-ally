@@ -534,9 +534,14 @@
     padding: 0 !important;
     box-sizing: border-box !important;
   }
-  /* Hide the "Building from day one" red card */
-  .bento-card[style*="#650002"] { display: none !important; }
-  /* Person cards — SMALL ROUND photo + name/role below */
+  /* Hide the "Building from day one" red card - multiple selectors for safety */
+  .bento-card[style*="#650002"],
+  .bento-card[style*="background:#650002"],
+  .bento-grid > .bento-card[style*="650002"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  /* Person cards — rectangular photo with rounded corners + name/role below */
   .bento-grid > .bento-card {
     aspect-ratio: auto !important;
     background: transparent !important;
@@ -549,44 +554,43 @@
     border: none !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: stretch !important;
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
     box-sizing: border-box !important;
   }
-  /* Inner photo container = round circle */
+  /* Inner photo container = rectangular with rounded corners */
   .bento-card > div:first-child {
-    width: 64px !important;
-    height: 64px !important;
-    aspect-ratio: 1/1 !important;
-    border-radius: 50% !important;
+    width: 100% !important;
+    aspect-ratio: 1/1.15 !important;
+    height: auto !important;
+    border-radius: 14px !important;
     background: linear-gradient(160deg, #565656, #1a1a1a) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 auto 0.5rem !important;
+    margin: 0 0 0.5rem 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
-    border: 2px solid #fafafa !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18) !important;
   }
-  /* Avatar icon centered in circle */
+  /* Avatar icon centered in photo */
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 28px !important;
-    height: 28px !important;
-    fill: rgba(250,250,250,0.65) !important;
+    width: 30px !important;
+    height: 30px !important;
+    fill: rgba(250,250,250,0.6) !important;
     margin: 0 !important;
   }
-  /* Name + role label BELOW the circle (not absolute) */
+  /* Name + role label BELOW the photo, LEFT-aligned */
   .bento-card > div[style*="position:absolute"] {
     position: static !important;
     transform: none !important;
     background: transparent !important;
     backdrop-filter: none !important;
-    padding: 0 !important;
+    padding: 0 0 0 2px !important;
     margin: 0 !important;
-    text-align: center !important;
+    text-align: left !important;
     display: block !important;
     width: 100% !important;
     left: auto !important;
@@ -597,18 +601,21 @@
     color: #1a1a1a !important;
     font-size: 0.7rem !important;
     font-weight: 600 !important;
-    line-height: 1.15 !important;
+    line-height: 1.2 !important;
     margin-bottom: 2px !important;
     font-family: 'Playfair Display', Georgia, serif !important;
     text-shadow: none !important;
+    text-align: left !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
     color: #565656 !important;
-    font-size: 0.46rem !important;
-    letter-spacing: 0.1em !important;
-    line-height: 1.15 !important;
-    text-transform: uppercase !important;
+    font-size: 0.5rem !important;
+    letter-spacing: 0.06em !important;
+    line-height: 1.2 !important;
+    text-transform: none !important;
     text-shadow: none !important;
+    text-align: left !important;
+    font-family: 'Urbanist', sans-serif !important;
   }
 
   /* About Us button — hidden on mobile per request */
@@ -897,5 +904,24 @@
   .team-section,
   div[style*="background:#fafafa"] {
     overflow: hidden !important;
+  }
+}
+
+/* ==============================================
+   FINAL OVERRIDES — guaranteed last to apply
+   ============================================== */
+@media (max-width: 768px) {
+  /* Building from day one — hide unconditionally */
+  .bento-card[style*="650002"] {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+  .bento-card[style*="650002"] * {
+    display: none !important;
   }
 }
