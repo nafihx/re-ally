@@ -16,11 +16,147 @@
   <link rel="stylesheet" href="css/mobile.css" />
   <style>
     /* HERO */
-    .ls-hero { background:#fafafa; padding:96px 4% 44px; text-align:center; }
-    .ls-hero .lbl { color:#fafafa; background:#650002; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 16px; border-radius:30px; display:inline-block; margin-bottom:1rem; }
+    .ls-hero { background:#fafafa; padding:96px 4% 36px; text-align:center; }
+    .ls-hero .lbl { color:#650002; background:#fafafa; border:1px solid #650002; font-family:'Tenor Sans',sans-serif; font-size:0.65rem; letter-spacing:0.16em; text-transform:uppercase; padding:6px 16px; border-radius:30px; display:inline-block; margin-bottom:1rem; }
     .ls-hero h1 { color:#1a1a1a; font-family:'Playfair Display',Georgia,serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:600; line-height:1.1; margin:0 0 1rem; }
     .ls-hero h1 em { color:#650002; font-style:italic; }
-    .ls-hero p { color:#565656; font-size:0.95rem; line-height:1.75; margin:0 auto; max-width:600px; }
+    .ls-hero p { color:#565656; font-size:0.95rem; line-height:1.65; margin:0 auto; max-width:560px; }
+
+    /* SECTION WRAPPER */
+    .ls-cards { background:#fafafa; padding:24px 4% 56px; }
+    .ls-cards-inner { max-width:1080px; margin:0 auto; display:flex; flex-direction:column; gap:1.25rem; }
+
+    /* === CARD 1: Project hero card === */
+    .card-project { position:relative; aspect-ratio:16/9; border-radius:20px; overflow:hidden; box-shadow:0 12px 36px rgba(0,0,0,0.18); }
+    .card-project img { width:100%; height:100%; object-fit:cover; display:block; }
+    .card-project::after { content:''; position:absolute; inset:0; background:rgba(0,0,0,0.18); z-index:1; }
+    .card-project .name {
+      position:absolute; bottom:24px; left:24px; z-index:2;
+      color:#fafafa; font-family:'Playfair Display',Georgia,serif;
+      font-size:1.6rem; font-weight:600; line-height:1.15;
+      letter-spacing:0.02em;
+    }
+    .card-project .name small {
+      display:block; font-family:'Tenor Sans',sans-serif;
+      font-size:0.7rem; font-weight:400; letter-spacing:0.16em;
+      color:rgba(250,250,250,0.85); text-transform:uppercase;
+      margin-top:6px;
+    }
+    .card-project .btns {
+      position:absolute; bottom:20px; right:20px; z-index:2;
+      display:flex; gap:8px;
+    }
+    .card-project .btns a {
+      background:#fafafa; color:#1a1a1a;
+      font-family:'Tenor Sans',sans-serif; font-size:0.7rem;
+      letter-spacing:0.1em; text-transform:uppercase;
+      padding:10px 20px; border-radius:30px; text-decoration:none;
+      transition:transform 0.2s, background 0.2s;
+    }
+    .card-project .btns a.primary { background:#650002; color:#fafafa; }
+    .card-project .btns a:hover { transform:translateY(-2px); }
+
+    /* === CARD 2: How We Choose === */
+    .card-checklist {
+      background:#1a1a1a; aspect-ratio:16/9; border-radius:20px;
+      padding:2.5rem 2.75rem; box-sizing:border-box;
+      display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem;
+      align-items:center; box-shadow:0 12px 36px rgba(0,0,0,0.18);
+    }
+    .card-checklist .left .lbl {
+      color:rgba(250,250,250,0.6); font-family:'Tenor Sans',sans-serif;
+      font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase;
+      display:block; margin-bottom:0.6rem;
+    }
+    .card-checklist .left h2 {
+      color:#fafafa; font-family:'Playfair Display',Georgia,serif;
+      font-size:clamp(1.5rem,2.4vw,2rem); font-weight:600;
+      line-height:1.2; margin:0 0 0.85rem;
+    }
+    .card-checklist .left h2 em { color:#fafafa; opacity:0.7; font-style:italic; }
+    .card-checklist .left p {
+      color:rgba(250,250,250,0.7); font-size:0.85rem; line-height:1.55;
+      margin:0;
+    }
+    .card-checklist .right { display:flex; flex-direction:column; gap:0.85rem; }
+    .card-checklist .item { display:flex; align-items:center; gap:14px; }
+    .card-checklist .item .ic {
+      width:24px; height:24px; background:#650002; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+    .card-checklist .item .ic svg { width:11px; height:11px; fill:#fafafa; }
+    .card-checklist .item span { color:#fafafa; font-size:0.92rem; font-weight:500; }
+
+    /* === CARD 3: More projects + image (Cardiology style) === */
+    .card-soon {
+      background:#fafafa; aspect-ratio:16/9; border-radius:20px;
+      overflow:hidden; display:grid; grid-template-columns:1.2fr 1fr;
+      box-shadow:0 12px 36px rgba(0,0,0,0.12);
+    }
+    .card-soon .text-side {
+      padding:2.5rem 2.75rem; display:flex; flex-direction:column;
+      justify-content:center;
+    }
+    .card-soon .text-side .lbl {
+      color:#565656; font-family:'Tenor Sans',sans-serif;
+      font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase;
+      display:block; margin-bottom:0.6rem;
+    }
+    .card-soon h2 {
+      color:#1a1a1a; font-family:'Playfair Display',Georgia,serif;
+      font-size:clamp(1.5rem,2.4vw,2rem); font-weight:600;
+      line-height:1.2; margin:0 0 0.85rem;
+    }
+    .card-soon p {
+      color:#565656; font-size:0.88rem; line-height:1.6;
+      margin:0 0 1.5rem;
+    }
+    .card-soon a.cta {
+      align-self:flex-start; background:#650002; color:#fafafa;
+      font-family:'Tenor Sans',sans-serif; font-size:0.7rem;
+      letter-spacing:0.12em; text-transform:uppercase;
+      padding:11px 24px; border-radius:30px; text-decoration:none;
+      transition:transform 0.2s, background 0.2s;
+    }
+    .card-soon a.cta:hover { transform:translateY(-2px); background:#1a1a1a; }
+    .card-soon .img-side {
+      background:linear-gradient(160deg,#b3b3b3,#565656);
+      position:relative; overflow:hidden;
+    }
+    .card-soon .img-side img {
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .ls-hero { padding:76px 4% 24px; }
+      .ls-cards { padding:8px 4% 32px; }
+      .ls-cards-inner { gap:0.9rem; }
+
+      .card-project { aspect-ratio:16/11; border-radius:14px; }
+      .card-project .name { bottom:14px; left:14px; font-size:1.1rem; }
+      .card-project .name small { font-size:0.55rem; letter-spacing:0.12em; margin-top:3px; }
+      .card-project .btns { bottom:12px; right:12px; gap:6px; }
+      .card-project .btns a { font-size:0.55rem; padding:7px 14px; letter-spacing:0.06em; }
+
+      .card-checklist {
+        grid-template-columns:1fr; gap:1.25rem;
+        padding:1.5rem 1.4rem; aspect-ratio:auto; border-radius:14px;
+      }
+      .card-checklist .left h2 { font-size:1.15rem; }
+      .card-checklist .left p { font-size:0.78rem; }
+      .card-checklist .right { gap:0.55rem; }
+      .card-checklist .item .ic { width:18px; height:18px; }
+      .card-checklist .item .ic svg { width:8px; height:8px; }
+      .card-checklist .item span { font-size:0.78rem; }
+
+      .card-soon { grid-template-columns:1fr; aspect-ratio:auto; border-radius:14px; }
+      .card-soon .img-side { aspect-ratio:16/10; order:-1; }
+      .card-soon .text-side { padding:1.4rem 1.4rem 1.5rem; }
+      .card-soon h2 { font-size:1.15rem; }
+      .card-soon p { font-size:0.78rem; margin-bottom:1rem; }
+      .card-soon a.cta { font-size:0.6rem; padding:9px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -42,7 +178,6 @@
   <div id="mobileDrawer" style="display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(26,26,26,0.97);z-index:999;flex-direction:column;padding:2rem 6%;overflow-y:auto;">
     <a href="index.html" style="color:#fafafa;text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;padding:1.1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Home</a>
     <a href="listings.html" style="color:#fafafa;text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;padding:1.1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Listings</a>
-    <a href="sreyan.html" style="text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.7rem 0 0.7rem 1.5rem;border-bottom:1px solid rgba(250,250,250,0.06);display:block;color:rgba(250,250,250,0.55);">↳ Sreyan by Elegans VRG</a>
     <a href="services.html" style="color:#fafafa;text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;padding:1.1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">Services</a>
     <a href="about.html" style="color:#fafafa;text-decoration:none;font-family:'Tenor Sans',sans-serif;font-size:1rem;letter-spacing:0.14em;text-transform:uppercase;padding:1.1rem 0;border-bottom:1px solid rgba(250,250,250,0.1);display:block;">About Us</a>
     <a href="contact.html" style="display:inline-block;margin-top:2rem;background:#650002;color:#fafafa;padding:14px 32px;border-radius:50px;font-family:'Tenor Sans',sans-serif;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;">Contact Us</a>
@@ -56,68 +191,52 @@
     <p>Every project here has passed our checklist. No inflated prices, no vague descriptions — just properties we&rsquo;d recommend to our own family.</p>
   </div>
 
-  <!-- 3-CARD LISTINGS SECTION (same as home) -->
-  <div class="listings-sec" style="background:#b3b3b3;padding:44px 4%;">
-    <div class="listings-inner" style="max-width:1100px;margin:0 auto;">
-      <div class="listings-grid" style="display:grid;grid-template-columns:1.15fr 1fr 0.85fr;gap:1rem;align-items:stretch;">
+  <!-- 3 STACKED CARDS -->
+  <div class="ls-cards">
+    <div class="ls-cards-inner">
 
-        <!-- BOX 1: Project card -->
-        <a href="sreyan.html" class="listing-card-link" style="text-decoration:none;display:block;">
-          <div class="listing-card" style="background:#fafafa;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.16);transition:transform 0.3s,box-shadow 0.3s;height:100%;display:flex;flex-direction:column;">
-            <div class="listing-card-img" style="position:relative;aspect-ratio:16/10;overflow:hidden;">
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Sreyan by Elegans VRG — triplex villa exterior in Gundlapochampalli, Hyderabad" loading="lazy" class="listing-img" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;" />
-              <span style="position:absolute;top:12px;left:12px;background:#650002;color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:30px;">For Sale</span>
-              <span style="position:absolute;top:12px;right:12px;background:rgba(10,10,10,0.55);color:#fafafa;font-family:'Tenor Sans',sans-serif;font-size:0.58rem;letter-spacing:0.06em;padding:4px 10px;border-radius:30px;backdrop-filter:blur(6px);">RERA · HMDA</span>
-            </div>
-            <div style="padding:1.25rem 1.4rem 1.4rem;flex:1;display:flex;flex-direction:column;">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.85rem;">
-                <div>
-                  <div style="color:#1a1a1a;font-weight:700;font-size:1.05rem;font-family:'Playfair Display',Georgia,serif;line-height:1.2;">Sreyan by Elegans VRG</div>
-                  <div style="color:#565656;font-size:0.74rem;margin-top:3px;">📍 Gundlapochampalli, Medchal</div>
-                </div>
-                <div style="text-align:right;flex-shrink:0;margin-left:0.75rem;">
-                  <div style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;line-height:1;">₹5.5 Cr*</div>
-                  <div style="color:#565656;font-size:0.64rem;">onwards</div>
-                </div>
-              </div>
-              <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1rem;">
-                <span style="background:#fafafa;border:1px solid #b3b3b3;border-radius:30px;padding:3px 10px;font-size:0.66rem;color:#565656;">4,500+ sft</span>
-                <span style="background:#fafafa;border:1px solid #b3b3b3;border-radius:30px;padding:3px 10px;font-size:0.66rem;color:#565656;">G+2 Villa</span>
-                <span style="background:#fafafa;border:1px solid #650002;border-radius:30px;padding:3px 10px;font-size:0.66rem;color:#650002;font-weight:600;">₹12,000/sft*</span>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;">
-                <span class="lcard-btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='contact.html';" style="background:#565656;color:#fafafa;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all 0.2s;display:block;">Enquire</span>
-                <span class="lcard-btn" onclick="event.preventDefault();event.stopPropagation();window.location.href='Sreyan_Handoff_Brief_v2.pdf';" style="background:#565656;color:#fafafa;border-radius:30px;padding:10px 6px;font-family:'Tenor Sans',sans-serif;font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;text-align:center;cursor:pointer;transition:all 0.2s;display:block;">⬇ Brochure</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <!-- BOX 2: How We Choose -->
-        <div class="prop-box" style="background:#fafafa;border-radius:16px;padding:1.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.1);height:100%;transition:transform 0.3s;">
-          <span style="color:#565656;font-family:'Tenor Sans',sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:0.6rem;">How We Choose</span>
-          <h3 style="color:#650002;font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:600;line-height:1.25;margin:0 0 1rem;">We don't list every project.</h3>
-          <div style="display:flex;flex-direction:column;gap:0.6rem;">
-            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">RERA registered</span></div>
-            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">HMDA approved</span></div>
-            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">Transparent pricing</span></div>
-            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">Credible developer</span></div>
-            <div style="display:flex;align-items:center;gap:9px;"><div style="width:18px;height:18px;background:#650002;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" style="width:9px;height:9px;fill:#fafafa;"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span style="color:#1a1a1a;font-size:0.82rem;font-weight:500;">Fits real buyer needs</span></div>
-          </div>
-          <p style="color:#565656;font-size:0.76rem;line-height:1.6;margin:1rem 0 0;padding-top:0.85rem;border-top:1px solid #b3b3b3;">If it doesn't pass our checklist, it doesn't go up — no matter who's behind it.</p>
+      <!-- CARD 1: Project hero -->
+      <div class="card-project">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=85" alt="Sreyan Villa Properties — Gundlapochampalli, Hyderabad" />
+        <div class="name">
+          Sreyan Villa Properties
+          <small>Gundlapochampalli · Medchal</small>
         </div>
-
-        <!-- BOX 3: More coming soon -->
-        <div class="prop-box" style="background:#650002;border-radius:16px;padding:1.5rem;box-shadow:0 8px 30px rgba(0,0,0,0.16);height:100%;display:flex;flex-direction:column;justify-content:center;transition:transform 0.3s;">
-          <div style="width:40px;height:40px;background:rgba(250,250,250,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
-            <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#fafafa;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <h3 style="color:#fafafa;font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.25;margin:0 0 0.6rem;">More projects coming soon.</h3>
-          <p style="color:rgba(250,250,250,0.7);font-size:0.8rem;line-height:1.65;margin:0;">We&rsquo;re handpicking the next set of properties — each one vetted against the same checklist. Stay tuned.</p>
+        <div class="btns">
+          <a href="contact.html" class="primary">Enquire</a>
+          <a href="sreyan.html">More</a>
         </div>
-
       </div>
-      <p class="listings-tagline" style="text-align:center;color:#565656;font-size:0.85rem;font-style:italic;margin:1.5rem auto 0;max-width:520px;line-height:1.55;">Every property here has earned its place — because the right home should never be a gamble.</p>
+
+      <!-- CARD 2: How We Choose -->
+      <div class="card-checklist">
+        <div class="left">
+          <span class="lbl">How We Choose</span>
+          <h2>We don&rsquo;t list every project. <em>Only the right ones.</em></h2>
+          <p>If it doesn&rsquo;t pass our checklist, it doesn&rsquo;t go up — no matter who&rsquo;s behind it.</p>
+        </div>
+        <div class="right">
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span>RERA registered</span></div>
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span>HMDA approved</span></div>
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span>Transparent pricing</span></div>
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span>Credible developer</span></div>
+          <div class="item"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div><span>Fits real buyer needs</span></div>
+        </div>
+      </div>
+
+      <!-- CARD 3: More to come (Cardiology style) -->
+      <div class="card-soon">
+        <div class="text-side">
+          <span class="lbl">What&rsquo;s Next</span>
+          <h2>More projects coming soon.</h2>
+          <p>We&rsquo;re handpicking the next set of properties — each one vetted against the same checklist. Stay tuned.</p>
+          <a href="contact.html" class="cta">Tell Us What You&rsquo;re Looking For</a>
+        </div>
+        <div class="img-side">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80" alt="Re-Ally — upcoming Hyderabad properties" />
+        </div>
+      </div>
+
     </div>
   </div>
 
