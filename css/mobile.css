@@ -484,7 +484,7 @@
   .team-bento > div:first-child {
     text-align: left !important;
     width: 100% !important;
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
   }
   /* "The Team" label — left aligned plain black */
   .team-bento > div:first-child > span:first-child,
@@ -522,29 +522,37 @@
     color: #565656 !important;
   }
 
-  /* Bento grid: 3 portrait cards in 1 row */
+  /* Bento grid: 3 portrait cards in 1 row - FORCE with high specificity */
+  .team-section .team-bento .bento-grid,
   .bento-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.55rem !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
     width: 100% !important;
-    margin: 1.25rem 0 0 !important;
+    max-width: 100% !important;
+    margin: 0.5rem 0 0 !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
   }
   /* Hide the "Building from day one" red card */
   .bento-card[style*="#650002"] { display: none !important; }
-  /* Person cards — tighter portrait */
-  .bento-card {
+  /* Person cards — tight portrait 3:4, lighter overlay */
+  .bento-grid > .bento-card {
     aspect-ratio: 3/4 !important;
-    background: linear-gradient(180deg, rgba(86,86,86,0.4) 0%, rgba(26,26,26,0.85) 100%),
+    background: linear-gradient(180deg, rgba(86,86,86,0.15) 0%, rgba(26,26,26,0.75) 100%),
                 linear-gradient(160deg, #b3b3b3, #565656) !important;
-    border-radius: 14px !important;
+    border-radius: 12px !important;
     overflow: hidden !important;
     position: relative !important;
     padding: 0 !important;
     margin: 0 !important;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.18) !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2) !important;
     display: block !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border: 1px solid rgba(250,250,250,0.1) !important;
   }
   /* Icon section */
   .bento-card > div:first-child {
@@ -561,15 +569,15 @@
   .bento-card svg[viewBox="0 0 24 24"] {
     width: 26px !important;
     height: 26px !important;
-    fill: rgba(250,250,250,0.5) !important;
-    margin-bottom: 2.2rem !important;
+    fill: rgba(250,250,250,0.6) !important;
+    margin-bottom: 1.5rem !important;
   }
-  /* Name + role label at bottom */
+  /* Name + role label at bottom-left */
   .bento-card > div[style*="position:absolute"] {
     position: absolute !important;
-    bottom: 8px !important;
-    left: 8px !important;
-    right: 8px !important;
+    bottom: 7px !important;
+    left: 7px !important;
+    right: 7px !important;
     transform: none !important;
     background: transparent !important;
     backdrop-filter: none !important;
@@ -580,18 +588,20 @@
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
     color: #fafafa !important;
-    font-size: 0.62rem !important;
+    font-size: 0.66rem !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
     margin-bottom: 2px !important;
     font-family: 'Playfair Display', Georgia, serif !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6) !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
-    color: rgba(250,250,250,0.7) !important;
+    color: rgba(250,250,250,0.85) !important;
     font-size: 0.42rem !important;
     letter-spacing: 0.08em !important;
     line-height: 1.15 !important;
     text-transform: uppercase !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
   }
 
   /* About Us button — hidden on mobile per request */
@@ -861,17 +871,19 @@
     margin: 0 !important;
   }
 
-  /* Force team grid to fit */
+  /* Force team grid to fit (with minmax for proper shrinking) */
   .bento-grid {
     display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.55rem !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
     width: 100% !important;
     max-width: 100% !important;
   }
   .bento-grid > .bento-card {
     min-width: 0 !important;
-    width: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    aspect-ratio: 3/4 !important;
   }
 
   /* Section wrappers shouldn't allow horizontal scroll */
