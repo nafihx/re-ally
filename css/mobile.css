@@ -536,72 +536,79 @@
   }
   /* Hide the "Building from day one" red card */
   .bento-card[style*="#650002"] { display: none !important; }
-  /* Person cards — tight portrait 3:4, lighter overlay */
+  /* Person cards — SMALL ROUND photo + name/role below */
   .bento-grid > .bento-card {
-    aspect-ratio: 3/4 !important;
-    background: linear-gradient(180deg, rgba(86,86,86,0.15) 0%, rgba(26,26,26,0.75) 100%),
-                linear-gradient(160deg, #b3b3b3, #565656) !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
+    aspect-ratio: auto !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
     position: relative !important;
     padding: 0 !important;
     margin: 0 !important;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.2) !important;
-    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    border: 1px solid rgba(250,250,250,0.1) !important;
   }
-  /* Icon section */
+  /* Inner photo container = round circle */
   .bento-card > div:first-child {
-    width: 100% !important;
-    height: 100% !important;
-    background: transparent !important;
-    border-radius: 0 !important;
+    width: 64px !important;
+    height: 64px !important;
+    aspect-ratio: 1/1 !important;
+    border-radius: 50% !important;
+    background: linear-gradient(160deg, #565656, #1a1a1a) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 !important;
+    margin: 0 auto 0.5rem !important;
     padding: 0 !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    border: 2px solid #fafafa !important;
   }
+  /* Avatar icon centered in circle */
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 26px !important;
-    height: 26px !important;
-    fill: rgba(250,250,250,0.6) !important;
-    margin-bottom: 1.5rem !important;
+    width: 28px !important;
+    height: 28px !important;
+    fill: rgba(250,250,250,0.65) !important;
+    margin: 0 !important;
   }
-  /* Name + role label at bottom-left */
+  /* Name + role label BELOW the circle (not absolute) */
   .bento-card > div[style*="position:absolute"] {
-    position: absolute !important;
-    bottom: 7px !important;
-    left: 7px !important;
-    right: 7px !important;
+    position: static !important;
     transform: none !important;
     background: transparent !important;
     backdrop-filter: none !important;
     padding: 0 !important;
-    text-align: left !important;
+    margin: 0 !important;
+    text-align: center !important;
     display: block !important;
-    width: auto !important;
+    width: 100% !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: auto !important;
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
-    color: #fafafa !important;
-    font-size: 0.66rem !important;
+    color: #1a1a1a !important;
+    font-size: 0.7rem !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
     margin-bottom: 2px !important;
     font-family: 'Playfair Display', Georgia, serif !important;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.6) !important;
+    text-shadow: none !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
-    color: rgba(250,250,250,0.85) !important;
-    font-size: 0.42rem !important;
-    letter-spacing: 0.08em !important;
+    color: #565656 !important;
+    font-size: 0.46rem !important;
+    letter-spacing: 0.1em !important;
     line-height: 1.15 !important;
     text-transform: uppercase !important;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+    text-shadow: none !important;
   }
 
   /* About Us button — hidden on mobile per request */
@@ -883,7 +890,6 @@
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
-    aspect-ratio: 3/4 !important;
   }
 
   /* Section wrappers shouldn't allow horizontal scroll */
