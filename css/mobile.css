@@ -135,7 +135,7 @@
      PROPERTIES — Picture 1 style (dark cards, swipe row)
      ============================================ */
   .listings-sec {
-    padding: 28px 4% !important;
+    padding: 32px 4% !important;
     background: #b3b3b3 !important;
     text-align: center !important;
   }
@@ -144,7 +144,7 @@
   .listings-sec > div > div:first-child {
     padding: 0 !important;
     text-align: center !important;
-    margin-bottom: 1.1rem !important;
+    margin-bottom: 1.25rem !important;
   }
   .listings-sec > div > div:first-child > span {
     color: #1a1a1a !important;
@@ -172,7 +172,7 @@
   .listings-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.4rem !important;
+    gap: 0.55rem !important;
     overflow: visible !important;
     padding: 0 !important;
     align-items: stretch !important;
@@ -185,7 +185,7 @@
     max-width: none !important;
     scroll-snap-align: none;
     background: #1a1a1a !important;
-    border-radius: 10px !important;
+    border-radius: 14px !important;
     overflow: hidden !important;
     position: relative !important;
     aspect-ratio: 3/4.5 !important;
@@ -222,7 +222,7 @@
   .listing-card-body, .listing-card > div:last-child {
     background: #1a1a1a !important;
     color: #fafafa !important;
-    padding: 0.45rem 0.5rem 0.5rem !important;
+    padding: 0.7rem 0.7rem 0.8rem !important;
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -230,32 +230,48 @@
   }
   .listing-card h3, .listing-card-body h3 {
     color: #fafafa !important;
-    font-size: 0.6rem !important;
+    font-size: 0.62rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.2rem !important;
+    margin: 0 0 0.25rem !important;
     text-align: left !important;
+    font-weight: 600 !important;
   }
   .listing-card .listing-card-body * { color: #fafafa !important; }
   .listing-card-body span, .listing-card-body p {
     color: rgba(250,250,250,0.65) !important;
-    font-size: 0.42rem !important;
+    font-size: 0.5rem !important;
     line-height: 1.3 !important;
     text-align: left !important;
   }
-  /* Hide brochure button, keep only Enquire */
-  .listings-grid .listing-card a[download] { display: none !important; }
-  /* Convert Enquire to small pill */
-  .listings-grid .listing-card a:not([download]):not(.listing-card-link) {
-    background: rgba(250,250,250,0.15) !important;
-    color: #fafafa !important;
-    padding: 3px 8px !important;
-    border-radius: 30px !important;
+  /* Hide cluttered info: chips, brochure, top badges keep clean */
+  .listings-grid .listing-card div[style*="grid-template-columns:repeat(3"],
+  .listings-grid .listing-card div[style*="flex-wrap:wrap"],
+  .listings-grid .listing-card a[download] {
+    display: none !important;
+  }
+  /* Hide RERA · HMDA top-right pill on tiny mobile */
+  .listings-grid .listing-card span[style*="position:absolute"][style*="right"] {
+    display: none !important;
+  }
+  /* Keep "For Sale" badge but tinier */
+  .listings-grid .listing-card span[style*="position:absolute"][style*="left"] {
     font-size: 0.42rem !important;
-    letter-spacing: 0.04em !important;
+    padding: 2px 6px !important;
+    top: 6px !important;
+    left: 6px !important;
+  }
+  /* Enquire pill */
+  .listings-grid .listing-card a:not([download]):not(.listing-card-link) {
+    background: #650002 !important;
+    color: #fafafa !important;
+    padding: 5px 10px !important;
+    border-radius: 30px !important;
+    font-size: 0.5rem !important;
+    letter-spacing: 0.06em !important;
     text-align: center !important;
     display: inline-block !important;
     width: fit-content !important;
-    margin-top: 0.25rem !important;
+    margin-top: 0.4rem !important;
   }
   /* Hide the button-row grid wrap from desktop */
   .listings-grid .listing-card div[style*="grid-template-columns"] {
@@ -266,7 +282,7 @@
   /* === How We Choose card === */
   .listings-grid > .prop-box:nth-child(2) {
     background: #565656 !important;
-    padding: 0.55rem 0.5rem !important;
+    padding: 0.7rem 0.7rem 0.8rem !important;
     aspect-ratio: 3/4.5 !important;
     text-align: left !important;
     color: #fafafa !important;
@@ -275,26 +291,27 @@
     justify-content: space-between !important;
   }
   .listings-grid > .prop-box:nth-child(2) > span:first-child {
-    color: rgba(250,250,250,0.55) !important;
+    color: rgba(250,250,250,0.6) !important;
     font-size: 0.42rem !important;
-    letter-spacing: 0.1em !important;
-    margin-bottom: 0.2rem !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 0.3rem !important;
   }
   .listings-grid > .prop-box:nth-child(2) h3 {
     color: #fafafa !important;
-    font-size: 0.6rem !important;
-    line-height: 1.2 !important;
-    margin: 0 0 0.3rem !important;
+    font-size: 0.62rem !important;
+    line-height: 1.25 !important;
+    margin: 0 0 0.4rem !important;
     text-align: left !important;
+    font-weight: 600 !important;
   }
   /* Hide the checklist on tiny mobile - won't fit */
   .listings-grid > .prop-box:nth-child(2) > div[style*="flex-direction:column"] {
     display: none !important;
   }
   .listings-grid > .prop-box:nth-child(2) > p {
-    color: rgba(250,250,250,0.7) !important;
-    font-size: 0.42rem !important;
-    line-height: 1.4 !important;
+    color: rgba(250,250,250,0.75) !important;
+    font-size: 0.48rem !important;
+    line-height: 1.45 !important;
     margin: 0 !important;
     padding: 0 !important;
     border: none !important;
@@ -304,7 +321,7 @@
   /* === More projects coming soon === */
   .listings-grid > .prop-box:nth-child(3) {
     background: #650002 !important;
-    padding: 0.55rem 0.5rem !important;
+    padding: 0.7rem 0.7rem 0.8rem !important;
     aspect-ratio: 3/4.5 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -313,33 +330,34 @@
     text-align: center !important;
   }
   .listings-grid > .prop-box:nth-child(3) > div:first-child {
-    width: 24px !important; height: 24px !important;
-    margin: 0 auto 0.4rem !important;
+    width: 28px !important; height: 28px !important;
+    margin: 0 auto 0.5rem !important;
     background: rgba(250,250,250,0.15) !important;
   }
   .listings-grid > .prop-box:nth-child(3) > div:first-child svg {
-    width: 12px !important; height: 12px !important;
+    width: 14px !important; height: 14px !important;
   }
   .listings-grid > .prop-box:nth-child(3) h3 {
-    font-size: 0.58rem !important;
+    font-size: 0.62rem !important;
     line-height: 1.2 !important;
-    margin: 0 0 0.25rem !important;
+    margin: 0 0 0.3rem !important;
     text-align: center !important;
     color: #fafafa !important;
+    font-weight: 600 !important;
   }
   .listings-grid > .prop-box:nth-child(3) p {
-    font-size: 0.42rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.48rem !important;
+    line-height: 1.4 !important;
     text-align: center !important;
     margin: 0 !important;
-    color: rgba(250,250,250,0.75) !important;
+    color: rgba(250,250,250,0.8) !important;
   }
 
   /* Tagline below cards */
   .listings-tagline {
-    font-size: 0.7rem !important;
+    font-size: 0.72rem !important;
     line-height: 1.5 !important;
-    margin: 0.85rem auto 0 !important;
+    margin: 1rem auto 0 !important;
     max-width: 92% !important;
     color: #565656 !important;
     text-align: center !important;
@@ -351,7 +369,7 @@
      ============================================ */
   /* Wrapper */
   div[style*="background:#fafafa;padding:64px"] {
-    padding: 36px 0 !important;
+    padding: 32px 0 !important;
   }
   /* Header — centered */
   div[style*="background:#fafafa"] > div > div:first-child {
@@ -395,10 +413,10 @@
   .promise-cards-row {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.4rem !important;
+    gap: 0.55rem !important;
     overflow: visible !important;
-    padding: 0 4% 0.5rem !important;
-    margin-bottom: 1.5rem !important;
+    padding: 0 4% !important;
+    margin: 0 0 1.5rem !important;
     background: transparent !important;
     border-radius: 0 !important;
     scrollbar-width: none;
@@ -410,8 +428,8 @@
     max-width: none !important;
     scroll-snap-align: none;
     aspect-ratio: 3/4.5 !important;
-    padding: 0.6rem 0.45rem !important;
-    border-radius: 10px !important;
+    padding: 0.75rem 0.65rem !important;
+    border-radius: 14px !important;
     min-height: auto !important;
     display: flex !important;
     flex-direction: column !important;
@@ -422,17 +440,9 @@
     overflow: hidden !important;
   }
 
-  /* Small "avatar" circle at top */
+  /* Remove the decorative avatar circle */
   .promise-card-new::before {
-    content: '';
-    display: block;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: linear-gradient(160deg, #b3b3b3, #565656);
-    margin: 0 auto 0.45rem;
-    flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    display: none !important;
   }
 
   /* Hide number labels */
@@ -441,12 +451,12 @@
     display: none !important;
   }
 
-  /* Card title — centered */
+  /* Card title — centered, readable */
   .promise-card-new h3 {
-    font-size: 0.55rem !important;
+    font-size: 0.62rem !important;
     line-height: 1.25 !important;
     text-align: center !important;
-    margin: 0 0 0.3rem !important;
+    margin: 0 0 0.4rem !important;
     font-weight: 600 !important;
     font-family: 'Urbanist', sans-serif !important;
     text-transform: none !important;
@@ -454,10 +464,10 @@
     flex: initial !important;
   }
 
-  /* Card body — centered */
+  /* Card body — centered, readable */
   .promise-card-new p {
-    font-size: 0.45rem !important;
-    line-height: 1.4 !important;
+    font-size: 0.52rem !important;
+    line-height: 1.45 !important;
     text-align: center !important;
     margin: 0 !important;
     max-width: 100% !important;
@@ -533,7 +543,7 @@
 
   /* ---------- JOURNEY / SOCIAL ---------- */
   .journey-sec {
-    padding: 28px 4% !important;
+    padding: 32px 4% !important;
     text-align: center !important;
   }
   .journey-sec h2 { font-size: 1.4rem !important; text-align: center !important; }
@@ -600,9 +610,9 @@
   .bento-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
-    gap: 0.4rem !important;
+    gap: 0.55rem !important;
     width: 100% !important;
-    margin: 0 !important;
+    margin: 1.25rem 0 0 !important;
     padding: 0 !important;
   }
   /* Hide the "Building from day one" red card */
@@ -612,7 +622,7 @@
     aspect-ratio: 3/4 !important;
     background: linear-gradient(180deg, rgba(86,86,86,0.4) 0%, rgba(26,26,26,0.85) 100%),
                 linear-gradient(160deg, #b3b3b3, #565656) !important;
-    border-radius: 10px !important;
+    border-radius: 14px !important;
     overflow: hidden !important;
     position: relative !important;
     padding: 0 !important;
@@ -633,35 +643,36 @@
     padding: 0 !important;
   }
   .bento-card svg[viewBox="0 0 24 24"] {
-    width: 24px !important;
-    height: 24px !important;
+    width: 26px !important;
+    height: 26px !important;
     fill: rgba(250,250,250,0.5) !important;
     margin-bottom: 2.2rem !important;
   }
   /* Name + role label at bottom */
   .bento-card > div[style*="position:absolute"] {
     position: absolute !important;
-    bottom: 6px !important;
-    left: 6px !important;
+    bottom: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
     transform: none !important;
     background: transparent !important;
     backdrop-filter: none !important;
     padding: 0 !important;
     text-align: left !important;
     display: block !important;
-    width: calc(100% - 12px) !important;
+    width: auto !important;
   }
   .bento-card > div[style*="position:absolute"] > div:first-child {
     color: #fafafa !important;
-    font-size: 0.56rem !important;
+    font-size: 0.62rem !important;
     font-weight: 600 !important;
     line-height: 1.15 !important;
-    margin-bottom: 1px !important;
+    margin-bottom: 2px !important;
     font-family: 'Playfair Display', Georgia, serif !important;
   }
   .bento-card > div[style*="position:absolute"] > div:last-child {
-    color: rgba(250,250,250,0.65) !important;
-    font-size: 0.38rem !important;
+    color: rgba(250,250,250,0.7) !important;
+    font-size: 0.42rem !important;
     letter-spacing: 0.08em !important;
     line-height: 1.15 !important;
     text-transform: uppercase !important;
